@@ -1,7 +1,7 @@
 backend:
   name: github
   branch: main
-  repo: joeinnes/joeinnes-blog
+  repo: joeinnes/joeinn.es
   api_root: https://api.github.com
 collections:
   - name: posts
