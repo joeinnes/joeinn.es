@@ -1,0 +1,35 @@
+backend:
+  name: github
+  branch: main
+  repo: joeinnes/joeinnes-blog
+  api_root: https://api.github.com
+collections:
+  - name: posts
+    label: Posts
+    folder: src/routes/posts
+    create: true
+    path: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - name: title
+      - name: date_published
+        widget: datetime
+      - name: date_updated
+        widget: datetime
+      - name: slug
+        widget: string
+      - name: published
+        widget: boolean
+      - name: featured_image
+        widget: image
+      - name: tags
+        label: Tags
+        widget: list
+      - name: body
+        widget: markdown
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+# site_url: https://your-site.com
+# display_url: https://your-site.com
+# logo_url: https://your-site.com/images/logo.svg

@@ -1,5 +1,5 @@
 export async function get() {
-  const imports = import.meta.glob('/src/content/posts/*.{md,svx}');
+  const imports = import.meta.glob('./posts/*.{md,svx}');
   let body = [];
 
   for (const path in imports) {
