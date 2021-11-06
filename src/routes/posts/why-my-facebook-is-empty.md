@@ -1,8 +1,13 @@
 ---
 title: Why My Facebook Is Empty
-slug: why-my-facebook-is-empty
 date_published: 2020-06-17T16:21:07.000Z
 date_updated: 2020-06-17T16:26:47.000Z
+slug: why-my-facebook-is-empty
+published: true
+featured_image: /static/uploads/photo-1461685265823-f8d5d0b08b9b.jpg
+tags:
+  - facebook
+  - privacy
 ---
 
 I was a Facebook early adopter. I have an email from October 2006 confirming an email change, but I don’t remember and can’t check when I originally joined. At the time, it was only open to users with an .ac.uk email address, which I’ve since lost access to.
