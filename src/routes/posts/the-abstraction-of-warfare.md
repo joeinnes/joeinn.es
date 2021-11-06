@@ -1,8 +1,10 @@
 ---
 title: The Abstraction of Warfare
-slug: the-abstraction-of-warfare
 date_published: 2013-04-23T08:05:00.000Z
 date_updated: 2018-03-03T09:26:27.000Z
+slug: the-abstraction-of-warfare
+published: true
+featured_image: /static/uploads/1_WsuSMTMFna-RQiP9joV4dA.jpeg
 tags: politics, war
 ---
 
