@@ -4,7 +4,7 @@ date_published: 2015-04-08T09:01:00.000Z
 date_updated: 2018-03-03T10:01:31.000Z
 slug: designing-my-web-app
 published: true
-featured_image: /static/uploads/photo-1504639725590-34d0984388bd.jpg
+featured_image: /static/uploads/photo-1509042009371-65fa830819f1.jpg
 tags: web dev, react
 ---
 
