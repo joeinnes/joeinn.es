@@ -1,7 +1,5 @@
-<script context="module">
-  /**
-   * @type {import('@sveltejs/kit').Load}
-   */
+<script context="module" lang="ts">
+  import truncate from 'truncate-html';
   export async function load({ fetch }) {
     const res = await fetch(`/posts.json`);
     const posts = await res.json();
@@ -24,16 +22,25 @@
 
 <main>
   <article>
-    <h1 class="headline text-7xl leading-relaxed font-black font-display mb-4">Hagura - Light!</h1>
+    <h1 class="headline text-7xl leading-relaxed font-black font-display mb-4">Joe Innes</h1>
     <div class="article-list">
-      {#each items as { metadata: { title, description, tags, outline, slug }, path }}
+      {#each items as { metadata: { title, tags, outline, slug }, path, content }}
         <div class="mb-4">
           <a sveltekit:prefetch href={path.replace(/\.[^/.]+$/, '')}
             ><h2 class="text-3xl leading-relaxed">{title}</h2></a
           >
-          <p>{description}</p>
+          {@html truncate(content, 30, { byWords: true })}
         </div>
       {/each}
     </div>
   </article>
 </main>
+
+<style>
+  .two-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

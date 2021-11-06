@@ -8,8 +8,8 @@ collections:
     label: Posts
     folder: src/routes/posts
     create: true
-    path: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    path: "{{slug}}"
+    slug: "{{slug}}"
     fields:
       - name: title
       - name: date_published

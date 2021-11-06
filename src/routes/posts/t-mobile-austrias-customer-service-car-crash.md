@@ -124,23 +124,3 @@ No apology, no acknowledgement of concerns, and no explanation that passes any m
 ### Lesson: own your mistakes, don't be afraid to apologise when needed
 
 All in all, a bad day at the office for T-Mobile Austria. Customer service is rarely easy, but it's also pretty hard to get it this wrong.
-
-.full-width {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-}
-    
-table td {
-    padding: 1em;
-}
-table th {
-    border-bottom: 1px solid #333;
-    font-weight: 700;
-}
-table td {
-    border: 1px solid #ddd;
- }

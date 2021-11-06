@@ -10,13 +10,16 @@ So, I’ve heard a lot about ‘testing’, and why it’s a great thing, and I�
 
 But, I’ve never been able to wade through the hipster coffee shop menu of tools that will help me to do my tests. I tried to write my own ‘testing’ module, and it looked a bit like this:
 
+```javascript
     export default function(fn, arg, expected) {  
       return fn(arg) === expected;  
     }
+```
     
 
 This was great, because I could write the following:
 
+```javascript
     import Test from ‘./Test.js’;
     
     function helloWorld(name) {  
@@ -29,18 +32,20 @@ This was great, because I could write the following:
     } else {  
       console.log('One or more tests failed :(');  
     }
-    
+```  
 
 I was very happy, because I’d written my own test. Then I realised that this would be no good for testing my great random number generator. So I iterated. Instead of passing in an expected **value**, I’d pass in a second function to check the result of the first! Obviously I’d have to pass in the arguments provided to the first function as well…
 
+```javascript
     export default function(fn, arg, expected) {  
       let result = fn(arg);  
       let passing = expected(result, arg);  
     }
-    
+ ```   
 
 Now, I could do the following:
 
+```javascript
     import Test from ‘./Test.js’;
     
     function getRandomNumber(max) {  
@@ -66,7 +71,7 @@ Now, I could do the following:
     } else {  
       console.log('One or more tests failed :(');  
     }
-    
+```    
 
 Even better! So now, I can write one function to produce a value, and another to check that the value is what I want it to be! Then I wrote a function that took two arguments. Suddenly, I needed to rewrite my “Test” function again, and decided that there must be a better way.
 
@@ -82,19 +87,22 @@ OK, so they might have exciting names like Mocha, and Chai, and Jasmine, but bas
 
 That’s up to you, but I’ll let you know how I started: I cheated. I used Facebook’s *create-react-app* script to generate a client side app with everything pre-configured.
 
+```bash
     npm install -g create-react-app  
     alias crap=create-react-app # This step is not strictly required...  
     crap MyApp  
     cd MyApp
-    
+```    
 
 Now you can run
 
+```javascript
     npm test
-    
+```    
 
 and it will show you that you have one, passing test. You can open up the `App.test.js` file to work out what is your passing test, and you’ll see the following:
 
+```javascript
     import React from 'react';  
     import ReactDOM from 'react-dom';  
     import App from './App';  
@@ -103,7 +111,7 @@ and it will show you that you have one, passing test. You can open up the `App.t
       const div = document.createElement('div');  
       ReactDOM.render(<App />, div);  
     });
-    
+```
 
 So what is this actually doing? The block of imports is showing us everything we need to run these tests (in this environment). We need React, obviously. We also need ReactDOM so React can interact with the DOM. Then finally, we need your component (which may have any number of its own imports).
 
@@ -118,11 +126,12 @@ These are already part of the implementation, all you need to do is write your t
 
 Let’s take a look in a bit more detail at the second part:
 
+```javascript
     it('renders without crashing', () => {  
       const div = document.createElement('div');  
       ReactDOM.render(<App />, div);  
     });
-    
+```
 
 So, in the first line of this, we’re pretending to write real English, rather than code. This is fairly normal for tests, and helps to show what tests are failing later on. We then start an arrow function for your test. The test creates a div, and renders the  component into it.
 
@@ -140,20 +149,22 @@ So the first thing I’m going to need is a Card component. Remember the TDD man
 
 In it, I imported React and the React DOM, as well as my component.
 
+```javascript
     import React from 'react';  
     import ReactDOM from 'react-dom';  
     import Card from './Card';
-    
+```
 
 OK, so, now I’ve got everything I need to start testing, so I’ll just write the same test as I had before (except with the ‘Card’ component). I’m actually going to add a wrapper around the whole thing which will show me what I’m testing — this is important when your tests have logical ‘categories’, like components.
 
+```javascript
     describe('a card', () => {  
       it('renders without crashing', () => {  
         const div = document.createElement('div');  
         ReactDOM.render(<Card />, div);  
       });  
     });
-    
+```
 
 So, I run the test and sure enough, I get one passing test (for the app component) and one failing test (for the card component).
 
@@ -163,10 +174,11 @@ We can move on now and start writing code.
 
 You’re not reading this article because you want to learn React, so I’m going to assume you know how to write a simple component. The trick to ‘getting to green’ is to write the **minimum** amount of code possible to pass the test. Don’t get all fancy with state initialisation, or click handlers, or anything — your test only covers the existence of the component — so just write the simplest render function you can imagine:
 
+```javascript
     render() {  
       return <div></div>  
     }
-    
+```
 
 Run your tests again — both are now passing!
 
@@ -180,11 +192,13 @@ First, let’s think about what functionality we want — we want a title to
 
 At the moment, we don’t have the libraries we need to actually read the component, so we’re going to use AirBnB’s enzyme utilities. First up, let’s install it:
 
+```bash
     npm install --save-dev enzyme
-    
+```
 
 Enzyme has LOTS of utilities, and I have no idea what they all do, but the one I want is ‘shallow’, which will allow me to render a single component and check it for stuff. Here, I’m going to import it, and describe the test.
 
+```javascript
     import { shallow } from 'enzyme';
       
     describe('a card', () => {  
@@ -193,36 +207,41 @@ Enzyme has LOTS of utilities, and I have no idea what they all do, but the one I
           
       });  
     });
-    
+```
 
 I haven’t actually written any test code yet, so if I run this test, it’ll report as passing. Although this is an extreme example, it demonstrates why it’s important to make sure you get a ‘red’ before you start coding.
 
 So now I’m going to start writing the code for the test itself. First up, I’m going to define the ‘data’ prop which I’ll pass in to the component
 
+```javascript
     const data = {  
           title: "Test title"  
     };
-    
+```
 
 Then, I need to write up what this is going to look like when it’s rendered correctly (in JSX)
 
+```javascript
     const expectedResult = <h2>Test title</h2>;
-    
+```
 
 Now, rather than rendering the component as I did before, I’m going to use Enzyme’s *shallow* utility, and I’m going to call this the ‘wrapper’ (because this is the ‘wrapper’ for the h2).
 
+```javascript
     const wrapper = shallow(<Card data={data}/>);
-    
+```
 
 The last thing I’m going to do is to write an *assertion*, which is more complicated than it sounds. It’s just a clever way of writing the test which is nice and easy to read:
 
+```javascript
     expect(wrapper.contains(expectedResult)).toEqual(true);
-    
+```
 
 This *assertion* is based on the Jest framework (which comes out of the box with create-react-app), and you can read more about its APIs [here](https://facebook.github.io/jest/docs/api.html#writing-assertions-with-expect) — basically, you write ‘expect’, then an expression, then you chain it to one of the methods that will compare the evaluated expression to something. The ‘wrapper.contains’ here comes from the enzyme’s shallow utility — you can read its API [here](https://github.com/airbnb/enzyme/blob/master/docs/api/shallow.md).
 
 So all together, my test looks like this:
 
+```javascript
     it('displays a title when this is passed to it', () => {  
       const data = {  
         title: "Test title"  
@@ -231,7 +250,7 @@ So all together, my test looks like this:
       const wrapper = shallow(<Card data={data}/>);  
       expect(wrapper.contains(expectedResult)).toEqual(true);  
     });
-    
+```
 
 I run this test — and it fails. Great. Now you can write some more code!
 
@@ -239,10 +258,11 @@ I run this test — and it fails. Great. Now you can write some more code!
 
 Again, write the absolute minimum code you need for the test to pass:
 
+```javascript
     render() {  
       return <h2>Test title</h2>  
     }
-    
+```
 
 #### Refactor
 
@@ -252,6 +272,7 @@ OK, that feels bad. The test is passing, but I’m cheating! Get used to it. TDD
 
 I don’t want myself to cheat any more, so I’m going to recalculate the title every time I run the test:
 
+```javascript
     it('displays an arbitrary title when this is passed to it', () => {  
       const randomString = Math.random().toString(36).replace(/\[^a-z\]+/g, '').substr(0, 5);  
       const data = {  
@@ -261,16 +282,17 @@ I don’t want myself to cheat any more, so I’m going to recalculate the title
       const wrapper = shallow(<Card data={data}/>);  
       expect(wrapper.contains(expectedResult)).toEqual(true);  
     });
-    
+```
 
 #### Green
 
 I might as well do it properly now…
 
+```javascript
     render() {  
       return <h2>{this.props.data.title}</h2>  
     }
-    
+```
 
 #### Refactor
 
@@ -278,17 +300,19 @@ This will work, and it fits the requirement of the test. I can’t simplify this
 
 #### Red
 
+```javascript
     it('renders, but is empty if it doesn't get any data', () => {  
       const expectedResult = <h2></h2>;  
       const wrapper = shallow(<Card />);  
       expect(wrapper.contains(expectedResult)).toEqual(true);  
-    });
-    
+    }); 
+```
 
 #### Green
 
 The simplest way I can think of is chaining up an if statement or two to pass this test:
 
+```javascript
     render() {  
       if (this.props.data && this.props.data.title) {  
         let title = this.props.data.title;  
@@ -297,12 +321,13 @@ The simplest way I can think of is chaining up an if statement or two to pass th
         return <h2></h2>;  
       }  
     }
-    
+```
 
 #### Refactor
 
 The code above works well, but won’t be too useful in future in case I want to render anything else (like a description) onto the card. Instead, I’m going to put the whole thing in a try/catch block. That way, I can add in additional things that will be required to the try section without writing lots more ugly if statements.
 
+```javascript
     render() {  
       try {  
         let title = this.props.data.title;  
@@ -311,7 +336,7 @@ The code above works well, but won’t be too useful in future in case I want to
         return <h2></h2>;  
       }  
     }
-    
+```
 
 ### Conclusion
 

@@ -24,8 +24,9 @@ Our chat managers organise the windows in a specific order, so that the language
 
 At first, I thought this would be easy, as each window has a unique ID. I tried simply typing the following into the browser console.
 
+```javascript
     document.getElementById(#divId).style.cssText = "position: absolute; left: 0; top: 0;";
-    
+```
 
 It worked beautifully. The targetted div (the incoming English chats) flew up to the top left hand corner of the screen.
 
@@ -37,15 +38,17 @@ This worked, but I couldn’t choose the order of the windows. We could have liv
 
 Eventually, I spotted the following attached to the div:
 
+```html
     aria-label="Chat with the Service Desk"
-    
+```
 
 Each language was labelled with the prompt a user would receive when they wanted to chat to us. I could work with that.
 
 I quickly wrote up a couple of objects to index the styles and the languages, and then wrote this:
 
+```javascript
     document.querySelector("[aria-label='" + langIds[lang] + "']").style.cssText = lookupStyles[lang];
-    
+```
 
 After iterating through the languages, all of the windows snapped into place exactly as desired.
 

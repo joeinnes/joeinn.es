@@ -3,6 +3,6 @@
   import '../style.css';
 </script>
 
-<div class="body-wrapper max-w-screen-md mx-auto">
+<div class="max-w-screen-md mx-auto font-sans">
   <slot />
 </div>

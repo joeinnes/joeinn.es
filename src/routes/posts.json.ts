@@ -4,8 +4,11 @@ export async function get() {
 
   for (const path in imports) {
     body.push(
-      imports[path]().then(({ metadata }) => {
+      imports[path]().then((tmp) => {
+        let content = tmp.default.render().html;
+        const { metadata } = tmp;
         return {
+          content,
           metadata,
           path
         };
