@@ -1,8 +1,12 @@
 ---
 title: I'm Not On Facebook...
-slug: contact
 date_published: 2020-06-17T16:22:25.000Z
 date_updated: 2020-06-17T16:27:20.000Z
+slug: contact
+published: true
+featured_image: /static/uploads/photo-1590310353447-e95221919e1b.jpg
+tags:
+  - contact
 ---
 
 Anything I want to share will be on this website ([https://joeinn.es](/))
