@@ -1,8 +1,10 @@
 ---
 title: T-Mobile Austria's Customer Service Car Crash
-slug: t-mobile-austrias-customer-service-car-crash
 date_published: 2018-04-07T12:15:20.000Z
 date_updated: 2019-11-10T12:55:10.000Z
+slug: t-mobile-austrias-customer-service-car-crash
+published: true
+featured_image: /static/uploads/t-mobile.jpg
 tags: customer service
 ---
 
