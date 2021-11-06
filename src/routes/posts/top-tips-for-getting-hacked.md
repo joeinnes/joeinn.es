@@ -1,8 +1,9 @@
 ---
 title: Top Tips For Getting Hacked
-slug: top-tips-for-getting-hacked
 date_published: 2016-10-26T15:02:00.000Z
 date_updated: 2018-03-03T16:02:52.000Z
+slug: top-tips-for-getting-hacked
+featured_image: /static/uploads/photo-1502367448277-82e29b176948.jpg
 tags: devops, hacking, raspberry pi
 ---
 
@@ -21,3 +22,14 @@ Here is a step-by-step tutorial for anyone who would like to get hacked.
 - Don’t have any form of login monitoring set up on your servers.
 
 Clearly, I would never be so stupid as to try any of the above, but theoretically, if I had, I would perhaps have changed ports, passwords, enabled (and enforced) key-based SSH sign on, and maybe I’d have set up the following in _/etc/ssh/sshrc_
+
+```bash
+ip=\`echo $SSH_CONNECTION | cut -d “ “ -f 1\`  
+host=\`hostname\`  
+ifttt= #IFTTT Maker key  
+curl -i -s \  
+-H “Accept: application/json” \  
+-H “Content-Type:application/json” \  
+-X POST — data ‘{“value1”:”’”$host”’”,”value2":”’”$USER”’”,”value3":”’”$ip”’”}’ \  
+https://maker.ifttt.com/trigger/login/with/key/$ifttt > /dev/null
+```
