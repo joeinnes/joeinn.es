@@ -18,7 +18,7 @@
   }
 </script>
 
-<div class="bg-gray-500 shadow-md rounded-lg">
+<div class="bg-brand-green-100 shadow-md rounded-lg p-4">
   I voted for:
   <select bind:value={selected} class="bg-white rounded-md p-2">
     <option>None</option>

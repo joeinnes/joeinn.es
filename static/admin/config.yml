@@ -1,5 +1,4 @@
 locale: en
-local_backend: true
 backend:
   name: github
   branch: main
@@ -40,13 +39,16 @@ collections:
       - name: featured_image
         label: Featured Image
         widget: image
+        media_library:
+          config: 
+            media_folder: "/static/uploads"
       - name: tags
         label: Tags
         widget: list
       - name: body
         label: Body
         widget: markdown
-media_folder: "static/uploads"
+media_folder: "/static/uploads"
 public_folder: "/uploads"
 
 
