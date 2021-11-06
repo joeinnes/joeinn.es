@@ -1,8 +1,10 @@
 ---
 title: COVID-19 Hungary
-slug: covid-19-hungary
 date_published: 2020-03-11T22:45:19.000Z
 date_updated: 2020-03-13T20:04:07.000Z
+slug: covid-19-hungary
+published: true
+featured_image: /static/uploads/covid-hungary.jpg
 tags: Portfolio, COVID-19, virus, pandemic
 ---
 

@@ -1,8 +1,10 @@
 ---
 title: Why Accessibility Matters, Even When You Think It Doesn't
-slug: why-accessibility-matters-even-when-you-think-it-doesnt
 date_published: 2016-05-09T14:50:00.000Z
 date_updated: 2018-03-03T15:51:59.000Z
+slug: why-accessibility-matters-even-when-you-think-it-doesnt
+published: true
+featured_image: /static/uploads/photo-1508421042683-3595cd5a230f.jpg
 tags: web dev, accessibility
 ---
 

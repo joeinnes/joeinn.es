@@ -1,8 +1,10 @@
 ---
 title: Ukraine on Fire as Protests Turn Violent
-slug: ukraine-on-fire-as-protests-turn-violent
 date_published: 2014-02-20T09:46:00.000Z
 date_updated: 2018-03-03T09:46:50.000Z
+slug: ukraine-on-fire-as-protests-turn-violent
+published: true
+featured_image: /static/uploads/1_uA16oHESj12yZF0droq4Kw.jpeg
 tags: ukraine, russia, war
 ---
 

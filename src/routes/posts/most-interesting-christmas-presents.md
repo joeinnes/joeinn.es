@@ -1,8 +1,12 @@
 ---
 title: Most Interesting Christmas Presents
-slug: most-interesting-christmas-presents
 date_published: 2019-12-31T10:00:51.000Z
 date_updated: 2020-03-11T22:14:59.000Z
+slug: most-interesting-christmas-presents
+published: true
+featured_image: /static/uploads/photo-1482517967863-00e15c9b44be.jpg
+tags:
+  - christmas
 ---
 
 My sister did a great job of Christmas shopping this year. I'm mostly bored of the whole giving gifts that no-one needs thing, but here are a couple that she gave that I thought were awesome.

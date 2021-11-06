@@ -1,8 +1,10 @@
 ---
 title: How To Trick Everyone Into Thinking You're Not A Racist
-slug: how-to-trick-everyone-into-thinking-youre-not-a-racist
 date_published: 2016-06-23T14:54:00.000Z
 date_updated: 2018-03-03T15:54:47.000Z
+slug: how-to-trick-everyone-into-thinking-youre-not-a-racist
+published: true
+featured_image: /static/uploads/photo-1461906903741-bf21de16ae85.jpg
 tags: brexit, eu, politics
 ---
 

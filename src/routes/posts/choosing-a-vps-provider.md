@@ -1,8 +1,10 @@
 ---
 title: Choosing a VPS Provider
-slug: choosing-a-vps-provider
 date_published: 2015-04-08T08:57:00.000Z
 date_updated: 2018-03-03T09:58:25.000Z
+slug: choosing-a-vps-provider
+published: true
+featured_image: /static/uploads/photo-1484557052118-f32bd25b45b5.jpg
 tags: devops, vps
 ---
 
