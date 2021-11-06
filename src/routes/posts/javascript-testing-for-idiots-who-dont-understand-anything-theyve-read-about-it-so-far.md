@@ -5,7 +5,7 @@ date_published: 2016-09-20T15:00:00.000Z
 date_updated: 2018-03-03T16:00:45.000Z
 slug: javascript-testing-for-idiots-who-dont-understand-anything-theyve-read-about-it-so-far
 published: true
-featured_image: /static/uploads/photo-1516259762381-22954d7d3ad2.jpg
+featured_image: photo-1516259762381-22954d7d3ad2.jpg
 tags: web dev, react
 ---
 

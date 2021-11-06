@@ -4,7 +4,7 @@ date_published: 2016-04-04T14:44:00.000Z
 date_updated: 2018-03-03T15:44:46.000Z
 slug: my-four-fs-of-effective-email-management
 published: true
-featured_image: /static/uploads/photo-1484480974693-6ca0a78fb36b.jpg
+featured_image: photo-1484480974693-6ca0a78fb36b.jpg
 tags: email, productivity
 ---
 

@@ -4,7 +4,7 @@ date_published: 2020-09-18T18:46:00.000Z
 date_updated: 2020-09-18T18:46:00.000Z
 slug: whats-so-funny-about-brexit
 published: true
-featured_image: /static/uploads/brexit.png
+featured_image: brexit.png
 tags:
   - brexit
   - politics

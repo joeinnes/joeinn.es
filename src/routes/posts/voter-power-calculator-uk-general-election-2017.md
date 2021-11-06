@@ -4,7 +4,7 @@ date_published: 2017-06-18T22:00:00.000Z
 date_updated: 2020-03-12T22:43:49.000Z
 slug: voter-power-calculator-uk-general-election-2017
 published: true
-featured_image: /static/uploads/photo-1466780446965-2072a3de8a43.jpg
+featured_image: photo-1466780446965-2072a3de8a43.jpg
 tags: Portfolio, voter power, democracy, politics
 ---
 

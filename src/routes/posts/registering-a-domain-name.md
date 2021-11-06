@@ -4,7 +4,7 @@ date_published: 2015-04-08T09:06:00.000Z
 date_updated: 2018-03-03T10:07:18.000Z
 slug: registering-a-domain-name
 published: true
-featured_image: /static/uploads/1_SX1b2a9c5O4Ea0DXEcD6Hg.jpeg
+featured_image: 1_SX1b2a9c5O4Ea0DXEcD6Hg.jpeg
 tags: web dev, domain name
 ---
 

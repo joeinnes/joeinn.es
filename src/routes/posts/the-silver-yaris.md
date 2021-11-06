@@ -4,7 +4,7 @@ date_published: 2017-05-01T15:10:00.000Z
 date_updated: 2018-03-03T16:29:01.000Z
 slug: the-silver-yaris
 published: true
-featured_image: /static/uploads/photo-1458056185371-05b147514907.jpg
+featured_image: photo-1458056185371-05b147514907.jpg
 tags: short story, fiction
 ---
 

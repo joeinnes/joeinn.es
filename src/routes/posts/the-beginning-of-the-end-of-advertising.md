@@ -3,7 +3,7 @@ title: The beginning of the end of advertising?
 date_published: 2020-10-17T14:00:00.000Z
 date_updated: 2020-10-17T14:00:00.000Z
 slug: the-beginning-of-the-end-of-advertising
-featured_image: /static/uploads/iu.jpeg
+featured_image: iu.jpeg
 ---
 
 Once upon a time, Google sat in the middle. You had a question, and Google could help you find someone who knew the answer.

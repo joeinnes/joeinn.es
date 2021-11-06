@@ -4,7 +4,7 @@ date_published: 2015-08-02T09:57:00.000Z
 date_updated: 2018-03-03T10:57:37.000Z
 slug: setting-up-my-home-server
 published: true
-featured_image: /static/uploads/photo-1504639725590-34d0984388bd.jpg
+featured_image: photo-1504639725590-34d0984388bd.jpg
 tags: devops
 ---
 

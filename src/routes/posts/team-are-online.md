@@ -3,7 +3,7 @@ title: Team Are Online
 date_published: 2020-09-22T17:48:00.000Z
 date_updated: 2020-09-22T22:03:34.000Z
 slug: team-are-online
-featured_image: /static/uploads/photo-1475506631979-72412c606f4d.jpg
+featured_image: photo-1475506631979-72412c606f4d.jpg
 tags: Portfolio
 ---
 > **Goal:** Enable teams to work remotely more effectively by displaying a 'status' which can be set easily

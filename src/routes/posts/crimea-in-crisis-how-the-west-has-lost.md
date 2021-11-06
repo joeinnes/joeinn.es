@@ -4,7 +4,7 @@ date_published: 2014-04-03T08:48:00.000Z
 date_updated: 2018-03-03T09:50:16.000Z
 slug: crimea-in-crisis-how-the-west-has-lost
 published: true
-featured_image: /static/uploads/1_4jJQAlRguvpJWaRnhvULDg.jpeg
+featured_image: 1_4jJQAlRguvpJWaRnhvULDg.jpeg
 tags: russia, ukraine, war, politics
 ---
 

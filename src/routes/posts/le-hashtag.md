@@ -4,7 +4,7 @@ date_published: 2013-02-04T08:54:00.000Z
 date_updated: 2018-03-03T09:14:11.000Z
 slug: le-hashtag
 published: true
-featured_image: /static/uploads/1-7MrRM5x7Ystfs9fKiELd1A.jpeg
+featured_image: 1-7MrRM5x7Ystfs9fKiELd1A.jpeg
 tags: french, language
 ---
 

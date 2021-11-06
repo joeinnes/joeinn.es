@@ -4,7 +4,7 @@ date_published: 2015-05-16T09:43:00.000Z
 date_updated: 2018-03-03T10:50:07.000Z
 slug: a-punch-in-the-teeth-for-ukip-and-the-greens
 published: true
-featured_image: /static/uploads/photo-1540910419892-4a36d2c3266c.jpg
+featured_image: photo-1540910419892-4a36d2c3266c.jpg
 tags: politics, uk
 ---
 
