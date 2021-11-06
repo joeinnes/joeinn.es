@@ -1,8 +1,10 @@
 ---
 title: Meat Coin
-slug: meat-coin
 date_published: 2020-01-10T21:57:36.000Z
 date_updated: 2020-03-11T22:14:02.000Z
+slug: meat-coin
+published: true
+featured_image: /static/uploads/mtc-screenshot.jpg
 tags: vegetarianism, veganism, environment, Portfolio
 ---
 
