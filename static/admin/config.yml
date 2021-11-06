@@ -21,7 +21,6 @@ collections:
       - label: "Drafts"
         field: published
         pattern: false
-        required: false
     fields:
       - name: title
         label: Title
@@ -36,6 +35,7 @@ collections:
         widget: string
       - name: published
         label: Published
+        required: false
         widget: boolean
       - name: featured_image
         label: Featured Image
