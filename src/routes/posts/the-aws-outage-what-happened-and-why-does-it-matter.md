@@ -1,8 +1,10 @@
 ---
 title: The AWS Outage—What Happened and Why Does It Matter?
-slug: the-aws-outage-what-happened-and-why-does-it-matter
 date_published: 2017-03-01T16:04:00.000Z
 date_updated: 2018-03-03T16:06:50.000Z
+slug: the-aws-outage-what-happened-and-why-does-it-matter
+published: true
+featured_image: /static/uploads/1_XyVp8XU3-X2xCPCA-ySI1w.jpeg
 tags: devops, cloud
 ---
 
