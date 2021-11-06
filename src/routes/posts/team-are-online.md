@@ -37,7 +37,9 @@ Users can set a profile picture/avatar - if they choose not to specify one, an a
 
 In the first screenshot, only 'Joe' is logged in. The state buttons are working, and the project name is 'Joe's Project'. Simultaneously, other users are logged in and their view is filtered to their own project.
 
-![]()
+![Team Are Online Screenshot 1](team-are-online.png)
+
+![Team Are Online Screenshot 2](team-are-online-2.png)
 
 The second screenshot shows a redacted view where personal information is covered with a black box.
 

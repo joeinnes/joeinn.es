@@ -1,8 +1,12 @@
 ---
 title: Crumpets
-slug: crumpets
 date_published: 2020-05-18T16:23:00.000Z
 date_updated: 2020-05-18T16:23:00.000Z
+slug: crumpets
+published: true
+featured_image: /static/uploads/photo-1583729250536-d5fb10401671.jpg
+tags:
+  - recipe
 ---
 
 Apparently, the below is Warburton's crumpet recipe... something fun for me to try out (just need to find a biscuit cutter):
