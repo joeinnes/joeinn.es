@@ -39,7 +39,6 @@ collections:
       - name: featured_image
         label: Featured Image
         widget: image
-        media_folder: "/static/uploads"
         media_library:
           config: 
             media_folder: "/static/uploads"
