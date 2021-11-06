@@ -1,8 +1,10 @@
 ---
 title: The EU Debate
-slug: the-eu-debate
 date_published: 2013-11-09T09:11:00.000Z
 date_updated: 2018-03-03T09:24:08.000Z
+slug: the-eu-debate
+published: true
+featured_image: /static/uploads/1_xwgcId1D4XIbr0Wc2kZE4Q-1.jpeg
 tags: politics, eu
 ---
 

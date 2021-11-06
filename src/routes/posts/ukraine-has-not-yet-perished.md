@@ -1,8 +1,10 @@
 ---
 title: Ukraine Has Not Yet Perished
-slug: ukraine-has-not-yet-perished
 date_published: 2013-12-10T09:30:00.000Z
 date_updated: 2018-03-03T09:31:10.000Z
+slug: ukraine-has-not-yet-perished
+published: true
+featured_image: /static/uploads/1_6fvlZ1Pn__vzlTuNa5ihpQ.jpeg
 tags: ukraine, politics, eu
 ---
 
@@ -16,4 +18,4 @@ Putin says he wants to join talks to discuss this issue, as well as Ukraine’s 
 
 We have deceived the Ukrainian people by leading them on, suggesting that we would pave the way for them to join the EU. We have not. When the protests turn violent, we will point at Yanukovich and say that he’s Putin’s lapdog, and that it’s his fault because he won’t sign the Association Agreement. We will say that the reason he balked was because he didn’t want to release [Tymoshenko](http://en.wikipedia.org/wiki/Yulia_Tymoshenko). That Moscow had their hand up his backside and were moving his mouth. But the fact is, only those who are truly guilty need a scapegoat.
 
-*This article also published on*[*Fortitude Magazine*](http://www.fortitudemagazine.co.uk/industry/politics/misguided-mission-ukraines-euromaidan/14179/)
+*This article also published on* [*Fortitude Magazine*](http://www.fortitudemagazine.co.uk/industry/politics/misguided-mission-ukraines-euromaidan/14179/)

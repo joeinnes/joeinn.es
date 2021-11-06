@@ -1,8 +1,10 @@
 ---
 title: Nelson Mandela
-slug: nelson-mandela
 date_published: 2013-12-08T09:28:00.000Z
 date_updated: 2018-03-03T09:29:15.000Z
+slug: nelson-mandela
+published: true
+featured_image: /static/uploads/1_xif4ySvaVmOcaM1h2xV2Mg.jpeg
 tags: nelson mandela, politics, terrorism, obituary
 ---
 
