@@ -1,8 +1,10 @@
 ---
-title: Music Quiz #3
-slug: music-quiz-3
+title: Music Quiz
 date_published: 2020-07-24T17:23:00.000Z
 date_updated: 2020-07-24T17:23:00.000Z
+slug: music-quiz-3
+published: true
+featured_image: /static/uploads/alexander-popov-JhYnL-BiP18-unsplash.jpg
 tags: music
 ---
 
