@@ -1,17 +1,17 @@
-const { tailwindExtractor } = require("tailwindcss/lib/lib/purgeUnusedStyles");
+const { tailwindExtractor } = require('tailwindcss/lib/lib/purgeUnusedStyles');
 
 module.exports = {
-  mode: "jit",
-  purge: ["./src/**/*.{html,js,svelte,ts}"],
+  mode: 'jit',
+  purge: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {},
     fontFamily: {
-      display: ["Lato", "helvetica neue", "Helvetica", "sans-serif"],
-      body: ["work sans", "sans-serif"],
-    },
+      display: ['Lexend', 'helvetica neue', 'Helvetica', 'sans-serif'],
+      body: ['Lexend', 'sans-serif']
+    }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 };

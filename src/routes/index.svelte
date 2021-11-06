@@ -19,7 +19,7 @@
 
   let items = posts;
   let currentPage = 1;
-  let pageSize = 2;
+  let pageSize = 5;
 </script>
 
 <main>
