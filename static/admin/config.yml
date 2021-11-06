@@ -19,7 +19,7 @@ collections:
     view_filters:
       - label: "Drafts"
         field: published
-        pattern: false
+        pattern: false|null
     fields:
       - name: title
         label: Title
