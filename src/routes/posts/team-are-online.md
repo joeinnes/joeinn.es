@@ -1,8 +1,9 @@
 ---
 title: Team Are Online
-slug: team-are-online
 date_published: 2020-09-22T17:48:00.000Z
 date_updated: 2020-09-22T22:03:34.000Z
+slug: team-are-online
+featured_image: /static/uploads/photo-1475506631979-72412c606f4d.jpg
 tags: Portfolio
 ---
 
