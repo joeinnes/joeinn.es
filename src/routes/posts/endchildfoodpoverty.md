@@ -18,10 +18,6 @@ The site allows parents to quickly identify businesses near them who will feed t
 
 You can check it out at <https://free-meals.glitch.me>
 
-![Screenshot 1](screen-shot-2020-10-25-at-11.59.16.png)
-
-![Screenshot 2](screen-shot-2020-10-25-at-11.59.45.png)
-
 The data is from various sources, consolidated here [bit.ly/kidsmealsmap](https://www.google.com/maps/d/u/0/viewer?hl=en&hl=en&mid=1FY2YP3o-Yl6XfmquSB8ONAdEOfT-37su&=53.52267271392029%2C-3.6800511181780977&=7) by the folks at <https://allofustogether.uk/>
 
 ## Technical Details
