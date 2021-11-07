@@ -48,7 +48,9 @@ So, everyone is happy, Google are raking in cash, advertisers are getting increa
 # Wrong.
 
 Google have just released [passage level indexing](https://www.blog.google/products/search/search-on) in their improvements to search. Check out the picture below.
-![Google displaying new search results, with the answer to the question embedded in a Google search results page.](/content/images/2020/10/UnderstandingPassages.max-1000x1000.png)
+
+Google displaying new search results, with the answer to the question embedded in a Google search results page.
+
 Can you see the problem yet? Google is no longer the middleman. They're no longer connecting you with your question to someone with the answer, they're answering it directly. The address bar shows google.com at the top.
 
 Where previously, a user would have clicked through to wearshade.com, and potentially bought a weable UV sensor, now, they can find out for free. This is great for the user, but not so great for the owners of wearshade.com.
