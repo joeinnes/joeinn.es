@@ -1,6 +1,6 @@
 locale: en
 media_folder: "static/uploads"
-public_folder: "/uploads"
+public_folder: "uploads"
 backend:
   name: github
   branch: main
@@ -40,16 +40,13 @@ collections:
         widget: boolean
       - name: featured_image
         label: Featured Image
-        widget: image
-        media_folder: "/static/uploads"        
+        widget: image      
       - name: tags
         label: Tags
         widget: list
       - name: body
         label: Body
         widget: markdown
-
-
 
 site_url: https://joeinn.es
 display_url: https://joeinn.es
