@@ -4,7 +4,7 @@ date_published: 2017-06-20T15:11:00.000Z
 date_updated: 2018-03-03T16:14:17.000Z
 slug: now-for-real-the-uk-tax-system-explained-in-beer
 published: true
-featured_image: photo-1515723959262-56195aae7cdd.jpg
+featured_image: /uploads/photo-1515723959262-56195aae7cdd.jpg
 tags: taxes, uk, politics
 ---
 

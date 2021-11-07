@@ -4,7 +4,7 @@ date_published: 2020-10-25T11:29:24.000Z
 date_updated: 2020-10-25T13:10:54.000Z
 slug: endchildfoodpoverty
 published: true
-featured_image: endchildfoodpoverty.jpg
+featured_image: /uploads/endchildfoodpoverty.jpg
 tags:
   - portfolio
 ---

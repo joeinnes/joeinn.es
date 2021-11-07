@@ -4,7 +4,7 @@ date_published: 2020-08-05T21:17:43.000Z
 date_updated: 2020-08-05T21:17:43.000Z
 slug: collaboration
 published: true
-featured_image: photo-1494059980473-813e73ee784b.jpg
+featured_image: /uploads/photo-1494059980473-813e73ee784b.jpg
 ---
 
 Interesting article I came across on collaboration and motivation - David Relph's *Bristol Scale*:

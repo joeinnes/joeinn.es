@@ -42,7 +42,7 @@ collections:
         label: Featured Image
         widget: image
         media_folder: "/static/uploads"
-        public_folder: "uploads"
+        public_folder: "/uploads"
       - name: tags
         label: Tags
         widget: list

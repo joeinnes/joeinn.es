@@ -4,7 +4,7 @@ date_published: 2020-09-17T22:20:54.000Z
 date_updated: 2020-09-17T22:24:09.000Z
 slug: sorry-youre-not-a-winner
 published: true
-featured_image: sorry.jpg
+featured_image: /uploads/sorry.jpg
 tags:
   - music
 ---

@@ -4,7 +4,7 @@ date_published: 2019-06-18T22:00:00.000Z
 date_updated: 2020-07-08T12:28:41.000Z
 slug: screen2vid
 published: true
-featured_image: s2v.jpg
+featured_image: /uploads/s2v.jpg
 tags: Portfolio, web dev
 ---
 

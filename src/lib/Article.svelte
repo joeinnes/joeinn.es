@@ -13,7 +13,7 @@
   <a sveltekit:prefetch href={path.replace(/\.[^/.]+$/, '')}>
     <div
       class="image mb-8"
-      style="background-image: url('uploads/{featured_image}'); padding-top: 42.86%;"
+      style="background-image: url('{featured_image}'); padding-top: 42.86%;"
     />
     <div class="w-5/6 lg:w-3/4 mx-auto">
       <h2

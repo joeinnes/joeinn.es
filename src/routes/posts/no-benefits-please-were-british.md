@@ -4,7 +4,7 @@ date_published: 2014-02-12T09:37:00.000Z
 date_updated: 2018-03-03T09:37:55.000Z
 slug: no-benefits-please-were-british
 published: true
-featured_image: 1_VVChxRDKXfojtdNcyywIhQ.jpeg
+featured_image: /uploads/1_VVChxRDKXfojtdNcyywIhQ.jpeg
 tags: politics, eu, uk
 ---
 

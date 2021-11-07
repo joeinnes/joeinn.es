@@ -4,7 +4,7 @@ date_published: 2020-09-23T18:10:00.000Z
 date_updated: 2020-09-23T18:10:00.000Z
 slug: idris-elba-dj-set
 published: true
-featured_image: idris-elba-0.jpg
+featured_image: /uploads/idris-elba-0.jpg
 tags:
   - music
 ---

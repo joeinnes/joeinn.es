@@ -20,7 +20,7 @@
   <div class="pt-8 mb-32">
     <div
       class="image mb-8"
-      style="background-image: url('/uploads/{featured_image}'); padding-top: 42.86%;"
+      style="background-image: url('{featured_image}'); padding-top: 42.86%;"
     />
     <article class="prose mx-auto">
       <div id="meta">

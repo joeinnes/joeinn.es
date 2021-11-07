@@ -4,7 +4,7 @@ date_published: 2016-03-13T15:40:00.000Z
 date_updated: 2018-03-03T15:40:31.000Z
 slug: migrating-from-meteor-hosting-meteor-com-to-my-own-vps
 published: true
-featured_image: 1_jA0pyxjpdC5IV79dClx9AQ.jpeg
+featured_image: /uploads/1_jA0pyxjpdC5IV79dClx9AQ.jpeg
 tags: meteor, devops
 ---
 

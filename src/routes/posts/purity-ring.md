@@ -4,7 +4,7 @@ date_published: 2020-11-05T12:33:54.000Z
 date_updated: 2020-11-05T12:33:54.000Z
 slug: purity-ring
 published: true
-featured_image: white-pony-x-black-stallion.jpg
+featured_image: /uploads/white-pony-x-black-stallion.jpg
 tags:
   - music
 ---

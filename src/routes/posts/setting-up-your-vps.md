@@ -4,7 +4,7 @@ date_published: 2014-04-08T09:34:00.000Z
 date_updated: 2018-03-03T10:34:26.000Z
 slug: setting-up-your-vps
 published: true
-featured_image: photo-1493020258366-be3ead1b3027.jpg
+featured_image: /uploads/photo-1493020258366-be3ead1b3027.jpg
 tags: devops, vps
 ---
 
