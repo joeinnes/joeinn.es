@@ -4,7 +4,7 @@ date_published: 2020-12-01T00:50:59.977Z
 date_updated: 2020-12-01T00:50:00.000Z
 slug: serum-know-how
 published: true
-featured_image: /static/uploads/1-7MrRM5x7Ystfs9fKiELd1A.jpeg
+featured_image: /static/uploads/photo-1414839246800-1ed50eb905e7.jpg
 tags:
   - music
 ---
