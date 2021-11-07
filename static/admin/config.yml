@@ -16,7 +16,6 @@ collections:
     preview_path: "posts/{{slug}}"
     preview_path_date_field: "date_published"
     sortable_fields: ["date_published", "date_updated"]
-    media_folder: "/static/uploads"
     view_filters:
       - label: "Drafts"
         field: published
@@ -40,14 +39,15 @@ collections:
       - name: featured_image
         label: Featured Image
         widget: image
+        media_folder: "/static/uploads"        
       - name: tags
         label: Tags
         widget: list
       - name: body
         label: Body
         widget: markdown
-media_folder: "/static/uploads"
-public_folder: "/uploads"
+media_folder: "static/uploads"
+public_folder: "uploads"
 
 
 site_url: https://joeinn.es
