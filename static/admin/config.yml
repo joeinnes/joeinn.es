@@ -41,7 +41,7 @@ collections:
       - name: featured_image
         label: Featured Image
         widget: image
-        media_folder: "static/uploads"
+        media_folder: "/static/uploads"
         public_folder: "uploads"
       - name: tags
         label: Tags
