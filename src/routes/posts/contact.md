@@ -22,4 +22,4 @@ Instant messaging platforms in order of preference:
 - [Signal](https://signal.org/download/),
 - Apple Message, FaceTime, phone, SMS using my number
 
-Or you can drop me an email: **[my first name]@joeinn.es**
+Or you can drop me an email: **my first name@joeinn.es**
