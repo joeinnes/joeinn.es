@@ -2,19 +2,10 @@
   import { formatDistance } from 'date-fns';
   export let title = '';
   export let date_published = '';
-  // export let date_updated = '';
-  // export let slug = '';
-  export let published = '';
+  export let published = true;
   export let featured_image = '';
   export let tags = '';
-  import Header from './Header.svelte';
 </script>
-
-<svelte:head>
-  <title>{import.meta.env.VITE_SITE_NAME} | {title}</title>
-</svelte:head>
-
-<Header />
 
 {#if !published}Whoops! This post has not been published...{:else}
   <div class="pt-8 mb-32">
@@ -32,8 +23,8 @@
           {#if tags && tags.length}
             &bull;
             {#if Array.isArray(tags)}
-              {#each tags as tag, i}#{tag}&nbsp;{/each}
-            {:else}#{tags}{/if}
+              {#each tags as tag}&#35;{tag}&nbsp;{/each}
+            {:else}&#35;{tags}{/if}
           {/if}
         </div>
       </div>

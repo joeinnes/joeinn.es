@@ -40,7 +40,6 @@
   }
 </script>
 
-<Header />
 <main class="article-list">
   {#each items as item (item.path)}
     <article>
