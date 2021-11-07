@@ -16,6 +16,7 @@ collections:
     preview_path: "posts/{{slug}}"
     preview_path_date_field: "date_published"
     sortable_fields: ["date_published", "date_updated"]
+    media_folder: "/static/uploads"
     view_filters:
       - label: "Drafts"
         field: published
@@ -39,9 +40,6 @@ collections:
       - name: featured_image
         label: Featured Image
         widget: image
-        media_library:
-          config: 
-            media_folder: "/static/uploads"
       - name: tags
         label: Tags
         widget: list

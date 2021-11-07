@@ -1,48 +1,52 @@
 <script context="module" lang="ts">
-  import truncate from 'truncate-html';
-  export async function load({ fetch }) {
-    const res = await fetch(`/posts.json`);
-    const posts = await res.json();
+  let currentPage = 1;
+  let posts = [];
+  let pageSize = 5;
 
+  export async function load({ fetch, page }) {
+    currentPage = parseInt(page.query.get('page'), 10) || 1;
+    const getPosts = async (start: number, limit: number) => {
+      const res = await fetch(`/posts.json?limit=${limit}&start=${start}`);
+      const posts = await res.json();
+      return { posts, currentPage };
+    };
+
+    const postData = await getPosts((currentPage - 1) * pageSize, pageSize);
+    posts = postData.posts;
+    currentPage = postData.currentPage;
     return {
       props: {
-        posts
+        posts,
+        currentPage
       }
     };
   }
 </script>
 
-<script>
-  export let posts;
+<script lang="ts">
+  import Header from '$lib/Header.svelte';
 
-  let items = posts;
-  let currentPage = 1;
-  let pageSize = 5;
+  import Pagination from '$lib/Pagination.svelte';
+
+  import Article from '$lib/Article.svelte';
+
+  export let posts;
+  export let currentPage: number;
+  let items = [];
+
+  let pageCount = Math.ceil(posts.count / pageSize);
+  $: {
+    items = posts.posts;
+  }
 </script>
 
-<main>
-  <article>
-    <h1 class="headline text-8xl leading-relaxed font-black mb-4">Joe Innes</h1>
-    <div class="article-list">
-      {#each items as { metadata: { title, tags, featured_image, slug }, path, content }}
-        <div class="mb-4">
-          <a sveltekit:prefetch href={path.replace(/\.[^/.]+$/, '')}
-            ><h2 class="text-3xl">{title}</h2></a
-          >
-          <div class="image" style="background-image: url('uploads/{featured_image}')" />
-          {@html truncate(content, 30, { byWords: true })}
-        </div>
-      {/each}
-    </div>
-  </article>
+<Header />
+<main class="article-list">
+  {#each items as item (item.path)}
+    <article>
+      <Article {item} />
+    </article>
+  {/each}
 </main>
 
-<style>
-  .image {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    width: 100%;
-    padding-bottom: 56.25%;
-  }
-</style>
+<Pagination bind:currentPage bind:pageCount />

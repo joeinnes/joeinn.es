@@ -92,6 +92,6 @@ module.exports = {
   variants: {
     extend: {}
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
   mode: 'jit' // ⚠ Make sure to have this
 };
