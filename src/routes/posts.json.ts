@@ -1,4 +1,6 @@
-export async function get() {
+export async function get({ query }) {
+  const start = parseInt(query.get('start'), 10) || 0;
+  const limit = parseInt(query.get('limit'), 10) || 5;
   const imports = import.meta.glob('./posts/*.{md,svx}');
   let body = [];
 
@@ -23,10 +25,11 @@ export async function get() {
   });
 
   let filteredPosts = posts.filter(post => post.metadata.published)
+  let thesePosts = filteredPosts.slice(start, start + limit);
 
   return {
     body: JSON.stringify({
-      posts: filteredPosts,
+      posts: thesePosts,
       count: filteredPosts.length
     })
   }

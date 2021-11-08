@@ -1,43 +1,40 @@
 <script context="module" lang="ts">
-  import { browser } from '$app/env';
+  let currentPage = 1;
   let posts = [];
   let pageSize = 5;
 
-  /* Note for future Joe who might be thinking this is unnecessary. You are wrong. It *is* necessary to load ALL posts from the server. Why?! I hear you ask, silently. Surely that's not the most efficient way to do it! Well, the reason is that if the posts are not all loaded from the server, then you won't be able to load the next page. This is because the static renderer needs to know what's on each page. */
-
-  export async function load({ fetch }) {
-    const getPosts = async () => {
-      const res = await fetch(`/posts.json`);
+  export async function load({ fetch, page }) {
+    currentPage = parseInt(page.query.get('page'), 10) || 1;
+    const getPosts = async (start: number, limit: number) => {
+      const res = await fetch(`/posts.json?limit=${limit}&start=${start}`);
       const posts = await res.json();
-      return posts;
+      return { posts, currentPage };
     };
 
-    const postData = await getPosts();
+    const postData = await getPosts((currentPage - 1) * pageSize, pageSize);
     posts = postData.posts;
+    currentPage = postData.currentPage;
     return {
       props: {
-        posts
+        posts,
+        currentPage
       }
     };
   }
 </script>
 
 <script lang="ts">
-  import { currentPage } from '$lib/store/currentPage';
   import Pagination from '$lib/Pagination.svelte';
+
   import Article from '$lib/Article.svelte';
 
+  export let posts;
+  export let currentPage: number;
   let items = [];
 
-  let pageCount = Math.ceil(posts.length / pageSize);
-
+  let pageCount = Math.ceil(posts.count / pageSize);
   $: {
-    items = posts.slice(($currentPage - 1) * pageSize, ($currentPage - 1) * pageSize + pageSize);
-    if (browser) {
-      document.body.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
+    items = posts.posts;
   }
 </script>
 
@@ -49,4 +46,4 @@
   {/each}
 </main>
 
-<Pagination bind:pageCount />
+<Pagination bind:currentPage bind:pageCount />
