@@ -10,7 +10,7 @@
 </script>
 
 <div class="mb-16 lg:mb-32 pb-8 lg:pb-16 border-b-2 border-brand-grey-50">
-  <a sveltekit:prefetch href={path.replace(/\.[^/.]+$/, '')}>
+  <a sveltekit:prefetch href={path.replace(/\.[^/.]+$/, '').substr(1)}>
     <div
       class="image mb-8"
       style="background-image: url('{featured_image}'); padding-top: 42.86%;"
