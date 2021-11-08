@@ -1,42 +1,43 @@
 <script context="module" lang="ts">
-  let currentPage = 1;
+  import { browser } from '$app/env';
   let posts = [];
   let pageSize = 5;
 
-  export async function load({ fetch, page }) {
-    currentPage = parseInt(page.query.get('page'), 10) || 1;
-    const getPosts = async (start: number, limit: number) => {
-      const res = await fetch(`/posts.json?limit=${limit}&start=${start}`);
+  /* Note for future Joe who might be thinking this is unnecessary. You are wrong. It *is* necessary to load ALL posts from the server. Why?! I hear you ask, silently. Surely that's not the most efficient way to do it! Well, the reason is that if the posts are not all loaded from the server, then you won't be able to load the next page. This is because the static renderer needs to know what's on each page. */
+
+  export async function load({ fetch }) {
+    const getPosts = async () => {
+      const res = await fetch(`/posts.json`);
       const posts = await res.json();
-      return { posts, currentPage };
+      return posts;
     };
 
-    const postData = await getPosts((currentPage - 1) * pageSize, pageSize);
+    const postData = await getPosts();
     posts = postData.posts;
-    currentPage = postData.currentPage;
     return {
       props: {
-        posts,
-        currentPage
+        posts
       }
     };
   }
 </script>
 
 <script lang="ts">
-  import Header from '$lib/Header.svelte';
-
+  import { currentPage } from '$lib/store/currentPage';
   import Pagination from '$lib/Pagination.svelte';
-
   import Article from '$lib/Article.svelte';
 
-  export let posts;
-  export let currentPage: number;
   let items = [];
 
-  let pageCount = Math.ceil(posts.count / pageSize);
+  let pageCount = Math.ceil(posts.length / pageSize);
+
   $: {
-    items = posts.posts;
+    items = posts.slice(($currentPage - 1) * pageSize, ($currentPage - 1) * pageSize + pageSize);
+    if (browser) {
+      document.body.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   }
 </script>
 
@@ -48,4 +49,4 @@
   {/each}
 </main>
 
-<Pagination bind:currentPage bind:pageCount />
+<Pagination bind:pageCount />
