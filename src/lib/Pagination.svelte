@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto, invalidate } from '$app/navigation';
   export let currentPage: number = 1;
   export let pageCount: number = 0;
 </script>
@@ -7,7 +8,7 @@
   <div class="flex justify-start">
     {#if currentPage > 1}
       <a
-        href="?page={currentPage - 1}"
+        href="/page/{currentPage - 1}"
         class=" border-2 rounded-full px-4 py-2 hover:bg-brand-700 hover:text-white border-brand-800 bg-white text-black transition-colors duration-300"
         sveltekit:prefetch
       >
@@ -23,7 +24,7 @@
   <div class="flex justify-end">
     {#if currentPage < pageCount}
       <a
-        href="?page={currentPage + 1}"
+        href="/page/{currentPage + 1}"
         class="border-2 rounded-full px-4 py-2 hover:bg-brand-700 hover:text-white border-brand-800 bg-white text-black transition-colors duration-300"
         sveltekit:prefetch
       >

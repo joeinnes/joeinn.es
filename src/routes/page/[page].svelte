@@ -4,6 +4,8 @@
   let pageSize = 5;
 
   export async function load({ fetch, page }) {
+    currentPage = parseInt(page.params.page, 10) || 1;
+
     const getPosts = async (start: number, limit: number) => {
       const res = await fetch(`/posts.json?limit=${limit}&start=${start}`);
       const posts = await res.json();
