@@ -39,12 +39,10 @@
   }
 </script>
 
-<main class="article-list">
+<section>
   {#each items as item (item.path)}
-    <article>
-      <Article {item} />
-    </article>
+    <Article {item} />
   {/each}
-</main>
+</section>
 
 <Pagination bind:currentPage bind:pageCount />

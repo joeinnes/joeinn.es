@@ -4,7 +4,7 @@ date_published: 2016-10-26T15:02:00.000Z
 date_updated: 2018-03-03T16:02:52.000Z
 slug: top-tips-for-getting-hacked
 published: true
-featured_image: /uploads/photo-1502367448277-82e29b176948.jpg
+image: /uploads/photo-1502367448277-82e29b176948.jpg
 tags: devops, hacking, raspberry pi
 ---
 

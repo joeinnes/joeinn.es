@@ -4,7 +4,7 @@ date_published: 2016-05-07T12:48:42.387Z
 date_updated: 2016-05-07T12:48:00.000Z
 slug: delegating-my-job-to-vba
 published: true
-featured_image: /uploads/photo-1454165804606-c3d57bc86b40.jpg
+image: /uploads/photo-1454165804606-c3d57bc86b40.jpg
 tags:
   - automation
   - productivity

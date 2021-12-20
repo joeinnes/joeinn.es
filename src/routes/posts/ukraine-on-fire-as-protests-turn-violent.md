@@ -4,7 +4,7 @@ date_published: 2014-02-20T09:46:00.000Z
 date_updated: 2018-03-03T09:46:50.000Z
 slug: ukraine-on-fire-as-protests-turn-violent
 published: true
-featured_image: /uploads/1_uA16oHESj12yZF0droq4Kw.jpeg
+image: /uploads/1_uA16oHESj12yZF0droq4Kw.jpeg
 tags: ukraine, russia, war
 ---
 
@@ -12,7 +12,7 @@ It was to be a decisive move that put an end to the Euromaidan protests. After t
 
 Ukraine is now right on the brink of civil war. While it’s unclear which side fired the first rounds, it is now all but certain that both protesters and interior ministry forces are now armed. There are rumours that interior ministry troops are refusing to fire on protesters, but the restraint shown so far may well be a political decision. While Ukrainian sources are claiming that three EU ministers are meeting President Yanukovich, EU sources are saying that the ministers have been evacuated for their own security. The latter would seem to be more reliable at the moment.
 
-#### Proof of police snipers
+# Proof of police snipers
 
 > Proof of police snipers. [@KyivPost](https://twitter.com/KyivPost?ref_src=twsrc%5Etfw) photographers Pavlo Podufalov just took this photo near Maidan. [#euromaidan](https://twitter.com/hashtag/euromaidan?src=hash&amp;ref_src=twsrc%5Etfw)[pic.twitter.com/wEzxP3l6tn](http://t.co/wEzxP3l6tn)
 > &mdash; Christopher Miller (@ChristopherJM) [February 20, 2014](https://twitter.com/ChristopherJM/status/436431729549905920?ref_src=twsrc%5Etfw)

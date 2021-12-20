@@ -4,7 +4,7 @@ date_published: 2020-06-17T16:21:07.000Z
 date_updated: 2020-06-17T16:26:47.000Z
 slug: why-my-facebook-is-empty
 published: true
-featured_image: /uploads/photo-1461685265823-f8d5d0b08b9b.jpg
+image: /uploads/photo-1461685265823-f8d5d0b08b9b.jpg
 tags:
   - facebook
   - privacy

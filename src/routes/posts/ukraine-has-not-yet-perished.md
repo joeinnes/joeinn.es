@@ -4,7 +4,7 @@ date_published: 2013-12-10T09:30:00.000Z
 date_updated: 2018-03-03T09:31:10.000Z
 slug: ukraine-has-not-yet-perished
 published: true
-featured_image: /uploads/1_6fvlZ1Pn__vzlTuNa5ihpQ.jpeg
+image: /uploads/1_6fvlZ1Pn__vzlTuNa5ihpQ.jpeg
 tags: ukraine, politics, eu
 ---
 

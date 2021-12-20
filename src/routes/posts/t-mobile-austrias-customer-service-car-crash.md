@@ -4,23 +4,25 @@ date_published: 2018-04-07T12:15:20.000Z
 date_updated: 2019-11-10T12:55:10.000Z
 slug: t-mobile-austrias-customer-service-car-crash
 published: true
-featured_image: /uploads/t-mobile.jpg
+image: /uploads/t-mobile.jpg
 tags: customer service
 ---
 
 It all started on April 4th when a well—meaning tweet was sent to T-Mobile Austria:
 
 > Does T-Mobile Austria in fact store customers’ passwords in clear text [@tmobileat](https://twitter.com/tmobileat?ref_src=twsrc%5Etfw)? [@PWTooStrong](https://twitter.com/PWTooStrong?ref_src=twsrc%5Etfw)[@Telekom_hilft](https://twitter.com/Telekom_hilft?ref_src=twsrc%5Etfw)[https://t.co/ydFdVRWgE4](https://t.co/ydFdVRWgE4)
+> 
 > &mdash; Claudia Pellegrino (@c_pellegrino) [April 4, 2018](https://twitter.com/c_pellegrino/status/981409466242486272?ref_src=twsrc%5Etfw)
 
 T-Mobile sent the following alarming response:
 
 > Hello Claudia! The customer service agents see the first four characters of your password. We store the whole password, because you need it for the login for [https://t.co/vJapgJ50qc](https://t.co/vJapgJ50qc) ^andrea
+> 
 > &mdash; T-Mobile Austria (@tmobileat) [April 4, 2018](https://twitter.com/tmobileat/status/981418339653300224?ref_src=twsrc%5Etfw)
 
 To understand why this is alarming, I need to take a little trip down the hallways of cybersecurity.
 
-## How companies store passwords
+# How companies store passwords
 
 It's important to understand that when you log into a secure website, the company that you're sending your password to (should) never actually store that password. That sounds counter-intuitive on the first glance, after all, how can you validate the password that the user sent if you don't store it?
 
@@ -31,7 +33,7 @@ This allows us to validate your password without ever actually saving your passw
 A very clever encryption method might even be one-way. I won't go into the details of these here, but basically, what this means is that if you have the output, you can't 'reverse' it easily to get the input. A very simple example of a one-way encryption method would be to do something like:
 
 1. Convert using the Caesar cipher (`hunter2` → `ivoufs3`)
-2. Create a sum using the differences between letters (so, i → v = 13, v → o = -7, giving '13 - 7 + 6 - 15 + 13 + 10', assuming the numbers are listed after the letters)
+2. Create a sum using the differences between letters (so, `i → v = 13`, `v → o = -7`, giving `13 - 7 + 6 - 15 + 13 + 10`, assuming the numbers are listed after the letters)
 3. Complete the sum, giving `20`.
 4. Store this number in your database.
 
@@ -57,9 +59,14 @@ Even if the database is compromised, individual users passwords are still protec
 
 To summarise:
 
-UsernamePasswordSaltPepperHash`joe``hunter2``F52FBD32B2B3B86FF88EF6C490628285F482AF15DDCB29541F94BCF526A3F6C7``joe``hunter2``1EF9888BCA``895B71C0196C0246DA4E39048866C630443C29A3F54404513F2BD3FDAF762A61``joe``hunter2``1EF9888BCA``CheeseIsGreat``C3D0DB7D178552362DECD0832615E1B5955FF65785F1D0A3EBDEDB96FE7C358A``john``hunter2``2BED984510``CheeseIsGreat``635B34FA70CC99B9D67C4C662622AB53D8CFEB08224AA74C9C5CE2AD10EFA705`
+| Username | Password | Salt | Pepper | Hash |
+|----------|----------|------|--------|------|
+|`joe`|`hunter2`|||`F52FBD32B2B3B86FF88EF6C490628285F482AF15DDCB29541F94BCF526A3F6C7`|
+|`joe`|`hunter2`|`1EF9888BCA`||`895B71C0196C0246DA4E39048866C630443C29A3F54404513F2BD3FDAF762A61`|
+|`joe`|`hunter2`|`1EF9888BCA`|`CheeseIsGreat`|`C3D0DB7D178552362DECD0832615E1B5955FF65785F1D0A3EBDEDB96FE7C358A`|
+|`john`|`hunter2`|`2BED984510`|`CheeseIsGreat`|`635B34FA70CC99B9D67C4C662622AB53D8CFEB08224AA74C9C5CE2AD10EFA705`
 
-## So what did T-Mobile get wrong?
+# So what did T-Mobile get wrong?
 
 Because these 'hashes' are not reversible, and it's unlikely the T-Mobile customer service representatives are cracking the passwords every time to get the first four characters, we know that one of three things is happening (from least likely to most likely):
 
@@ -71,58 +78,64 @@ Every single one of these is a bad idea, security speaking.
 
 'But Joe', you say, 'I thought this article was about customer service?!'. OK, OK, here we go:
 
-## Mistake № 1: Handwaving
+# Mistake № 1: Handwaving
 
 Once Andrea's response was sent out, the original tweeter replied (politely), asking how it could be fixed.
 
 > Thanks for your reply Andrea! Storing cleartext passwords in a database is a naughty thing to do. [https://t.co/pbTxmSJrOP](https://t.co/pbTxmSJrOP) What can we do to get your devs to fix that?
+> 
 > &mdash; Claudia Pellegrino (@c_pellegrino) [April 4, 2018](https://twitter.com/c_pellegrino/status/981596868709961728?ref_src=twsrc%5Etfw)
 
 What followed from T-Mobile was an absolute disaster of a tweet from a different social media manager:
 
 > Hi [@c_pellegrino](https://twitter.com/c_pellegrino?ref_src=twsrc%5Etfw), I really do not get why this is a problem. You have so many passwords for evey app, for every mail-account and so on. We secure all data very carefully, so there is not a thing to fear. ^Käthe
+> 
 > &mdash; T-Mobile Austria (@tmobileat) [April 5, 2018](https://twitter.com/tmobileat/status/981785213549383680?ref_src=twsrc%5Etfw)
 
-### Lesson: don't patronise your customers, or dismiss their concerns.
+## Lesson: don't patronise your customers, or dismiss their concerns.
 
-## Mistake № 2: Doubling down
+# Mistake № 2: Doubling down
 
 By this point, the story was starting to pick up a bit of momentum, and another tweeter weighed in asking:
 
 > Well, what if your infrastructure gets breached and everyone’s password is published in plaintext to the whole wide world?
+> 
 > &mdash; Eric™ (@Korni22) [April 6, 2018](https://twitter.com/Korni22/status/982187278033301507?ref_src=twsrc%5Etfw)
 
 At this point, Käthe should probably have checked with her boss before replying, but didn't. Her response was a hubris-filled surprise:
 
 > [@Korni22](https://twitter.com/Korni22?ref_src=twsrc%5Etfw) What if this doesn&#39;t happen because our security is amazingly good? ^Käthe
+> 
 > &mdash; T-Mobile Austria (@tmobileat) [April 6, 2018](https://twitter.com/tmobileat/status/982187919061303296?ref_src=twsrc%5Etfw)
 
 Now, I'm sure T-Mobile take security seriously, but this is Donald Trump-level bluster.
 
-### Lesson: rather than making a broad sweeping statement on a topic you clearly don't understand, check with an expert.
+## Lesson: rather than making a broad sweeping statement on a topic you clearly don't understand, check with an expert.
 
-## Mistake № 3: Making it personal
+# Mistake № 3: Making it personal
 
 The following few tweets are some of the most bizarre tweets I've ever seen from a corporate account:
 
 > [@Korni22](https://twitter.com/Korni22?ref_src=twsrc%5Etfw) Excuse me? Do you have any idea how telecommunication companies work? Do you know anything about our systems? But I&#39;m glad you have the time to share your view with us. ^Käthe
+> 
 > &mdash; T-Mobile Austria (@tmobileat) [April 6, 2018](https://twitter.com/tmobileat/status/982190220798967809?ref_src=twsrc%5Etfw)
 
 I'm surprised that no-one had relieved Käthe by this point, but she released a passive-aggressive tirade against @Korni22 until her shift ended.
 
-### Lesson: when you're in a hole, stop digging, and certainly don't start insulting people
+## Lesson: when you're in a hole, stop digging, and certainly don't start insulting people
 
-## Mistake № 4: Not owning it
+# Mistake № 4: Not owning it
 
 Eventually, it seems Käthe disappeared from the picture, and T-Mobile's 'company spokesperson' Helmut weighed in with what is presumably an official opinion and statement which has been the subject of hasty conference calls.
 
 > Customer service agents see only parts of customers‘ passwords which are safely stored in encrypted databases via industry standard encryption algorithm. We are also using one-time-PINs for customer authentication and are evaluating voice biometrics. ^Helmut [@ojour](https://twitter.com/ojour?ref_src=twsrc%5Etfw)
+> 
 > &mdash; T-Mobile Austria (@tmobileat) [April 6, 2018](https://twitter.com/tmobileat/status/982394129249460226?ref_src=twsrc%5Etfw)
 
 No apology, no acknowledgement of concerns, and no explanation that passes any muster. I'm not a PR wizard, but at this point, surely a better approach would have been:
 
 "We understand customers are concerned about security processes—customers' passwords are stored in encrypted databases, and we use one-time-PINs. Our responses yesterday were overconfident this was adequate. We're reviewing urgently and we'll let everyone know the outcome."
 
-### Lesson: own your mistakes, don't be afraid to apologise when needed
+## Lesson: own your mistakes, don't be afraid to apologise when needed
 
 All in all, a bad day at the office for T-Mobile Austria. Customer service is rarely easy, but it's also pretty hard to get it this wrong.

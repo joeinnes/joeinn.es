@@ -4,7 +4,7 @@ date_published: 2020-07-17T17:15:00.000Z
 date_updated: 2020-07-17T17:15:00.000Z
 slug: music-quiz-2
 published: true
-featured_image: /uploads/jorik-kleen-iKuT7niw8vE-unsplash.jpg
+image: /uploads/jorik-kleen-iKuT7niw8vE-unsplash.jpg
 tags: music
 ---
 

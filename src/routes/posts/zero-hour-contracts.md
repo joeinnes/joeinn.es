@@ -4,7 +4,7 @@ date_published: 2013-11-24T09:15:00.000Z
 date_updated: 2018-03-03T09:22:00.000Z
 slug: zero-hour-contracts
 published: true
-featured_image: /uploads/photo-1450101499163-c8848c66ca85.jpg
+image: /uploads/photo-1450101499163-c8848c66ca85.jpg
 tags: politics
 ---
 

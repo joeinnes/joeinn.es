@@ -4,7 +4,7 @@ date_published: 2014-04-08T09:34:00.000Z
 date_updated: 2018-03-03T10:34:26.000Z
 slug: setting-up-your-vps
 published: true
-featured_image: /uploads/photo-1493020258366-be3ead1b3027.jpg
+image: /uploads/photo-1493020258366-be3ead1b3027.jpg
 tags: devops, vps
 ---
 
@@ -35,7 +35,7 @@ Next, make sure everything is up-to-date. Check for updates and install them by 
 
 Now your server is up-to-date, it’s time to set up a LAMP stack on it. LAMP stands for Linux, Apache, MySQL, PHP. There are alternative stacks available, but this is the most common configuration. You may not wish to use all of the features of the stack at the moment, but if you continue developing stuff, and want to try new stuff out, this is more or less the minimum you will need.
 
-### Apache
+# Apache
 
 Apache is an enterprise grade web server, and you can install it with just a few keystrokes. Type:
 
@@ -47,7 +47,7 @@ You will then have to press `Y` to confirm you want to install all of its depend
 
 You can test Apache has installed correctly by navigating to your IP address, and you should see a page with the text “**It works!**”.
 
-### MySQL
+# MySQL
 
 MySQL is a database system. You can install it by typing:
 
@@ -63,7 +63,7 @@ You will have to press `Y` again. As part of the installation, you will be asked
 
 Then press enter and answer yes to all questions except the first one. This will help tidy up some of the less secure default settings.
 
-### PHP
+# PHP
 
 PHP is a server-side language that allows you to run most web apps. To install it, type:
 
@@ -81,7 +81,7 @@ Then you can check PHP has installed correctly by visiting [http://your-server-i
 
 *Note: you will almost certainly have to install and enable additional PHP modules later if you want to do anything interesting, but this is more or less the bare minimum. You may also find you have a different document root depending on the exact setup of your server. This is the default, though.*
 
-### Security
+# Security
 
 Next, you should set up a new user without root privileges. You can do this by typing:
 

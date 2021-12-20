@@ -22,6 +22,13 @@ collections:
       - label: "Drafts"
         field: published
         pattern: false|null
+    view_groups:
+      - label: Year
+        field: date_published
+        # groups items based on the value matched by the pattern
+        pattern: \d{4}
+      - label: Drafts
+        field: draft
     fields:
       - name: title
         label: Title
@@ -38,7 +45,7 @@ collections:
         label: Published
         required: false
         widget: boolean
-      - name: featured_image
+      - name: image
         label: Featured Image
         widget: image
         media_folder: "/static/uploads"

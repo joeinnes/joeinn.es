@@ -5,9 +5,13 @@
 
   export async function load({ fetch, page }) {
     const getPosts = async (start: number, limit: number) => {
-      const res = await fetch(`/posts.json?limit=${limit}&start=${start}`);
-      const posts = await res.json();
-      return { posts, currentPage };
+      try {
+        const res = await fetch(`/posts.json?limit=${limit}&start=${start}`);
+        const posts = await res.json();
+        return { posts, currentPage };
+      } catch (e) {
+        console.error(e);
+      }
     };
 
     const postData = await getPosts((currentPage - 1) * pageSize, pageSize);
@@ -37,12 +41,9 @@
   }
 </script>
 
-<main class="article-list">
+<section>
   {#each items as item (item.path)}
-    <article>
-      <Article {item} />
-    </article>
+    <Article {item} />
   {/each}
-</main>
-
+</section>
 <Pagination bind:currentPage bind:pageCount />

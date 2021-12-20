@@ -4,7 +4,7 @@ date_published: 2016-03-13T15:40:00.000Z
 date_updated: 2018-03-03T15:40:31.000Z
 slug: migrating-from-meteor-hosting-meteor-com-to-my-own-vps
 published: true
-featured_image: /uploads/1_jA0pyxjpdC5IV79dClx9AQ.jpeg
+image: /uploads/1_jA0pyxjpdC5IV79dClx9AQ.jpeg
 tags: meteor, devops
 ---
 
@@ -12,7 +12,7 @@ Sad news — the free and simple hosting provided by Meteor is coming to an 
 
 I followed the steps below with a brand new Digital Ocean droplet, but this should work with any VPS you have access to. If you don’t have access to a VPS, check out [this article](https://medium.com/@joe.innes/choosing-a-vps-provider-fc4b3a7630bd). You’ll also need to configure SSH access using a key, but that’s not too complicated. Google-fu will help you.
 
-#### Deploying the app
+# Deploying the app
 
 The first step is to get the most recent version of the app itself — I *know* you’re using source control, so that won’t be a problem. Right?
 
@@ -61,7 +61,7 @@ Now for the fun bit — deploying your app. It’s as simple as:
 
 Now your app will be up and running on the new web host, accessible at the root URL you provided in the mup.json file.
 
-#### Migrating the data
+# Migrating the data
 
 When you access the app, you might notice that you’ve lost all of the data in it. If this bothers you, the process for migrating the data over is a little more involved, but not too difficult.
 

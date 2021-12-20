@@ -4,7 +4,7 @@ date_published: 2021-04-24T10:55:00.000Z
 date_updated: 2021-04-24T10:55:00.000Z
 slug: bit-of-bassline
 published: true
-featured_image: /uploads/delayna.jpg
+image: /uploads/delayna.jpg
 tags:
   - music
   - bassline

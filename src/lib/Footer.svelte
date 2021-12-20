@@ -1,14 +1,18 @@
-<footer class="bg-brand-900 text-brand-50">
-  <div
-    class="container w-screen md:w-5/6 lg:w-3/4 mx-auto font-body font-light p-16 flex justify-between"
-  >
-    <div class="text-3xl font-black">Joe Innes {new Date().getFullYear()} &copy;</div>
-
+<footer class="container">
+  <div class="grid">
     <div>
+      Joe Innes {new Date().getFullYear()} &copy;
+    </div>
+    <div style="text-align:center">
+      <a href="https://offen.joeinn.es/auditorium"
+        ><img src="https://offen.joeinn.es/user-access-widget-box-en.svg" alt="Offen Widget" /></a
+      >
+    </div>
+    <div style="text-align: right;">
       <a href="{import.meta.env.VITE_SITE_URL}/rss.xml">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-12 w-12"
+          style="height:1em;"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

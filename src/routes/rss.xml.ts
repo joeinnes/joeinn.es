@@ -44,11 +44,11 @@ export async function get() {
           <description>${VITE_SITE_NAME}</description>
           <link>${VITE_SITE_URL}/${post.path.slice(2).replace(/\.[^/.]+$/, '')}/</link>
           <pubDate>${new Date(post.metadata.date_published)}</pubDate>
-          <content:encoded>${truncate(post.content, 80, { byWords: true, stripTags: true, excludes: '#meta,header' })}
+          <content:encoded>${truncate(post.content, 280, { byWords: true, stripTags: true, excludes: '#meta,header' })}
             <div style="margin-top: 50px; font-style: italic;">
               <strong>
                 <a href="${VITE_SITE_URL}/${post.path.slice(2).replace(/\.[^/.]+$/, '')}">
-                  Keep reading
+                  Visit site for more
                 </a>
               </strong>  
             </div>

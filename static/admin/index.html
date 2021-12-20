@@ -1,5 +1,6 @@
 <!doctype html>
-<html>
+<!-- Force light theme because Netlify doesn't support dark mode -->
+<html data-theme="light">
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,7 +11,44 @@
     <!-- Include the script that builds the page and powers Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     <script>
-      CMS.registerPreviewStyle('../../src/styles/tailwind-output.css')
+      CMS.registerPreviewStyle('https://unpkg.com/@picocss/pico@latest/css/pico.min.css');
+      var PostPreview = createClass({
+        render: function () {
+          this.props.document.documentElement.dataset.theme = "light";
+          var entry = this.props.entry;
+          var title = entry.getIn(['data', 'title']);
+          var date_published = entry.getIn(['data', 'date_published']);
+          if (date_published) {
+            date_published = new Date(date_published);
+            date_published = date_published.toLocaleDateString({weekday: 'short', month: 'long', day: '2-digit', year: 'numeric'});
+          }
+          var tags = entry.getIn(['data', 'tags']);
+          var image = entry.getIn(['data', 'image']);
+          var bg = this
+            .props
+            .getAsset(image);
+          return h('div', {}, h('hgroup', {
+            id: 'meta'
+          }, h('h2', {}, title), h('span', {}, date_published + (
+            tags && tags.length
+            ? " • #" + tags.split(', ').join(' #')
+            : ''))), h('figure', {
+            style: {
+              width: "100%"
+            }
+          }, h('img', {
+            src: bg.url,
+            alt: title,
+            style: {
+              width: "100%"
+            }
+          })), h('div', {
+            "className": "text"
+          }, this.props.widgetFor('body')));
+        }
+      });
+
+      CMS.registerPreviewTemplate("posts", PostPreview);
       CMS.registerEditorComponent({
         // Internal id of the component
         id: "youtube-preview",

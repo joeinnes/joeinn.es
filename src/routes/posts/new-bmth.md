@@ -4,7 +4,7 @@ date_published: 2020-10-31T07:38:53.000Z
 date_updated: 2020-10-31T07:38:53.000Z
 slug: new-bmth
 published: true
-featured_image: /uploads/bmth-babymetal.jpg
+image: /uploads/bmth-babymetal.jpg
 tags:
   - music
 ---

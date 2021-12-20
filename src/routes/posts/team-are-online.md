@@ -3,18 +3,18 @@ title: Team Are Online
 date_published: 2020-09-22T17:48:00.000Z
 date_updated: 2020-09-22T22:03:34.000Z
 slug: team-are-online
-featured_image: /uploads/photo-1475506631979-72412c606f4d.jpg
+image: /uploads/photo-1475506631979-72412c606f4d.jpg
 tags: Portfolio
 ---
 > **Goal:** Enable teams to work remotely more effectively by displaying a 'status' which can be set easily
 
-### Stack
+# Stack
 
 Back End Platform: [OctoberCMS](http://octobercms.com/), running on a Ubuntu 20.04 server (Linux, Apache, SQLite PostgreSQL, PHP)
 
 Front-end: [Water.css](https://watercss.kognise.dev/)[Picnic.css](https://picnicss.com/)
 
-### Basic Technical Overview
+# Basic Technical Overview
 
 A custom plugin will add two new models: 'Projects' and 'States', as well as extending the user model (from [RainLab.User](https://octobercms.com/plugin/rainlab-user), which in itself extends the backend user) to add references to these two new models. A user belongs to one project and one state at a time.
 
@@ -22,7 +22,7 @@ Admins can create new projects and states from the backend. Users can log in usi
 
 Below this, they see a list of logged in users who are part of the same project as they are, and their states.
 
-### Extra Features
+# Extra Features
 
 Users can set a profile picture/avatar - if they choose not to specify one, an avatar will be generated for them by [RoboHash](https://robohash.org/), a cool service which converts a hash of any data into a unique looking robot
 
@@ -33,13 +33,13 @@ Users can set a profile picture/avatar - if they choose not to specify one, an a
 * Certain users can be flagged with a different background colour (eg: leads, etc.)
 * A 'god mode' exists, where an admin can monitor all users active on the application from a single view
 
-### How Does It Look?
+# How Does It Look?
 
 In the first screenshot, only 'Joe' is logged in. The state buttons are working, and the project name is 'Joe's Project'. Simultaneously, other users are logged in and their view is filtered to their own project.
 
 The second screenshot shows a redacted view where personal information is covered with a black box.
 
-### Challenges/Learning Points
+# Challenges/Learning Points
 
 * Although theoretically SQLite and Postgres have similar SQL dialects, migrating between the two is actually quite difficult. In particular, auto-incrementing primary keys are not migrated properly, and new sequences need to be created
 * Initially I started by simply extending the user model in my own plugin, and overriding forms etc in page partials. It made more sense (and so I eventually refactored) to override forms in my plugin
@@ -55,9 +55,9 @@ Even though the application is not advertised anywhere or publicly linked, I sti
 * /wp-content/plugins/wp-file-manager/lib/php/connector.minimal.php
 * /wp-content/plugins/wp-file-manager/lib/files/xxx.phpThese last two I believe to be linked to a [vulnerability recently discovered](https://arstechnica.com/information-technology/2020/09/hackers-are-exploiting-a-critical-flaw-affecting-350000-wordpress-sites/) in wp-file-manager, a WordPress plugin. This shows that although security through obscurity is not really security, and it's unlikely I would have been using this plug-in had I developed this app on WordPress, attackers are specifically hunting for WordPress sites with known exploits.
 
-### Code snippets
+# Code snippets
 
-### Add new sequences
+# Add new sequences
 
 ```
 # Create function to set up new sequences as appropriate

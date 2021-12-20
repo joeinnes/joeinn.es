@@ -4,7 +4,7 @@ date_published: 2020-06-28T11:41:24.000Z
 date_updated: 2020-06-28T11:44:44.000Z
 slug: music-quiz-1
 published: true
-featured_image: /uploads/photo-1470225620780-dba8ba36b745.jpg
+image: /uploads/photo-1470225620780-dba8ba36b745.jpg
 ---
 
 Like everyone else in quarantine, my family has been doing Zoom quizzes to try to fill the days.

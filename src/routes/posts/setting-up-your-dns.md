@@ -4,7 +4,7 @@ date_published: 2015-03-15T09:54:00.000Z
 date_updated: 2018-03-03T09:55:09.000Z
 slug: setting-up-your-dns
 published: true
-featured_image: /uploads/photo-1484662020986-75935d2ebc66.jpg
+image: /uploads/photo-1484662020986-75935d2ebc66.jpg
 tags: devops, dns
 ---
 

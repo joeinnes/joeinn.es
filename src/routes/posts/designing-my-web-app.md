@@ -4,17 +4,17 @@ date_published: 2015-04-08T09:01:00.000Z
 date_updated: 2018-03-03T10:01:31.000Z
 slug: designing-my-web-app
 published: true
-featured_image: /uploads/photo-1509042009371-65fa830819f1.jpg
+image: /uploads/photo-1509042009371-65fa830819f1.jpg
 tags: web dev, react
 ---
 
 I’ve found a gap in the market. This is going to earn me billions. I’ve already chosen my Ferrari. All I have to do now is actually make the damn thing.
 
-#### What is it?
+# What is it?
 
 It’s an employee training tracker. Yes, we can use Excel spreadsheets, Access databases, and pen and paper, but it doesn’t do all the fun stuff I want it to do.
 
-#### What fun stuff?
+# What fun stuff?
 
 Glad you asked.
 
@@ -23,7 +23,7 @@ Glad you asked.
 - It’ll list trainers, and how many trainings have been completed in a particular week, along with what the training was and how long it took.
 - It’ll have fancy interfaces for setting new trainings, adding trainers and trainees, and dashboard views.
 
-#### Who’s going to use it?
+# Who’s going to use it?
 
 The application will be used by three distinct groups, but realistically, it is mostly a compliance and reporting tool. Trainees are unlikely to ever actually bother checking. The three groups are:
 
@@ -31,11 +31,11 @@ The application will be used by three distinct groups, but realistically, it is 
 - Trainers — to access resources and log trainings delivered
 - Compliance officers and on-boarding managers — to check status dashboards and provide lists of trainings delivered for *ISO9000/ISO9001* compliance
 
-#### Why am I going to do this?
+# Why am I going to do this?
 
 Well, put simply, it fills a gap. I am currently training new joiners at work, and find that our programme is not logically constructed, resources are all over the place, and reporting that a training has been completed is done via email. Hardly ideal, reliable, or thorough.
 
-#### How am I going to do this?
+# How am I going to do this?
 
 Now for the fun question. The How. It will be a web application that interfaces with a backend API. The backend API will be simple, ArrestDB looks fine for my needs to begin with. The database it sits in front of will have three tables:
 
@@ -51,13 +51,13 @@ There will also be a few reporting views. One will list all available trainings,
 
 I have decided to use React to implement the front-end JavaScript, although I’m more familiar with Angular. I will slap a Bootstrap front-end on it to begin with it, and worry about theming it later.
 
-#### What about version 2.0?
+# What about version 2.0?
 
 Version 2.0 will feature passwordless logins, securing the front-end and the API using authentication tokens sent to the user’s registered email, and then stored locally on the browser. As hotdesking is common in my environment, 10 tokens will be valid at the same time, with the user able to revoke any token at any time, or all of them. Exporting to CSV will have been implemented. Theming will be implemented, as will branding.
 
 There will be a “training planner”, where multiple employees can be selected, and a list of trainings for which they are all eligible calculated. There may be some exciting calendar integration, but no promises.
 
-#### Wow, that sounds awesome, can I help?
+# Wow, that sounds awesome, can I help?
 
 Sure! I will publish the GitHub repository alongside a “first commit” post in the coming days. If you steal my idea and run with it on your own though, I’ll hunt you down.
 

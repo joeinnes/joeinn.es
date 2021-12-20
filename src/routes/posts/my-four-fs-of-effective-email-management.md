@@ -4,7 +4,7 @@ date_published: 2016-04-04T14:44:00.000Z
 date_updated: 2018-03-03T15:44:46.000Z
 slug: my-four-fs-of-effective-email-management
 published: true
-featured_image: /uploads/photo-1484480974693-6ca0a78fb36b.jpg
+image: /uploads/photo-1484480974693-6ca0a78fb36b.jpg
 tags: email, productivity
 ---
 
@@ -14,7 +14,7 @@ My mailbox is my to-do list.
 
 I rarely have action items that are not generated directly from an email, and I hate duplicating my efforts.
 
-#### What I’ve tried
+# What I’ve tried
 
 I’ve tried every productivity system going. GTD, Pomodoro, Don’t Break The Chain, Trusted Trio, and many more, and none of them really fit well with the way my work goes. I can rarely dedicate 25 uninterrupted minutes to a task, I don’t have daily tasks, and GTD means I spend more time filing and logging my daily tasks than I do working on them.
 
@@ -22,7 +22,7 @@ I’ve always loved the Inbox Zero ideology, but [the key principles](http://wha
 
 Instead, I have developed my own system, based on Microsoft’s PIFEM with only a few tweaks.
 
-#### PIFEM In One Minute
+# PIFEM In One Minute
 
 - PIFEM uses a series of Outlook Categories and Due Date Flags for all items in your Inbox.
 - 4 Search folders are configured to allow you to filter on items that are only Due on certain days, and are grouped by Category/Priority
@@ -32,7 +32,7 @@ Instead, I have developed my own system, based on Microsoft’s PIFEM with only 
 - Low priority items to be read on “your bookshelf”
 - Most importantly, it allows you to prioritise each item, and it allows you to define when you want to work on an item.
 
-#### How I adapted it
+## How I adapted it
 
 First of all, I analysed my current ways of working, and determined ways to streamline the process. I based my steps on the 4 D’s:
 
@@ -43,23 +43,23 @@ First of all, I analysed my current ways of working, and determined ways to stre
 
 This was a great starting point, but there were some tweaks I needed to make.
 
-#### Delete
+## Delete
 
 I try *never* to delete emails. This is partly for evidence reasons (CYA in case someone accuses me of not doing my job properly), and partly for reference reasons. A lot of useful knowledge is stored in my mailbox, and I want that to be available and searchable further down the line. I played around for a while with calling this step ‘Archive’, before settling on ‘File’ (File fits my 4 F’s mnemonic).
 
-#### Delay
+## Delay
 
 There’s never any reason simply to delay acting on an email. The only kind of email that needs ‘delaying’ is one that requires action, but not immediately. As a result, I renamed this step ‘Follow-up’.
 
-#### Delegate
+## Delegate
 
 I rarely need to delegate something — I’m not yet high enough in the food chain. If it’s not something I can act on, I need to Forward it to someone who can act on it.
 
-#### Do
+## Do
 
 At the end of the day, this is the whole point of any productivity system — *doing stuff*. And what’s the point of *doing* stuff? To finish it. Yes, I might get involved in a longer email thread with multiple action points, but each email is likely to only have one or two action items, and I should be able to Finish with the email.
 
-#### The Four F’s
+## The Four F’s
 
 Most time management systems insist on spending no longer than two minutes on each email. My system is to spend *as long as I need* until I’m ready to classify the message based on my four F’s. I work through the F’s in this way for each new email:
 
@@ -68,11 +68,11 @@ Most time management systems insist on spending no longer than two minutes on ea
 3. **Follow-up** — I’ve decided not to Finish this, and not to Forward it for someone else to Finish. Is this a task I need to do at some point? If it is, schedule a Follow Up. This may be today, tomorrow, at some point this week or at some point next week. If I don’t need to do anything, then move on to the final step.
 4. **File** — move this email to an archive, as it contains no actionable tasks.
 
-#### Practical Setup
+# Practical Setup
 
 You’ll need to set up a few quick steps and a few folders in order for the system to work effectively.
 
-#### Folders
+## Folders
 
 You should create a single, ‘Filed’ folder. You can call this what you like, but this will be the holding ground for all of your emails once they’re cleared out of your inbox.
 
@@ -85,7 +85,7 @@ Next, you’ll need to set up a few custom search folders, searching in your Inb
 
 You’re all set with your folders, now to set up the Quick Steps
 
-#### Quick Steps
+## Quick Steps
 
 The following quick steps should be set up. You can fiddle with these a little if you want to set up any additional preferences or classifications.
 
@@ -99,7 +99,7 @@ The following quick steps should be set up. You can fiddle with these a little i
 
 You’ll notice that quick steps 1 and 4 do the exact same thing. It is intentional that these are separated — the idea is to force me to decide how to handle the email. The ‘Finish’ quick step is only for once I have completed any action items, the ‘File’ step means no action is required. You could consolidate these quick steps into one if you like, but I would recommend against it to avoid confusion.
 
-#### Usage Examples
+# Usage Examples
 
 Now you’re all set up, you just need to practice using the system. I’ve put a few examples below, feel free to think about your own
 

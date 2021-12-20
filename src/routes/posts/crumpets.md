@@ -4,7 +4,7 @@ date_published: 2020-05-18T16:23:00.000Z
 date_updated: 2020-05-18T16:23:00.000Z
 slug: crumpets
 published: true
-featured_image: /uploads/photo-1583729250536-d5fb10401671.jpg
+image: /uploads/photo-1583729250536-d5fb10401671.jpg
 tags:
   - recipe
 ---
@@ -12,7 +12,7 @@ tags:
 Apparently, the below is Warburton's crumpet recipe... something fun for me to try out (just need to find a biscuit cutter):
 [https://www.manchestereveningnews.co.uk/whats-on/food-drink-news/warburtons-shares-secret-famous-crumpet-18248844](https://www.manchestereveningnews.co.uk/whats-on/food-drink-news/warburtons-shares-secret-famous-crumpet-18248844)
 
-### Ingredients:
+# Ingredients:
 
 *Bakes six*
 
@@ -23,7 +23,7 @@ Apparently, the below is Warburton's crumpet recipe... something fun for me to t
 - 1 teaspoon baking powder
 - 1 teaspoon dried yeast
 
-### Method:
+# Method:
 
 1. Add flour, water and salt to a mixing bowl
 2. Mix vigorously with a whisk until your arm aches (at least five minutes) to create your crumpet batter

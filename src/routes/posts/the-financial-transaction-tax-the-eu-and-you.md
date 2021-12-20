@@ -4,7 +4,7 @@ date_published: 2013-11-27T09:17:00.000Z
 date_updated: 2018-03-03T09:21:17.000Z
 slug: the-financial-transaction-tax-the-eu-and-you
 published: true
-featured_image: /uploads/1_a9UR7pXrimVkW-OPUDWkgQ.jpeg
+image: /uploads/1_a9UR7pXrimVkW-OPUDWkgQ.jpeg
 tags: eu, politics
 ---
 

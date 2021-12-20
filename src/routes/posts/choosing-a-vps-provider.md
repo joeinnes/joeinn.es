@@ -4,7 +4,7 @@ date_published: 2015-04-08T08:57:00.000Z
 date_updated: 2018-03-03T09:58:25.000Z
 slug: choosing-a-vps-provider
 published: true
-featured_image: /uploads/photo-1484557052118-f32bd25b45b5.jpg
+image: /uploads/photo-1484557052118-f32bd25b45b5.jpg
 tags: devops, vps
 ---
 
@@ -16,7 +16,7 @@ Choose the type of VPS you would like with the sliders on the home page, and cho
 
 You will see the following page:
 
-![](https://cdn-images-1.medium.com/max/800/0*kvX1ZZKuq4CNKX2J.png)
+![Screenshot of VPS Dime](https://cdn-images-1.medium.com/max/800/0*kvX1ZZKuq4CNKX2J.png)
 
 Choose an appropriate hostname (it doesn’t have to be anything linked to your website, it doesn’t matter really here, it’s just for you to identify the server). **Make a note of the root password!** You will need this later.
 

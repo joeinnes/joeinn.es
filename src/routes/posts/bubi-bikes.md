@@ -4,7 +4,7 @@ date_published: 2017-12-04T08:41:00.000Z
 date_updated: 2020-03-15T08:43:02.000Z
 slug: bubi-bikes
 published: true
-featured_image: /uploads/bkk_bubi_ss.jpg
+image: /uploads/bkk_bubi_ss.jpg
 tags: Portfolio
 ---
 

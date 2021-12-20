@@ -4,7 +4,7 @@ date_published: 2014-02-04T09:32:00.000Z
 date_updated: 2018-03-03T09:35:13.000Z
 slug: francois-hollande-caught-with-his-trousers-down-but-so-what
 published: true
-featured_image: /uploads/1_l-rAQPjg7iZf5Q7k1BJJAw.jpeg
+image: /uploads/1_l-rAQPjg7iZf5Q7k1BJJAw.jpeg
 tags: politics, eu, france
 ---
 
