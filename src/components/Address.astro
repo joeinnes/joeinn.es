@@ -1,0 +1,4 @@
+<p class="text-right print:leading-snug print:my-0">
+	Nyáry Pál utca 9<br />1056 Budapest<br />
+	<a href="mailto:joe@joeinn.es">joe@joeinn.es</a>
+</p>

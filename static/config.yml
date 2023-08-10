@@ -1,0 +1,64 @@
+backend:
+  name: github
+  branch: main # Branch to update (optional; defaults to master)
+  repo: joeinnes/sk-blog
+
+media_folder: 'static/media/uploads'
+public_folder: '/media/uploads'
+site_url: https://joeinn.es
+display_url: https://joeinn.es
+
+logo_url: https://joeinn.es/android-chrome-512x512.png
+show_preview_links: true
+
+collections:
+  - name: 'blog' # Used in routes, e.g., /admin/collections/blog
+    label: 'Blog' # Used in the UI
+    folder: 'src/content' # The path to the folder where the documents are stored
+    label_singular: 'Post' # Used in the UI, ie: "New Post"
+    description: >
+      Thoughts and treatises from my mind.
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Excerpt', name: 'excerpt', widget: 'text' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Draft', name: 'draft', widget: 'boolean', default: false, required: false }
+      - { label: 'Featured Image', name: 'featured_image', widget: 'image', required: false }
+      - {
+          label: 'Title Should Overlay Image?',
+          name: 'title_overlays_featured_image',
+          widget: 'boolean',
+          default: false,
+          required: false
+        }
+      - {
+          label: 'Page Background',
+          name: 'page_bg',
+          widget: 'string',
+          default: '',
+          required: false
+        }
+      - {
+          label: 'Content Background Colour',
+          name: 'content_bg_colour',
+          widget: 'color',
+          required: false
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+    view_groups:
+      - label: Year
+        field: date
+        pattern: \d{4}
+      - label: 'Has Image'
+        field: featured_image
+        pattern: ''
+    view_filters:
+      - label: 'No Image'
+        field: featured_image
+        pattern: false
+      - label: Drafts
+        field: draft
+        pattern: true

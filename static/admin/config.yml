@@ -1,0 +1,35 @@
+media_folder: 'static/media/uploads'
+public_folder: '/media/uploads'
+
+local_backend: true
+
+backend:
+  name: github
+  repo: joeinnes/joeinn.es-sk # Path to your GitHub repository
+
+collections:
+  - name: 'blog' # Used in routes, e.g., /admin/collections/blog
+    label: 'Blog' # Used in the UI
+    folder: 'src/content/blog' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Update Date', name: 'date_updated', widget: 'datetime' }
+      - {
+          label: 'Featured Image',
+          name: 'featured_image',
+          widget: 'image',
+          required: false,
+          hint: 'If no image is provided, an Unsplash search will be made for the image and automatically added to the post.'
+        }
+      - {
+          label: 'Page Background',
+          name: 'page_bg',
+          widget: 'string',
+          required: false,
+          hint: 'This is passed directly to the CSS property for the page background. Any valid CSS can be used here - hex codes, RGB/HSL values, url(), etc.'
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
