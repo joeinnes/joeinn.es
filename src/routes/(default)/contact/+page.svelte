@@ -1,8 +1,5 @@
 <script>
 	import { enhance } from '$app/forms';
-
-	/** @type {import('./$types').PageData} */
-	export let data;
 </script>
 
 <div class="max-w-[100%] w-[70ch] mx-auto md:pt-16 lg:pt-0">
