@@ -6,7 +6,7 @@
 </script>
 
 {#key url}
-	<div class="transition" transition:blur>
+	<div class="transition" in:blur>
 		<slot />
 	</div>
 {/key}

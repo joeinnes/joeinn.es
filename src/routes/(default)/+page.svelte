@@ -23,7 +23,7 @@
 	status quo for opportunities to innovate or improve.
 </p>
 <a
-	href="mailto:joe@joeinn.es"
+	href="/contact"
 	class="p-2 px-4 no-underline bg-primary-700 text-white rounded self-center hover:bg-primary-900 focus:bg-primary-900 transition-colors"
 	>Want to talk?</a
 >
