@@ -57,7 +57,7 @@ Or we can use the golden ratio of 1.618:
 
 <ColourSwatch h={201 * 1.618} s={85} l={31} />
 
-By only changing one value at a time, you can create even very different hues which look visually consistent. Another trick you can use if you need to generate something that looks consistent and is repeatable but different with different inputs is one I used the other day in my post about [Avenir](/avenir).
+By only changing one value at a time, you can create even very different hues which look visually consistent. Another trick you can use if you need to generate something that looks consistent and is repeatable but different with different inputs is one I used the other day in my post about [Avenir](/blog/avenir).
 
 Each font sample is generated dynamically, just by using the `.charCodeAt()` string method, and a `reduce()` function to calculate a number. Then, I use the `%` operator to make sure that my value falls in the range of 0-360. Now I've got a (semi) unique hue for my font, I can play with saturations and lightnesses to produce a card that looks good regardless of the font.
 

@@ -130,7 +130,6 @@
 	let voteStats;
 	let seatsPerVoteShare = 0;
 	$: {
-		console.log('update');
 		voteStats = votingData[year][votedFor];
 		votesPerSeat = Math.round(voteStats.votes / voteStats.seats);
 		seatsPerVoteShare = Math.round((voteStats.votes / totals[year].votesForWinningParties) * 650);

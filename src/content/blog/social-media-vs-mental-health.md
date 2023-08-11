@@ -2,8 +2,8 @@
 title: Social Media vs Mental Health
 date: 2023-03-17T22:20:54.000Z
 excerpt: How does social media impact mental health? Well, since Instagram became a big thing, it seems pretty bad, especially for girls.
+date_updated: 2023-08-12T10:31:00.000Z
 ---
-
 I read a really interesting article recently, which I'm linking here: https://jonathanhaidt.substack.com/p/social-media-mental-illness-epidemic.
 
 The article explores a 'mental illness epidemic in teen girls', and puts forward an exceptionally strong argument that this is _caused by_ social media.
@@ -30,7 +30,7 @@ Having individual children quit social media may have net negative consequences 
 
 Furthermore, as the graph below shows, 'low dose' usage (an hour or two per day) is not much worse than not using social media at all—in fact for boys it even appears that up to 2 hours per day is even beneficial. However, the correlation is very high.
 
-![Percent of UK Teens Depressed as a Function of Hours per Weekday on Social Media](/public/media/uploads/depressionvssocialmedia.webp)
+![Percent of UK Teens Depressed as a Function of Hours per Weekday on Social Media](/media/uploads/depressionvssocialmedia.webp)
 
 It was also interesting to note that 'controlling for these psychological variables [that are potential mediators of a relationship between social media usage and poor mental health, such as negative attitudes about school and closeness with parents] heavily suppressed the relationship between social media use and poor mental health.'
 
