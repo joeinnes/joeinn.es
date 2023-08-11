@@ -6,6 +6,8 @@ local_backend: true
 backend:
   name: github
   repo: joeinnes/joeinn.es-sk # Path to your GitHub repository
+  branch: main
+  base_url: https://sveltia-cms-auth.joeinnes.workers.dev/
 
 collections:
   - name: 'blog' # Used in routes, e.g., /admin/collections/blog
