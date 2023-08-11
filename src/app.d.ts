@@ -9,4 +9,16 @@ declare global {
 	}
 }
 
-export {};
+declare global {
+	type Post = {
+		slug: string,
+		layout?: string,
+		title: string,
+		date: string,
+		date_updated?: string,
+		featured_image?: string,
+		page_bg?: string,
+		excerpt?: string
+	}
+}
+export { };

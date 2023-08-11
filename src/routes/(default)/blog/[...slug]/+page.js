@@ -1,27 +1,17 @@
 import { error } from '@sveltejs/kit';
 
-/** @param {string} path */
-const slugFromPath = (path) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
-
 /** @type {import('./$types').PageLoad} */
 export async function load({ params }) {
-	const modules = import.meta.glob(`/src/content/blog/*.{md,mdx}`);
+	try {
+		const post =
+			(await import(`/src/content/blog/${params.slug}.md`)) ||
+			(await import(`/src/content/blog/${params.slug}.mdx`));
 
-	//: { path?: string; resolver?: App.MdsvexResolver }
-	let match = {};
-	for (const [path, resolver] of Object.entries(modules)) {
-		if (slugFromPath(path) === params.slug) {
-			match = { path, resolver };
-			break;
-		}
+		return {
+			content: post.default,
+			meta: post.metadata
+		};
+	} catch (e) {
+		throw error(404, `Could not find ${params.slug}`);
 	}
-	const post = await match?.resolver?.();
-	if (!post) {
-		throw error(404); // Couldn't resolve the post
-	}
-
-	return {
-		component: post.default,
-		frontmatter: post.metadata
-	};
 }

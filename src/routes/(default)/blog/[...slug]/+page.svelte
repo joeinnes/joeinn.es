@@ -6,30 +6,30 @@
 	export let data;
 </script>
 
-{#if data.component}
+{#if data.content}
 	<article
-		class="prose lg:prose-xl prose-headings:font-bold prose-zinc rounded-xl mx-auto shadow-2xl relative overflow-hidden bg-white"
+		class="prose lg:prose-xl prose-headings:font-bold prose-zinc rounded-xl mx-auto shadow-2xl relative overflow-hidden bg-white prose-li:ml-4 md:prose-li:ml-0"
 		style="width: min(65ch, 100%);"
 	>
 		<div class="aspect-[21/9] header-image content not-prose shadow">
 			<img
-				alt={data.frontmatter.title}
-				src={data.frontmatter.featured_image ||
-					'https://source.unsplash.com/random/?' + encodeURIComponent(data.frontmatter.title)}
+				alt={data.meta.title}
+				src={data.meta.featured_image ||
+					'https://source.unsplash.com/random/?' + encodeURIComponent(data.meta.title)}
 				style="padding: 0px"
-				class="aspect-[21/9] object-cover rounded-none"
+				class="aspect-[4/3] md:aspect-[21/9] object-cover rounded-none"
 			/>
 		</div>
 
 		<hgroup class="content meta">
-			<h1>{data.frontmatter.title}</h1>
-			<small>{dayjs(data.frontmatter.date).format('dddd D MMM YYYY, h:mm a')}</small>
+			<h1>{data.meta.title}</h1>
+			<small>{dayjs(data.meta.date).format('dddd D MMM YYYY, h:mm a')}</small>
 		</hgroup>
 
 		<div class="content">
-			<svelte:component this={data.component} />
+			<svelte:component this={data.content} />
 
-			<div class="flex justify-end" style={`grid-column: 2; color: ${data.frontmatter.page_bg}`}>
+			<div class="flex justify-end" style={`grid-column: 2; color: ${data.meta.page_bg}`}>
 				<Signature />
 			</div>
 		</div>

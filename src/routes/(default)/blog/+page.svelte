@@ -1,46 +1,71 @@
 <script>
+	import { Heading2, Search } from 'lucide-svelte';
 	export let data;
 	const { posts } = data;
+	/** @type string */
+	let search;
+
+	let filteredPosts = posts;
+	$: if (search) {
+		filteredPosts = posts.filter((el) => el.title?.indexOf(search) > -1);
+	} else {
+		filteredPosts = posts;
+	}
 </script>
 
-<div class="max-w-[70ch] mx-auto pt-16 lg:pt-0">
+<div class="max-w-[100%] w-[70ch] mx-auto md:pt-16 lg:pt-0">
 	<div class="mb-8 flex flex-col place-items-center w-full relative">
 		<h1 class="text-3xl lg:text-5xl font-bold">Joe Innes's Blog</h1>
+
+		<div class="w-5/6 relative">
+			<div
+				class="absolute left-0 bottom-0 aspect-square h-auto grid place-items-center pb-2 text-gray-400"
+			>
+				<Search />
+			</div>
+			<input
+				type="text"
+				bind:value={search}
+				class="border-b-2 w-full pl-10 outline-none text-ellipsis"
+				placeholder="Search (e.g.: {posts[Math.floor(Math.random() * posts.length)]?.title})"
+			/>
+		</div>
 	</div>
 
 	<div
-		class="flex flex-col text-ellipsis overflow-hidden divide-y gap-4"
+		class="flex flex-col text-ellipsis overflow-hidden divide-y gap-8"
 		style="--border-bottom-hover: black"
 	>
-		{#each posts as post}
+		{#each filteredPosts as post}
 			<a href="/blog/{post?.slug}" class="no-underline font-normal">
-				<article
-					class="pt-4 flex flex-col justify-start items-start"
-					style="--border-colour: {post?.metadata?.page_bg || 'black'};"
-				>
-					<h2 class="inline-block text-2xl">
-						<br />
-						{post?.metadata?.title}
-					</h2>
-					{post?.metadata?.excerpt}
+				<article class="prose-h2:mb-0" style="--border-colour: {post?.page_bg || 'black'};">
+					<div class="mt-8">
+						<h2 class="text-xl md:text-3xl inline">
+							{post?.title}
+						</h2>
+					</div>
+
+					{post?.excerpt || "No excerpt available for this post. Click and see what's inside!"}
 				</article>
 			</a>
-			<!--
-		{sortedBlogEntries.map(blogPostEntry => <BlogPostEntry post={blogPostEntry} />)}
-			<!-- blogPostEntry.data.title?.toLowerCase().indexOf(searchString.toLowerCase()) > -1 && <BlogPostEntry post={blogPostEntry} />
-		-->
+		{:else}
+			Hmm, no results for "{search}", try something else?
 		{/each}
 	</div>
 </div>
 
 <style lang="postcss">
-	article h2:after {
-		content: '';
-		border-color: var(--border-colour);
-		@apply transition-transform border-b-4 scale-0 block
-			origin-left;
+	article h2 {
+		text-decoration: none;
+		background-image: linear-gradient(var(--border-colour), var(--border-colour));
+		background-position: 0% 100%;
+		background-repeat: no-repeat;
+		background-size: 0% 0.3rem;
+		transition: background-size 0.3s;
 	}
-	article h2:hover:after {
-		@apply scale-100;
+
+	article:hover h2,
+	article:focus h2 {
+		background-size: 100% 0.3rem;
 	}
 </style>
