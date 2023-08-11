@@ -2,6 +2,10 @@ media_folder: 'static/media/uploads'
 public_folder: '/media/uploads'
 
 local_backend: true
+site_url: https://joeinn.es
+display_url: https://joeinn.es
+logo_url: https://joeinn.es/android-chrome-512x512.png
+show_preview_links: true
 
 backend:
   name: github
@@ -12,6 +16,9 @@ backend:
 collections:
   - name: 'blog' # Used in routes, e.g., /admin/collections/blog
     label: 'Blog' # Used in the UI
+    label_singular: 'Post' # Used in the UI, ie: "New Post"
+    description: >
+      Joe Innes's blog
     folder: 'src/content/blog' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
@@ -35,3 +42,17 @@ collections:
           hint: 'This is passed directly to the CSS property for the page background. Any valid CSS can be used here - hex codes, RGB/HSL values, url(), etc.'
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+    view_groups:
+      - label: Year
+        field: date
+        pattern: \d{4}
+      - label: 'Has Image'
+        field: featured_image
+        pattern: ''
+    view_filters:
+      - label: 'No Image'
+        field: featured_image
+        pattern: false
+      - label: Drafts
+        field: draft
+        pattern: true
