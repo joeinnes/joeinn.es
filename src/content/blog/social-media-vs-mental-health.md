@@ -3,6 +3,7 @@ title: Social Media vs Mental Health
 date: 2023-03-17T22:20:54.000Z
 excerpt: How does social media impact mental health? Well, since Instagram became a big thing, it seems pretty bad, especially for girls.
 date_updated: 2023-08-12T10:31:00.000Z
+featured_image: https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0ODc5MjF8MHwxfHNlYXJjaHwyfHxzb2NpYWwlMjBtZWRpYXxlbnwwfHx8fDE2OTE3OTUxMTR8MA&ixlib=rb-4.0.3&q=80&w=1080
 ---
 I read a really interesting article recently, which I'm linking here: https://jonathanhaidt.substack.com/p/social-media-mental-illness-epidemic.
 
