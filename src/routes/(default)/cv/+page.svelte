@@ -1,8 +1,8 @@
 <div class="text-center mb-4">
-	<a href="/Joe Innes - CV.pdf" download class=" px-4 py-2 bg-primary-700 text-white rounded"
+	<a href="/Joe Innes - CV.pdf" download class="whitespace-nowrap px-4 py-2 bg-primary-700 text-white rounded"
 		>Download a copy</a
 	>
-	<a href="/contact" class=" px-4 py-2 border-primary-700 border rounded"
+	<a href="/contact" class="whitespace-nowrap px-4 py-2 border-primary-700 border rounded"
 		>Need a different format?</a
 	>
 </div>
