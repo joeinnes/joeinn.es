@@ -15,6 +15,7 @@ backend:
 
 collections:
   - name: 'blog' # Used in routes, e.g., /admin/collections/blog
+    icon: 'edit'
     label: 'Blog' # Used in the UI
     label_singular: 'Post' # Used in the UI, ie: "New Post"
     description: >
@@ -42,6 +43,43 @@ collections:
           hint: 'This is passed directly to the CSS property for the page background. Any valid CSS can be used here - hex codes, RGB/HSL values, url(), etc.'
         }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+    view_groups:
+      - label: Year
+        field: date
+        pattern: \d{4}
+      - label: 'Has Image'
+        field: featured_image
+        pattern: ''
+    view_filters:
+      - label: 'No Image'
+        field: featured_image
+        pattern: false
+      - label: Drafts
+        field: draft
+        pattern: true
+  - name: 'coffees'
+    icon: 'coffee_maker'
+    label: 'Coffees' # Used in the UI
+    label_singular: 'Coffee' # Used in the UI, ie: "New Post"
+    description: >
+      Coffees that we have tasted
+    folder: 'src/content/coffees' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'coffee' }
+      - { label: 'Name', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Update Date', name: 'date_updated', widget: 'datetime' }
+      - { label: 'Featured Image', name: 'featured_image', widget: 'image', required: true }
+      - { label: 'Cost', name: 'cost', hint: 'Cost per kg in HUF', widget: 'number' }
+      - {
+          label: 'Rating',
+          name: 'rating',
+          widget: 'select',
+          options: ['★☆☆☆☆', '★★☆☆☆', '★★★☆☆', '★★★★☆', '★★★★★']
+        }
+      - { label: 'Description', name: 'body', widget: 'markdown' }
     view_groups:
       - label: Year
         field: date
