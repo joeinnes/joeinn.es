@@ -3,8 +3,8 @@ title: Terrified of Tech?
 date: 2021-01-04T23:31:39.000Z
 date_updated: 2021-01-08T23:37:28.000Z
 draft: true
+featured_image: https://images.unsplash.com/photo-1518770660439-4636190af475?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0ODc5MjF8MHwxfHNlYXJjaHwzfHx0ZWNobm9sb2d5fGVufDB8fHx8MTY5MjE3MzI2Nnww&ixlib=rb-4.0.3&q=80&w=1080
 ---
-
 You've been dropped in at the deep end without any training? Or you got some training but it was all done by your IT person and you couldn't keep up?
 
 Drop me an email at [joe@joeinn.es](mailto:joe@joeinn.es) and I'll reach out to you discreetly to arrange a one-to-one session where I can help you get to grips with Zoom, Teams, or whatever you need help with.

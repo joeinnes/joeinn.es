@@ -2,8 +2,8 @@
 title: The beginning of the end of advertising?
 date: 2020-10-17T14:00:00.000Z
 date_updated: 2021-01-11T21:39:36.000Z
+featured_image: https://images.unsplash.com/photo-1479660095429-2cf4e1360472?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0ODc5MjF8MHwxfHNlYXJjaHwzfHxhZHZlcnRpc2luZ3xlbnwwfHx8fDE2OTIxNzMzODZ8MA&ixlib=rb-4.0.3&q=80&w=1080
 ---
-
 Once upon a time, Google sat in the middle. You had a question, and Google could help you find someone who knew the answer.
 
 Google built an ecosystem around advertising. There were (and still are) other advertising networks, where you can dedicate a portion of your website to the highest bidder. Google's advertising network though is consistently considered as one of the biggest, and Google have worked hard to make it easy to implement, even for non-technical people.

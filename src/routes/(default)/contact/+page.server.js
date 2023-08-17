@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import { CONTACT_WEBHOOK_URL } from '$env/static/private';
 
 /** @type {import('./$types').Actions} */
@@ -14,10 +16,10 @@ export const actions = {
 				body
 			};
 
-			await fetch(CONTACT_WEBHOOK_URL, {
+			/* await fetch(CONTACT_WEBHOOK_URL, {
 				method: 'POST',
 				body: JSON.stringify(email)
-			});
+			});*/
 			return 'NICE';
 		} catch (e) {
 			console.error(e);
