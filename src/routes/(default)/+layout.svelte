@@ -1,5 +1,6 @@
 <script>
 	import Menu from '$components/Menu.svelte';
+	import Footer from '$components/Footer.svelte';
 </script>
 
 <div class="flex flex-col items-center gap-4">
@@ -10,6 +11,8 @@
 	>
 		<slot />
 	</main>
+
+	<Footer />
 </div>
 
 <style lang="postcss">
