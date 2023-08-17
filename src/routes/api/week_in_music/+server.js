@@ -13,24 +13,28 @@ export async function GET() {
 }
 
 /** @type {import('./$types').RequestHandler} */
-export async function POST({ request, url }) {
-	const code = url.searchParams.get('code');
-	if (!request.body) throw error(400, 'What have you done?');
-	if (code !== 'super-titkos-code') throw error(401, `Sorry Dave, I can't let you do that.`);
-	const image = await request.blob();
-	const formData = new FormData();
-	if (image && typeof image !== 'string') {
-		formData.append('image', image);
-	}
+export async function POST({ request }) {
+	try {
+		const code = request.headers.get('code');
+		if (!request.body) throw error(400, 'What have you done?');
+		if (code !== SECRET_CODE) throw error(401, `Sorry Dave, I can't let you do that.`);
+		const image = await request.blob();
+		const formData = new FormData();
+		if (image && typeof image !== 'string') {
+			formData.append('image', image);
+		}
 
-	const response = await fetch('https://api.innes.hu/api/collections/week_in_music/records', {
-		method: 'POST',
-		body: formData
-	});
-	console.log(await response.json());
-	return json({ ok: true }, { status: 200 });
-	const records = await response.json();
-	const file = `https://api.innes.hu/api/files/week_in_music/${records.items[0].id}/${records.items[0].image}`;
-	const res = await fetch(file);
-	return res;
+		const response = await fetch('https://api.innes.hu/api/collections/week_in_music/records', {
+			method: 'POST',
+			headers: {
+				code
+			},
+			body: formData
+		});
+		const jsonVal = await response.json();
+		return json(jsonVal, { status: 200 });
+	} catch (e) {
+		console.error(e);
+		throw error(500, `Not quite sure what happened, but that didn't work.`);
+	}
 }
