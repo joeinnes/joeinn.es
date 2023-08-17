@@ -19,6 +19,19 @@ declare global {
 		featured_image?: string,
 		page_bg?: string,
 		excerpt?: string
+		draft?: boolean
+	}
+	type Coffee = {
+		title: string;
+		date: string;
+		date_updated: string;
+		featured_image: string;
+		cost: string;
+		rating: string;
+		body: {
+			css: string;
+			html: string;
+		};
 	}
 }
 export { };

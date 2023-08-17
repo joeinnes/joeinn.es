@@ -15,11 +15,11 @@
 </svelte:head>
 <PageTransition url={data.url}>
 	<div
-		style="background: {($page.error && 'white') ||
-			$page.data.bgOverride ||
-			$page.data.meta?.page_bg ||
-			`hsl(${Math.random() * 360} ${Math.random() * 100}% ${Math.random() * 100}%)`}"
-		class="min-h-full relative overflow-x-hidden pb-8"
+		style="background: {data.url.startsWith('/blog/') &&
+			(($page.error && 'white') ||
+				$page.data.meta?.page_bg ||
+				`hsl(${Math.random() * 360} ${Math.random() * 100}% ${Math.random() * 100}%)`)}"
+		class="min-h-full relative overflow-x-hidden"
 	>
 		<slot />
 	</div>

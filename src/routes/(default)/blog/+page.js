@@ -6,7 +6,10 @@ export async function load({ fetch }) {
 		const response = await fetch('api/blog');
 		/** @type Post[] */
 		const posts = await response.json();
-		return { posts, bgOverride: 'white' };
+		return {
+			posts: posts.filter((el) => !el.draft && new Date(el.date) < new Date()),
+			bgOverride: 'white'
+		};
 	} catch (e) {
 		console.error(e);
 		throw error(500);

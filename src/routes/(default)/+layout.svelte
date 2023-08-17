@@ -6,7 +6,7 @@
 	<Menu />
 
 	<main
-		class="prose md:prose-xl mx-auto flex flex-col justify-center px-4 relative max-md:max-w-full"
+		class="prose md:prose-xl mx-auto flex flex-col justify-center px-4 relative max-md:max-w-full pb-8"
 	>
 		<slot />
 	</main>
