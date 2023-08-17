@@ -23,4 +23,4 @@ Living in beautiful Budapest where the summer is in full swing (and I am super g
 ## Listening To...
 
 ![Week in Music](/api/week_in_music)
-Note: this was generated automatically based on the top albums I listened to last week.
+Note: this was generated automatically based on the top tracks I listened to over last week.
