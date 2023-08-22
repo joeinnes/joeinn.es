@@ -4,7 +4,6 @@ slug: /now
 draft: false
 title: Now
 ---
-
 Living in beautiful Budapest where the summer is in full swing (and I am super glad we got air conditioning installed last spring). Trying to child-proof a small flat to be suitable for an exceptionally curious one year old, who consistently finds new ways to access plug sockets, cables and chargers, cat food and litter, and sharp objects.
 
 ## Personal
