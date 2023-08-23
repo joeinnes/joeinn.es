@@ -43,6 +43,7 @@ collections:
           required: false,
           hint: 'This is passed directly to the CSS property for the page background. Any valid CSS can be used here - hex codes, RGB/HSL values, url(), etc.'
         }
+      - { label: 'Excerpt', name: 'excerpt', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
     view_groups:
       - label: Year

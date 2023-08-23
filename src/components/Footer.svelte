@@ -1,4 +1,4 @@
-<footer class="p-8 grid grid-cols-1 md:grid-cols-3 md:divide-x-2 w-full gap-4 mt-16">
+<footer class="p-8 grid grid-cols-1 md:grid-cols-3 md:divide-x-2 w-full gap-4 bg-white mt-16">
 	<div class="p-4">
 		<h2 class="font-semibold text-4xl"><a href="/">Joe Innes</a></h2>
 		<small>&copy; {new Date().getFullYear()}</small>
