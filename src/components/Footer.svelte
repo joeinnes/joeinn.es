@@ -12,7 +12,6 @@
 			<li><a href="/cv">CV</a></li>
 			<li><a href="/contact">Contact</a></li>
 			<li><a href="/now">Now</a></li>
-			<li><a href="/uses">Uses</a></li>
 		</ul>
 	</div>
 	<div class="p-4">
