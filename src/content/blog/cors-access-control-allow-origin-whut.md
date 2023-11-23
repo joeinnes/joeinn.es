@@ -12,6 +12,7 @@ excerpt: CORS can seem like a super tricky and complex topic to wrap your head a
 CORS restrictions are a way of telling a user's browser that data should be protected from code running on a website, and asking the browser to place restrictions on that code to keep the data safe.
 
 ## Understanding the problem
+
 *This section will explain the problem that CORS restrictions were invented to resolve. Feel free to skip this if you're happy that you understand why CORS is important.*
 
 Imagine you have a website, let's call it `example.com`. You want to load some data from your API. How would you do it?
