@@ -9,9 +9,11 @@ page_bg: linear-gradient(to right,#c0a3c7,#3a60d3)
 excerpt: CORS can seem like a super tricky and complex topic to wrap your head around, but in reality, it's not as hard as it appears.
 ---
 ## A Summary
+
 CORS restrictions are a way of telling a user's browser that data should be protected from code running on a website, and asking the browser to place restrictions on that code to keep the data safe.
 
 ## Understanding the problem
+
 *This section will explain the problem that CORS restrictions were invented to resolve. Feel free to skip this if you're happy that you understand why CORS is important.*
 
 Imagine you have a website, let's call it `example.com`. You want to load some data from your API. How would you do it?
