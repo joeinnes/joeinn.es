@@ -16,7 +16,7 @@
 		</h2>
 	</div>
 	<div
-		class="md:absolute rounded-full box-content z-10 md:h-full md:right-0 aspect-square border-white border-8 bg-contain h-48 w-48 md:w-auto mt-8 md:mt-0"
+		class="md:absolute rounded-full box-content z-10 md:h-full md:right-0 aspect-square border-white border-8 bg-cover h-48 w-48 md:w-auto mt-8 md:mt-0"
 		style="background-image: url({data.content.photo});"
 	/>
 </div>

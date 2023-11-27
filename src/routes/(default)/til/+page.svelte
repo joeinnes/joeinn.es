@@ -11,7 +11,7 @@
 		<div class="py-2">
 			<p class="not-prose">{til.summary}</p>
 			{#if til.details}
-				<div class="prose prose-sm">
+				<div class="text-sm">
 					{@html til.details}
 				</div>
 			{/if}
