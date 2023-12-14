@@ -1,5 +1,5 @@
 ---
-date: 2023-10-31T17:00:00.000Z
+date: 2023-12-14T17:00:00.000Z
 slug: /now
 draft: false
 title: Now
