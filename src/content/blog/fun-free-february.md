@@ -5,7 +5,7 @@ draft: false
 date: 2024-02-01T17:14:00.000Z
 date_updated: 2024-02-01T17:14:00.000Z
 featured_image: /media/uploads/Green glass bottles photo.jpg
-page_bg: ""
+page_bg: "#c4db16"
 excerpt: Every February, I challenge myself to give up a bunch of different things, and 2024 is no exception. Will this be the hardest year yet? Probably not, but it certainly won't be easiest either.
 ---
 Some people do 'dry January'. I never have. My birthday is in January after all, and it's always nice to have a glass of wine or a few beers on your birthday.
