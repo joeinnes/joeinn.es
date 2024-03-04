@@ -18,17 +18,17 @@ The journal I’m using is the (surprisingly cheap and decent quality) [A5 Bulle
 
 In terms of my bullet journalling process, it’s very simple and no-frills.
 
-## Process
-### Index page(s)
+## Process
+### Index page(s)
 At the start of the notebook, and at various points throughout the notebook, I have a list of pages and all of their respective page numbers. The last entry in each index is the page number for the next index page.
-### Periodic Pages
+### Periodic Pages
 I have a yearly page where I outline my goals for the year, and a monthly page for each month where I outline my goals for the month, as well as key dates and to-dos for the month, as well as a couple of focuses for the month. I normally include a mini-calendar and some habit-tracking calendar things.
 
 On a Monday morning, I create a weekly page, where I capture the plan for the week (any important appointments, to-dos for the week, etc.). I also use this time to review the previous week, pick up any unactioned action items, and move them to the new week. I normally update the index here as well.
 
 Every day (except at the weekend), I create a daily entry (depending on how long the previous day’s entry was, this may be on its own new page, or it may be continuing on the previous page). I scan the weekly page to see if I need to add any of the to-dos to this specific day, and add in any specific appointments that are relevant for that day (normally personal stuff, work meetings I keep in Outlook because they get moved and cancelled and so on fairly frequently).
 
-### Functional Pages
+### Functional Pages
 Every meeting (where I’m an active rather than passive participant), I’ll create a meeting entry. The first meeting of the day will be on a fresh page, but then after that, meetings can squeeze in onto the same page as long as there’s space. Occasionally, I’ll even go back and put a meeting in a space left in the previous day (which is why the index is so important). I’ll also create a new page for important topics that need a lot of information to be gathered together (e.g. I dedicated a page to my travel to Helsinki, which was quite unremarkable and not blogworthy, by the way).
 
 ## Logging
