@@ -4,14 +4,16 @@ slug: /now
 draft: false
 title: Now
 ---
-Happy that the days are getting longer again, despite the cooler weather.
+I moved into the suburbs and now I have a view over the city, fresh air, green around me, and birds singing in the mornings.
 
 ## Personal
-- **Still** struggling to study for the _Alkotmány Alapismeritek_ test (civics test for Hungarian citizenship).
-- Developing a basic habit tracker
-- Improving my bread baking
-- Taking guitar lessons to improve my skills, which is fun and going well
-- Developing a journalling habit
+
+- Recovering from moving, and trying to get everything in its new place.
+- Trying to remember who had my old address so I can tell them that I've moved.
+- Improving my bread baking now we have a fancy new oven
+- Learning how to solo like Dave Gilmour...
+- Continuing to dump my notes/tasks/appointments into a journal
+- Trying to get out of the house into the outdoors more (Apple reckons I'm averaging 126 mins in sunlight over the past month, compared to 36 minutes the previous month). Obviously there's been some factors driving that (like the holidays, great weather), and I don't have any data from before Jan to compare to, but still feels much better.
 
 ## Listening To...
 
