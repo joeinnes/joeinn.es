@@ -1,10 +1,10 @@
 <script>
-	export const year = 2015;
-	let votedFor = 'Conservatives';
+	export let year = 2015;
+	let votedFor = 'Labour';
 	let votesPerSeat = 0;
 	let seatComparison = '';
 	let voteValue = '1';
-	/** @typedef {(2015 | 2017)} ElectionYears */
+	/** @typedef {(2015 | 2017 | 2024)} ElectionYears */
 	/** @typedef {{
 		[key: string]: {
 			votes: number;
@@ -104,6 +104,65 @@
 				votes: 16148,
 				seats: 1
 			}
+		},
+
+		2024: {
+			Labour: {
+				votes: 9704655,
+				seats: 411
+			},
+			Conservatives: {
+				votes: 6827311,
+				seats: 121
+			},
+			'Liberal Democrats': {
+				votes: 3519199,
+				seats: 72
+			},
+			'Scottish National Party': {
+				votes: 724758,
+				seats: 9
+			},
+			'Sinn Féin': {
+				votes: 210891,
+				seats: 7
+			},
+			Independent: {
+				votes: 564243,
+				seats: 6
+			},
+			'Reform UK': {
+				votes: 4117221,
+				seats: 5
+			},
+			'Democratic Unionist Party': {
+				votes: 172058,
+				seats: 5
+			},
+			'Green Party of England and Wales': {
+				votes: 1841888,
+				seats: 4
+			},
+			'Plaid Cymru': {
+				votes: 194811,
+				seats: 4
+			},
+			'Social Democratic and Labour Party': {
+				votes: 86861,
+				seats: 2
+			},
+			'Alliance Party of Northern Ireland': {
+				votes: 117191,
+				seats: 1
+			},
+			'Ulster Unionist Party': {
+				votes: 94779,
+				seats: 1
+			},
+			'Traditional Unionist Voice': {
+				votes: 48685,
+				seats: 1
+			}
 		}
 	};
 
@@ -112,14 +171,20 @@
 		2015: {
 			votesForWinningParties: 30345244,
 			totalVotes: 30691680,
-			totalSeats: 650,
+			totalSeats: 649,
 			electorate: 46425386
 		},
 		2017: {
 			votesForWinningParties: 31094456,
 			totalVotes: 32196918,
-			totalSeats: 650,
+			totalSeats: 649,
 			electorate: 46843896
+		},
+		2024: {
+			votesForWinningParties: 28249789,
+			totalSeats: 649,
+			totalVotes: 28805931,
+			electorate: 48214128
 		}
 	};
 
@@ -132,7 +197,7 @@
 	$: {
 		voteStats = votingData[year][votedFor];
 		votesPerSeat = Math.round(voteStats.votes / voteStats.seats);
-		seatsPerVoteShare = Math.round((voteStats.votes / totals[year].votesForWinningParties) * 650);
+		seatsPerVoteShare = Math.round((voteStats.votes / totals[year].votesForWinningParties) * 649);
 		voteValue = (1 / (votesPerSeat / averageVotesPerSeat)).toFixed(2);
 	}
 </script>
@@ -146,6 +211,12 @@
 {#if votedFor}
 	<h2>Your vote was worth {voteValue}&times; the average!</h2>
 	<p>
+		Your party got {voteStats.seats} seats with {voteStats.votes} votes ({(
+			(100 * voteStats.votes) /
+			totals[year].totalVotes
+		).toFixed(1)}% vote share)
+	</p>
+	<p>
 		An average candidate needed to receive {averageVotesPerSeat} votes to get a seat. Your party required
 		{votesPerSeat} votes per seat.
 	</p>
@@ -154,8 +225,8 @@
 		{#if seatsPerVoteShare == voteStats?.seats}
 			Your party would have gained exactly as many seats.
 		{:else}
-			If the votes of everyone in your party had been as strong as an average vote, then your party
-			would have received {seatsPerVoteShare} seats, instead of {voteStats?.seats}.
+			If everyone's vote counted equally, then your party would have received {seatsPerVoteShare} seats,
+			instead of {voteStats?.seats}.
 		{/if}
 	</p>
 {/if}

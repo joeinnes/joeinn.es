@@ -1,6 +1,7 @@
 <script>
 	import dayjs from 'dayjs';
 	import Signature from '$components/blog-widgets/Signature.svelte';
+	import Address from '$components/blog-widgets/Address.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -11,15 +12,17 @@
 		class="prose lg:prose-xl prose-headings:font-bold prose-zinc rounded-xl mx-auto shadow-2xl relative overflow-hidden bg-white prose-li:ml-4 md:prose-li:ml-0"
 		style="width: min(65ch, 100%);"
 	>
-		<div class="aspect-[21/9] header-image content not-prose shadow">
-			<img
-				alt={data.meta.title}
-				src={data.meta.featured_image ||
-					'https://source.unsplash.com/random/?' + encodeURIComponent(data.meta.title)}
-				style="padding: 0px"
-				class="aspect-[4/3] md:aspect-[21/9] object-cover rounded-none"
-			/>
-		</div>
+		{#if data.meta.featured_image}
+			<div class="aspect-[21/9] header-image content not-prose shadow">
+				<img
+					alt={data.meta.title}
+					src={data.meta.featured_image ||
+						'https://source.unsplash.com/random/?' + encodeURIComponent(data.meta.title)}
+					style="padding: 0px"
+					class="aspect-[4/3] md:aspect-[21/9] object-cover rounded-none"
+				/>
+			</div>
+		{/if}
 
 		<hgroup class="content meta">
 			<h1>{data.meta.title}</h1>

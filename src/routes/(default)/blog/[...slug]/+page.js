@@ -5,6 +5,7 @@ export async function load({ params }) {
 	let post;
 	try {
 		post = await import(`../../../../content/blog/${params.slug}.md`);
+
 		return {
 			content: post.default,
 			meta: post.metadata
@@ -12,6 +13,7 @@ export async function load({ params }) {
 	} catch (e) {
 		try {
 			post = await import(`../../../../content/blog/${params.slug}.mdx`);
+
 			return {
 				content: post.default,
 				meta: post.metadata
