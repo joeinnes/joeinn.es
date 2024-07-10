@@ -7,7 +7,9 @@
 
 	let filteredPosts = posts;
 	$: if (search) {
-		filteredPosts = posts.filter((el) => el.title?.indexOf(search) > -1);
+		filteredPosts = posts.filter(
+			(el) => el.title?.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) > -1
+		);
 	} else {
 		filteredPosts = posts;
 	}
