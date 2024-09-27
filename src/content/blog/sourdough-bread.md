@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Sourdough Bread
+title: Sourdough—Updated!
 draft: true
 date: 2024-09-27T12:18
 date_updated: 2024-09-27T12:18
@@ -8,10 +8,13 @@ featured_image: ""
 page_bg: ""
 excerpt: This sourdough bread recipe is based on Brian Lagerstrom's 'Easiest Actually Good Sourdough' video, and yields a nice loaf of bread with minimal manual input and plenty of oven spring. Works in cold(er) kitchens too!
 ---
-This is a long and complicated recipe on first glance, but that's because I've written a lot of information down. Almost all of it is actually very simple once you get the hang of it. It's worth reading this through before baking (rather than trying to go step by step as you bake), and watching a couple of videos on YouTube for various techniques. I suggest checking out the following clips:
-* [lift and stretch](https://youtu.be/dtWFkODWxBg?t=378) - there's also a nice tucking manoeuvre here
-* [shaping a boule](https://youtu.be/dtWFkODWxBg?t=508), and [shaping a bâtard](https://youtu.be/GkwQR5CnM6Y?t=351) 
-* [scoring](https://youtu.be/W-9gDmtmT4Y?t=599) - same video has techniques for scoring a boule earlier on.
+Compared to the previous recipe I posted (https://joeinn.es/blog/sourdough), this is a long and complicated recipe on first glance, but that's because I've written a lot of information down. 
+
+Almost all of it is actually very simple once you get the hang of it. It's worth reading this through before baking (rather than trying to go step by step as you bake), and watching a couple of videos on YouTube for various techniques. I suggest checking out the following clips:
+
+- [lift and stretch](https://youtu.be/dtWFkODWxBg?t=378) - there's also a nice tucking manoeuvre here
+- [shaping a boule](https://youtu.be/dtWFkODWxBg?t=508), and [shaping a bâtard](https://youtu.be/GkwQR5CnM6Y?t=351) 
+- [scoring](https://youtu.be/W-9gDmtmT4Y?t=599) - same video has techniques for scoring a boule earlier on.
 
 The whole video that this is based on is [here](https://www.youtube.com/watch?v=dtWFkODWxBg) and I recommend watching the whole thing, but it goes quite quickly! Don't worry too much if your dough doesn't look or behave exactly like the dough (or breads) you see in the videos. There's a lot of room for things to go very differently depending on how strong your starter culture is, the temperature in your kitchen, the gluten content of your flour, and so on, but the below recipe will give you a decent tasting loaf while you experiment to find out what works best for you.
 
@@ -45,33 +48,46 @@ Start two mornings before you want to bake. Plan carefully because you'll need t
 16. Bake for about 35-40 minutes. The crust should be a nice deep brown but not black, and it should sound hollow when you knock on the bottom of it. If you're using a dutch oven, take the lid off after 20 minutes to make sure the crust browns nicely.
 17. Wait at least an hour for the bread to cool before slicing.
 
-### Sample Timeline
+### Sample Timeline
+
 Here's a sample timeline for a warm kitchen
+
 #### Day 0
+
 07:00 - Feed starter
 19:00 - Build levain
+
 #### Day 1
+
 07:00 - Mix dough
 07:40 - Lift and fold 1
 08:10 - Lift and fold 2
 10:10 - Shape dough
-#### Day 2
+
+#### Day 2
+
 09:00 - Preheat oven
 09:30 - Score bread and in the oven
 10:05 - Bread out of the oven
 12:00 - Lunch is served
 
 And for a colder one:
+
 #### Day 0
+
 07:00 - Feed starter
 19:00 - Build levain
+
 #### Day 1
+
 07:00 - Mix dough
 07:40 - Lift and fold 1
 08:10 - Lift and fold 2
 08:40 - Lift and fold 3
 11:00 - Shape dough
-#### Day 2
+
+#### Day 2
+
 09:00 - Preheat oven
 09:30 - Score bread and in the oven
 10:05 - Bread out of the oven
