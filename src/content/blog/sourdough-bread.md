@@ -45,7 +45,7 @@ Start two mornings before you want to bake. Plan carefully because you'll need t
 13. Turn your banneton upside down and lift (and hope the bread separates from the banneton easily). Brush off any excess flour.
 14. Score your bread. You're looking to cut a small (about 1/2 inch) deep incision from one end all the way to the other, digging into the bread at somewhere between 45 and 90 degrees. There are again lots of techniques, but I find a single, confident stroke is best all the way down.
 15. Liberally spray water on the bread. You're trying to get the crust as evenly damp as possible.
-16. Bake for about 35-40 minutes. The crust should be a nice deep brown but not black, and it should sound hollow when you knock on the bottom of it. If you're using a dutch oven, take the lid off after 20 minutes to make sure the crust browns nicely.
+16. Bake for about 35-40 minutes. The crust should be a nice deep brown but not black, and it should sound hollow when you knock on the bottom of it. If you're using a dutch oven, take the lid off after 20 minutes to make sure the crust browns nicely. If you can, find a way to get steam into your oven. Some people have good results with placing a baking tray with water in the bottom of the oven, others use ice cubes, others like to use soaked tea towels. Just be aware that the water will evaporate very quickly, and if you have hard water, you'll have limescale deposits all over whatever container is holding the water.
 17. Wait at least an hour for the bread to cool before slicing.
 
 ### Sample Timeline
