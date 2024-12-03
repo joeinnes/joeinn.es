@@ -1,9 +1,17 @@
 <script>
-	export let year = 2015;
-	let votedFor = 'Labour';
-	let votesPerSeat = 0;
+	import { run } from 'svelte/legacy';
+
+	/**
+	 * @typedef {Object} Props
+	 * @property {number} [year]
+	 */
+
+	/** @type {Props} */
+	let { year = 2015 } = $props();
+	let votedFor = $state('Labour');
+	let votesPerSeat = $state(0);
 	let seatComparison = '';
-	let voteValue = '1';
+	let voteValue = $state('1');
 	/** @typedef {(2015 | 2017 | 2024)} ElectionYears */
 	/** @typedef {{
 		[key: string]: {
@@ -192,14 +200,14 @@
 		totals[year].votesForWinningParties / totals[year].totalSeats
 	);
 
-	let voteStats;
-	let seatsPerVoteShare = 0;
-	$: {
+	let voteStats = $state();
+	let seatsPerVoteShare = $state(0);
+	run(() => {
 		voteStats = votingData[year][votedFor];
 		votesPerSeat = Math.round(voteStats.votes / voteStats.seats);
 		seatsPerVoteShare = Math.round((voteStats.votes / totals[year].votesForWinningParties) * 649);
 		voteValue = (1 / (votesPerSeat / averageVotesPerSeat)).toFixed(2);
-	}
+	});
 </script>
 
 <select bind:value={votedFor} class="border-2 rounded-xl p-2">

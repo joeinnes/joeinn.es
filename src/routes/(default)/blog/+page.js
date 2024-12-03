@@ -12,6 +12,6 @@ export async function load({ fetch }) {
 		};
 	} catch (e) {
 		console.error(e);
-		throw error(500);
+		error(500);
 	}
 }

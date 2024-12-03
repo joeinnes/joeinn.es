@@ -1,4 +1,5 @@
 import { json } from '@sveltejs/kit';
+import { render } from 'svelte/server';
 import { convert } from 'html-to-text';
 
 async function getPosts() {
@@ -10,7 +11,8 @@ async function getPosts() {
 	for (const path in paths) {
 		/** @typedef {{ metadata: any, default: import('svelte').SvelteComponent}} file */
 		const file = /** @type file */ (paths[path]);
-		const excerptArr = convert(file.default.render().html, {
+		const { html } = render(file.default);
+		const excerptArr = convert(html, {
 			wordwrap: false
 		})
 			.split(' ')

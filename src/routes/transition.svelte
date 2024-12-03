@@ -1,13 +1,20 @@
 <script>
 	import { blur } from 'svelte/transition';
 
-	/** @type string */
-	export let url;
+	
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} url
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props} */
+	let { url, children } = $props();
 </script>
 
 {#key url}
 	<div class="transition" in:blur>
-		<slot />
+		{@render children?.()}
 	</div>
 {/key}
 

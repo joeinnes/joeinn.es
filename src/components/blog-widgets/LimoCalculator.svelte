@@ -1,9 +1,11 @@
 <script>
-	let lengthOfRentalDays = 1; // 3 full days;
-	let lengthOfRentalHours = 12;
-	let lengthOfRentalMinutes = 0;
-	let rentalLengthInMins = 3 * 24 * 60;
-	let distance = 150;
+	import { run } from 'svelte/legacy';
+
+	let lengthOfRentalDays = $state(1); // 3 full days;
+	let lengthOfRentalHours = $state(12);
+	let lengthOfRentalMinutes = $state(0);
+	let rentalLengthInMins = $state(3 * 24 * 60);
+	let distance = $state(150);
 
 	const minimumBAK = 25500;
 	/** @param kms {number} */
@@ -56,10 +58,10 @@
 		return Math.round(startingFees + dailyFees + hourlyFees);
 	};
 
-	$: {
+	run(() => {
 		rentalLengthInMins =
 			lengthOfRentalMinutes + lengthOfRentalHours * 60 + lengthOfRentalDays * 24 * 60;
-	}
+	});
 </script>
 
 <div class="flex flex-col gap-2">
@@ -86,7 +88,7 @@
 	<table>
 		<thead>
 			<tr>
-				<th />
+				<th></th>
 				<th> MOL Limo </th>
 				<th> BérAutóKirály </th>
 			</tr>

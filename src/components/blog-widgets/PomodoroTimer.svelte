@@ -1,13 +1,13 @@
 <script>
-	let lengthMins = 2;
-	let setLength = false;
-	let secondsRemaining = 0;
+	let lengthMins = $state(2);
+	let setLength = $state(false);
+	let secondsRemaining = $state(0);
 
 	/**
 	 * @type {number | null}
 	 */
-	let interval;
-	let size = 0;
+	let interval = $state();
+	let size = $state(0);
 
 	const startPomodoro = () => {
 		if (!secondsRemaining) {
@@ -46,12 +46,12 @@
 {/if}
 
 <div class="flex gap-2 justify-center">
-	<button on:click={() => startPomodoro()}>Start</button>
-	<button on:click={() => pausePomodoro()} disabled={!secondsRemaining}
+	<button onclick={() => startPomodoro()}>Start</button>
+	<button onclick={() => pausePomodoro()} disabled={!secondsRemaining}
 		>{interval ? 'Pause' : 'Resume'}</button
 	>
-	<button on:click={() => (secondsRemaining = lengthMins * 60)}>Reset</button>
-	<button on:click={() => (setLength = !setLength)}>Change Length</button>
+	<button onclick={() => (secondsRemaining = lengthMins * 60)}>Reset</button>
+	<button onclick={() => (setLength = !setLength)}>Change Length</button>
 </div>
 
 <style lang="postcss">

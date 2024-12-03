@@ -1,7 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import { enhance } from '$app/forms';
-	export let form;
+	let { form } = $props();
 </script>
 
 <div class="max-w-[100%] w-[70ch] mx-auto md:pt-16 lg:pt-0">
@@ -13,7 +13,7 @@
 			<label for="subject">Subject</label>
 			<input type="text" name="subject" placeholder="Hi there!" />
 			<label for="body">Body</label>
-			<textarea name="body" placeholder="Here's what I wanted to say" rows="5" />
+			<textarea name="body" placeholder="Here's what I wanted to say" rows="5"></textarea>
 			<button
 				type="submit"
 				class="mt-4 py-2 px-4 bg-primary-700 text-white rounded hover:bg-primary-900 transition-colors"

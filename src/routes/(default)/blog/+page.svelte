@@ -1,18 +1,22 @@
 <script>
+	import { run } from 'svelte/legacy';
+
 	import { Heading2, Search } from 'lucide-svelte';
-	export let data;
+	let { data } = $props();
 	const { posts } = data;
 	/** @type string */
-	let search;
+	let search = $state();
 
-	let filteredPosts = posts;
-	$: if (search) {
-		filteredPosts = posts.filter(
-			(el) => el.title?.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) > -1
-		);
-	} else {
-		filteredPosts = posts;
-	}
+	let filteredPosts = $state(posts);
+	run(() => {
+		if (search) {
+			filteredPosts = posts.filter(
+				(el) => el.title?.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) > -1
+			);
+		} else {
+			filteredPosts = posts;
+		}
+	});
 </script>
 
 <div class="max-w-[100%] w-[70ch] mx-auto md:pt-16 lg:pt-0">

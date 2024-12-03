@@ -3,8 +3,14 @@
 	import Signature from '$components/blog-widgets/Signature.svelte';
 	import Address from '$components/blog-widgets/Address.svelte';
 
-	/** @type {import('./$types').PageData} */
-	export let data;
+	
+	/**
+	 * @typedef {Object} Props
+	 * @property {import('./$types').PageData} data
+	 */
+
+	/** @type {Props} */
+	let { data } = $props();
 </script>
 
 {#if data.content}
@@ -30,7 +36,7 @@
 		</hgroup>
 
 		<div class="content">
-			<svelte:component this={data.content} />
+			<data.content />
 
 			<div class="flex justify-end" style={`grid-column: 2; color: ${data.meta.page_bg}`}>
 				<Signature />

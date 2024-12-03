@@ -1,13 +1,24 @@
 <script>
-	/** @type string */
-	export let fontName;
-	/** @type string */
-	export let fontSrc;
-	/** @type string */
-	export let wordTest = 'Be Traist';
-	/** @type number */
-	export let pinHue;
-	let lowercase = '';
+	
+	
+	
+	
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} fontName
+	 * @property {any} fontSrc
+	 * @property {string} [wordTest]
+	 * @property {any} pinHue
+	 */
+
+	/** @type {Props} */
+	let {
+		fontName,
+		fontSrc,
+		wordTest = 'Be Traist',
+		pinHue
+	} = $props();
+	let lowercase = $state('');
 	for (let i = 0; i < 26; i++) {
 		lowercase += String.fromCharCode(97 + i);
 	}
