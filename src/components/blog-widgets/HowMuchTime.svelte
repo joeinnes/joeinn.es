@@ -809,11 +809,11 @@
       o_eol: 102,
     },
   };
-  let age = "35";
-  let sex = "m";
-  let age2 = "65";
-  let sex2 = "m";
-  let freq = 4;
+  let age = $state("35");
+  let sex = $state("m");
+  let age2 = $state("65");
+  let sex2 = $state("m");
+  let freq = $state(4);
 </script>
 
 <p>How much time do I have left?</p>
@@ -821,7 +821,7 @@
 <table>
   <thead>
     <tr>
-      <th />
+      <th></th>
       <th>You </th>
       <th>Them </th>
     </tr>
@@ -909,7 +909,7 @@
           class="rounded-full w-full"
           high="67"
           low="18"
-        /></td
+></meter></td
       >
       <td>
         {(data[age2][sex2 + "_eol"] - age2).toFixed(1)} ({100 *
@@ -923,7 +923,7 @@
           class="rounded-full w-full"
           high="67"
           low="18"
-        />
+></meter>
       </td></tr
     >
 

@@ -1,6 +1,12 @@
 <script>
-	/** @type string[] */
-	export let results;
+	
+	/**
+	 * @typedef {Object} Props
+	 * @property {any} results
+	 */
+
+	/** @type {Props} */
+	let { results } = $props();
 </script>
 
 <div class="not-prose standings">
@@ -29,7 +35,7 @@
 		@apply pt-8;
 	}
 
-	.odd:is(:last-child) {
+	.odd:is(:global(:last-child)) {
 		@apply pt-4;
 	}
 

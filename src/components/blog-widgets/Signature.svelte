@@ -2,12 +2,12 @@
 	import { onMount } from 'svelte';
 
 	/** @type SVGPathElement */
-	let stroke1;
+	let stroke1 = $state();
 	/** @type SVGPathElement */
-	let stroke2;
+	let stroke2 = $state();
 	/** @type SVGElement */
-	let svg;
-	let shouldAnimate = false;
+	let svg = $state();
+	let shouldAnimate = $state(false);
 
 	/** @param {number} totalDur */
 	const calcPaths = (totalDur) => {

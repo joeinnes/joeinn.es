@@ -1,12 +1,12 @@
 <script>
-	export let data;
+	let { data } = $props();
 </script>
 
 <div class="flex flex-col-reverse md:flex-row items-center relative">
 	<div
 		class="absolute top-0 bottom-0 bg-primary-700 -right-[50vw] -left-[50vw]
 "
-	/>
+	></div>
 	<div class="flex flex-col py-8 md:py-16 text-center md:text-left not-prose">
 		<h1 class="font-semibold w-full mb-0 z-10 text-white flex-1 text-2xl md:text-6xl">
 			{data.content?.title}
@@ -18,7 +18,7 @@
 	<div
 		class="md:absolute rounded-full box-content z-10 md:h-full md:right-0 aspect-square border-white border-8 bg-cover h-48 w-48 md:w-auto mt-8 md:mt-0"
 		style="background-image: url({data.content.photo});"
-	/>
+	></div>
 </div>
 <h3>{data.content?.summary}</h3>
 <p class="md:columns-2">

@@ -10,6 +10,6 @@ export async function load() {
 		};
 	} catch (e) {
 		console.error(e);
-		throw error(500, `Something went wrong.`);
+		error(500, `Something went wrong.`);
 	}
 }

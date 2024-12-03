@@ -1,11 +1,11 @@
 <script>
-	export let tweet = {
+	let { tweet = {
 		content: '',
 		authorName: '',
 		authorHandle: '',
 		link: '',
 		date: ''
-	};
+	} } = $props();
 </script>
 
 <a href={tweet.link} rel="external" target="_blank" class="no-underline not-prose mb-4">

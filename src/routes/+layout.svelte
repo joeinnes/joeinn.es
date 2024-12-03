@@ -2,7 +2,7 @@
 	import '../app.css';
 	import { page } from '$app/stores';
 	import PageTransition from './transition.svelte';
-	export let data;
+	let { data, children } = $props();
 </script>
 
 <svelte:head>
@@ -21,6 +21,6 @@
 				`hsl(${Math.random() * 360} ${Math.random() * 100}% ${Math.random() * 100}%)`)}"
 		class="min-h-full relative overflow-x-hidden"
 	>
-		<slot />
+		{@render children?.()}
 	</div>
 </PageTransition>

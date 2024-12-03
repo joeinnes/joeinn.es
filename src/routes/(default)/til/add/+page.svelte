@@ -1,4 +1,6 @@
 <script>
+	import { run } from 'svelte/legacy';
+
 	import PocketBase from 'pocketbase';
 	const pb = new PocketBase('https://api.joeinn.es');
 
@@ -7,9 +9,9 @@
 	import { enhance } from '$app/forms';
 	import { onMount } from 'svelte';
 
-	let value = '';
-	let loggedIn = false;
-	let html = value;
+	let value = $state('');
+	let loggedIn = $state(false);
+	let html = $state(value);
 	onMount(async () => {
 		const authData = await pb.collection('users').authRefresh();
 		if (pb.authStore.isValid) loggedIn = true;
@@ -22,9 +24,9 @@
 		};
 	};
 
-	$: {
+	run(() => {
 		html = marked(value);
-	}
+	});
 </script>
 
 {#if !loggedIn}

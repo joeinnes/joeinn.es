@@ -1,14 +1,16 @@
 <script>
+	import { run } from 'svelte/legacy';
+
 	import { onMount } from 'svelte';
 
-	let weather;
-	let loading = true;
-	let userLat = 0;
-	let userLon = 0;
-	let minLon = 0;
-	let minLat = 0;
-	let maxLon = 0;
-	let maxLat = 0;
+	let weather = $state();
+	let loading = $state(true);
+	let userLat = $state(0);
+	let userLon = $state(0);
+	let minLon = $state(0);
+	let minLat = $state(0);
+	let maxLon = $state(0);
+	let maxLat = $state(0);
 	let isErr = false;
 
 	onMount(async () => {
@@ -70,12 +72,12 @@
 			}
 		});
 	};
-	$: {
+	run(() => {
 		minLon = userLon - 0.2;
 		maxLon = userLon + 0.2;
 		minLat = userLat - 0.2;
 		maxLat = userLat + 0.2;
-	}
+	});
 </script>
 
 {#if !loading}
@@ -94,7 +96,7 @@
 			marginheight="0"
 			marginwidth="0"
 			src="https://www.openstreetmap.org/export/embed.html?bbox={minLon}%2C{minLat}%2C{maxLon}%2C{maxLat}&amp;layer=mapnik&amp;marker={userLat}%2C{userLon}"
-		/>
+		></iframe>
 	{/if}
 	<p>
 		Weather data kindly provided by

@@ -16,8 +16,8 @@ export async function GET() {
 export async function POST({ request }) {
 	try {
 		const code = request.headers.get('code');
-		if (!request.body) throw error(400, 'What have you done?');
-		if (code !== SECRET_CODE) throw error(401, `Sorry Dave, I can't let you do that.`);
+		if (!request.body) error(400, 'What have you done?');
+		if (code !== SECRET_CODE) error(401, `Sorry Dave, I can't let you do that.`);
 		const image = await request.blob();
 		const formData = new FormData();
 		if (image && typeof image !== 'string') {
@@ -35,6 +35,6 @@ export async function POST({ request }) {
 		return json(jsonVal, { status: 200 });
 	} catch (e) {
 		console.error(e);
-		throw error(500, `Not quite sure what happened, but that didn't work.`);
+		error(500, `Not quite sure what happened, but that didn't work.`);
 	}
 }

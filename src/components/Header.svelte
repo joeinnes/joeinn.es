@@ -1,5 +1,11 @@
 <script>
-	export let link = '/';
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [link]
+	 */
+
+	/** @type {Props} */
+	let { link = '/' } = $props();
 </script>
 
 <header
