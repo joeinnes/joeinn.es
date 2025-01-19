@@ -16,7 +16,7 @@ async function getCoffees() {
 			const coffee = {
 				...metadata,
 				slug,
-				body: file.default.render()
+				body: file?.default?.render() || ""
 			};
 			coffee.date && coffees.push(coffee);
 		}
