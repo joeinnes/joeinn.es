@@ -1,12 +1,14 @@
 ---
 title: Why My Facebook Is Empty
-date: 2020-06-17T16:21:07.000Z
-date_updated: 2021-01-11T21:39:54.000Z
+draft: false
+date: 2020-06-17T18:21:00
+date_updated: 2021-01-11T22:39:00
+page_bg: ''
+excerpt: I’ve been pouring my life into Facebook for almost 15 years. I’ve invested countless hours in making myself look ‘cool’, showing my best side, curating my image. And so has everyone else on my friends list.
 ---
-
 I was a Facebook early adopter. I have an email from October 2006 confirming an email change, but I don’t remember and can’t check when I originally joined. At the time, it was only open to users with an .ac.uk email address, which I’ve since lost access to.
 
-Facebook has been closely interwoven into my adult life. It documented my first, painfully desperate attempts to make friends at University. It captured my frustrations with my exams. It was a lens into my year abroad, probably my most defining moment of the last 15 years.
+Facebook has been closely interwoven into my adult life. It documented my first, painfully desperate attempts to make friends at University. It captured my frustrations with my exams. It was a lens into my year abroad, probably the single year when I went through the biggest number of changes in the last 15 years (excluding the single most important event in those same 15 years, my engagement to my incredible partner).
 
 I remember when Facebook first added live chat back in early 2008. In the UK, the instant messenger of choice was still MSN, but Skype was gaining more and more ground. Facebook Chat was buggy and broken, but it had the huge advantage that you didn’t need to go hunting for usernames, or remember whether your friend was on MSN, or Skype, or ICQ. It didn’t cost anything like an SMS, and you could hold a whole conversation backwards and forwards without worrying about it costing you money.
 
