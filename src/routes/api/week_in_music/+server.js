@@ -8,7 +8,7 @@ export async function GET() {
 	);
 	const records = await response.json();
 	const file = `https://api.innes.hu/api/files/week_in_music/${records.items[0].id}/${records.items[0].image}`;
-	const res = file;
+	const res = fetch(file);
 	return res;
 }
 
