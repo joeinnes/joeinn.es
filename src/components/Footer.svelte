@@ -11,7 +11,7 @@
 			<li><a href="/blog">Blog</a></li>
 			<li><a href="/cv">CV</a></li>
 			<li><a href="/contact">Contact</a></li>
-			<li><a href="/til">TIL</a></li>
+			<li><a href="/smidgeons">Smidgeons</a></li>
 			<li><a href="/now">Now</a></li>
 		</ul>
 	</div>
