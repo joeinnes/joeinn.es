@@ -1,6 +1,6 @@
 ---
 title: Now
-date: 2024-02-26T17:00:00.000Z
+date: 2025-02-24T17:00:00.000Z
 draft: false
 slug: /now
 ---
