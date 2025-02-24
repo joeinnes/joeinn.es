@@ -14,7 +14,8 @@
 	import { ArrowLeft, ArrowRight } from 'lucide-svelte';
 </script>
 
-<h1 class="text-3xl lg:text-5xl font-bold w-full text-center">Today I Learned</h1>
+<h1 class="text-3xl lg:text-5xl font-bold w-full text-center">Smidgeons</h1>
+<p class="text-sm text-center w-full">Inspired by <a href="https://maggieappleton.com/smidgeons" target="_blank">Maggie Appleton's smidgeons</a>
 <div class="divide-y text-lg">
 	{#each tils.items as til, i (i)}
 		<div class="py-2">
