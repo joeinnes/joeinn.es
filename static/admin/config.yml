@@ -106,7 +106,7 @@ collections:
     slug: '{{slug}}'
     fields:
       - { label: 'Name', name: 'title', widget: 'string' }
-      - { label: 'Date Published', name: 'date', widget: 'date' }
+      - { label: 'Date Published', name: 'date', widget: 'datetime' }
       - { label: 'Draft', name: 'draft', widget: 'boolean' }
       - { label: 'Slug', name: 'slug', widget: 'string' }
       - { label: 'Content', name: 'body', widget: 'markdown' }
