@@ -7,9 +7,19 @@ export async function GET() {
 		'https://api.innes.hu/api/collections/week_in_music/records?sort=-created&page=1&perPage=1'
 	);
 	const records = await response.json();
-	const file = `https://api.innes.hu/api/files/week_in_music/${records.items[0].id}/${records.items[0].image}`;
-	const res = fetch(file);
-	return res;
+
+	const fileUrl = `https://api.innes.hu/api/files/week_in_music/${records.items[0].id}/${records.items[0].image}`;
+	const fileResponse = await fetch(fileUrl);
+	if (!fileResponse.ok) {
+		return new Response('Failed to fetch file', { status: fileResponse.status });
+	}
+	const contentType = fileResponse.headers.get('content-type') || 'application/octet-stream';
+	return new Response(fileResponse.body, {
+		headers: {
+			'Content-Type': contentType,
+			'Content-Disposition': `attachment; filename="${records.items[0].image}"`,
+		},
+	});
 }
 
 /** @type {import('./$types').RequestHandler} */
