@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Don't Think Twice, It's All Right
+title: Neil Dring
 draft: false
 date: 2025-02-26T18:00:00
 date_updated: 2025-02-26T18:00:00
