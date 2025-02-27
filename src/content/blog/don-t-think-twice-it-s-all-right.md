@@ -4,7 +4,7 @@ title: Don't Think Twice, It's All Right
 draft: false
 date: 2025-02-26T18:00:00
 date_updated: 2025-02-26T18:00:00
-featured_image: /media/uploads/HZLaura&ChristophONLINE(635)%20(1).jpeg
+featured_image: /media/uploads/HZLaura&ChristophONLINE(635)%20(2).jpeg
 page_bg: '#ecb776'
 excerpt: I woke up this morning with a heavy heart, knowing the world today is a worse place than it was yesterday because Neil Dring is no longer in it.
 ---
