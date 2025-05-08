@@ -20,7 +20,7 @@ April's 'app of the month' is [Gleam](https://gleam.innes.hu). I often try to re
 
 My favourite feature of the app is that you can **immediately** start using it. You don't have to register to use the app. All of your data will be saved locally until you register, and once you register, your data automatically flows into your new, registered account, and can be accessed from any device (assuming you have the passkey).
 
-## My Favourite Piece of Code![](/media/uploads/carbon%282%29.svg)
+## My Favourite Piece of Code![](/media/uploads/carbon%285%29.svg)
 
 This piece of code represents a simple feature which I spent quite some time thinking about. It creates a string of 'moment' IDs, and then hashes it. Then, it can be looked up in the list of summaries to see if you have already generated a summary which covers the exact same set of moments. I initially wanted to implement this based on days, but realised that I couldn't be certain that those days hadn't changed (had moments added or removed). There's a possible optimisation to be made here by using an object or a map to store the summaries, but for now, I don't think there's enough in it to make it worth optimising, especially as I think the more common use case is going to be iterating over the summaries to list them, so I will likely need the summaries as an array anyway (or iterate over the object/map), so this way is more memory efficient, and keeps things a bit simpler.
 
