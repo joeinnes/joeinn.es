@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
+@theme {
+  --color-primary-50: oklch(95.59% 0.019 260.18);
+  --color-primary-100: oklch(92.21% 0.035 254.87);
+  --color-primary-200: oklch(84.23% 0.074 252.38);
+  --color-primary-300: oklch(76.54% 0.118 247.87);
+  --color-primary-400: oklch(68.57% 0.15 243.69);
+  --color-primary-500: oklch(60.96% 0.133 243.56);
+  --color-primary-600: oklch(52.79% 0.115 243.47);
+  --color-primary-700: oklch(42.88% 0.093 243.26);
+  --color-primary-800: oklch(33.5% 0.073 243.17);
+  --color-primary-900: oklch(23.07% 0.051 244.34);
+  --color-primary-950: oklch(18.82% 0.041 243.11);
+
+  --color-accent-50: oklch(96.49% 0.023 78.21);
+  --color-accent-100: oklch(94.02% 0.042 81.11);
+  --color-accent-200: oklch(87.24% 0.113 86);
+  --color-accent-300: oklch(81.06% 0.117 86.74);
+  --color-accent-400: oklch(71.65% 0.104 86.43);
+  --color-accent-500: oklch(62.14% 0.09 87.06);
+  --color-accent-600: oklch(52.7% 0.077 87.07);
+  --color-accent-700: oklch(42.35% 0.061 87.86);
+  --color-accent-800: oklch(32.7% 0.047 87.15);
+  --color-accent-900: oklch(23.51% 0.034 86.83);
+  --color-accent-950: oklch(19% 0.028 87.81);
+
+  --font-sans: 'Avenir Next', 'Avenir', 'Century Gothic', 'Gill Sans', ui-sans-serif, system-ui, sans-serif; 
+}
+
+html {
+	scrollbar-gutter: stable;
+}
+body {
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+code {
+	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+		Bitstream Vera Sans Mono, Courier New, monospace;
+}
