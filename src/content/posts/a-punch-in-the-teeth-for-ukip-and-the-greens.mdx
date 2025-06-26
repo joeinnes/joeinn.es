@@ -5,16 +5,15 @@ date_updated: 2018-03-03T10:50:07.000Z
 tags: politics, uk
 ---
 
-<script>
-	import VoterPowerCalculator from '$components/blog-widgets/VoterPowerCalculator.svelte';
-</script>
-
+import VoterPowerCalculator from
+  '../../components/VoterPowerCalculator.svelte';
+  
 If you voted for UKIP, I feel sorry for you. Politically, I’m so far way from you, you’d need a telescope to see me. Still, you deserve better representation.
 
 I wrote a little calculator to show how powerful your vote was. Check it out below. Play with it. Go ahead, I’ll wait.
 
-<div class="shadow rounded p-2">
-	<VoterPowerCalculator year={2015} />
+<div class="p-2 rounded shadow">
+  <VoterPowerCalculator year={2015} />
 </div>
 
 Something is fundamentally wrong when one vote is worth 169 times more than another. But, if you voted for the Democratic Unionist Party, and your neighbour voted UKIP, your vote was that much stronger.
