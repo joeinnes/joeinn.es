@@ -16,10 +16,10 @@ export const actions = {
 				body
 			};
 
-			/* await fetch(CONTACT_WEBHOOK_URL, {
+			await fetch(CONTACT_WEBHOOK_URL, {
 				method: 'POST',
 				body: JSON.stringify(email)
-			});*/
+			});
 			return 'NICE';
 		} catch (e) {
 			console.error(e);
