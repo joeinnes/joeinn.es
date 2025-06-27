@@ -10,132 +10,91 @@ const navItems = [
 ];
 ---
 
-<div class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 text-white">
+<div
+  class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 text-white"
+>
   <nav
-    class="relative inline-block mx-auto border rounded-full backdrop-blur-xl backdrop-opacity-100"
+    class="relative inline-block mx-auto transition-colors duration-300 border rounded-full backdrop-blur-xl backdrop-opacity-100"
     id="nav"
     data-current-route={currentRoute}
-
   >
-    <ul
-      class="relative flex space-x-2 text-2xl"
-    >
+    <ul class="relative flex space-x-2 text-2xl">
       <!-- Hover indicator -->
       <div
         id="hover-indicator"
-        class="absolute top-0 left-0 z-0 h-full transition-all duration-300 rounded-full pointer-events-none backdrop-blur-md"
+        class="absolute top-0 left-0 z-0 h-full transition-all duration-300 rounded-full pointer-events-none backdrop-blur-md transition-none"
         style="width: 0px; transform: translateX(0px);"
-      ></div>
+        view-transition-name="nav-indicator"
+      >
+      </div>
 
       <!-- Nav items -->
-      {navItems.map((item) => (
-        <li class="relative z-10 rounded-full cursor-pointer" data-href={item.href}>
-          <a href={item.href} ><div class="px-4 py-2">{item.name}</div></a>
-        </li>
-      ))}
+      {
+        navItems.map((item) => (
+          <li
+            class="relative z-10 rounded-full cursor-pointer"
+            data-href={item.href}
+          >
+            <a href={item.href}>
+              <div class="px-4 py-2">{item.name}</div>
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </div>
 
 <script>
-  import html2canvas from 'html2canvas-pro';
-  import tinycolor from 'tinycolor2';
-  const nav = document.getElementById('nav');
-  const indicator = document.getElementById('hover-indicator');
+  const nav = document.getElementById("nav")!;
+  const indicator = document.getElementById("hover-indicator")!;
+
   const route = nav.dataset.currentRoute;
+  const items = [...nav.querySelectorAll("li")];
 
-  const items = [...nav.querySelectorAll('li')];
+  const match = (href: string | undefined) =>
+    route &&
+    href &&
+    (route === href || (href !== "/" && route.startsWith(href)));
 
-  // Match current route to one of the nav hrefs
-  const match = (href) =>
-    route === href || (href !== '/' && route.startsWith(href));
-
-  // Find the initially active item
   const activeItem = items.find((li) => match(li.dataset.href));
 
-  function moveTo(el) {
+  function moveTo(el: HTMLElement) {
     const { offsetLeft, offsetWidth } = el;
     indicator.style.width = `${offsetWidth}px`;
     indicator.style.transform = `translateX(${offsetLeft}px)`;
   }
 
   if (activeItem) {
+    indicator.classList.add("transition-none");
     moveTo(activeItem);
+    setTimeout(() => indicator.classList.remove("transition-none"), 20);
   }
 
   items.forEach((li) => {
-    li.addEventListener('mouseenter', () => moveTo(li));
+    li.addEventListener("mouseenter", () => moveTo(li));
   });
 
-  nav.addEventListener('mouseleave', () => {
+  nav.addEventListener("mouseleave", () => {
     if (activeItem) moveTo(activeItem);
   });
-
-  
-  async function updateNavTheme() {
-    const bgColor = await getRenderedBackgroundColor(document.body);
-    const tc = tinycolor(bgColor);
-
-    if (tc.isLight()) {
-      console.log('Light background detected:', bgColor);
-      nav.classList.add('dark')
-    } else {
-      console.log('Dark background detected:', bgColor);
-
-      nav.classList.remove('dark');
-    }
-  }
-
-  updateNavTheme();
-
-  // Simple debounced update function
-  let updateTimeout;
-  function scheduleUpdate() {
-    clearTimeout(updateTimeout);
-    updateTimeout = setTimeout(() => {
-        updateNavTheme();
-    }, 300);
-  }
-
-  // Update on scroll (throttled)
-  let scrollTimeout;
-  window.addEventListener('scroll', () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(scheduleUpdate, 100);
-  });
-
-  // Update on resize
-  window.addEventListener('resize', scheduleUpdate);
-
-async function getRenderedBackgroundColor(el) {
-  const canvas = await html2canvas(el, { backgroundColor: null, logging: false });
-  const ctx = canvas.getContext('2d');
-  const x = Math.floor(canvas.width);
-  const y = Math.floor(canvas.height);
-  const data = ctx.getImageData(1, 1, 1, 1).data;
-  const [r, g, b, a] = ctx.getImageData(1, 1, 1, 1).data;
-  if (a === 0) {
-    return 'rgb(255, 255, 255)'; // Default to white if fully transparent
-  }
-  return `rgb(${r}, ${g}, ${b})`;
-}
-
-updateNavTheme();
 </script>
 
 <style>
   @reference "tailwindcss";
   nav {
-    @apply border-white/20 bg-white/10;
+    @apply border-white/20 bg-black/25;
+    background-color: color-mix(
+      in oklab,
+      var(--color-primary-800) 30%,
+      transparent
+    );
 
     #hover-indicator {
-      @apply bg-white/10 border-white/20;
+      @apply bg-white/20;
     }
-    &.dark {
-      @apply border-black/20 bg-black/5 text-black/75;
-      #hover-indicator {
-        @apply bg-white/50 border-black/20;
-      }
+    .transition-none {
+      transition: none !important;
     }
   }
 </style>

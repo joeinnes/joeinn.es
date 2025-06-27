@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const ITEMS_PER_PAGE = 20;
+const now = new Date();
+const filteredSmidgeons = await getCollection("smidgeons", ({ data }) => {
+  return data.created < now;
+});
+const dateSort = (a, b) => b.data.created.valueOf() - a.data.created.valueOf();
+const totalPages = Math.ceil(filteredSmidgeons.length / ITEMS_PER_PAGE);
+const paginatedSmidgeons = filteredSmidgeons
+  .sort(dateSort)
+  .slice(0, ITEMS_PER_PAGE);
+---
+
+<Layout title="Joe Innes | Smidgeons">
+  <div class="max-w-[100%] w-[70ch] mx-auto md:pt-16 lg:pt-0">
+    <h1 class="text-3xl lg:text-5xl font-bold w-full text-center mb-2">
+      Smidgeons
+    </h1>
+    <p class="text-sm text-center w-full mb-8">
+      Inspired by <a href="https://maggieappleton.com/smidgeons" target="_blank"
+        >Maggie Appleton's smidgeons</a
+      >
+      <div class="divide-y text-lg divide-primary-100">
+        {
+          paginatedSmidgeons.map((smidgeon, i) => {
+            return (
+              <article class="py-2">
+                <p class="not-prose">{smidgeon.data.summary}</p>
+                {smidgeon.body && (
+                  <div class="text-sm" set:html={smidgeon.body} />
+                )}
+                <small class="text-gray-500">
+                  {new Date(smidgeon.data.created).toLocaleDateString("en-GB", {
+                    weekday: "short",
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </small>
+              </article>
+            );
+          })
+        }
+      </div>
+      {totalPages > 1 && (
+        <nav class="flex gap-4 justify-center items-center mt-8">
+          <span>Page 1 of {totalPages}</span>
+          <a
+            class="flex gap-2 items-center p-2 px-4 no-underline bg-primary-700 text-white rounded self-center hover:bg-primary-900 focus:bg-primary-900 transition-colors"
+            href="/smidgeons/2/"
+          >
+            Next
+          </a>
+        </nav>
+      )}
+    </p>
+  </div>
+</Layout>
