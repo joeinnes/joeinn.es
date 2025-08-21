@@ -10,7 +10,7 @@ const posts = await getCollection("posts");
 <Layout title="Joe Innes" bg="var(--color-primary-600)">
   <div class="flex flex-col text-white">
     <div
-      class="grid flex-col items-center justify-center flex-1 grid-cols-2 gap-2"
+      class="grid items-center justify-center flex-1 grid-cols-1 md:grid-cols-2 gap-2"
     >
       <div
         class="flex-1 p-4 bg-radial from-primary-400 to-70% to-transparent aspect-square grid place-items-center"
@@ -23,16 +23,15 @@ const posts = await getCollection("posts");
       </div>
 
       <div class="relative p-4 text-white">
-        <h1 class="inline-block mb-6 text-2xl font-semibold md:text-8xl">
-          <span class="border-b-[12px] border-accent-300 inline-block pb-1">
+        <h1 class="inline-block mb-4 md:mb-6 text-4xl font-semibold md:text-8xl">
+          <span class="border-b-[8px] md:border-b-[12px] border-accent-300 inline-block pb-1">
             Joe Innes
           </span>
         </h1>
 
-        <p class="mb-4 text-3xl font-light md:text-4xl">Full Stack Developer</p>
-        <p class="mb-6 text-xl max-w-[48ch]">
-          I build cool stuff, try to leave things better than I found them, and
-          learn what I need as I go.
+        <p class="mb-2 md:mb-4 text-3xl font-light md:text-4xl">Full Stack Developer</p>
+        <p class="mb-6 text-lg md:text-xl max-w-[48ch]">
+            Helping people build local-first, realtime apps with encrypted, distributed data.
         </p>
         <a
           href="/contact"
