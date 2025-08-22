@@ -2,12 +2,15 @@
 import "../styles/global.css";
 
 import Nav from "../components/nav.astro";
+import Footer from "../components/Footer.svelte";
 
 export interface Props {
   title: string;
+  bg?: string;
 }
 
 const { title, bg } = Astro.props;
+const { pathname } = Astro.url;
 ---
 
 <!doctype html>
@@ -20,8 +23,9 @@ const { title, bg } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body style={`background: ${bg}`} class="pt-24 h-screen">
+  <body style={`background: ${bg}`} class="pt-24 h-screen px-2">
     <Nav />
     <slot />
+    {pathname !== "/" && <Footer />}
   </body>
 </html>
