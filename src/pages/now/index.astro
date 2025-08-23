@@ -1,0 +1,27 @@
+---
+import { marked } from "marked";
+import { createReader } from "@keystatic/core/reader";
+import keystaticConfig from "../../../keystatic.config";
+import Layout from "../../layouts/Layout.astro";
+const reader = createReader(process.cwd(), keystaticConfig);
+const now = await reader.singletons.now.read();
+const content = await now?.now();
+const renderedMd = await marked.parse(content || "");
+---
+
+<Layout title="Joe Innes | Now">
+  <div class="max-w-[100%] w-[70ch] mx-auto md:pt-16 lg:pt-0 px-4">
+    <h1 class="text-3xl lg:text-5xl font-bold w-full text-center mb-2">Now</h1>
+    <article set:html={renderedMd} class="prose" />
+    <article class="prose">
+      <h2>Listening To...</h2>
+
+      <img src="https://joeinn.es/api/week_in_music" alt="Week in Music" />
+
+      <p>
+        Note: this was generated automatically based on the top tracks I
+        listened to over last week.
+      </p>
+    </article>
+  </div>
+</Layout>
