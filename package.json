@@ -1,43 +1,42 @@
 {
-  "name": "joeinn.es-sk",
-  "version": "0.0.1",
-  "devDependencies": {
-    "@sveltejs/adapter-auto": "^3.3.1",
-    "@sveltejs/adapter-vercel": "^4.0.5",
-    "@sveltejs/kit": "^2.9.0",
-    "@sveltejs/vite-plugin-svelte": "^4.0.2",
-    "@tailwindcss/typography": "^0.5.15",
-    "autoprefixer": "^10.4.20",
-    "dayjs": "^1.11.13",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-svelte": "^2.46.1",
-    "html-to-text": "^9.0.5",
-    "lucide-svelte": "^0.292.0",
-    "mdsvex": "^0.11.2",
-    "postcss": "^8.4.49",
-    "prettier": "^3.4.1",
-    "prettier-plugin-svelte": "^3.3.2",
-    "svelte": "^5.4.0",
-    "svelte-check": "^4.1.0",
-    "tailwindcss": "^3.4.15",
-    "typescript": "^5.7.2",
-    "vite": "^5.4.11"
+  "name": "@keystatic/templates-astro",
+  "version": "0.0.60",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Thinkmill/keystatic/",
+    "directory": "templates/astro"
   },
-  "private": true,
-  "scripts": {
-    "dev": "vite dev --host && npx netlify-cms-proxy-server",
-    "build": "vite build",
-    "preview": "vite preview",
-    "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
-    "lint": "prettier --plugin-search-dir . --check . && eslint .",
-    "format": "prettier --plugin-search-dir . --write ."
-  },
-  "type": "module",
   "dependencies": {
-    "ink-mde": "^0.29.1",
-    "marked": "^10.0.0",
-    "pocketbase": "^0.19.0"
+    "@astrojs/markdoc": "^0.15.5",
+    "@astrojs/mdx": "^4.3.4",
+    "@astrojs/react": "4.3.0",
+    "@astrojs/svelte": "^7.1.0",
+    "@astrojs/vercel": "^8.2.6",
+    "@keystatic/astro": "^5.0.6",
+    "@keystatic/core": "^0.5.47",
+    "@tailwindcss/vite": "^4.1.10",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "astro": "^5.13.2",
+    "html2canvas-pro": "^1.5.11",
+    "marked": "^16.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sharp": "^0.34.2",
+    "svelte": "^5.34.7",
+    "tailwindcss": "^4.1.10",
+    "tinycolor2": "^1.6.0",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16"
   }
 }

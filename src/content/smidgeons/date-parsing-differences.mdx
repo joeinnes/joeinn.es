@@ -1,0 +1,6 @@
+---
+summary: "2025/05/28 and 2025-05-28 are parsed differently by Date"
+created: 2025-05-28T09:37:13.028Z
+---
+
+This is because “2025/05/28” is considered to be a local date (and so is parsed with the users current timezone factored), while “2025-05-28” matches the ISO8601 format, and so is parsed as UTC.
