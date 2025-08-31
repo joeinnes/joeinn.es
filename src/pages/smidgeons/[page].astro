@@ -9,13 +9,19 @@ const now = new Date();
 const filteredSmidgeons = await getCollection("smidgeons", ({ data }) => {
   return data.created < now;
 });
-const dateSort = (a, b) => b.data.created.valueOf() - a.data.created.valueOf();
 const totalPages = Math.ceil(filteredSmidgeons.length / ITEMS_PER_PAGE);
 const paginatedSmidgeons = filteredSmidgeons
-  .sort(dateSort)
+  .sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf())
   .slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
 export async function getStaticPaths() {
+  const ITEMS_PER_PAGE = 20;
+
+  const now = new Date();
+
+  const filteredSmidgeons = await getCollection("smidgeons", ({ data }) => {
+    return data.created < now;
+  });
   const totalPages = Math.ceil(filteredSmidgeons.length / ITEMS_PER_PAGE);
   return Array.from({ length: totalPages }, (_, i) => ({
     params: { page: String(i + 1) },
