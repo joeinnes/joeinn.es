@@ -1,0 +1,8 @@
+---
+summary: "SvelteKit's Node adapter limits incoming requests to 512kb by default."
+created: 2024-01-09T14:49:14.859Z
+---
+
+This **is** documented, I just missed it. [https://kit.svelte.dev/docs/adapter-node#environment-variables-bodysizelimit](https://kit.svelte.dev/docs/adapter-node#environment-variables-bodysizelimit)
+
+`BODY_SIZE_LIMIT=100000000` will fix it for you (obviously set this to whatever you fancy. Integer numbers of bytes work, string representations of human readable file sizes such as `100mb` do not seem to).

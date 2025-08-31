@@ -1,0 +1,20 @@
+---
+summary: "ChatGPT can transform and analyse data"
+created: 2024-09-24T13:23:47.533Z
+---
+
+In order to make the [Voter Power Calculator](https://joeinn.es/blog/voter-power-calculator-uk-general-election-2024) I needed to transform the data into a specifically shaped JSON object.
+
+In previous years, I've done this by hand. This year, I just used the following prompt:
+
+```
+please convert the following table into a JSON object with the party name as the key, the number of votes under the subkey of 'votes' and the number of seats under the subkey of 'seats', and ignore all other data:
+```
+
+and copy-pasted the table from Wikipedia. I also was able to ask ChatGPT to
+
+```
+please summarise the total of votes from the above
+```
+
+and it gave me the correct answer, along with a little button that allowed me to expand its 'thinking' on the topic.
