@@ -27,10 +27,10 @@ const { pathname } = Astro.url;
     style={`background: ${bg}`}
     class={pathname === "/"
       ? "flex flex-col justify-center h-screen pt-0"
-      : "pt-24 h-screen"}
+      : "flex flex-col pt-24 h-screen"}
   >
     <Nav />
-    <div class="p-2">
+    <div class={pathname === "/" ? "" : "flex-1 flex flex-col"}>
       <slot />
     </div>
     {pathname !== "/" && <Footer />}
