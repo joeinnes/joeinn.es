@@ -1,0 +1,15 @@
+<img id="weekInMusic" alt="My week in music" />
+
+<script>
+  const img = document.querySelector<HTMLImageElement>("#weekInMusic")!;
+  fetch(
+    "https://api.joeinn.es/api/collections/week_in_music/records?page=1&perPage=1&sort=-created",
+  )
+    .then((r) => r.json())
+    .then((data) => {
+      console.log(data);
+      const fileName = data.items[0].image;
+      const recordId = data.items[0].id;
+      img.src = `https://api.joeinn.es/api/files/week_in_music/${recordId}/${fileName}`;
+    });
+</script>
