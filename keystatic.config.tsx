@@ -75,6 +75,30 @@ export default config({
         }),
       },
     }),
+    shipped: collection({
+      columns: ["repo", "mergeDate"],
+      label: "I Shipped...",
+      slugField: "link",
+      path: "src/content/i-shipped/*",
+      format: { contentField: "content" },
+      schema: {
+        lastCommit: fields.date({ label: "Last Commit" }),
+        repo: fields.text({ label: "Repository" }),
+        mergeDate: fields.date({ label: "Last Commit" }),
+        prNumber: fields.number({ label: "PR Number" }),
+        link: fields.text({ label: "Link" }),
+        content: fields.markdoc({
+          label: "Content",
+          options: {
+            image: {
+              directory: "./public",
+              publicPath: "",
+            },
+          },
+          extension: "md",
+        }),
+      },
+    }),
   },
   singletons: {
     now: singleton({
