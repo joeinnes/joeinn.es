@@ -78,16 +78,15 @@ export default config({
     shipped: collection({
       columns: ["repo", "mergeDate"],
       label: "I Shipped...",
-      slugField: "link",
+      slugField: "summary",
       path: "src/content/i-shipped/*",
       format: { contentField: "content" },
       schema: {
-        lastCommit: fields.date({ label: "Last Commit" }),
+        summary: fields.slug({ name: { label: "Summary" } }),
         repo: fields.text({ label: "Repository" }),
-        mergeDate: fields.date({ label: "Last Commit" }),
-        prNumber: fields.number({ label: "PR Number" }),
-        link: fields.text({ label: "Link" }),
-        content: fields.markdoc({
+        mergeDate: fields.date({ label: "Merged Date" }),
+        prNumber: fields.text({ label: "PR Number" }),
+        content: fields.mdx({
           label: "Content",
           options: {
             image: {
@@ -95,7 +94,6 @@ export default config({
               publicPath: "",
             },
           },
-          extension: "md",
         }),
       },
     }),

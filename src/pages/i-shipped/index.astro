@@ -1,0 +1,24 @@
+---
+import GitHubLink from "../../components/GitHubLink.astro";
+import Layout from "../../layouts/Default.astro";
+
+import { getCollection } from "astro:content";
+const shipped = await getCollection("iShipped");
+---
+
+<Layout title="I Shipped...">
+  <h1 class="mono title" style="font-weight: 700;">I Shipped...</h1>
+  {
+    shipped.map((item) => {
+      return (
+        <article class="mono">
+          <details>
+            <summary>{item.data.summary}</summary>
+            {item.render()}
+          </details>
+          <GitHubLink repo={item.data.repo} pr={item.data.prNumber} />
+        </article>
+      );
+    })
+  }
+</Layout>

@@ -1,8 +1,8 @@
 // @ts-ignore
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
 const posts = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     title: z.string(),
     page_bg: z.string().optional(),
@@ -13,11 +13,22 @@ const posts = defineCollection({
 });
 
 const smidgeons = defineCollection({
-  type: 'content',
+  type: "content",
   schema: z.object({
     summary: z.string(),
     created: z.date(),
   }),
 });
 
-export const collections = { posts, smidgeons };
+const iShipped = defineCollection({
+  type: "content",
+  schema: z.object({
+    summary: z.string(),
+    repo: z.string(),
+    mergeDate: z.date(),
+    prNumber: z.number(),
+    content: z.string(),
+  }),
+});
+
+export const collections = { posts, smidgeons, iShipped };
