@@ -1,0 +1,13 @@
+---
+summary: >-
+  an update to the Svelte InviteListener so that it listens to hash change
+  events.
+repo: garden-co/jazz
+mergeDate: 2025-09-12
+prNumber: 2911
+---
+Web pages often have ‘links’ that can change part of the page without reloading the whole thing. These changes sometimes show different content depending on the link. In Jazz, we can invite people to collaborate on data using links, and we need to notice when someone follows a link.
+
+Previously, the code that checks the URL for invitations only checked once — when the component first appeared on the page. That worked if the person opened the page fresh, but it wouldn’t notice if the URL changed later (for example, if someone clicked a link that added extra info to the URL, called a ‘hash’).
+
+What I did was adjust the code so it also watches for changes to that part of the URL — the hash — so it reacts immediately whenever someone follows a link, not just on page load. That way, no invitation is missed, no matter how the user navigates.
