@@ -1,0 +1,102 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Default.astro";
+import Smidgeon from "../../components/Smidgeon.astro";
+import Nav from "../../components/NewNav.astro";
+
+const ITEMS_PER_PAGE = 20;
+const { page } = Astro.params;
+const currentPage = page ? parseInt(page as string) : 1;
+const now = new Date();
+const filteredSmidgeons = await getCollection("smidgeons", ({ data }) => {
+  return data.created < now;
+});
+const totalPages = Math.ceil(filteredSmidgeons.length / ITEMS_PER_PAGE);
+const paginatedSmidgeons = filteredSmidgeons
+  .sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf())
+  .slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+
+export async function getStaticPaths() {
+  const ITEMS_PER_PAGE = 20;
+
+  const now = new Date();
+
+  const filteredSmidgeons = await getCollection("smidgeons", ({ data }) => {
+    return data.created < now;
+  });
+  const totalPages = Math.ceil(filteredSmidgeons.length / ITEMS_PER_PAGE);
+
+  const paths = [
+    { params: { page: undefined } }, // Handle /smidgeons
+    ...Array.from({ length: totalPages }, (_, i) => ({
+      params: { page: String(i + 1) },
+    })),
+  ];
+
+  return paths;
+}
+---
+
+<style>
+  nav {
+    display: flex;
+    gap: var(--inline-spacing);
+    justify-content: center;
+    align-items: center;
+    margin-block: var(--layout-spacing);
+  }
+
+  h1 {
+    margin-block-end: 0;
+  }
+  h2 {
+    font-size: 1em;
+    font-weight: 400;
+    margin-block-start: 0;
+    margin-block-end: var(--layout-spacing);
+  }
+</style>
+
+<Layout title="Joe Innes | Smidgeons">
+  <Nav />
+  <main>
+    <h1 class="title">Smidgeons</h1>
+    <h2>
+      Inspired by <a href="https://maggieappleton.com/smidgeons" target="_blank"
+        >Maggie Appleton's smidgeons</a
+      >
+    </h2>
+
+    <div class="divide-y text-lg divide-primary-100">
+      {
+        paginatedSmidgeons.map((smidgeon) => {
+          return <Smidgeon smidgeon={smidgeon} />;
+        })
+      }
+    </div>
+
+    {
+      totalPages > 1 && (
+        <nav>
+          {currentPage > 1 && (
+            <a
+              href={
+                currentPage === 2
+                  ? "/smidgeons/"
+                  : `/smidgeons/${currentPage - 1}/`
+              }
+            >
+              Prev
+            </a>
+          )}
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+          {currentPage < totalPages && (
+            <a href={`/smidgeons/${currentPage + 1}/`}>Next</a>
+          )}
+        </nav>
+      )
+    }
+  </main>
+</Layout>

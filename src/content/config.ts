@@ -26,7 +26,7 @@ const iShipped = defineCollection({
     summary: z.string(),
     repo: z.string(),
     mergeDate: z.date(),
-    prNumber: z.number(),
+    prNumber: z.string(),
     content: z.string(),
   }),
 });

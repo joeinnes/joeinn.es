@@ -1,22 +1,33 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../../layouts/Default.astro";
+import Nav from "../../components/NewNav.astro";
 ---
 
+<style>
+  embed {
+    width: 100%;
+    aspect-ratio: 21/29;
+  }
+  main > div {
+    margin-block-start: var(--layout-spacing);
+    display: flex;
+    gap: var(--layout-spacing);
+  }
+</style>
+
 <Layout title="Joe Innes">
-  <div class="text-center mb-4 flex flex-col gap-2 md:block">
-    <a
-      href="/Joe Innes - CV.pdf"
-      download
-      class="whitespace-nowrap px-4 py-2 bg-primary-700 text-white rounded"
-      data-umami-event="CV Download">Download a copy</a
-    >
-    <a
-      href="/contact"
-      class="whitespace-nowrap px-4 py-2 border-primary-700 border rounded"
-      >Need a different format?</a
-    >
-  </div>
-  <div class="w-full flex-1">
-    <embed src="/Joe Innes - CV.pdf" class="w-full h-full object-scale-down" />
-  </div>
+  <Nav />
+  <main>
+    <h1 class="title">My CV</h1>
+    <div>
+      <a
+        class="button"
+        href="/Joe Innes - CV.pdf"
+        download
+        data-umami-event="CV Download">Download a copy</a
+      >
+      <a class="button" href="/contact">Need a different format?</a>
+    </div>
+  </main>
+  <embed src="/Joe Innes - CV.pdf" />
 </Layout>

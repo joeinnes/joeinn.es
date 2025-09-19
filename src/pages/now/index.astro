@@ -2,7 +2,8 @@
 import { marked } from "marked";
 import { createReader } from "@keystatic/core/reader";
 import keystaticConfig from "../../../keystatic.config";
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../../layouts/Default.astro";
+import Nav from "../../components/NewNav.astro";
 const reader = createReader(process.cwd(), keystaticConfig);
 const now = await reader.singletons.now.read();
 const content = await now?.now();
@@ -11,10 +12,11 @@ import WeekInMusic from "../../components/MyMusic.astro";
 ---
 
 <Layout title="Joe Innes | Now">
-  <div class="max-w-[100%] w-[70ch] mx-auto md:pt-16 lg:pt-0 px-4">
-    <h1 class="text-3xl lg:text-5xl font-bold w-full text-center mb-2">Now</h1>
-    <article set:html={renderedMd} class="prose" />
-    <article class="prose">
+  <main>
+    <Nav />
+    <h1 class="title">Now</h1>
+    <article set:html={renderedMd} />
+    <article>
       <h2>Listening To...</h2>
 
       <WeekInMusic />
@@ -24,5 +26,5 @@ import WeekInMusic from "../../components/MyMusic.astro";
         listened to over last week.
       </p>
     </article>
-  </div>
+  </main>
 </Layout>

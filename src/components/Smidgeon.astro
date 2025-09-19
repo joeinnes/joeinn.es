@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { marked } from "marked";
+export interface Props {
+  smidgeon: CollectionEntry<"smidgeons">;
+}
+
+const { smidgeon } = Astro.props;
+---
+
+<style>
+  article {
+    border-bottom: 1px solid var(--very-muted);
+    & > div {
+      color: var(--muted);
+      font-size: 0.9em;
+      margin-block-start: 0;
+    }
+  }
+</style>
+<article>
+  <p>{smidgeon.data.summary}</p>
+  {smidgeon.body && <div set:html={marked.parse(smidgeon.body)} />}
+  <small>
+    {
+      new Date(smidgeon.data.created).toLocaleDateString("en-GB", {
+        weekday: "short",
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })
+    }
+  </small>
+</article>
