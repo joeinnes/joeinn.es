@@ -2,6 +2,7 @@
 summary: a fix for the responsive image component to avoid an ugly flash of alt text
 repo: garden-co/jazz
 prNumber: '2942'
+mergeDate: 2025-09-22
 ---
 We have a component in React, React Native and Svelte which can be used to display images with progressive sizes. Although we have an option to show a placeholder, and loading this is normally fast, in case there is a slower load (e.g. network issue, etc.), then there is a flash where the browser's default placeholder will be displayed (normally just the alt text of the image).
 
