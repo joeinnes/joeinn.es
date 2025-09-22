@@ -1,0 +1,203 @@
+@import url(https://fonts.bunny.net/css?family=space-mono:400,700);
+@layer reset, base, utilities, components, layout;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --font-sans: system-ui, sans-serif;
+    --font-mono:
+      "Space Mono", ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+      Consolas, "DejaVu Sans Mono", monospace;
+    --foreground: #404040;
+    --background: #ffffff;
+    --primary: oklch(52.79% 0.115 243.47);
+    --font-ratio: 1.333;
+    --max-width: 80ch;
+    --transition: opacity 200ms ease-in-out;
+    --layout-spacing: max(8vh, 2rem);
+    --inline-spacing: calc(var(--layout-spacing) / 2);
+    --border-rounded-full: 9999px;
+  }
+
+  html {
+    border-top: var(--primary) solid 5px;
+  }
+
+  body {
+    font-size: 16px;
+    font-family: var(--font-sans);
+    background-color: var(--background);
+    color: var(--foreground);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 5vh var(--layout-spacing) 1rem;
+    max-width: var(--max-width);
+    line-height: 1.5;
+    & > * {
+      --inline-spacing: calc(var(--layout-spacing) / 8);
+      --max-width: 70ch;
+      width: min(100%, var(--max-width));
+    }
+    accent-color: var(--primary);
+  }
+
+  main {
+    margin-top: var(--layout-spacing);
+  }
+
+  h1 {
+    font-size: calc(pow(var(--font-ratio), 5) * 1rem);
+  }
+  h2 {
+    font-size: calc(pow(var(--font-ratio), 4) * 1rem);
+  }
+  h3 {
+    font-size: calc(pow(var(--font-ratio), 3) * 1rem);
+  }
+  h4 {
+    font-size: calc(pow(var(--font-ratio), 2) * 1rem);
+  }
+  h5 {
+    font-size: calc(pow(var(--font-ratio), 1) * 1rem);
+  }
+  h6 {
+    font-size: calc(pow(var(--font-ratio), 5/6) * 1rem);
+  }
+
+  pre {
+    white-space: pre-wrap; /* preserve newlines but allow wrapping */
+    word-wrap: break-word; /* break long words if needed */
+    font-family: var(--font-mono);
+    background-color: color-mix(
+      in hsl,
+      var(--background) 90%,
+      var(--foreground) 10%
+    );
+  }
+
+  dt {
+    font-weight: 700;
+  }
+
+  label {
+    display: block;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-inline-end: var(--inline-spacing);
+  }
+
+  :is(h1, h2, h3) {
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: calc(var(--layout-spacing) / 4);
+  }
+
+  :is(h2, h3):not(:first-child) {
+    margin-top: 2em;
+  }
+
+  article * + * {
+    margin-top: 1em;
+  }
+
+  a {
+    color: var(--primary);
+    text-underline-offset: 0.15em;
+  }
+  details :not(summary) {
+    opacity: 0.7;
+  }
+}
+
+@layer utilities {
+  .mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  button,
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"],
+  input[type="file"]::file-selector-button,
+  a.button {
+    background-color: var(--primary);
+    color: var(--background);
+    border-radius: calc(var(--gap) / 4);
+    border: none;
+    padding: calc(var(--inline-spacing) / 2) var(--inline-spacing);
+    border-radius: var(--inline-spacing);
+    transition: var(--transition);
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  .title {
+    display: inline-block;
+    border-bottom: var(--inline-spacing) solid var(--primary);
+  }
+}
