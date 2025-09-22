@@ -17,6 +17,7 @@ const shipped = await getCollection("iShipped");
             {item.render()}
           </details>
           <GitHubLink repo={item.data.repo} pr={item.data.prNumber} />
+          <time>{item.data.mergeDate.toLocaleDateString("en-GB")}</time>
         </article>
       );
     })
