@@ -1,0 +1,9 @@
+---
+summary: a small docs update to clarify how to use recursive references.
+repo: garden-co/jazz
+mergeDate: 2025-09-16
+prNumber: '2922'
+---
+Our existing docs explained how to use getters to recursively reference schemas, but weren't very clear about how to avoid `ReferenceError`s caused by schemas creating circular references which resulted in references being evaluated while they were still in the temporal dead zone.
+
+I added some additional keywords and explanation to help folks find these docs more easily when they're searching, as well as explaining the use cases in a bit more detail.
