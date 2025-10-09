@@ -1,0 +1,9 @@
+---
+summary: >-
+  a fix to our homepage after an update caused overflow on basically every
+  element, resulting in scrollbars appearing everywhere.
+repo: garden-co/jazz
+mergeDate: 2025-10-09
+prNumber: '3029'
+---
+There was a PR which introduced a bug where buttons all had additional absolutely positioned content after them, which resulted in every section containing a button to horizontally overflow its container, resulting in unsightly scrollbars popping up all over the website. I fixed it.
