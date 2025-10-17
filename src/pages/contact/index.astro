@@ -1,24 +1,20 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../../layouts/Default.astro";
+import Nav from "../../components/NewNav.astro";
 ---
 
 <Layout title="Joe Innes | Contact">
-  <div class="max-w-[100%] w-[70ch] mx-auto md:pt-16 lg:pt-0 px-4">
-    <h1 class="text-3xl lg:text-5xl font-bold w-full text-center mb-2">
-      Contact
-    </h1>
-    <form
-      action="https://formspree.io/f/xrblnbpp"
-      method="POST"
-      class="text-lg flex flex-col gap-4"
-    >
+  <Nav />
+  <main>
+    <h1 class="title">Contact</h1>
+    <form action="https://formspree.io/f/xrblnbpp" method="POST">
       <label>
         Your email address
         <input
           type="email"
           name="email"
-          class="border border-gray-300 rounded-md px-3 py-2 w-full"
           placeholder="dentarthurdent@heartofgold.com"
+          required
         />
       </label>
       <label>
@@ -26,25 +22,20 @@ import Layout from "../../layouts/Layout.astro";
         <input
           type="text"
           name="subject"
-          class="border border-gray-300 rounded-md px-3 py-2 w-full"
           placeholder="Notification of Intention to Construct Bypass"
+          required
         />
       </label>
       <label>
         Message
         <textarea
           name="message"
-          class="border border-gray-300 rounded-md px-3 py-2 w-full mb-4"
           rows="8"
           placeholder="Hi, I'd like to let you know we're constructing a bypass..."
         ></textarea>
       </label>
-      <!-- your other form fields go here -->
-      <button
-        type="submit"
-        class="bg-primary-700 hover:bg-primary-900 text-white py-2 px-4 rounded transition-colors w-full"
-        >Send</button
-      >
+
+      <button type="submit" class="">Send</button>
     </form>
-  </div>
+  </main>
 </Layout>

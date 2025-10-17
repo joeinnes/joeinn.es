@@ -1,6 +1,4 @@
 <script>
-  import { run } from "svelte/legacy";
-
   /**
    * @typedef {Object} Props
    * @property {number} [year]
@@ -9,9 +7,6 @@
   /** @type {Props} */
   let { year = 2015 } = $props();
   let votedFor = $state("Labour");
-  let votesPerSeat = $state(0);
-  let seatComparison = "";
-  let voteValue = $state("1");
   /** @typedef {(2015 | 2017 | 2024)} ElectionYears */
   /** @typedef {{
 		[key: string]: {
@@ -197,19 +192,17 @@
   };
 
   const averageVotesPerSeat = Math.round(
-    totals[year].votesForWinningParties / totals[year].totalSeats
+    totals[year].votesForWinningParties / totals[year].totalSeats,
   );
 
-  let voteStats = $state();
-  let seatsPerVoteShare = $state(0);
-  run(() => {
-    voteStats = votingData[year][votedFor];
-    votesPerSeat = Math.round(voteStats.votes / voteStats.seats);
-    seatsPerVoteShare = Math.round(
-      (voteStats.votes / totals[year].votesForWinningParties) * 649
-    );
-    voteValue = (1 / (votesPerSeat / averageVotesPerSeat)).toFixed(2);
-  });
+  const voteStats = $derived(votingData[year][votedFor]);
+  const votesPerSeat = $derived(Math.round(voteStats.votes / voteStats.seats));
+  const seatsPerVoteShare = $derived(
+    Math.round((voteStats.votes / totals[year].votesForWinningParties) * 649),
+  );
+  const voteValue = $derived(
+    (1 / (votesPerSeat / averageVotesPerSeat)).toFixed(2),
+  );
 </script>
 
 <select bind:value={votedFor} class="p-2 border-2 rounded-xl">
@@ -221,8 +214,8 @@
 {#if votedFor}
   <h2>Your vote was worth {voteValue}&times; the average!</h2>
   <p>
-    Your party got {voteStats.seats} seats with {voteStats.votes} votes ({(
-      (100 * voteStats.votes) /
+    Your party got {voteStats?.seats} seats with {voteStats?.votes} votes ({(
+      (100 * voteStats?.votes) /
       totals[year].totalVotes
     ).toFixed(1)}% vote share)
   </p>

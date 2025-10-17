@@ -8,10 +8,10 @@ excerpt: As has become my habit, posting my voter power calculator for the 2024 
 
 import VoterPowerCalculator from
   '../../components/VoterPowerCalculator.svelte';
-  
+
 I voted for:
 
-    <VoterPowerCalculator year={2024} />
+    <VoterPowerCalculator year={2024} client:only="svelte" />
 
 Note that votes for the speaker are excluded from calculations. If you voted for
 a candidate belonging to a party not on this list, then your vote was effectively

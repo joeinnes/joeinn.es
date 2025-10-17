@@ -1,0 +1,103 @@
+<style>
+  details {
+    position: absolute;
+    top: var(--layout-spacing);
+    right: var(--layout-spacing);
+    z-index: 1000;
+    & * {
+      opacity: 1;
+    }
+  }
+  summary {
+    user-select: none;
+    border-radius: var(--border-rounded-full);
+    border: 3px solid var(--foreground);
+    color: var(--foreground);
+    background-color: color-mix(
+      in hsl,
+      var(--background) 80%,
+      var(--foreground) 20%
+    );
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    padding: 0.3em;
+    font-size: 1.2rem;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  /* hide the default disclosure triangle */
+  summary::-webkit-details-marker,
+  summary::marker {
+    display: none;
+    content: "";
+  }
+
+  nav {
+    position: absolute;
+    overflow: hidden;
+    background: var(--background);
+
+    top: 100%; /* sit just below the summary */
+    right: 0; /* align to the end of the summary */
+    margin-block-start: calc(var(--layout-spacing) / 4);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    min-width: 10rem;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    margin: 0;
+    transition: color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  nav li:hover {
+    background: var(--foreground);
+    color: var(--background);
+  }
+
+  a {
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: calc(var(--layout-spacing) / 4) calc(var(--layout-spacing) / 2);
+  }
+</style>
+
+<details>
+  <summary
+    ><svg
+      height="1em"
+      style="enable-background:new 0 0 32 32;"
+      version="1.1"
+      viewBox="0 0 32 32"
+      width="auto"
+      xml:space="preserve"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      ><path
+        d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"
+        fill="currentColor"></path></svg
+    >
+  </summary>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/i-shipped">I Shipped</a></li>
+      <li><a href="/smidgeons">Smidgeons</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</details>

@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../../layouts/Default.astro";
+import Nav from "../../components/NewNav.astro";
 import Signature from "../../components/Signature.svelte";
 
 const { slug } = Astro.params;
@@ -17,29 +18,18 @@ export async function getStaticPaths() {
 }
 ---
 
+<style>
+  p img {
+    margin-block-end: var(--layout-spacing);
+  }
+</style>
 <Layout title={post.data.title} bg={post.data.page_bg}>
-  <article
-    class="relative mx-auto mb-8 overflow-hidden prose bg-white shadow-2xl lg:prose-xl prose-headings:font-bold prose-zinc rounded-xl prose-li:ml-4 md:prose-li:ml-0"
-    style="width: min(65ch, 100%);"
-  >
-    {
-      post.data.featured_image && (
-        <div class="aspect-[21/9] header-image content not-prose shadow !p-0">
-          <img
-            alt={post.data.title}
-            src={
-              post.data.featured_image ||
-              "https://source.unsplash.com/random/?" +
-                encodeURIComponent(post.data.title)
-            }
-            style="padding: 0px"
-            class="aspect-[4/3] md:aspect-[21/9] object-cover rounded-none"
-          />
-        </div>
-      )
-    }
+  <main>
+    <Nav />
     <hgroup class="content meta">
-      <h1>{post.data.title}</h1>
+      <h1 class="title">
+        {post.data.title}
+      </h1>
       <small
         >{
           new Intl.DateTimeFormat("en-GB", {
@@ -50,47 +40,29 @@ export async function getStaticPaths() {
         }.</small
       >
     </hgroup>
-    <div class="content">
+    {
+      post.data.featured_image && (
+        <div>
+          <img
+            alt={post.data.title}
+            src={
+              post.data.featured_image ||
+              "https://source.unsplash.com/random/?" +
+                encodeURIComponent(post.data.title)
+            }
+            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-block-end: var(--layout-spacing);"
+          />
+        </div>
+      )
+    }
+
+    <article class="content">
       <Content />
       <div
-        class="flex justify-end"
-        style={`grid-column: 2; color: ${post.data.page_bg}`}
+        style="color: var(--primary); width: 30% !important; margin-inline-start: auto; margin-block: var(--layout-spacing);"
       >
         <Signature client:load />
       </div>
-    </div>
-  </article>
+    </article>
+  </main>
 </Layout>
-
-<style>
-  @reference "tailwindcss"
-	:global(.header-image) {
-    @apply py-0;
-  }
-  :global(.content) {
-    @apply grid pt-4 pb-8;
-    grid-template-columns: 1fr min(55ch, 100%) 1fr;
-  }
-
-  :global(.content > *) {
-    @apply px-4;
-    grid-column: 2;
-  }
-
-  :global(.content.meta h1) {
-    @apply mb-2;
-  }
-
-  :global(hgroup.content.meta) {
-    @apply pb-0;
-  }
-
-  :global(.content > picture) {
-    @apply p-0;
-  }
-
-  :global(picture, img, .full-bleed, p:has(img), .content > p:has(img)) {
-    @apply max-w-full w-full p-0 rounded-none;
-    grid-column: 1 / -1 !important;
-  }
-</style>

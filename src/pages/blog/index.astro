@@ -1,83 +1,147 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Default.astro";
+import Nav from "../../components/NewNav.astro";
 
-const posts = await getCollection('posts');
+const posts = await getCollection("posts");
 const now = new Date();
-const filteredPosts = await getCollection('posts', ({ data }) => {
+const filteredPosts = await getCollection("posts", ({ data }) => {
   return !data.draft && new Date(data.date) < now;
 });
 const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
 ---
-<Layout title="Joe Innes | Blog">
-  <div class="max-w-[100%] w-[70ch] mx-auto md:pt-16 lg:pt-0">
-    <div class="relative flex flex-col w-full mb-8 place-items-center">
-      <h1 class="mb-8 text-3xl font-bold lg:text-5xl">Joe Innes's Blog</h1>
 
-      <div class="relative w-5/6">
-        <div
-          class="absolute bottom-0 left-0 grid h-auto pb-2 text-gray-400 aspect-square place-items-center"
-        >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+<style>
+  .title {
+    margin-block-end: var(--layout-spacing);
+  }
+  a:has(article) {
+    display: block;
+    padding-block: var(--layout-spacing);
+    color: var(--foreground);
+    border-bottom: 1px solid var(--primary);
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  h2 {
+    display: inline-block;
+    margin-block-end: var(--layout-spacing);
+  }
+  div:has(svg) {
+    position: relative;
+  }
+  svg {
+    position: absolute;
+    top: 0;
+    left: var(--inline-spacing);
+    width: auto;
+    height: 24px;
+    margin-block-start: calc(var(--inline-spacing) * 4);
+    fill: var(--background);
+    stroke: var(--foreground);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--foreground);
+    padding: calc(var(--layout-spacing) / 2);
+    padding-left: calc(var(--layout-spacing) * 1.4);
+    outline: none;
+  }
+</style>
+
+<Layout title="Joe Innes | Blog">
+  <Nav />
+  <main>
+    <h1 class="title">Joe Innes's Blog</h1>
+
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-search-icon lucide-search"
+        ><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"
+        ></circle></svg
+      >
+    </div>
+    <input
+      id="search"
+      type="text"
+      class="w-full py-2 pl-10 mt-2 border-b-2 outline-none border-primary-100 text-ellipsis"
+      placeholder={`Search (e.g.: ${posts[Math.floor(Math.random() * posts.length)]?.data.title})`}
+    />
+
+    <div
+      class="relative flex flex-col justify-center w-full px-4 pb-8 mx-auto prose md:prose-xl max-md:max-w-full"
+    >
+      <div
+        class="flex flex-col gap-8 overflow-hidden divide-y-2 text-ellipsis divide-primary-100"
+        style="--border-bottom-hover: black"
+      >
+        <div id="no-results" class="border-0" style="display: none;">
+          Hmm, no results for that, try something else?
         </div>
-        <input
-        id="search"
-          type="text"
-          class="w-full py-2 pl-10 mt-2 border-b-2 outline-none border-primary-100 text-ellipsis"
-          placeholder={`Search (e.g.: ${posts[Math.floor(Math.random() * posts.length)]?.data.title})`}
-        />
+
+        {
+          filteredPosts.length &&
+            filteredPosts.sort(dateSort).map((post) => (
+              <a href={`/blog/${post?.slug}`}>
+                <article
+                  style={`--border-colour: ${post?.data.page_bg || "black"};`}
+                  data-title={post.data.title.toLowerCase()}
+                >
+                  <div>
+                    <h2>{post?.data.title}</h2>
+                  </div>
+
+                  {post?.data.excerpt ||
+                    "No excerpt available for this post. Click and see what's inside!"}
+                </article>
+              </a>
+            ))
+        }
       </div>
     </div>
+    <script is:inline>
+      const input = document.getElementById("search");
+      const posts = document.querySelectorAll("article");
+      let showingPosts = posts.length;
+      input.addEventListener("input", () => {
+        showingPosts = 0;
+        if (!input?.value) {
+          posts.forEach((post) => {
+            post.parentNode.style.display = "block";
+          });
+          return;
+        }
+        const query = input.value.toLowerCase();
+        posts.forEach((post) => {
+          const title = post.dataset.title;
+          post.parentNode.style.display = title.includes(query)
+            ? "block"
+            : "none";
+          showingPosts += title.includes(query) ? 1 : 0;
+        });
 
-    <div class="relative flex flex-col justify-center w-full px-4 pb-8 mx-auto prose md:prose-xl max-md:max-w-full">
-    <div
-      class="flex flex-col gap-8 overflow-hidden divide-y-2 text-ellipsis divide-primary-100 "
-      style="--border-bottom-hover: black"
-    >
-      <div id="no-results" class="border-0" style="display: none;">Hmm, no results for that, try something else?</div>
-
-      {filteredPosts.length && filteredPosts.sort(dateSort).map(post => (
-        <a href={`/blog/${post?.slug}`} class="pb-8 font-normal no-underline">
-          <article class="prose-h2:mb-0" style={`--border-colour: ${post?.data.page_bg || 'black'};`} data-title={post.data.title.toLowerCase()}>
-            <div class="mt-8">
-              <h2 class="inline text-xl md:text-3xl">
-                {post?.data.title}
-              </h2>
-            </div>
-
-            {post?.data.excerpt || "No excerpt available for this post. Click and see what's inside!"}
-          </article>
-        </a>
-      ))}
-    </div>
-  </div>
-</div>
-<script is:inline>
-  const input = document.getElementById('search');
-  const posts = document.querySelectorAll('article');
-  let showingPosts = posts.length;
-  input.addEventListener('input', () => {
-    showingPosts = 0;
-    if (!input?.value) {
-      posts.forEach((post) => {
-        post.parentNode.style.display = 'block';
+        if (!showingPosts) {
+          document.getElementById("no-results").style.display = "block";
+        } else {
+          document.getElementById("no-results").style.display = "none";
+        }
       });
-      return;
-    }
-    const query = input.value.toLowerCase();
-    posts.forEach((post) => {
-      const title = post.dataset.title;
-      post.parentNode.style.display = title.includes(query) ? 'block' : 'none';
-      showingPosts += title.includes(query) ? 1 : 0;
-    });
-    
-    if (!showingPosts) {
-      document.getElementById('no-results').style.display = 'block';
-    } else {
-      document.getElementById('no-results').style.display = 'none';
-    }
-  });
-</script>
+    </script>
+  </main>
 </Layout>
 
 <style lang="postcss">
