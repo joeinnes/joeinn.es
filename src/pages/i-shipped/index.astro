@@ -18,7 +18,7 @@ const shipped = await getCollection("i-shipped");
         return (
           <article class="mono">
             <time style="margin-block: 0; color: var(--muted)">
-              {item.data.mergeDate.toLocaleDateString("en-GB", {
+              {item.data.mergeDate?.toLocaleDateString("en-GB", {
                 day: "numeric",
                 month: "long",
                 year: "numeric",
