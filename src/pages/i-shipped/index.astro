@@ -14,9 +14,12 @@ const shipped = await getCollection("i-shipped");
     <h1 class="title">I Shipped...</h1>
     {
       shipped
-        .sort(
-          (a, b) => b.data?.mergeDate?.getTime() - a.data?.mergeDate?.getTime(),
-        )
+        .filter((item) => item.data?.mergeDate)
+        .sort((a, b) => {
+          const aTime = a.data?.mergeDate?.getTime() ?? 0; // or use a default like Date.now()
+          const bTime = b.data?.mergeDate?.getTime() ?? 0;
+          return bTime - aTime;
+        })
         .map(async (item) => {
           const { Content } = await render(item);
           return (
