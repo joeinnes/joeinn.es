@@ -1,0 +1,11 @@
+---
+summary: >-
+  a fix to our passkey implementation which increases the challenge length to 20
+  bytes
+repo: garden-co/jazz
+mergeDate: 2025-09-29
+prNumber: '2977'
+---
+In principle, according to the WebAuthn spec, cryptographic challenges *should* be at least 16 bytes long, however in our existing implementation, we had 3 bytes. Although this is technically within spec, it was causing issues for some users using third party passkey managers such as KeePassXC.
+
+This PR builds on previous work and extends the challenge length to 20 bytes.
