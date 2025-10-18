@@ -13,27 +13,29 @@ const shipped = await getCollection("i-shipped");
 
     <h1 class="title">I Shipped...</h1>
     {
-      shipped.map(async (item) => {
-        const { Content } = await render(item);
-        return (
-          <article class="mono">
-            <time style="margin-block: 0; color: var(--muted)">
-              {item.data.mergeDate?.toLocaleDateString("en-GB", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </time>
-            <details style="margin-block: 0;">
-              <summary>{item.data.summary}</summary>
-              <Content />
-            </details>
-            <div style="display: flex; justify-content: end;">
-              <GitHubLink repo={item.data.repo} pr={item.data.prNumber} />
-            </div>
-          </article>
-        );
-      })
+      shipped
+        .sort((a, b) => b.data?.mergeDate - a.data?.mergeDate)
+        .map(async (item) => {
+          const { Content } = await render(item);
+          return (
+            <article class="mono">
+              <time style="margin-block: 0; color: var(--muted)">
+                {item.data.mergeDate?.toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </time>
+              <details style="margin-block: 0;">
+                <summary>{item.data.summary}</summary>
+                <Content />
+              </details>
+              <div style="display: flex; justify-content: end;">
+                <GitHubLink repo={item.data.repo} pr={item.data.prNumber} />
+              </div>
+            </article>
+          );
+        })
     }
   </main>
 </Layout>
