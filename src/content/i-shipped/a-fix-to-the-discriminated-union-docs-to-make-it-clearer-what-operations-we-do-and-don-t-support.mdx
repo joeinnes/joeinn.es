@@ -1,0 +1,13 @@
+---
+summary: >-
+  a fix to the discriminated union docs to make it clearer what operations we do
+  and don't support
+repo: garden-co/jazz
+mergeDate: 2025-09-29
+prNumber: '2981'
+---
+Due to various challenges with TypeScript generics, we can't make the `$jazz.ensureLoaded`, `$jazz.set` and `$jazz.subscribe` methods typesafe on discriminated unions. This was causing warnings for one of our adopters in their project.
+
+Although this was previously covered in the docs, it was hidden towards the bottom of the page.
+
+This PR makes it clearer and more prominent.
