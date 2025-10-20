@@ -1,0 +1,9 @@
+---
+summary: >-
+  an enhancement to our existing server-side rendering agent which allows it to
+  be used outside of React
+repo: garden-co/jazz
+mergeDate: 2025-10-02
+prNumber: '2989'
+---
+Our existing SSR agent was recommended for use to allow Server-Side Rendering in Next.js apps. However, I realised that the module itself is written in pure TypeScript, and there's no good reason for it to be React-only. I modified the Svelte provider, changed the export, and updated the docs, as well as creating a small example app demonstrating how the SSR agent can be used to perform Server-Side Rendering in SvelteKit too.
