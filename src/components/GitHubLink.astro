@@ -7,9 +7,13 @@ export interface Props {
 const { repo, pr } = Astro.props;
 ---
 
-<a href={`https://github.com/${repo}/pull/${pr}`} target="_blank">
+<a
+  href={`https://github.com/${repo}/pull/${pr}`}
+  target="_blank"
+  style="font-size: 0.6rem;"
+>
   <div class="github-link">
-    <div style="height: 1.8em; aspect-ratio: 1/1;">
+    <div style="height: 1rem; aspect-ratio: 1/1;">
       <svg
         width="auto"
         height="auto"
@@ -56,8 +60,8 @@ const { repo, pr } = Astro.props;
     &:hover {
       background-color: color-mix(
         in hsl,
-        var(--github-brand-color) 60%,
-        var(--background) 40%
+        var(--github-brand-color) 40%,
+        var(--background) 60%
       );
     }
   }

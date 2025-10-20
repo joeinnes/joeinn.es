@@ -5,42 +5,65 @@ import Nav from "../../components/NewNav.astro";
 
 import { getCollection, render } from "astro:content";
 const shipped = await getCollection("i-shipped");
+
+// Group shipped items by date
+const groupedByDate = shipped
+  .filter((item) => item.data?.mergeDate)
+  .sort((a, b) => {
+    const aTime = a.data?.mergeDate?.getTime() ?? 0;
+    const bTime = b.data?.mergeDate?.getTime() ?? 0;
+    return bTime - aTime;
+  })
+  .reduce(
+    (groups, item) => {
+      const dateKey =
+        item.data.mergeDate?.toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }) || "Unknown Date";
+
+      if (!groups[dateKey]) {
+        groups[dateKey] = [];
+      }
+      groups[dateKey].push(item);
+      return groups;
+    },
+    {} as Record<string, typeof shipped>,
+  );
 ---
 
 <Layout title="I Shipped...">
-  <main>
+  <main class="mono">
     <Nav />
 
     <h1 class="title">I Shipped...</h1>
     {
-      shipped
-        .filter((item) => item.data?.mergeDate)
-        .sort((a, b) => {
-          const aTime = a.data?.mergeDate?.getTime() ?? 0; // or use a default like Date.now()
-          const bTime = b.data?.mergeDate?.getTime() ?? 0;
-          return bTime - aTime;
-        })
-        .map(async (item) => {
-          const { Content } = await render(item);
-          return (
-            <article class="mono">
-              <time style="margin-block: 0; color: var(--muted)">
-                {item.data.mergeDate?.toLocaleDateString("en-GB", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}
-              </time>
-              <details style="margin-block: 0;">
-                <summary>{item.data.summary}</summary>
-                <Content />
-              </details>
-              <div style="display: flex; justify-content: end;">
-                <GitHubLink repo={item.data.repo} pr={item.data.prNumber} />
-              </div>
-            </article>
-          );
-        })
+      Object.entries(groupedByDate).map(async ([dateKey, items]) => (
+        <section>
+          <h2
+            class="mono"
+            style="font-size: 1rem; color: var(--muted); margin-block: var(--layout-spacing) calc(var(--layout-spacing) / 2);"
+          >
+            {dateKey}
+          </h2>
+
+          {items.map(async (item) => {
+            const { Content } = await render(item);
+            return (
+              <article>
+                <details>
+                  <summary>{item.data.summary}</summary>
+                  <Content />
+                  <div style="display: flex; justify-content: end;">
+                    <GitHubLink repo={item.data.repo} pr={item.data.prNumber} />
+                  </div>
+                </details>
+              </article>
+            );
+          })}
+        </section>
+      ))
     }
   </main>
 </Layout>

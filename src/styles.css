@@ -220,7 +220,7 @@
     text-underline-offset: calc(var(--inline-spacing) / 3);
   }
   details :not(summary, summary *) {
-    opacity: 0.7;
+    color: var(--muted);
   }
 
   blockquote {
