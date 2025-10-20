@@ -1,0 +1,8 @@
+---
+summary: a `getOrCreate` method which complements the `upsertUnique` functionality
+repo: garden-co/jazz
+prNumber: '2997'
+---
+Currently, users can `upsertUnique`, allowing them to specify a piece of unique data to be used to generate the header for their CoValue. This existing function will either create or overwrite any CoValue with that specific uniqueness.
+
+The new function I built allows users to specify what they would like to be there if data does *not* already exist, but if a CoValue with that specific uniqueness *does* already exist, to simply return it, rather than overwriting it.
