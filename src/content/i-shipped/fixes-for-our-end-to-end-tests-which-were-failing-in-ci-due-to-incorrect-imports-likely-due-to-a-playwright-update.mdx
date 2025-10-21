@@ -3,7 +3,6 @@ summary: >-
   fixes for our end-to-end tests which were failing in CI due to incorrect
   imports (likely due to a playwright update)
 repo: garden-co/jazz
-mergeDate: 2025-10-06
 prNumber: '3003'
 ---
 We have some automated tests that run when we add new code to our repositories. For a while now, the end-to-end tests have been failing. I spent some time digging into the reasons for this, and fixed the tests so that they no longer fail.
