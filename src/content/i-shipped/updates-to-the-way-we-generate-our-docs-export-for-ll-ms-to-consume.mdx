@@ -1,0 +1,8 @@
+---
+summary: updates to the way we generate our docs export for LLMs to consume
+repo: garden-co/jazz
+prNumber: '3018'
+---
+Previously, our LLMs text file was done simply by searching and replacing naively.
+
+I introduced a step where our docs are rendered out as pure markdown before they are exported. This allows us to mock specific components so we can do things like render the tabbed code group component sensibly.
