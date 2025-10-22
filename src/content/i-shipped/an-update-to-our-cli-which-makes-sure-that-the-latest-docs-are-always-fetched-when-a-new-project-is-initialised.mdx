@@ -1,0 +1,11 @@
+---
+summary: >-
+  an update to our CLI which makes sure that the latest docs are always fetched
+  when a new project is initialised
+repo: garden-co
+mergeDate: 2025-10-09
+prNumber: '3017'
+---
+We have a tool which allows you to run `create-jazz-app` with some options to get a new Jazz app set up. This tool was cloning a specific part of our monorepo where a static build of our docs had been copied. However, this had fallen out of date, and so we were wasting our users' time, bandwidth, and worse, seeding their AI agents with incorrect, outdated data.
+
+I introduced functionality to fetch the latest docs from our website to save for AIs to refer to.
