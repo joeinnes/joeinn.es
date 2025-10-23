@@ -1,0 +1,8 @@
+---
+summary: a new way to create invites to groups
+repo: garden-co/jazz
+---
+So far, our users have been able to create invite links which target specific CoValues. But there's no way to easily get the `inviteSecret_` for processing however the user likes.
+
+I created a couple of methods (`Group.createInvite(groupId, role)` and `group.$jazz.createInvite(role)` which allow you to manually get the secret, and process it how you like using `Account.acceptInvite()`. I also improved the API for `acceptInvite` so that if the invite is not specified, it's assumed to be a group invitation.
+
