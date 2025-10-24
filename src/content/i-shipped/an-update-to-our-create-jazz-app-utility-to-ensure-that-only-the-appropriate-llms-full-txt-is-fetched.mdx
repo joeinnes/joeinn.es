@@ -1,0 +1,10 @@
+---
+summary: >-
+  an update to our create-jazz-app utility to ensure that only the appropriate
+  llms-full.txt is fetched
+repo: garden-co/jazz
+prNumber: '3064'
+---
+Currently, the `create-jazz-app` CLI tool fetches an `llms-full.txt` file which contains a summary of all the content contained in the docs, regardless of framework.
+
+However, since my previous PR got merged, we're generating framework-specific `llms-full.txt` files, which will be a) smaller and b) less confusing for LLMs, so now, only the appropriate `llms-full.txt` gets pulled.
