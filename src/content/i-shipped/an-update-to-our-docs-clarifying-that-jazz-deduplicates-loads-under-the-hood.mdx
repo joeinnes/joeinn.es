@@ -1,0 +1,7 @@
+---
+summary: an update to our docs clarifying that Jazz deduplicates loads under the hood
+repo: garden-co/jazz
+mergeDate: 2025-11-03
+prNumber: '3142'
+---
+Jazz intelligently de-duplicates loads, meaning that each part of an application can load exactly what data it needs without worrying about what is loaded elsewhere in the app. The user will not pay a performance hit because only the extra data which is not already loaded will be fetched, and the existing loaded data will not be reloaded.
