@@ -1,8 +1,0 @@
----
-summary: >-
-  an update to the podspec file to make the react-native-image-resizer
-  compatible with Expo 54
-repo: bamlab/react-native-image-resizer
-prNumber: '429'
----
-Since Expo 54, React Native has been shipped precompiled for iOS. This meant that the previous dependency for react-native-image-resizer, RCT-Folly, could no longer be found as it's no longer available as a pod. I updated the podspec file to detect whether React Native is precompiled or not, and if not, then compile RCT-Folly as a dependency.
