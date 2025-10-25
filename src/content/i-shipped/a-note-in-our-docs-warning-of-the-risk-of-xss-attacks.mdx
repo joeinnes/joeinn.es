@@ -1,0 +1,7 @@
+---
+summary: a note in our docs warning of the risk of XSS attacks
+repo: garden-co/jazz
+mergeDate: 2025-11-04
+prNumber: '3110'
+---
+Currently, Jazz stores secrets in `localStorage`. This is accessible by client-side JavaScript, and so any untrusted code running in a developers' app could allow the secret to be extracted. Although this is a required trade-off in order to avoid re-authenticating every single session, users are now warned about the risk of cross-site scripting, and advised to take steps to prevent it.
