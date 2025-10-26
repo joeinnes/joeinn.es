@@ -1,0 +1,11 @@
+---
+summary: >-
+  a bugfix for an issue where `ensureLoaded` was throwing despite `$onError:
+  'catch'` being set
+repo: garden-co/jazz
+mergeDate: 2025-11-25
+prNumber: '3204'
+---
+Normally, Jazz will throw if it cannot complete a resolve query as requested by the user (for example because the user doesn't have access to the data or it doesn't actually exist). Users can override this by specifying `$onError: 'catch'`, which will instead return the rest of the query completed correctly with only the CoValue in question missing.
+
+There was a bug in how this was implemented which I fixed.
