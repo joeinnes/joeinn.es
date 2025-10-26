@@ -1,0 +1,11 @@
+---
+summary: >-
+  a Jazz demo where users can create a collaborative piece of music on a step
+  sequencer
+repo: garden-co/groove
+mergeDate: 2025-11-13
+prNumber: '1'
+---
+This was a huge piece of work ahead of SyncConf 2025. I built a Jazz-based step sequencer in SvelteKit. Users can collaborate on an 8 beat grid to trigger various one-shot samples in a musical sequence.
+
+The demo is aimed at iPad screen size, and includes primitive sync logic to make sure that devices sound in sync when played simultaneously. This was particularly challenging, and I eventually did it based on calculating clock skew roughly based on a heartbeat from the Jazz mesh. I would like to explore using Jazz as a WebRTC signalling channel.
