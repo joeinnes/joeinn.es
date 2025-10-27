@@ -1,0 +1,7 @@
+---
+summary: a performance tip for using selectors
+repo: garden-co/jazz
+mergeDate: 2025-12-02
+prNumber: '3232'
+---
+In Jazz, you can use 'selectors' to avoid React re-rendering on every state update. However, the selector function itself still runs. Added tips on avoiding heavy computation inside selector functions, and how to extract that into a `useMemo` call outside the selector to take advantage of batching.
