@@ -1,0 +1,11 @@
+---
+summary: >-
+  an extension to our Cryptography docs and FAQ clarifying our understanding of
+  the legal status of Jazz's encryption algorithms
+repo: garden-co/jazz
+mergeDate: 2025-10-30
+prNumber: '3122'
+---
+In Jazz, we use three main cryptographic algorithms: XSalsa20 for encrypting data, BLAKE3, for calculating a rolling hash of appended operations, and Ed25519 for signing the hashes. These are all published and available for anyone to use.
+
+When uploading an app to the Apple App Store, users have to make declarations about whether their app uses standard encryption or not as part of legal requirements around 'exporting' cryptography in the US. This section is intended to provide information for Jazz's users to make informed decisions when responding to these questions.
