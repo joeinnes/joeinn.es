@@ -1,0 +1,7 @@
+---
+summary: a fix for a bug in our types for loading options on CoFeeds
+repo: garden-co/jazz
+mergeDate: 2025-10-29
+prNumber: '3114'
+---
+I identified a bug where TypeScript incorrectly required specific options to load a CoFeed. However, the underlying code functionality did not depend on these options. I modified the system to remove this unnecessary requirement, improving its usability.
