@@ -1,0 +1,11 @@
+---
+summary: a huge docs update, removing twoslash in favour of extracted code snippets
+repo: garden-co/jazz
+mergeDate: 2025-11-07
+prNumber: '3090'
+---
+Twoslash is a code-highlighting and type-checking plugin which helps to make sure all our code samples are kept up to date. Unfortunately though, it causes our build times to be very slow.
+
+I extracted all of our code samples into separate files, and developed a new way of integrating them into our docs. This led to huge speed wins, bringing our build times down by around 5 minutes per build (on Vercel), roughly 14 hours of compute per month.
+
+It also brought even more significant savings in terms of development. Where previously, it took me (M4 Macbook Pro) 110s to compile the docs in dev mode, now it takes 7s, a speed increase of 15×, making it much easier to develop our homepage and our docs overall.
