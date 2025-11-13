@@ -1,0 +1,7 @@
+---
+summary: a PR to fix an infinite navigation loop on our docs
+repo: garden-co/jazz
+mergeDate: 2025-11-10
+prNumber: '3171'
+---
+At some point, I introduced a regression that was causing our homepage docs to enter into a recursive navigation loop calling `useEffect` multiple times. This quick PR fixed it.
