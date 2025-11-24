@@ -1,0 +1,9 @@
+---
+summary: a refactoring of our useFramework hook
+repo: garden-co/jazz
+mergeDate: 2025-11-24
+prNumber: '3172'
+---
+In our docs, we have a hook which fetches the current framework, however, there were other bits of code around the codebase which do similar things, and the hook was becoming unwieldy and difficult to follow.
+
+I refactored the `useFramework` hook to make it easier to use, and improve the separation of concerns on the homepage docs.
