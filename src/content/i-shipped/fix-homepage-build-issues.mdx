@@ -1,0 +1,10 @@
+---
+summary: fix homepage build issues
+repo: garden-co/jazz
+mergeDate: 2025-11-13
+prNumber: '3179'
+---
+# Description
+Homepage builds are failing since merging 3178 but 3178 built successfully in preview: https://vercel.com/gcmp/jazz-homepage/4GFURBFsp8apUe3zuKqcnKDyCyKW
+
+I still don't know why the `// @ts-expect-error` is causing issues on Vercel but not locally (in fact, the opposite), but this will unblock homepage builds while I work it out.

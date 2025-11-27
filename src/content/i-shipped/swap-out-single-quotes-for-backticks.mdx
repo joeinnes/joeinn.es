@@ -1,0 +1,7 @@
+---
+summary: swap out single quotes for backticks
+repo: TimFoerster/octobercms-leaflet
+mergeDate: 2020-08-17
+prNumber: '3'
+---
+If you try to bind a pop-up with an apostrophe in, then it will cause an error and the map won't load. Switching to template literals fixes this. Although this is arguably not a safe way to do this, it is no worse than it currently is. (eg: you could write a 'popup' containing the text `'); alert('xss');var ignore = '` which would also allow XSS attacks.

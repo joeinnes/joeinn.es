@@ -1,0 +1,11 @@
+---
+summary: >-
+  update `useFramework` to respond to TAB_CHANGE_EVENTs emitted on the window
+repo: garden-co/jazz
+mergeDate: 2025-09-18
+prNumber: '2933'
+---
+# Description
+The `TabbedCodeGroup` component emits custom events on the window when the user changes framework to allow all parts of the docs to update.
+
+However, the `useFramework` hook which feeds the current framework to the `ContentByFramework` component wasn't listening to these changes, so the content contained within was stuck at whatever it was when the page was first loaded.

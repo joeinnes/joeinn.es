@@ -1,0 +1,11 @@
+---
+summary: >-
+  make latency bar red if there's an ongoing outage
+repo: garden-co/jazz
+mergeDate: 2025-09-09
+prNumber: '2877'
+---
+# Description
+It was quite frustrating to see during today's outage a bright green latency indicator next to a 'down' indicator. This update cascades the `isUp` property down to the latency chart, and in case `isUp` is false, the last latency indicator will be red.
+
+Technically this is not accurate.

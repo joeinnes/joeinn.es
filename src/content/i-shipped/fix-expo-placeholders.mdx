@@ -1,0 +1,13 @@
+---
+summary: fix expo placeholders
+repo: garden-co/jazz
+mergeDate: 2026-01-16
+prNumber: '3375'
+---
+# Description
+Expo Image Manipulator returns a bare base64 string, which means that the images uploaded from Expo clients had invalid placeholders.
+
+This fixes. 
+
+## Manual testing instructions
+Build and install the chat app, upload some images. Check that the placeholder URL is correctly set with the `data` prefix.
