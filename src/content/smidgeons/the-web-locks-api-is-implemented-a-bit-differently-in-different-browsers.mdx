@@ -1,0 +1,22 @@
+---
+summary: the web locks API is implemented a bit differently in different browsers
+created: 2025-12-15
+---
+In particular, I built myself a little bug, by assuming that navigation would release the lock. It doesn't, and in fact, navigating while the lock is held can cause the lock to be held for a very long time on WebKit.
+
+Consider the following:
+
+```
+await navigator.locks.request('my-lock', async () => {
+  await someAsyncOperation();
+});
+window.location.href('/');
+```
+
+Safe? No! Because although the lock may be *technically* released in JavaScript, neither the lock release nor the navigation are fully synchronous, as they use IPC. This can cause WebKit in some places to put the page into the BFCache *before* the lock is released, creating a 'zombie lock', where the lock doesn't get released because the page is suspended.
+
+In order to avoid this, you need to wait for the next macrotask before navigating, as the browser will use the task boundary to run clean up and handle its own queue (including the 'release' IPC message).
+
+```
+await new Promise(resolve => setTimeout(resolve, 0));
+```
