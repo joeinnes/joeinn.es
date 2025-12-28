@@ -1,0 +1,12 @@
+---
+summary: add custom placeholders for Image components
+repo: garden-co/jazz
+mergeDate: 2025-10-22
+prNumber: '2937'
+---
+# Description
+Since Jazz v0.17.0, we've defaulted to *not* generating placeholder images by default. This meant that some users were surprised on upgrading to see flashes of alt text instead of a loading image.
+
+Although this is the browser's default behaviour, the experience can be somewhat jarring.
+
+This PR allows users to specify custom placeholder images (e.g. their brand).

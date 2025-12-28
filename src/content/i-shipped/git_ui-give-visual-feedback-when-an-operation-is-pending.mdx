@@ -1,0 +1,15 @@
+---
+summary: >-
+  git_ui: Give visual feedback when an operation is pending
+repo: zed-industries/zed
+mergeDate: 2025-11-01
+prNumber: '41686'
+---
+Currently, if a commit operation takes some time, there's no visual feedback in the UI that anything's happening.
+
+This PR changes the colour of the text on the button to the `Color::Disabled` colour when a commit operation is pending.
+
+Release Notes:
+
+- Improved UI feedback in the Git panel when a commit is in progress.
+- Let's Git Together
