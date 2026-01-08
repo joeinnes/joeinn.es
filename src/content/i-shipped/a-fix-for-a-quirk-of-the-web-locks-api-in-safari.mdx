@@ -1,0 +1,7 @@
+---
+summary: a fix for a quirk of the Web Locks API in Safari
+repo: garden-co/jazz
+mergeDate: 2025-12-14
+prNumber: '#3274'
+---
+Safari's Web Locks API doesn't release immediately on navigation, which was causing the browser to effectively hang when viewing our docs landing page. This PR moved the co-ordination of the routes to a parent component.
