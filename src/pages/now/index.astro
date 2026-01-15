@@ -8,7 +8,7 @@ const reader = createReader(process.cwd(), keystaticConfig);
 const now = await reader.singletons.now.read();
 const content = await now?.now();
 const renderedMd = await marked.parse(content || "");
-import WeekInMusic from "../../components/MyMusic.astro";
+import RecentTracks from "../../components/RecentTracks.svelte";
 ---
 
 <Layout title="Joe Innes | Now">
@@ -18,16 +18,7 @@ import WeekInMusic from "../../components/MyMusic.astro";
     <article set:html={renderedMd} />
     <article>
       <h2>Listening To...</h2>
-
-      <img
-        src="https://www.tapmusic.net/collage.php?user=Mangula_D1S&type=7day&size=4x4"
-        alt="Weekly Music Collage"
-      />
-
-      <p>
-        Note: this was generated automatically based on the top tracks I
-        listened to over last week.
-      </p>
+      <RecentTracks client:load />
     </article>
   </main>
 </Layout>
