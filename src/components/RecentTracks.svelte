@@ -8,35 +8,73 @@
 
 	let allTracks = $state([]);
 	let loading = $state(true);
+	let loadingMore = $state(false);
 	let error = $state('');
 	let selectedPeriod = $state('week');
 	let selectedCategory = $state('albums');
+	let fullyLoaded = $state(false);
+	let nextCursor = $state(undefined);
+
+	async function fetchPage() {
+		const params = new URLSearchParams({
+			repo: HANDLE,
+			collection: COLLECTION,
+			limit: '100',
+			reverse: 'true',
+		});
+		if (nextCursor) params.set('cursor', nextCursor);
+		const res = await fetch(`${PDS}/xrpc/com.atproto.repo.listRecords?${params}`);
+		if (!res.ok) throw new Error(`Failed to fetch tracks (${res.status})`);
+		const data = await res.json();
+		allTracks = [...allTracks, ...data.records.map((r) => r.value)];
+		nextCursor = data.cursor;
+		if (!data.cursor) fullyLoaded = true;
+	}
+
+	function getCutoff(period) {
+		if (period === 'all') return 0;
+		const days = { week: 7, month: 30, year: 365 };
+		return Date.now() - (days[period] ?? 7) * 86400000;
+	}
+
+	function hasEnoughData(period) {
+		if (fullyLoaded) return true;
+		if (period === 'all') return false;
+		if (allTracks.length === 0) return false;
+		const oldest = allTracks[allTracks.length - 1];
+		if (!oldest.playedTime) return true;
+		return new Date(oldest.playedTime).getTime() <= getCutoff(period);
+	}
 
 	onMount(async () => {
 		try {
-			let cursor;
-			const records = [];
-			do {
-				const params = new URLSearchParams({
-					repo: HANDLE,
-					collection: COLLECTION,
-					limit: '100',
-					reverse: 'true',
-				});
-				if (cursor) params.set('cursor', cursor);
-				const res = await fetch(`${PDS}/xrpc/com.atproto.repo.listRecords?${params}`);
-				if (!res.ok) throw new Error(`Failed to fetch tracks (${res.status})`);
-				const data = await res.json();
-				records.push(...data.records.map((r) => r.value));
-				cursor = data.cursor;
-			} while (cursor);
-			allTracks = records;
+			await fetchPage();
 		} catch (e) {
 			error = e.message;
 		} finally {
 			loading = false;
 		}
 	});
+
+	$effect(() => {
+		if (!loading && !loadingMore && !hasEnoughData(selectedPeriod)) {
+			loadMore();
+		}
+	});
+
+	async function loadMore() {
+		loadingMore = true;
+		try {
+			while (!fullyLoaded) {
+				if (hasEnoughData(selectedPeriod)) break;
+				await fetchPage();
+			}
+		} catch (e) {
+			error = e.message;
+		} finally {
+			loadingMore = false;
+		}
+	}
 
 	function getArtistNames(track) {
 		if (track.artists?.length) return track.artists.map((a) => a.artistName).join(', ');
@@ -51,8 +89,7 @@
 
 	function filterByPeriod(tracks, period) {
 		if (period === 'all') return tracks;
-		const ms = { week: 7, month: 30, year: 365 };
-		const cutoff = Date.now() - (ms[period] ?? 7) * 86400000;
+		const cutoff = getCutoff(period);
 		return tracks.filter((t) => t.playedTime && new Date(t.playedTime).getTime() >= cutoff);
 	}
 
@@ -140,7 +177,7 @@
 
 {#if loading}
 	<p>Loading listening data...</p>
-{:else if error}
+{:else if error && allTracks.length === 0}
 	<p>Could not load listening data.</p>
 {:else}
 	{#if recentTracks.length > 0}
@@ -204,6 +241,10 @@
 		{/each}
 	</div>
 
+	{#if loadingMore}
+		<p class="loading-indicator">Loading more data ({allTracks.length} tracks so far)...</p>
+	{/if}
+
 	{#if stats.length > 0}
 		<ol class="stats-list">
 			{#each stats as item}
@@ -229,7 +270,7 @@
 				</li>
 			{/each}
 		</ol>
-	{:else}
+	{:else if !loadingMore}
 		<p>No listening data for this period.</p>
 	{/if}
 
@@ -343,6 +384,13 @@
 		background: var(--primary);
 		color: #fff;
 		border-color: var(--primary);
+	}
+
+	/* Loading */
+	.loading-indicator {
+		color: var(--muted);
+		font-size: 0.85em;
+		font-family: var(--font-mono);
 	}
 
 	/* Stats list */
