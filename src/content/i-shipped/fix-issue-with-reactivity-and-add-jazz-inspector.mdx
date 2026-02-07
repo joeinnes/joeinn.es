@@ -4,4 +4,4 @@ repo: MentalGear/jazz-svelte-debug-mrexample
 mergeDate: 2025-05-09
 prNumber: '1'
 ---
-Derive `me` and `itemImages` using `$derived` to ensure reactivity and simplify state management. Additionally, handle missing image resolution gracefully by returning a placeholder data URL instead of throwing an error.
+Someone built a minimal example app to demonstrate a bug with Jazz and Svelte, but the example itself had issues. I fixed the reactivity (making the UI update properly when data changes) by using Svelte's built-in `$derived` feature, and also added graceful handling for missing images instead of crashing. I also added the Jazz Inspector debugging tool to help with further troubleshooting.

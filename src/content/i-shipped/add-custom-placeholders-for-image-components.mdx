@@ -4,9 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2025-10-22
 prNumber: '2937'
 ---
-# Description
-Since Jazz v0.17.0, we've defaulted to *not* generating placeholder images by default. This meant that some users were surprised on upgrading to see flashes of alt text instead of a loading image.
-
-Although this is the browser's default behaviour, the experience can be somewhat jarring.
-
-This PR allows users to specify custom placeholder images (e.g. their brand).
+Jazz is a framework for building collaborative apps. After a recent update, images in Jazz apps would briefly flash their alt text while loading instead of showing a placeholder, which looked jarring. I added the ability for developers to specify their own custom placeholder image (like a company logo or branded loading graphic) so their apps look polished while images load in.

@@ -4,4 +4,4 @@ repo: Codiad/Codiad
 mergeDate: 2015-09-25
 prNumber: '862'
 ---
-Hopefully this will close out #841 and #828 - adding the UTF-8 encoding string to the diff_match_patch.php lib.
+Codiad is a code editor that runs in a web browser. Its file-comparison feature was breaking when files contained special characters (like accented letters), because it wasn't explicitly set to handle UTF-8 encoding. I added the UTF-8 encoding declaration so that comparing files with non-English characters works correctly.
