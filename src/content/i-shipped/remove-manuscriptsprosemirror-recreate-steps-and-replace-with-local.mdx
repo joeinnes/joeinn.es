@@ -5,10 +5,4 @@ repo: garden-co/jazz
 mergeDate: 2026-02-13
 prNumber: '3459'
 ---
-### Problem
-
-The `@manuscripts/prosemirror-recreate-steps` package pulls in transitive dependencies with known vulnerabilities. The package is also unmaintained and provides significantly more functionality than we actually use.
-
-### Solution
-
-Replaced the external dependency with a local `recreateTransform` implementation that uses ProseMirror's built-in `Fragment.
+Jazz uses a rich text editor library called ProseMirror for collaborative editing. One of the packages it depended on had known security vulnerabilities and was no longer maintained. I replaced it with a much simpler, locally-written version that does just what Jazz actually needs, removing the security risk and the unnecessary bloat.

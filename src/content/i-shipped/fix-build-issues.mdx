@@ -4,19 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2025-10-07
 prNumber: '3009'
 ---
-# Description
-Worked out an issue with conflicting static paths for the naked route.
-
-## Manual testing instructions
-Build the homepage.
-
-## Tests
-
-- [ ] Tests have been added and/or updated
-- [x] Tests have not been updated, because: N/A
-- [ ] I need help with writing tests
-
-## Checklist
-
-- [ ] I've updated the part of the docs that are affected the PR changes
-- [ ] I've generated a changeset,...
+The Jazz docs site had a build issue where two pages were trying to use the same URL path, causing conflicts. I resolved the conflicting routes so the site could build and deploy successfully again.

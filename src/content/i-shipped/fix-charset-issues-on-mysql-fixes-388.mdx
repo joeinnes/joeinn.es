@@ -5,4 +5,4 @@ repo: umami-software/umami
 mergeDate: 2020-11-28
 prNumber: '389'
 ---
-Create tables with utf8 charset to fix #388
+Umami is a privacy-focused web analytics tool (like a simpler, open-source alternative to Google Analytics). When using MySQL as the database, special characters weren't being stored correctly because the database tables weren't set up with the right character encoding. I fixed this by making sure tables are created with UTF-8 support, so all characters display properly.

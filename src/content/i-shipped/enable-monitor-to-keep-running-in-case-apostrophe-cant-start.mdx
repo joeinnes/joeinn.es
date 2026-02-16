@@ -5,6 +5,4 @@ repo: apostrophecms-legacy/apostrophe-monitor
 mergeDate: 2020-04-24
 prNumber: '7'
 ---
-Current behaviour: if Apostrophe can't start (eg: syntax error in a module's index.js), monitor exits to the terminal.
-
-This PR allows monitor to continue running in case Apostrophe doesn't start, and instead runs a basic HTTP server which will return the error message and stack dump, until the error is fixed and Apostrophe can run successfully again.
+Apostrophe Monitor is a tool that watches over an ApostropheCMS website and restarts it if it crashes. Previously, if the CMS couldn't start at all (for example, due to a code error), the monitor would just give up and exit. I changed it so that the monitor stays running and shows a helpful error page in the browser instead, giving you time to fix the problem without losing the monitoring process.

@@ -5,4 +5,4 @@ repo: garden-co/jazz
 mergeDate: 2026-02-13
 prNumber: '3456'
 ---
-Fixes an error in the performance skill which wrongly implied that CoValue creation is async
+I fixed some code examples in the Jazz documentation that incorrectly used `await` when creating data objects. Creating these objects is actually instant (not asynchronous), so the examples were misleading developers about how the API works.

@@ -5,4 +5,4 @@ repo: directus/directus
 mergeDate: 2022-01-10
 prNumber: '10960'
 ---
-Fixes #10941 by treating `DB_VERSION` as a special env var which needs to be added to the top level Knex configuration rather than merged into the connection object.
+Directus is an open-source headless CMS that connects to your database. Some cloud database providers require you to specify a database version, but Directus wasn't passing that setting through correctly. I fixed it so that setting a `DB_VERSION` environment variable actually works as expected.

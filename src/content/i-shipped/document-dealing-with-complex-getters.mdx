@@ -4,19 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2026-01-13
 prNumber: '3280'
 ---
-# Description
-Add some quick explanation on how to avoid complex circular references by using a shallowly loaded schema
-
-## Manual testing instructions
-N/A
-
-## Tests
-
-- [ ] Tests have been added and/or updated
-- [x] Tests have not been updated, because: Docs
-- [ ] I need help with writing tests
-
-## Checklist
-
-- [ ] I've updated the part of the docs that are affected the PR changes
-- [ ] I've...
+Jazz is a framework for building collaborative apps. When your data models reference each other in circles (like a project that has a manager who has projects), things can get confusing. I added documentation explaining how to handle these circular references cleanly, so developers don't get stuck in an infinite loop of loading nested data.

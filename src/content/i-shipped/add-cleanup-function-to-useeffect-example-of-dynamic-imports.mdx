@@ -5,4 +5,4 @@ repo: tinacms/tinacms
 mergeDate: 2021-02-01
 prNumber: '1720'
 ---
-
+TinaCMS is a Git-backed headless CMS for editing content. Their docs had a code example showing how to dynamically load the editor, but the example was missing a cleanup step that prevents memory leaks in React. I added the missing cleanup function so developers copying the example would get working, production-ready code.
