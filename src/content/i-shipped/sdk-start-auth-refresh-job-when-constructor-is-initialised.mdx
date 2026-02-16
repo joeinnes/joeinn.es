@@ -1,0 +1,10 @@
+---
+summary: >-
+  sDK: Start auth refresh job when constructor is initialised
+repo: directus/directus
+mergeDate: 2021-11-22
+prNumber: '9777'
+---
+Ref https://github.com/directus/directus/discussions/9720#discussioncomment-1634470
+
+If autorefresh is enabled, then this will cause the SDK to refresh tokens whenever it's loaded. This fixes bug #9639 (discussion #9720)

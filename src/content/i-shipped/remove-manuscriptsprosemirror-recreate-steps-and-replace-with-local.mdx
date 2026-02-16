@@ -1,0 +1,14 @@
+---
+summary: >-
+  remove `@manuscripts/prosemirror-recreate-steps` and replace with local implementation
+repo: garden-co/jazz
+mergeDate: 2026-02-13
+prNumber: '3459'
+---
+### Problem
+
+The `@manuscripts/prosemirror-recreate-steps` package pulls in transitive dependencies with known vulnerabilities. The package is also unmaintained and provides significantly more functionality than we actually use.
+
+### Solution
+
+Replaced the external dependency with a local `recreateTransform` implementation that uses ProseMirror's built-in `Fragment.
