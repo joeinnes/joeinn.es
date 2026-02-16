@@ -6,8 +6,9 @@
 	const PDS = 'https://bsky.social';
 	const COVER_ART_BASE = 'https://coverartarchive.org/release';
 
-	const CACHE_KEY = 'tealfm_tracks';
-	const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+	const DB_NAME = 'tealfm';
+	const DB_STORE = 'cache';
+	const CACHE_KEY = 'tracks';
 
 	let allTracks = $state([]);
 	let loading = $state(true);
@@ -18,30 +19,39 @@
 	let fullyLoaded = $state(false);
 	let nextCursor = $state(undefined);
 
-	function loadCache() {
+	function openDb() {
+		return new Promise((resolve, reject) => {
+			const req = indexedDB.open(DB_NAME, 1);
+			req.onupgradeneeded = () => req.result.createObjectStore(DB_STORE);
+			req.onsuccess = () => resolve(req.result);
+			req.onerror = () => reject(req.error);
+		});
+	}
+
+	async function loadCache() {
 		try {
-			const raw = localStorage.getItem(CACHE_KEY);
-			if (!raw) return null;
-			const cache = JSON.parse(raw);
-			return cache;
+			const db = await openDb();
+			return await new Promise((resolve) => {
+				const tx = db.transaction(DB_STORE, 'readonly');
+				const req = tx.objectStore(DB_STORE).get(CACHE_KEY);
+				req.onsuccess = () => resolve(req.result ?? null);
+				req.onerror = () => resolve(null);
+			});
 		} catch {
 			return null;
 		}
 	}
 
-	function saveCache() {
+	async function saveCache() {
 		try {
-			localStorage.setItem(
+			const db = await openDb();
+			const tx = db.transaction(DB_STORE, 'readwrite');
+			tx.objectStore(DB_STORE).put(
+				{ tracks: allTracks, fullyLoaded, nextCursor, savedAt: Date.now() },
 				CACHE_KEY,
-				JSON.stringify({
-					tracks: allTracks,
-					fullyLoaded,
-					nextCursor,
-					savedAt: Date.now(),
-				}),
 			);
 		} catch {
-			// localStorage full or unavailable
+			// IndexedDB unavailable
 		}
 	}
 
@@ -141,7 +151,7 @@
 	}
 
 	onMount(async () => {
-		const cache = loadCache();
+		const cache = await loadCache();
 		if (cache?.tracks?.length) {
 			allTracks = cache.tracks;
 			fullyLoaded = cache.fullyLoaded ?? false;
