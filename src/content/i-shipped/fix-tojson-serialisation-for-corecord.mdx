@@ -1,0 +1,18 @@
+---
+summary: >-
+  fix `toJSON()` serialisation for `co.record`
+repo: garden-co/jazz
+mergeDate: 2026-02-07
+prNumber: '3444'
+---
+The catchall on CoRecords was trapping the `toJSON` call, resulting in incorrect serialisation behaviour of nested CoRecords.
+
+Tests have been added.
+
+
+
+---
+
+> [!NOTE]
+> **Low Risk**
+> Scoped to serialization/schema lookup logic and adds targeted test coverage; low risk aside from potential edge cases in proxy trapping for non-string keys.

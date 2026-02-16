@@ -1,0 +1,17 @@
+---
+summary: >-
+  add a 'clickHandler' export which allows you to handle clicks on data points
+repo: Mitcheljager/svelte-tiny-linked-charts
+mergeDate: 2022-08-21
+prNumber: '1'
+---
+clickHandler receives (key, index).
+
+Example:
+
+```
+  <LinkedChart
+    {data}
+    clickHandler={(key, i) => alert(`You clicked on ${key} in position ${i}`)}
+  />
+```
