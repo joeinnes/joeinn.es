@@ -4,4 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2025-05-16
 prNumber: '2261'
 ---
-Fixes #2260
+The Jazz docs had a code example for Svelte passkey authentication where a template literal was missing a `$` sign. Without it, the variable inside the string wouldn't actually get replaced with its value. I added the missing `$` so the code example works correctly.

@@ -4,7 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2026-01-16
 prNumber: '3376'
 ---
-# Description
-Currently, we resize images to 256, 1024, and 2048 (plus the original).
-
-This is generally reasonable for thumbnails and full width content on different devices, but there's a big jump between 256 and 1024 for content that does not fill the width of a screen.
+Jazz is a framework for building collaborative apps. When you upload an image, Jazz automatically creates smaller versions of it so they load faster. The existing sizes jumped from 256px straight to 1024px, which meant medium-sized images (like in a sidebar or card) had to either load a tiny version or wait for a much larger one. I added a 512px in-between size so images load more smoothly in those situations.

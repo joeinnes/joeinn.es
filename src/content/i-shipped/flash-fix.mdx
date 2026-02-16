@@ -4,4 +4,4 @@ repo: joeinnes/joeinnes.github.io
 mergeDate: 2016-05-11
 prNumber: '1'
 ---
-
+On an older version of my personal website, elements would briefly flash when the page loaded because they were being hidden with `display: none`, which causes the browser to recalculate the layout. I switched to using `opacity: 0` instead, which hides things without triggering a reflow, making the page load smoother.

@@ -5,7 +5,4 @@ repo: garden-co/jazz
 mergeDate: 2025-09-18
 prNumber: '2933'
 ---
-# Description
-The `TabbedCodeGroup` component emits custom events on the window when the user changes framework to allow all parts of the docs to update.
-
-However, the `useFramework` hook which feeds the current framework to the `ContentByFramework` component wasn't listening to these changes, so the content contained within was stuck at whatever it was when the page was first loaded.
+Jazz's documentation site lets you switch between different frameworks (like React and Svelte) to see relevant code examples. I fixed a bug where some parts of the page wouldn't update when you switched frameworks -- they'd stay stuck showing the one you first loaded. Now the whole page updates consistently when you pick a different framework.

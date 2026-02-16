@@ -4,14 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2025-10-20
 prNumber: '3071'
 ---
-# Description
-Since the nav menu update, docs are out of position compared to their places in the nav menu. This PR:
-
-1. Moves docs to the new location
-2. Updates the URLs in the nav menu to ensure the correct mapping
-3. Updates internal links
-4. 301 redirects the previous links to their new location
-
-## Manual testing instructions
-
-I used https://www.npmjs.
+After the Jazz docs site got a new navigation menu, the actual documentation pages were no longer in the right places. I reorganized all the docs to match the new menu structure, updated all the internal links, and set up redirects so that anyone with an old bookmarked URL gets sent to the right page automatically.

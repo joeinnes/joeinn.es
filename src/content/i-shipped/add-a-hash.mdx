@@ -4,19 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2025-12-15
 prNumber: '3283'
 ---
-# Description
-Adds a hash to the URL to make the QR code and the link work
-
-## Manual testing instructions
-Check homepage link and QR code.
-
-## Tests
-
-- [ ] Tests have been added and/or updated
-- [X] Tests have not been updated, because: N/A
-- [ ] I need help with writing tests
-
-## Checklist
-
-- [ ] I've updated the part of the docs that are affected the PR changes
-- [ ] I've generated a...
+The Jazz homepage has a QR code and a link for quickly getting started, but they were broken because the URL was missing a hash fragment. I added the missing hash so both the QR code and the link work correctly.

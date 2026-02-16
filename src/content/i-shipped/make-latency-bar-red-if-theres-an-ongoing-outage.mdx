@@ -5,7 +5,4 @@ repo: garden-co/jazz
 mergeDate: 2025-09-09
 prNumber: '2877'
 ---
-# Description
-It was quite frustrating to see during today's outage a bright green latency indicator next to a 'down' indicator. This update cascades the `isUp` property down to the latency chart, and in case `isUp` is false, the last latency indicator will be red.
-
-Technically this is not accurate.
+Jazz has a status page that shows whether its services are running. During an outage, the "status" indicator correctly showed things were down, but the latency chart right next to it was still bright green, which was confusing and misleading. I made the latency bar turn red whenever there's an active outage, so the visual indicators are consistent.

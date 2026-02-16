@@ -4,18 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2025-09-12
 prNumber: '2913'
 ---
-# Description
-Fix for #2892—Svelte starter won't run unless a `.env` file is present with the variable due to the way SvelteKit imports the variable.
-
-## Manual testing instructions
-N/A
-
-## Tests
-
-- [ ] Tests have been added and/or updated
-- [ ] Tests have not been updated, because: N/A
-- [ ] I need help with writing tests
-
-## Checklist
-
-- [ ] I've updated the part of the docs that are affected...
+Jazz is a framework for building real-time collaborative apps. After a previous change required all example apps to use an API key from a configuration file, the Svelte starter template would crash if that file was missing. I fixed it so the app loads the key dynamically instead, meaning new developers can get started without hitting an error on their first run.

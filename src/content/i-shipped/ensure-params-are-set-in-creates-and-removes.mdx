@@ -4,11 +4,4 @@ repo: feathersjs-ecosystem/feathers-vuex
 mergeDate: 2018-09-17
 prNumber: '165'
 ---
-Closes #156
-
-### Summary
-
-(If you have not already please refer to the contributing guideline as [described
-here](https://github.com/feathersjs/feathers/blob/master/.github/contributing.md#pull-requests))
-
-- [x] Tell us about the problem your pull request is solving.
+Feathers-vuex is a library that connects Vue.js apps to Feathers.js, a real-time API framework. A recent update to Feathers accidentally broke things by not always including required request parameters, causing crashes. I added a safety check so that parameters are always set when creating or removing data, preventing "undefined" errors even if the upstream library has a hiccup.

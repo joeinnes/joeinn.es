@@ -4,8 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2025-06-12
 prNumber: '2513'
 ---
-* Added instructions for renaming `.env.example` to `.env` in multiple README files.
-* Updated `.gitignore` files to include `.env` and `.env.*` while excluding `.env.example` and `.env.test`.
-* Removed `.env` file from `examples/multi-cursors`.
-* Improved consistency across example projects.
-Fixes #2371
+Jazz is a framework for building real-time collaborative apps. I cleaned up how environment files (which store secret settings like API keys) are handled across all the example projects. Previously some examples accidentally included real configuration files in the public repository. I made sure only template files are shared, with clear instructions for developers to create their own private copies.
