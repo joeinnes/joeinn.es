@@ -15,6 +15,33 @@
 	let fullyLoaded = $state(false);
 	let nextCursor = $state(undefined);
 
+	// Decode an AT Protocol TID (base32-sort encoded 64-bit int) to ms timestamp
+	const B32 = '234567abcdefghijklmnopqrstuvwxyz';
+	function decodeTid(tid) {
+		if (!tid || tid.length !== 13) return null;
+		let n = 0n;
+		for (const ch of tid) {
+			const i = B32.indexOf(ch);
+			if (i < 0) return null;
+			n = n * 32n + BigInt(i);
+		}
+		return Number((n >> 10n) / 1000n); // upper bits = microseconds → ms
+	}
+
+	// Robustly extract a ms timestamp from a track record
+	function getTrackTimestamp(track) {
+		if (track.playedTime) {
+			const d = new Date(track.playedTime);
+			if (!isNaN(d.getTime())) return d.getTime();
+			const n = Number(track.playedTime);
+			if (!isNaN(n) && n > 1e9 && n < 1e11) return n * 1000; // seconds
+			if (!isNaN(n) && n > 1e12) return n; // milliseconds
+		}
+		// Fallback: decode timestamp from the TID in the record URI
+		if (track._rkey) return decodeTid(track._rkey);
+		return null;
+	}
+
 	async function fetchPage() {
 		const params = new URLSearchParams({
 			repo: HANDLE,
@@ -26,7 +53,13 @@
 		const res = await fetch(`${PDS}/xrpc/com.atproto.repo.listRecords?${params}`);
 		if (!res.ok) throw new Error(`Failed to fetch tracks (${res.status})`);
 		const data = await res.json();
-		allTracks = [...allTracks, ...data.records.map((r) => r.value)];
+		allTracks = [
+			...allTracks,
+			...data.records.map((r) => ({
+				...r.value,
+				_rkey: r.uri.split('/').pop(),
+			})),
+		];
 		nextCursor = data.cursor;
 		if (!data.cursor) fullyLoaded = true;
 	}
@@ -42,8 +75,9 @@
 		if (period === 'all') return false;
 		if (allTracks.length === 0) return false;
 		const oldest = allTracks[allTracks.length - 1];
-		if (!oldest.playedTime) return true;
-		return new Date(oldest.playedTime).getTime() <= getCutoff(period);
+		const ts = getTrackTimestamp(oldest);
+		if (ts === null) return true;
+		return ts <= getCutoff(period);
 	}
 
 	onMount(async () => {
@@ -90,7 +124,10 @@
 	function filterByPeriod(tracks, period) {
 		if (period === 'all') return tracks;
 		const cutoff = getCutoff(period);
-		return tracks.filter((t) => t.playedTime && new Date(t.playedTime).getTime() >= cutoff);
+		return tracks.filter((t) => {
+			const ts = getTrackTimestamp(t);
+			return ts !== null && ts >= cutoff;
+		});
 	}
 
 	function aggregateBy(tracks, category) {
@@ -121,9 +158,10 @@
 		return [...map.values()].sort((a, b) => b.count - a.count);
 	}
 
-	function relativeTime(dateStr) {
-		if (!dateStr) return '';
-		const diffMs = Date.now() - new Date(dateStr).getTime();
+	function relativeTime(track) {
+		const ts = getTrackTimestamp(track);
+		if (!ts) return '';
+		const diffMs = Date.now() - ts;
 		const diffMins = Math.floor(diffMs / 60000);
 		if (diffMins < 1) return 'just now';
 		if (diffMins < 60) return `${diffMins}m ago`;
@@ -132,7 +170,7 @@
 		const diffDays = Math.floor(diffHours / 24);
 		if (diffDays === 1) return 'yesterday';
 		if (diffDays < 7) return `${diffDays}d ago`;
-		return new Date(dateStr).toLocaleDateString();
+		return new Date(ts).toLocaleDateString();
 	}
 
 	function handleImgError(e) {
@@ -192,8 +230,8 @@
 							<span class="release">{track.releaseName}</span>
 						{/if}
 					</div>
-					{#if track.playedTime}
-						<time class="time" datetime={track.playedTime}>{relativeTime(track.playedTime)}</time>
+					{#if getTrackTimestamp(track)}
+						<time class="time">{relativeTime(track)}</time>
 					{/if}
 				</li>
 			{/each}
