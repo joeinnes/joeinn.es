@@ -11,6 +11,7 @@
 	const CACHE_KEY = 'tracks';
 
 	let allTracks = $state([]);
+	let recentTracks = $state([]);
 	let loading = $state(true);
 	let loadingMore = $state(false);
 	let error = $state('');
@@ -150,7 +151,23 @@
 		return ts <= getCutoff(period);
 	}
 
+	async function fetchRecentTracks() {
+		const params = new URLSearchParams({
+			repo: HANDLE,
+			collection: COLLECTION,
+			limit: '3',
+		});
+		const res = await fetch(`${PDS}/xrpc/com.atproto.repo.listRecords?${params}`);
+		if (!res.ok) throw new Error(`Failed to fetch tracks (${res.status})`);
+		const data = await res.json();
+		recentTracks = data.records.map(toTrack);
+	}
+
 	onMount(async () => {
+		// Always fetch recent tracks fresh
+		const recentPromise = fetchRecentTracks().catch(() => {});
+
+		// Load cache for stats if available
 		const cache = await loadCache();
 		if (cache?.tracks?.length) {
 			allTracks = cache.tracks;
@@ -158,8 +175,7 @@
 			nextCursor = cache.nextCursor;
 			loading = false;
 
-			// If cache is fresh, just fetch new records in background
-			// If stale, also fetch new records but still show cached data instantly
+			await recentPromise;
 			try {
 				await fetchNewRecords();
 				saveCache();
@@ -170,6 +186,7 @@
 		}
 
 		try {
+			await recentPromise;
 			await fetchPage();
 			saveCache();
 		} catch (e) {
@@ -266,8 +283,6 @@
 	function handleImgError(e) {
 		e.currentTarget.style.display = 'none';
 	}
-
-	let recentTracks = $derived(allTracks.slice(0, 3));
 
 	let weeklyAlbums = $derived.by(() => {
 		const weekTracks = filterByPeriod(allTracks, 'week');
