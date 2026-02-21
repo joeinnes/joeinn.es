@@ -1,0 +1,8 @@
+---
+summary: >-
+  add contextual error hints when CoValue can't load due to sync config
+repo: garden-co/jazz
+mergeDate: 2026-02-17
+prNumber: '3465'
+---
+When a Jazz CoValue failed to load, you'd just get a vague "unavailable" error with no clue why. I added smarter error messages that tell you the actual reason -- for example, if your sync setting is set to "never" or "signedUp", the error now says so instead of leaving you guessing.
