@@ -4,6 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2025-09-12
 prNumber: '2892'
 ---
-- Added instructions to create a `.env` file and set `VITE_JAZZ_API_KEY` in multiple example README files.
-- Updated API key exports in example source files to use `import.meta.env.VITE_JAZZ_API_KEY` instead of hardcoded values.
-- Ensured consistency across all examples for API key configuration.
+Jazz is a framework for building real-time collaborative apps. I updated all the example projects so they load the API key from a configuration file instead of having it hard-coded in the source code. This makes it easier for the Jazz team to track how their examples are being used and is a better practice for managing secrets.

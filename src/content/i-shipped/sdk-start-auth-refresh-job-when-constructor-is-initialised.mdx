@@ -5,6 +5,4 @@ repo: directus/directus
 mergeDate: 2021-11-22
 prNumber: '9777'
 ---
-Ref https://github.com/directus/directus/discussions/9720#discussioncomment-1634470
-
-If autorefresh is enabled, then this will cause the SDK to refresh tokens whenever it's loaded. This fixes bug #9639 (discussion #9720)
+Directus is an open-source headless CMS. Its JavaScript SDK had a bug where users would get unexpectedly logged out after refreshing the page, even though their login session was still valid. I fixed it so the SDK automatically checks and refreshes the login token when it starts up, keeping users properly signed in.

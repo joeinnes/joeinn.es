@@ -4,4 +4,4 @@ repo: TimFoerster/octobercms-leaflet
 mergeDate: 2020-08-17
 prNumber: '3'
 ---
-If you try to bind a pop-up with an apostrophe in, then it will cause an error and the map won't load. Switching to template literals fixes this. Although this is arguably not a safe way to do this, it is no worse than it currently is. (eg: you could write a 'popup' containing the text `'); alert('xss');var ignore = '` which would also allow XSS attacks.
+This is a Leaflet maps plugin for OctoberCMS. If a map marker's popup text contained an apostrophe (like "Joe's Coffee"), the whole map would break and refuse to load. I fixed this by switching from single quotes to template literals in the code, so apostrophes in popup content no longer crash the map.

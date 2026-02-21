@@ -4,8 +4,4 @@ repo: directus/directus
 mergeDate: 2021-12-01
 prNumber: '9574'
 ---
-Watching the Discord, I see this issue coming up fairly frequently, when someone is developing a front end app locally, and their app suddenly stops working with the message
-
-> Error: "refresh_token" is required in either the JSON payload or Cookie
-
-This tip explains the cause of the issue, and two different workarounds.
+Directus is an open-source headless CMS. I noticed developers in the Discord were frequently running into a confusing authentication error when building front-end apps locally. I added a tip to the docs explaining why the error happens (it is related to how browsers handle secure cookies during local development) and two ways to work around it.

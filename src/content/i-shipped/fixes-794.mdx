@@ -5,4 +5,4 @@ repo: anchorcms/anchor-cms
 mergeDate: 2015-06-26
 prNumber: '819'
 ---
-Tidied up PR.
+Anchor CMS is a lightweight PHP blogging platform. It would crash when running on a machine without internet access because it tried to check for updates without handling the case where it couldn't connect. I added a check so it gracefully skips the update check when there's no network connection, instead of crashing.

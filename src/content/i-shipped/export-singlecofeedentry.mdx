@@ -4,20 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2025-11-03
 prNumber: '3134'
 ---
-# Description
-We don't currently export the `SingleCoFeedEntry` type, although other similar types are exported.
-
-## Manual testing instructions
-
-N/A
-
-## Tests
-
-- [ ] Tests have been added and/or updated
-- [ ] Tests have not been updated, because: N/A
-- [ ] I need help with writing tests
-
-## Checklist
-
-- [ ] I've updated the part of the docs that are affected the PR changes
-- [ ] I've generated...
+Jazz is a framework for building collaborative apps. It has various data types that developers use to build features, but one of them -- `SingleCoFeedEntry` -- wasn't being made available for outside use even though similar types were. I exported it so developers can actually use it in their own code.

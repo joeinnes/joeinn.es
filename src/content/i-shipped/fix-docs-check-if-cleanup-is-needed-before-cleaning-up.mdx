@@ -5,4 +5,4 @@ repo: tinacms/tinacms
 mergeDate: 2021-02-02
 prNumber: '1727'
 ---
-
+TinaCMS is a content management system that lets you edit Markdown files visually. The docs had a code example that could crash if the editor hadn't fully loaded before the cleanup code ran. I added a check to make sure the editor is actually ready before trying to clean it up, preventing the error.

@@ -4,19 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2025-09-10
 prNumber: '2897'
 ---
-# Description
-Extracted into separate module per https://github.com/garden-co/jazz/pull/2884#discussion_r2333481247
-
-## Manual testing instructions
-
-No specific testing, just a refactor.
-
-## Tests
-
-- [ ] Tests have been added and/or updated
-- [x] Tests have not been updated, because: N/A
-- [ ] I need help with writing tests
-
-## Checklist
-
-- [ ] I've updated the part of the docs that are affected...
+Jazz's docs site has a confirmation dialog that pops up when you want to delete your local data. The code for this dialog was written inline and couldn't be reused elsewhere. I extracted it into its own standalone component so it can be shared across different parts of the site.

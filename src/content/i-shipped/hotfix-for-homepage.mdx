@@ -4,12 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2025-10-09
 prNumber: '3028'
 ---
-# Description
-The added styling was causing overflow on basically every parent which contained a button.
-
-## Manual testing instructions
-Check and see there's no overflow any more
-
-Before:
-
-After:
+I fixed a CSS bug on the Jazz homepage where unwanted scrollbars were appearing all over the page. A recently added style on buttons was causing content to overflow its containers, so I removed the problematic rule.

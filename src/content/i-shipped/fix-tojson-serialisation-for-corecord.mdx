@@ -5,12 +5,4 @@ repo: garden-co/jazz
 mergeDate: 2026-02-07
 prNumber: '3444'
 ---
-The catchall on CoRecords was trapping the `toJSON` call, resulting in incorrect serialisation behaviour of nested CoRecords.
-
-Tests have been added.
-
----
-
-> [!NOTE]
-> **Low Risk**
-> Scoped to serialization/schema lookup logic and adds targeted test coverage; low risk aside from potential edge cases in proxy trapping for non-string keys.
+Jazz uses special data structures called CoRecords to store collaborative data. When you tried to convert a nested CoRecord to JSON (a common data format), the result was wrong because an internal mechanism was intercepting the conversion. I fixed the serialization logic so nested data structures convert to JSON correctly, and added tests to prevent this from breaking again.
