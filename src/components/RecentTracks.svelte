@@ -47,7 +47,6 @@
 			repo: HANDLE,
 			collection: COLLECTION,
 			limit: '100',
-			reverse: 'true',
 		});
 		if (nextCursor) params.set('cursor', nextCursor);
 		const res = await fetch(`${PDS}/xrpc/com.atproto.repo.listRecords?${params}`);
