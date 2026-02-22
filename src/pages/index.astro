@@ -10,21 +10,28 @@ import NewNav from "../components/NewNav.astro";
     h1 + p {
       font-size: 1.5em;
     }
+    .hero-image {
+      margin-block: var(--layout-spacing);
+    }
+    .hero-cta {
+      margin-block-start: calc(var(--layout-spacing) / 2);
+    }
   </style>
   <main>
     <NewNav />
     <h1 class="title">Joe Innes</h1>
     <p class="mono">Full Stack Developer</p>
-    <Image
-      src={joeImage}
-      alt="A playful render of Joe working on his laptop with his guitar in the background"
-      style="width: 100%; aspect-ratio: 1; height: auto;"
-    />
-
+    <div class="hero-image">
+      <Image
+        src={joeImage}
+        alt="A playful render of Joe working on his laptop with his guitar in the background"
+        style="width: 100%; aspect-ratio: 1; height: auto;"
+      />
+    </div>
     <p>
       Helping people build local-first, realtime apps with encrypted,
       distributed data.
     </p>
-    <a href="/contact"> Want to talk? </a>
+    <a href="/contact" class="hero-cta"> Want to talk? </a>
   </main>
 </Layout>

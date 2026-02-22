@@ -83,12 +83,20 @@
 		background: color-mix(in hsl, var(--background) 92%, var(--foreground) 8%);
 		border: 1px solid var(--very-muted);
 		border-radius: var(--border-radius);
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		box-shadow: 0 2px 12px color-mix(in hsl, var(--foreground) 15%, transparent);
 		text-decoration: none;
 		color: inherit;
 		z-index: 900;
 		max-width: min(20rem, calc(100vw - 2rem));
 		animation: slide-in 0.3s ease-out;
+	}
+	@media (max-width: 640px) {
+		.now-playing {
+			bottom: auto;
+			top: var(--layout-spacing);
+			left: var(--layout-spacing);
+			right: auto;
+		}
 	}
 	.now-playing:hover {
 		border-color: var(--primary);

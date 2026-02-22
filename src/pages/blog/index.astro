@@ -18,10 +18,17 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
   a:has(article) {
     display: block;
     padding-block: var(--layout-spacing);
+    padding-inline: calc(var(--inline-spacing) * 2);
+    margin-inline: calc(var(--inline-spacing) * -2);
     color: var(--foreground);
     border-bottom: 1px solid var(--primary);
+    border-radius: var(--border-radius);
     font-weight: normal;
     text-decoration: none;
+    transition: background-color 200ms ease-in-out;
+  }
+  a:has(article):hover {
+    background-color: color-mix(in hsl, var(--foreground) 3%, var(--background) 97%);
   }
 
   h2 {

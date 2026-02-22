@@ -502,8 +502,13 @@
 	/* Album mosaic */
 	.mosaic {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		gap: 2px;
+	}
+	@media (min-width: 480px) {
+		.mosaic {
+			grid-template-columns: repeat(4, 1fr);
+		}
 	}
 	.mosaic * {
 		padding-block-start: 0;

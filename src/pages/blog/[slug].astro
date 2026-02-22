@@ -24,9 +24,14 @@ export async function getStaticPaths() {
   }
   .signature-wrapper {
     color: var(--primary);
-    width: 30%;
+    width: 50%;
     margin-inline-start: auto;
     margin-block: var(--layout-spacing);
+  }
+  @media (min-width: 640px) {
+    .signature-wrapper {
+      width: 30%;
+    }
   }
 </style>
 <Layout title={post.data.title} bg={post.data.page_bg} description={post.data.excerpt} image={post.data.featured_image}>

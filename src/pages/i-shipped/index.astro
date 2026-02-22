@@ -33,6 +33,26 @@ const groupedByDate = shipped
   );
 ---
 
+<style>
+  details summary {
+    cursor: pointer;
+    list-style: none;
+  }
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  details summary::before {
+    content: "\25B8";
+    display: inline-block;
+    margin-inline-end: 0.5em;
+    transition: transform 150ms ease-in-out;
+    color: var(--primary);
+  }
+  details[open] summary::before {
+    transform: rotate(90deg);
+  }
+</style>
+
 <Layout title="I Shipped...">
   <main class="mono">
     <Nav />

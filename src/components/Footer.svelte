@@ -14,7 +14,8 @@
 </script>
 
 <footer
-  class="p-8 grid grid-cols-1 md:grid-cols-3 md:divide-x-2 divide-primary-700 w-full gap-4 bg-white mt-16"
+  class="p-8 grid grid-cols-1 md:grid-cols-3 md:divide-x-2 divide-primary-700 w-full gap-4 mt-16"
+  style="background-color: var(--background);"
 >
   <div class="p-4">
     <h2 class="font-semibold text-4xl"><a href="/">Joe Innes</a></h2>

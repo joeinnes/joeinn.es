@@ -192,6 +192,7 @@
   :is(h1, h2, h3) {
     line-height: 1.2;
     font-weight: 700;
+    letter-spacing: -0.02em;
     & :not(:is(hgroup h1)) {
       margin-block-end: var(--layout-spacing);
     }
@@ -259,7 +260,7 @@
     border: none;
     padding: var(--inline-spacing) calc(var(--inline-spacing) * 2);
     border-radius: var(--inline-spacing);
-    transition: var(--transition);
+    transition: background-color 200ms ease-in-out, opacity 200ms ease-in-out;
     &:hover {
       background-color: color-mix(
         in hsl,
