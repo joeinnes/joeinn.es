@@ -71,13 +71,15 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
         stroke-linecap="round"
         stroke-linejoin="round"
         class="lucide lucide-search-icon lucide-search"
+        aria-hidden="true"
         ><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"
         ></circle></svg
       >
     </div>
+    <label for="search" class="sr-only">Search blog posts</label>
     <input
       id="search"
-      type="text"
+      type="search"
       class="w-full py-2 pl-10 mt-2 border-b-2 outline-none border-primary-100 text-ellipsis"
       placeholder={`Search (e.g.: ${posts[Math.floor(Math.random() * posts.length)]?.data.title})`}
     />
@@ -117,28 +119,31 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
       const input = document.getElementById("search");
       const posts = document.querySelectorAll("article");
       let showingPosts = posts.length;
-      input.addEventListener("input", () => {
+      let debounceTimer;
+
+      function filterPosts() {
         showingPosts = 0;
         if (!input?.value) {
           posts.forEach((post) => {
             post.parentNode.style.display = "block";
           });
+          document.getElementById("no-results").style.display = "none";
           return;
         }
-        const query = input.value.toLowerCase();
+        const query = input.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         posts.forEach((post) => {
-          const title = post.dataset.title;
-          post.parentNode.style.display = title.includes(query)
-            ? "block"
-            : "none";
-          showingPosts += title.includes(query) ? 1 : 0;
+          const title = post.dataset.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+          const match = title.includes(query);
+          post.parentNode.style.display = match ? "block" : "none";
+          showingPosts += match ? 1 : 0;
         });
 
-        if (!showingPosts) {
-          document.getElementById("no-results").style.display = "block";
-        } else {
-          document.getElementById("no-results").style.display = "none";
-        }
+        document.getElementById("no-results").style.display = showingPosts ? "none" : "block";
+      }
+
+      input.addEventListener("input", () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(filterPosts, 150);
       });
     </script>
   </main>

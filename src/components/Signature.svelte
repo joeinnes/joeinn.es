@@ -86,6 +86,7 @@
   viewBox="0 0 230 325"
   xmlns="http://www.w3.org/2000/svg"
   class="text-primary w-32 h-auto my-4 print:hidden"
+  aria-hidden="true"
   bind:this={svg}
 >
   <defs id="defs2" />

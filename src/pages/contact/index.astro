@@ -7,7 +7,7 @@ import Nav from "../../components/NewNav.astro";
   <Nav />
   <main>
     <h1 class="title">Contact</h1>
-    <form action="https://formspree.io/f/xrblnbpp" method="POST">
+    <form action="https://formspree.io/f/xrblnbpp" method="POST" id="contact-form">
       <label>
         Your email address
         <input
@@ -32,10 +32,66 @@ import Nav from "../../components/NewNav.astro";
           name="message"
           rows="8"
           placeholder="Hi, I'd like to let you know we're constructing a bypass..."
+          required
         ></textarea>
       </label>
 
-      <button type="submit" class="">Send</button>
+      <button type="submit">Send</button>
+      <p id="form-status" role="status" aria-live="polite"></p>
     </form>
   </main>
 </Layout>
+
+<style>
+  #form-status:empty {
+    display: none;
+  }
+  #form-status {
+    padding: var(--inline-spacing);
+    border-radius: var(--border-radius);
+  }
+  .form-success {
+    color: oklch(45% 0.1 145);
+    background: oklch(95% 0.05 145);
+  }
+  .form-error {
+    color: oklch(45% 0.1 25);
+    background: oklch(95% 0.05 25);
+  }
+</style>
+
+<script is:inline>
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector("button[type='submit']");
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+    status.textContent = "";
+    status.className = "";
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        status.textContent = "Thanks! Your message has been sent.";
+        status.className = "form-success";
+        form.reset();
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch {
+      status.textContent =
+        "Something went wrong. Please try again or email directly.";
+      status.className = "form-error";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Send";
+    }
+  });
+</script>

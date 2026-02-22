@@ -1,10 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
+	import { AT_HANDLE as HANDLE, AT_COLLECTION as COLLECTION, AT_PDS as PDS, COVER_ART_BASE } from '../lib/constants';
 
-	const HANDLE = 'joeinn.es';
-	const COLLECTION = 'fm.teal.alpha.feed.play';
-	const PDS = 'https://bsky.social';
-	const COVER_ART_BASE = 'https://coverartarchive.org/release';
 	const RECENCY_THRESHOLD = 10 * 60 * 1000; // 10 minutes
 
 	let track = $state(null);

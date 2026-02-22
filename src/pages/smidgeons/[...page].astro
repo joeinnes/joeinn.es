@@ -27,9 +27,9 @@ export async function getStaticPaths() {
   const totalPages = Math.ceil(filteredSmidgeons.length / ITEMS_PER_PAGE);
 
   const paths = [
-    { params: { page: undefined } }, // Handle /smidgeons
-    ...Array.from({ length: totalPages }, (_, i) => ({
-      params: { page: String(i + 1) },
+    { params: { page: undefined } }, // Handle /smidgeons (page 1)
+    ...Array.from({ length: totalPages - 1 }, (_, i) => ({
+      params: { page: String(i + 2) }, // Start from page 2
     })),
   ];
 

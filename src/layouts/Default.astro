@@ -5,9 +5,12 @@ import NowPlaying from "../components/NowPlaying.svelte";
 export interface Props {
   title: string;
   bg?: string;
+  description?: string;
+  image?: string;
 }
 
-const { title, bg } = Astro.props;
+const { title, bg, description = "Joe Innes — Full Stack Developer. Helping people build local-first, realtime apps.", image } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? "https://joeinn.es");
 ---
 
 <!doctype html>
@@ -19,14 +22,24 @@ const { title, bg } = Astro.props;
 >
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href={canonicalUrl.href} />
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
       href="https://fonts.bunny.net/css?family=space-grotesk:400,700|space-mono:400,700"
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl.href} />
+    <meta property="og:type" content="website" />
+    {image && <meta property="og:image" content={image} />}
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {image && <meta name="twitter:image" content={image} />}
     <title>{title}</title>
   </head>
   <body>

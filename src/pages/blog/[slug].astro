@@ -22,8 +22,14 @@ export async function getStaticPaths() {
   p img {
     margin-block-end: var(--layout-spacing);
   }
+  .signature-wrapper {
+    color: var(--primary);
+    width: 30%;
+    margin-inline-start: auto;
+    margin-block: var(--layout-spacing);
+  }
 </style>
-<Layout title={post.data.title} bg={post.data.page_bg}>
+<Layout title={post.data.title} bg={post.data.page_bg} description={post.data.excerpt} image={post.data.featured_image}>
   <main>
     <Nav />
     <hgroup class="content meta">
@@ -58,9 +64,7 @@ export async function getStaticPaths() {
 
     <article class="content">
       <Content />
-      <div
-        style="color: var(--primary); width: 30% !important; margin-inline-start: auto; margin-block: var(--layout-spacing);"
-      >
+      <div class="signature-wrapper">
         <Signature client:load />
       </div>
     </article>

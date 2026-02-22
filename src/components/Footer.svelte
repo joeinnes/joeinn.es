@@ -1,3 +1,18 @@
+<script>
+  import { onMount } from 'svelte';
+
+  onMount(() => {
+    const link = document.querySelector('.email-link');
+    if (link) {
+      const u = link.getAttribute('data-u');
+      const d = link.getAttribute('data-d');
+      const addr = `${u}@${d}`;
+      link.setAttribute('href', `mailto:${addr}`);
+      link.textContent = addr;
+    }
+  });
+</script>
+
 <footer
   class="p-8 grid grid-cols-1 md:grid-cols-3 md:divide-x-2 divide-primary-700 w-full gap-4 bg-white mt-16"
 >
@@ -23,10 +38,7 @@
     </h2>
     <ul>
       <li>
-        <a
-          href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#111;&#101;&#64;&#106;&#111;&#101;&#105;&#110;&#110;&#46;&#101;&#115;"
-          >&#106;&#111;&#101;&#64;&#106;&#111;&#101;&#105;&#110;&#110;&#46;&#101;&#115;</a
-        >
+        <a href="/contact" class="email-link" data-u="joe" data-d="joeinn.es">Get in touch</a>
       </li>
     </ul>
   </div>

@@ -1,30 +1,38 @@
 <script>
-	import { run } from 'svelte/legacy';
-
 	import { onMount } from 'svelte';
 
 	let weather = $state();
 	let loading = $state(true);
+	let error = $state('');
 	let userLat = $state(0);
 	let userLon = $state(0);
-	let minLon = $state(0);
-	let minLat = $state(0);
-	let maxLon = $state(0);
-	let maxLat = $state(0);
-	let isErr = false;
+	let minLon = $derived(userLon - 0.2);
+	let minLat = $derived(userLat - 0.2);
+	let maxLon = $derived(userLon + 0.2);
+	let maxLat = $derived(userLat + 0.2);
 
 	onMount(async () => {
-		const [lat, lon, err] = await getLocation();
-		userLat = lat;
-		userLon = lon;
-		isErr = err;
+		try {
+			const [lat, lon, err] = await getLocation();
+			if (err) {
+				error = 'Could not determine your location.';
+				loading = false;
+				return;
+			}
+			userLat = lat;
+			userLon = lon;
 
-		const res = await fetch(
-			`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weathercode&current_weather=true&timezone=auto`
-		);
-		const json = await res.json();
-		weather = json;
-		loading = false;
+			const res = await fetch(
+				`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,weathercode&current_weather=true&timezone=auto`
+			);
+			if (!res.ok) throw new Error('Weather API returned an error');
+			const json = await res.json();
+			weather = json;
+		} catch (e) {
+			error = e instanceof Error ? e.message : 'Could not load weather data.';
+		} finally {
+			loading = false;
+		}
 	});
 	const codes = {
 		0: 'clear',
@@ -72,15 +80,11 @@
 			}
 		});
 	};
-	run(() => {
-		minLon = userLon - 0.2;
-		maxLon = userLon + 0.2;
-		minLat = userLat - 0.2;
-		maxLat = userLat + 0.2;
-	});
 </script>
 
-{#if !loading}
+{#if !loading && error}
+	<p>{error}</p>
+{:else if !loading}
 	<p>
 		Currently, it's {weather?.current_weather?.temperature}°C and {codes[
 			weather?.current_weather?.weathercode
@@ -88,7 +92,7 @@
 	</p>
 	{#if userLat && userLon}
 		<iframe
-			title="map"
+			title="OpenStreetMap showing your current location"
 			width="100%"
 			class="aspect-video full-bleed"
 			frameborder="0"
@@ -100,8 +104,8 @@
 	{/if}
 	<p>
 		Weather data kindly provided by
-		<a href="https://open-meteo.com/" target="_blank">Open-Meteo.com</a>. Map by
-		<a href="https://openstreetmap.org" target="_blank">OpenStreetMap.org</a>
+		<a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a>. Map by
+		<a href="https://openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap.org</a>
 	</p>
 {:else}
 	<p>Loading...</p>

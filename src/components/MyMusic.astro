@@ -7,9 +7,11 @@
   )
     .then((r) => r.json())
     .then((data) => {
-      console.log(data);
       const fileName = data.items[0].image;
       const recordId = data.items[0].id;
       img.src = `https://api.joeinn.es/api/files/week_in_music/${recordId}/${fileName}`;
+    })
+    .catch(() => {
+      img.alt = "Could not load this week's music data";
     });
 </script>

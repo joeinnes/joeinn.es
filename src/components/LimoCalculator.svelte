@@ -1,10 +1,10 @@
 <script>
-	import { run } from 'svelte/legacy';
-
-	let lengthOfRentalDays = $state(1); // 3 full days;
+	let lengthOfRentalDays = $state(1);
 	let lengthOfRentalHours = $state(12);
 	let lengthOfRentalMinutes = $state(0);
-	let rentalLengthInMins = $state(3 * 24 * 60);
+	let rentalLengthInMins = $derived(
+		lengthOfRentalMinutes + lengthOfRentalHours * 60 + lengthOfRentalDays * 24 * 60
+	);
 	let distance = $state(150);
 
 	const minimumBAK = 25500;
@@ -58,10 +58,6 @@
 		return Math.round(startingFees + dailyFees + hourlyFees);
 	};
 
-	run(() => {
-		rentalLengthInMins =
-			lengthOfRentalMinutes + lengthOfRentalHours * 60 + lengthOfRentalDays * 24 * 60;
-	});
 </script>
 
 <div class="flex flex-col gap-2">
