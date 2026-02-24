@@ -222,6 +222,17 @@
 		<ol class="recent-list">
 			{#each recentTracks as track}
 				<li class="recent-track">
+					<div class="recent-cover">
+						{#if track.releaseMbId}
+							<img
+								src={coverUrl(track.releaseMbId)}
+								alt={track.releaseName || track.trackName}
+								loading="lazy"
+								onerror={handleImgError}
+							/>
+						{/if}
+						<div class="recent-cover-fallback">{track.trackName[0]}</div>
+					</div>
 					<div class="recent-info">
 						<span class="name">{track.trackName}</span>
 						<span class="artist">{getArtistNames(track)}</span>
@@ -330,16 +341,44 @@
 	}
 	.recent-track {
 		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
+		align-items: center;
 		gap: calc(var(--inline-spacing) * 2);
 		padding: calc(var(--inline-spacing) * 2);
 		border-radius: var(--border-radius);
 		background: color-mix(in hsl, var(--foreground) 5%, var(--background) 95%);
 	}
+	.recent-cover {
+		position: relative;
+		width: 3.5em;
+		height: 3.5em;
+		flex-shrink: 0;
+		border-radius: var(--border-radius);
+		overflow: hidden;
+		background: color-mix(in hsl, var(--foreground) 10%, var(--background) 90%);
+	}
+	.recent-cover img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 1;
+	}
+	.recent-cover-fallback {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		font-size: 1.2em;
+		color: var(--muted);
+	}
 	.recent-info {
 		display: flex;
 		flex-direction: column;
+		flex: 1;
+		min-width: 0;
 	}
 	.name {
 		font-weight: 700;
@@ -400,6 +439,9 @@
 		display: flex;
 		gap: var(--inline-spacing);
 		flex-wrap: wrap;
+	}
+	.tab-row:last-of-type {
+		margin-block-end: calc(var(--layout-spacing) / 2);
 	}
 	.tab-row * {
 		padding-block-start: 0;
