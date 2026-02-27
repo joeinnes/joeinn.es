@@ -6,6 +6,9 @@
 	const PDS = 'https://bsky.social';
 	const COVER_ART_BASE = 'https://coverartarchive.org/release';
 
+	const CACHE_KEY = 'tealfm_tracks';
+	const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
 	let allTracks = $state([]);
 	let loading = $state(true);
 	let loadingMore = $state(false);
@@ -14,6 +17,33 @@
 	let selectedCategory = $state('albums');
 	let fullyLoaded = $state(false);
 	let nextCursor = $state(undefined);
+
+	function loadCache() {
+		try {
+			const raw = localStorage.getItem(CACHE_KEY);
+			if (!raw) return null;
+			const cache = JSON.parse(raw);
+			return cache;
+		} catch {
+			return null;
+		}
+	}
+
+	function saveCache() {
+		try {
+			localStorage.setItem(
+				CACHE_KEY,
+				JSON.stringify({
+					tracks: allTracks,
+					fullyLoaded,
+					nextCursor,
+					savedAt: Date.now(),
+				}),
+			);
+		} catch {
+			// localStorage full or unavailable
+		}
+	}
 
 	// Decode an AT Protocol TID (base32-sort encoded 64-bit int) to ms timestamp
 	const B32 = '234567abcdefghijklmnopqrstuvwxyz';
@@ -42,6 +72,11 @@
 		return null;
 	}
 
+	function toTrack(r) {
+		return { ...r.value, _rkey: r.uri.split('/').pop() };
+	}
+
+	// Fetch a page of older records (appends to end)
 	async function fetchPage() {
 		const params = new URLSearchParams({
 			repo: HANDLE,
@@ -52,15 +87,41 @@
 		const res = await fetch(`${PDS}/xrpc/com.atproto.repo.listRecords?${params}`);
 		if (!res.ok) throw new Error(`Failed to fetch tracks (${res.status})`);
 		const data = await res.json();
-		allTracks = [
-			...allTracks,
-			...data.records.map((r) => ({
-				...r.value,
-				_rkey: r.uri.split('/').pop(),
-			})),
-		];
+		allTracks = [...allTracks, ...data.records.map(toTrack)];
 		nextCursor = data.cursor;
 		if (!data.cursor) fullyLoaded = true;
+	}
+
+	// Fetch only records newer than what we have (prepends to start)
+	async function fetchNewRecords() {
+		const knownKeys = new Set(allTracks.map((t) => t._rkey));
+		const newRecords = [];
+		let cursor;
+		let done = false;
+		while (!done) {
+			const params = new URLSearchParams({
+				repo: HANDLE,
+				collection: COLLECTION,
+				limit: '100',
+			});
+			if (cursor) params.set('cursor', cursor);
+			const res = await fetch(`${PDS}/xrpc/com.atproto.repo.listRecords?${params}`);
+			if (!res.ok) throw new Error(`Failed to fetch tracks (${res.status})`);
+			const data = await res.json();
+			for (const r of data.records) {
+				const rkey = r.uri.split('/').pop();
+				if (knownKeys.has(rkey)) {
+					done = true;
+					break;
+				}
+				newRecords.push(toTrack(r));
+			}
+			if (!data.cursor) break;
+			cursor = data.cursor;
+		}
+		if (newRecords.length > 0) {
+			allTracks = [...newRecords, ...allTracks];
+		}
 	}
 
 	function getCutoff(period) {
@@ -80,8 +141,27 @@
 	}
 
 	onMount(async () => {
+		const cache = loadCache();
+		if (cache?.tracks?.length) {
+			allTracks = cache.tracks;
+			fullyLoaded = cache.fullyLoaded ?? false;
+			nextCursor = cache.nextCursor;
+			loading = false;
+
+			// If cache is fresh, just fetch new records in background
+			// If stale, also fetch new records but still show cached data instantly
+			try {
+				await fetchNewRecords();
+				saveCache();
+			} catch {
+				// Cached data is still shown
+			}
+			return;
+		}
+
 		try {
 			await fetchPage();
+			saveCache();
 		} catch (e) {
 			error = e.message;
 		} finally {
@@ -102,6 +182,7 @@
 				if (hasEnoughData(selectedPeriod)) break;
 				await fetchPage();
 			}
+			saveCache();
 		} catch (e) {
 			error = e.message;
 		} finally {
