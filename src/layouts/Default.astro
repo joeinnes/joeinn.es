@@ -1,5 +1,6 @@
 ---
 import "../styles.css";
+import NowPlaying from "../components/NowPlaying.svelte";
 
 export interface Props {
   title: string;
@@ -30,5 +31,6 @@ const { title, bg } = Astro.props;
   </head>
   <body>
     <slot />
+    <NowPlaying client:load />
   </body>
 </html>
