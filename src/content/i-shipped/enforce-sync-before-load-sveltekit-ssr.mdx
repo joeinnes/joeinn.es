@@ -1,0 +1,7 @@
+---
+summary: enforce sync before load (SvelteKit SSR)
+repo: garden-co/jazz
+mergeDate: 2026-02-19
+prNumber: '3464'
+---
+When you changed data in a Jazz app and then navigated to a server-rendered page, the server could show stale information because the changes hadn't finished syncing yet. I added an optional `navigation` prop to the Svelte provider that automatically waits for pending syncs to complete before letting the page transition happen, so the server always has the latest data.
