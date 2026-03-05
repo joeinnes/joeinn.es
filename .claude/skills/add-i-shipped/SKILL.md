@@ -24,7 +24,7 @@ A 1-4 sentence ELI5 description written in first person. Explain what the proble
 
 ### Frontmatter fields
 
-- **summary**: The PR title, lowercased. If it contains special characters like colons or backticks, use YAML `>-` multiline syntax
+- **summary**: Must complete the sentence "I shipped...". Don't just use the PR title verbatim -- rephrase it so it reads naturally (e.g., "a fix for...", "a new...", "contextual error hints for..."). If it contains special characters like colons or backticks, use YAML `>-` multiline syntax
 - **repo**: The GitHub repo in `owner/repo` format (e.g., `garden-co/jazz`)
 - **mergeDate**: The date the PR was merged, in `YYYY-MM-DD` format
 - **prNumber**: The PR number as a string, wrapped in single quotes (e.g., `'3465'`)
