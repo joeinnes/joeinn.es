@@ -1,0 +1,8 @@
+---
+summary: >-
+  a guard that makes `.create()` fail when the user has no write access to the owner group
+repo: garden-co/jazz
+mergeDate: 2026-02-17
+prNumber: '3467'
+---
+If you tried to create content in a Jazz group where you only had read access, it would silently succeed locally but then all the data would quietly fail to sync. I made it throw a clear error right away instead, so you know immediately that you don't have permission rather than scratching your head over why your data isn't showing up.
