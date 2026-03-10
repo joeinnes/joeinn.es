@@ -1,0 +1,7 @@
+---
+summary: a compatibility fix for better-auth 1.5.3 in jazz-tools
+repo: garden-co/jazz
+mergeDate: 2026-03-07
+prNumber: '3488'
+---
+The better-auth library released v1.5.3, which moved where certain functions live inside the package. Jazz was importing `createAuthMiddleware` from `better-auth/plugins`, but that location was removed in the newer version. I updated the import to use `better-auth/api` instead, which works across versions and keeps the integration working.

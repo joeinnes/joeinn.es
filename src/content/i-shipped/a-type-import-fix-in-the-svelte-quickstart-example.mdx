@@ -1,0 +1,7 @@
+---
+summary: a type import fix in the Svelte quickstart example
+repo: garden-co/jazz
+mergeDate: 2026-03-11
+prNumber: '3476'
+---
+The Svelte quickstart example was importing `SyncConfig` as a regular value import, but it's only ever used as a TypeScript type annotation. I changed it to `import type`, which is the correct approach for type-only imports and avoids any unnecessary runtime overhead.

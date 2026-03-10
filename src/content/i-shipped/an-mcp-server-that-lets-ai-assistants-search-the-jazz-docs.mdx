@@ -1,0 +1,7 @@
+---
+summary: an MCP server that lets AI assistants search the Jazz docs
+repo: garden-co/jazz
+mergeDate: 2026-03-11
+prNumber: '3490'
+---
+I built a Model Context Protocol (MCP) server for Jazz that exposes the documentation as searchable tools. AI assistants like Claude can now call `search_docs`, `get_doc`, and `list_pages` to look up accurate, up-to-date Jazz documentation rather than relying on their training data. It uses SQLite full-text search when available, with a keyword search fallback for older environments.
