@@ -1,0 +1,7 @@
+---
+summary: a fix for a race condition in our auth storage code
+repo: garden-co/jazz
+mergeDate: 2026-03-19
+prNumber: '3505'
+---
+Jazz stores some authentication secrets behind the scenes, and our `set` function was telling everyone "the new value is ready!" before it had actually finished writing to storage. That tiny window was enough to cause spurious logouts when another part of the app asked for the session at the wrong moment. I added a missing `await` so the write finishes before anyone else is notified.

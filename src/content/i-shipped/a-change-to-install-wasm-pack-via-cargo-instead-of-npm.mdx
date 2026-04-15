@@ -1,0 +1,7 @@
+---
+summary: a change to install wasm-pack via cargo instead of npm
+repo: garden-co/jazz
+mergeDate: 2026-03-31
+prNumber: '3515'
+---
+We had been pulling in `wasm-pack` as an npm package, which dragged in `axios` and another helper library as transitive dependencies -- more things to trust from the npm ecosystem. Since anyone building our Rust/WASM crate already has a full Rust toolchain installed anyway, I switched us to installing `wasm-pack` directly via `cargo install`. One less set of supply-chain risks to worry about.

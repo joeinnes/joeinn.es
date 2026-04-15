@@ -1,0 +1,7 @@
+---
+summary: a fix for a Better Auth race condition
+repo: garden-co/jazz
+mergeDate: 2026-04-10
+prNumber: '3519'
+---
+When signing in with Better Auth, a slow `/get-session` request could arrive *after* the user had already successfully signed in via a different flow. Because the slow response said "no session", it would log the user straight back out again. I added a little counter that increments each time the user authenticates, and we attach it as a header to session requests -- if a stale response comes back with an old counter value, we now know to ignore it.

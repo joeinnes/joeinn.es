@@ -1,0 +1,7 @@
+---
+summary: a fix for InvalidSignature errors when concurrent writes happen
+repo: garden-co/jazz
+mergeDate: 2026-03-31
+prNumber: '3514'
+---
+When two writers were updating the same piece of data at the same time, Jazz would sometimes throw an `InvalidSignature` error on load. The cause was a classic off-by-one: our code was using a count where it needed an index, so it was fetching one more transaction than the stored signature actually covered. I changed that one number and the storage layer now copes with concurrent writes properly.
