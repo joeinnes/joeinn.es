@@ -1,0 +1,7 @@
+---
+summary: a fix to pass SSH agent variables through to the sandbox
+repo: mksglu/context-mode
+mergeDate: 2026-03-03
+prNumber: '29'
+---
+When running commands like `git fetch` inside the sandbox, they couldn't talk to my running SSH agent because the relevant environment variables were being stripped out. That meant SSH would pop up and ask for my passphrase on the terminal, which garbled the Claude Code session I was working in. I added `SSH_AUTH_SOCK` and `SSH_AGENT_PID` to the list of variables that get passed through, so SSH "just works" inside the sandbox.

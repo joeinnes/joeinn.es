@@ -1,0 +1,7 @@
+---
+summary: a fix for a hang in createJazzContext when schema migrations fail
+repo: garden-co/jazz
+mergeDate: 2026-04-10
+prNumber: '3520'
+---
+If your app's migration tried to load a piece of data whose shape didn't match any of the allowed schema variants, Jazz would silently get stuck forever instead of telling you what had gone wrong. The error was being thrown inside an internal loop that swallowed it, so the underlying promise never settled. I added a dedicated error type for this case and caught it in the right place, so loads now fail cleanly as "unavailable" rather than hanging your app.

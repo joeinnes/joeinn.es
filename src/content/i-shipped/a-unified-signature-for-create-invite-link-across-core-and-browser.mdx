@@ -1,0 +1,7 @@
+---
+summary: a unified signature for createInviteLink across core and browser
+repo: garden-co/jazz
+mergeDate: 2026-04-01
+prNumber: '3507'
+---
+Our `createInviteLink` function had two different shapes depending on whether you imported it from the core library or from the browser/React Native wrappers. That was confusing for users and, in particular, was causing AI coding assistants to generate broken code because they'd mix up the two forms. I added an options-object overload to the core version so it matches the browser version, and cleaned up some duplicate implementations along the way. The old positional form still works, but it's now deprecated.
