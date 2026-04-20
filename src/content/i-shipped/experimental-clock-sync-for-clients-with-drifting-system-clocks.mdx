@@ -1,0 +1,7 @@
+---
+summary: experimental clock sync for clients with drifting system clocks
+repo: garden-co/jazz
+mergeDate: 2026-04-18
+prNumber: '3524'
+---
+I added an optional feature that fixes a tricky timing problem. When a user's device clock is slightly wrong (drifting), it can cause data to be timestamped incorrectly. This feature uses the existing ping messages between the client and server to estimate how far off the clock is, and quietly corrects timestamps so they're accurate.
