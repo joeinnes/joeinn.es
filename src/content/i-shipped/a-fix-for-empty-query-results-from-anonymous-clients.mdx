@@ -1,0 +1,7 @@
+---
+summary: a fix for empty query results from anonymous clients
+repo: garden-co/jazz2
+mergeDate: 2026-03-05
+prNumber: '198'
+---
+I fixed a bug where demo and anonymous clients always got empty query results. They were sending no session in their subscription payloads, and a previous change had made the server require a session for policy evaluation. Now the server falls back to the session it established during the connection handshake.

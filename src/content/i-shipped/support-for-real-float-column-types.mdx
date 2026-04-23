@@ -1,0 +1,7 @@
+---
+summary: support for Real (float) column types
+repo: garden-co/jazz2
+mergeDate: 2026-02-25
+prNumber: '118'
+---
+I added support for floating-point columns in the database. The TypeScript side already allowed `col.float()` and generated the right SQL, but the Rust SQL parser was rejecting it with an "UnsupportedType" error.

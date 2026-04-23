@@ -1,0 +1,7 @@
+---
+summary: a fix for Svelte state_referenced_locally warnings
+repo: garden-co/jazz2
+mergeDate: 2026-04-03
+prNumber: '445'
+---
+I moved prop reads in JazzSvelteProvider and SyntheticUserSwitcher into reactive contexts so the Svelte 5 compiler no longer emits `state_referenced_locally` warnings. I also improved lifecycle handling in both components.

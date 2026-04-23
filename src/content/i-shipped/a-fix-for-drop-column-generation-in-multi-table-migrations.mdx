@@ -1,0 +1,7 @@
+---
+summary: a fix for DROP COLUMN generation in multi-table migrations
+repo: garden-co/jazz2
+mergeDate: 2026-03-02
+prNumber: '187'
+---
+I fixed a bug where running a migration on multiple tables at once only generated the DROP COLUMN SQL for the first table, silently skipping the rest.

@@ -1,0 +1,7 @@
+---
+summary: a change to install wasm-pack via cargo in jazz2
+repo: garden-co/jazz2
+mergeDate: 2026-03-31
+prNumber: '427'
+---
+I removed the npm wasm-pack package and switched to installing it via cargo instead. This eliminates the axios transitive dependency, reducing the risk of supply chain vulnerabilities.

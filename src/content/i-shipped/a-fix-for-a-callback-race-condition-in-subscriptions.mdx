@@ -1,0 +1,7 @@
+---
+summary: a fix for a callback race condition in subscriptions
+repo: garden-co/jazz2
+mergeDate: 2026-03-05
+prNumber: '210'
+---
+I fixed a race condition where the subscription callback could fire before the internal tracking map was ready. The synchronous `immediate_tick()` call was triggering the callback before the sender could be inserted into the shared subscription map.

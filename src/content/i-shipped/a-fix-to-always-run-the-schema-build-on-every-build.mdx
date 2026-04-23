@@ -1,0 +1,7 @@
+---
+summary: a fix to always run the schema build on every build
+repo: garden-co/jazz2
+mergeDate: 2026-03-12
+prNumber: '312'
+---
+I fixed a bug where the TypeScript schema build step was being skipped after the first run. The CLI was checking if the output file already existed and bailing out, which meant schema changes weren't being picked up on subsequent builds.

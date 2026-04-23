@@ -1,0 +1,7 @@
+---
+summary: a fix for missing policy enforcement in queries
+repo: garden-co/jazz2
+mergeDate: 2026-02-27
+prNumber: '147'
+---
+I fixed an issue where `query()` and `subscribe()` weren't applying permission policies because the session wasn't being passed through. Now the client defaults to the JWT session resolved at construction time, so policies are always enforced.

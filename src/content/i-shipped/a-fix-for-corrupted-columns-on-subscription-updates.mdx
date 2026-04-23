@@ -1,0 +1,7 @@
+---
+summary: a fix for corrupted columns on subscription updates
+repo: garden-co/jazz2
+mergeDate: 2026-03-02
+prNumber: '185'
+---
+I fixed a bug where using `.include()` caused base columns to get corrupted when a subscription fired a second time. The reevaluation function was being passed the output tuple (which included extra joined columns) instead of the original base columns, causing data to shift around.

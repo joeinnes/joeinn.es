@@ -1,0 +1,8 @@
+---
+summary: >-
+  a module type declaration fix for the jazz-wasm package
+repo: garden-co/jazz2
+mergeDate: 2026-04-17
+prNumber: '543'
+---
+I added `"type": "module"` to the jazz-wasm package.json. Without it, running the CLI via npx or bunx would fail with an ERR_REQUIRE_CYCLE_MODULE error because Node.js was treating the ES module output as CommonJS.

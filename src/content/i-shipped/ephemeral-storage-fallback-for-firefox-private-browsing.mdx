@@ -1,0 +1,7 @@
+---
+summary: ephemeral storage fallback for Firefox private browsing
+repo: garden-co/jazz2
+mergeDate: 2026-04-21
+prNumber: '605'
+---
+I added a fallback so Jazz apps work in Firefox private browsing mode. When the browser blocks access to the Origin Private File System (OPFS) with a SecurityError, the app now transparently falls back to in-memory storage instead of crashing.

@@ -1,0 +1,7 @@
+---
+summary: JWKS rotation support for self-hosted servers
+repo: garden-co/jazz2
+mergeDate: 2026-03-20
+prNumber: '340'
+---
+I added JWKS (JSON Web Key Set) rotation support for self-hosted Jazz servers with a TTL-based cache, on-demand refresh, and a stale-if-error fallback. This means the server can automatically pick up new signing keys without needing a restart.

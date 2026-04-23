@@ -1,0 +1,7 @@
+---
+summary: corrected docstrings for database operations
+repo: garden-co/jazz2
+mergeDate: 2026-03-05
+prNumber: '201'
+---
+I fixed incorrect docstrings in the database module that described `insert`, `update`, and `deleteFrom` as synchronous when they're actually async. Small fix, but wrong docs can mislead developers.

@@ -1,0 +1,7 @@
+---
+summary: a fix for incorrect pluralization in the code generator
+repo: garden-co/jazz2
+mergeDate: 2026-02-23
+prNumber: '105'
+---
+I replaced a hand-rolled singularize function with the pluralize-esm library. The old function only handled a few suffix patterns and got common English plurals wrong — for example, it was turning "canvases" into "Canvase" instead of "Canvas".
