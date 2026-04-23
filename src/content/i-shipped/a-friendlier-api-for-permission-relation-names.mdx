@@ -1,0 +1,7 @@
+---
+summary: a friendlier API for permission relation names
+repo: garden-co/jazz2
+mergeDate: 2026-04-08
+prNumber: '476'
+---
+I updated `allowedTo` so you can write `allowedTo.read("project")` instead of having to specify the full "projectId" suffix. It tries an exact match first, then falls back to adding "Id" or "_id" for backwards compatibility.

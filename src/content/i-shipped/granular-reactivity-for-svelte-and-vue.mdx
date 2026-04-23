@@ -1,0 +1,7 @@
+---
+summary: granular reactivity for Svelte and Vue
+repo: garden-co/jazz2
+mergeDate: 2026-03-27
+prNumber: '393'
+---
+I added a `reconcileArray` utility that diffs keyed arrays in place and wired it into the Svelte and Vue `onDelta` callbacks. This means only the items that actually changed get re-rendered, instead of the whole list.

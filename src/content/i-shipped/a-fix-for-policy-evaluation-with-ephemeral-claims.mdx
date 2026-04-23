@@ -1,0 +1,7 @@
+---
+summary: a fix for policy evaluation with ephemeral claims
+repo: garden-co/jazz2
+mergeDate: 2026-03-27
+prNumber: '353'
+---
+I fixed an issue where per-subscription claims sent by the client weren't being merged into the server session. This meant policies that depended on ephemeral claims couldn't evaluate correctly.

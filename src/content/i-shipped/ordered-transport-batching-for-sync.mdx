@@ -1,0 +1,7 @@
+---
+summary: ordered transport batching for sync
+repo: garden-co/jazz2
+mergeDate: 2026-03-12
+prNumber: '284'
+---
+I implemented batching for the sync protocol's wire format. Instead of sending one payload per HTTP request, the client now accumulates payloads and flushes them as a single batched POST. This reduces the number of network round-trips and improves sync performance.

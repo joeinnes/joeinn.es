@@ -1,0 +1,7 @@
+---
+summary: EXISTS subquery support in policy expressions
+repo: garden-co/jazz2
+mergeDate: 2026-03-05
+prNumber: '207'
+---
+I added support for `EXISTS (SELECT FROM ...)` subqueries in the SQL policy expression parser, and fixed a bug where the outer row's ID wasn't being resolved correctly in policy conditions. This lets you write more expressive permission rules.

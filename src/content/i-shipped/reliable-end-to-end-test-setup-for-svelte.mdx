@@ -1,0 +1,7 @@
+---
+summary: reliable end-to-end test setup for Svelte
+repo: garden-co/jazz2
+mergeDate: 2026-03-02
+prNumber: '186'
+---
+I replaced a hand-rolled binary spawn in the Svelte end-to-end test setup with the official `startLocalJazzServer` helper, giving each test run its own port. This made the tests more reliable and less prone to port conflicts.

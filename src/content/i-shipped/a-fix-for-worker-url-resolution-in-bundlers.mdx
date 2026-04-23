@@ -1,0 +1,7 @@
+---
+summary: a fix for worker URL resolution in bundlers
+repo: garden-co/jazz2
+mergeDate: 2026-04-17
+prNumber: '540'
+---
+I switched from dynamic runtime URL resolution to a static `new URL(...)` pattern for the web worker bootstrap. This lets bundlers like Vite, webpack, and Next.js/Turbopack detect and co-bundle the worker and WASM files correctly.

@@ -1,0 +1,7 @@
+---
+summary: Vite config hooks for worker format and optimizeDeps
+repo: garden-co/jazz2
+mergeDate: 2026-04-22
+prNumber: '632'
+---
+I updated the Jazz Vite plugins to automatically inject `worker.format: "es"` and `optimizeDeps.exclude: ["jazz-wasm"]` via a config hook. This removes the need for developers to add these settings manually to their Vite config.

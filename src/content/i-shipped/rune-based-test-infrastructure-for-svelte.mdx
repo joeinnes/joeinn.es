@@ -1,0 +1,7 @@
+---
+summary: rune-based test infrastructure for Svelte
+repo: garden-co/jazz2
+mergeDate: 2026-03-26
+prNumber: '387'
+---
+I replaced the mock-based Svelte tests with `.svelte.test.ts` files that run through the Svelte compiler. This means the tests exercise real Svelte 5 runes instead of mocking them, so they catch actual bugs in reactive behaviour.

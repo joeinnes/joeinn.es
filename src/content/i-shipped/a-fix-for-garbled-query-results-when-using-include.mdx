@@ -1,0 +1,7 @@
+---
+summary: a fix for garbled query results when using include
+repo: garden-co/jazz2
+mergeDate: 2026-02-23
+prNumber: '107'
+---
+I fixed a bug where using `.include()` on message queries caused the message text to come out garbled. The root cause was that an internal descriptor wasn't being updated after array subqueries were compiled, so the data was being read from the wrong columns.

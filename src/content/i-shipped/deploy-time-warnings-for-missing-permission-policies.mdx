@@ -1,0 +1,7 @@
+---
+summary: deploy-time warnings for missing permission policies
+repo: garden-co/jazz2
+mergeDate: 2026-04-21
+prNumber: '603'
+---
+I added schema validation warnings to `jazz-tools deploy` that flag tables without explicit permission policies. The warnings are informational only and don't block the deploy, but they help catch accidental permission gaps before they reach production.
