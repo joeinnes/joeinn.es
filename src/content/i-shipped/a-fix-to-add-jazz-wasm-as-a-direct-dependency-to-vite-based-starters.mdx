@@ -1,0 +1,7 @@
+---
+summary: a fix to add jazz-wasm as a direct dependency to Vite-based starters
+repo: garden-co/jazz2
+mergeDate: 2026-04-23
+prNumber: '654'
+---
+I added `jazz-wasm` as a direct dependency to six Vite-based starter templates. When using pnpm, packages only get hoisted to the top level if they're listed as direct dependencies, so without this change the starters would fail to resolve jazz-wasm at runtime.

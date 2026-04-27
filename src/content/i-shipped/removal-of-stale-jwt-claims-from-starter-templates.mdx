@@ -1,0 +1,7 @@
+---
+summary: removal of stale JWT claims from starter templates
+repo: garden-co/jazz2
+mergeDate: 2026-04-24
+prNumber: '660'
+---
+I removed leftover `jazz_principal_id` JWT claims from the starter templates. Jazz only reads the `sub` claim to identify users, so this extra claim wasn't doing anything — it was just confusing people who were reading the starter code and thinking it was important.

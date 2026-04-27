@@ -1,0 +1,7 @@
+---
+summary: a fix for a JazzProvider cleanup cycle caused by config object references
+repo: garden-co/jazz2
+mergeDate: 2026-04-23
+prNumber: '659'
+---
+I fixed a bug where JazzProvider in React would tear down and recreate the Jazz client unnecessarily. The issue was that a config object in the useEffect dependency array was triggering cleanup on every render. I switched it to use a stable string key instead, which prevents the cycle.
