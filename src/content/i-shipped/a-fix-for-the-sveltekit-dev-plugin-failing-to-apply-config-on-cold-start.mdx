@@ -1,0 +1,7 @@
+---
+summary: a fix for the SvelteKit dev plugin failing to apply config on cold start
+repo: garden-co/jazz2
+mergeDate: 2026-04-27
+prNumber: '671'
+---
+I fixed a bug where Jazz's SvelteKit plugin didn't apply its configuration correctly the very first time you started the dev server. The plugin now restarts Vite once after allocating the app ID, so SvelteKit's server hooks pick up the config properly.

@@ -1,0 +1,7 @@
+---
+summary: fallback support for framework-prefixed environment variables in the Jazz CLI
+repo: garden-co/jazz2
+mergeDate: 2026-04-27
+prNumber: '669'
+---
+I updated the Jazz command-line tool to recognise environment variables with framework-specific prefixes — like `VITE_`, `NEXT_PUBLIC_`, `PUBLIC_`, and `EXPO_PUBLIC_`. Previously, if you set your app ID using your framework's conventional prefix, the CLI wouldn't find it; now it checks all common prefixes automatically.

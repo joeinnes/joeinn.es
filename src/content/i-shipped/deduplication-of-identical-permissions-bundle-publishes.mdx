@@ -1,0 +1,7 @@
+---
+summary: deduplication of identical permissions bundle publishes
+repo: garden-co/jazz2
+mergeDate: 2026-04-28
+prNumber: '695'
+---
+I added content-based deduplication to the permissions bundle publishing step. When you deploy without changing your schema's access rules, the system now detects that the new bundle is identical to the current one and skips creating a new version — preventing unnecessary version bumps.
