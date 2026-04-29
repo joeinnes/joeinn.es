@@ -1,0 +1,7 @@
+---
+summary: a fix to wait for membership confirmation before enabling the chat composer
+repo: garden-co/jazz2
+mergeDate: 2026-04-27
+prNumber: '662'
+---
+I fixed a race condition in the React chat example where the message input would become usable before the server had confirmed the user was a member of the chat room. I added a readiness check to prevent this, and wrote a Playwright end-to-end test to guard against it happening again.
