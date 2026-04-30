@@ -1,0 +1,7 @@
+---
+summary: a fix for the Expo fetch polyfill rejecting URL and Request objects
+repo: garden-co/jazz2
+mergeDate: 2026-04-29
+prNumber: '714'
+---
+On Expo (React Native), Jazz uses a custom `fetch` wrapper that bridges web-style network calls to the native layer. The web `fetch` standard allows passing a `URL` or `Request` object as input, but the native bridge only accepts plain strings — so libraries like `better-auth` that use this pattern were crashing. I fixed it by normalising those inputs to a plain string URL plus options before passing them to the native bridge.

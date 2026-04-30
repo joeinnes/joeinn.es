@@ -1,0 +1,7 @@
+---
+summary: a fix for rows vanishing after schema migrations
+repo: garden-co/jazz2
+mergeDate: 2026-04-29
+prNumber: '707'
+---
+When you change your database schema (a "migration"), existing data should stay visible under the new schema. There was a bug where rows that existed before a migration would silently disappear — the resolved table name wasn't being carried through to the query engine, causing a "table not found" error that just dropped the rows silently. I fixed this by making sure the resolved table name is passed all the way through the schema-aware query path.

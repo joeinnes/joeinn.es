@@ -1,0 +1,7 @@
+---
+summary: a fix for sign-up failing on React Native after a local-first session
+repo: garden-co/jazz2
+mergeDate: 2026-04-30
+prNumber: '716'
+---
+Jazz lets users start as anonymous "local-first" users and later upgrade to a full account. On React Native, this upgrade was broken with the error "Sign up requires an active Jazz session" because the identity proof method was trying to use a WebAssembly module — which React Native doesn't support. I overrode the method in the React Native implementation to use the native `mintLocalFirstToken` function from `jazz-rn` instead, making the upgrade flow work on iOS and Android.
