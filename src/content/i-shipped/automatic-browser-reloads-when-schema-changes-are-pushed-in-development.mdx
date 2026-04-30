@@ -1,0 +1,7 @@
+---
+summary: automatic browser reloads when schema changes are pushed in development
+repo: garden-co/jazz2
+mergeDate: 2026-04-29
+prNumber: '715'
+---
+When developing with Jazz in watch mode, editing `schema.ts` now automatically reloads the browser to pick up your changes. Previously you had to manually refresh the page after pushing a schema update to see it take effect. I added a callback that fires after a successful schema push and tells the Vite or SvelteKit dev server to send a full-reload signal to the browser.

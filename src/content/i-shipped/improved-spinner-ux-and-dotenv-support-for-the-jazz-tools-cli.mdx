@@ -1,0 +1,7 @@
+---
+summary: improved spinner UX and dotenv support for the jazz-tools CLI
+repo: garden-co/jazz2
+mergeDate: 2026-04-29
+prNumber: '706'
+---
+The `create-jazz` setup tool got two improvements. The spinner now advances to "Provisioning Jazz Cloud app" before making the network request, so it no longer looks frozen on the previous step. I also added support for loading `.env` files so CLI commands like `deploy` can pick up secrets like `JAZZ_ADMIN_SECRET` from a `.env` file instead of requiring them to be set as shell environment variables.

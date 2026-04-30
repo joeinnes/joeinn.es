@@ -1,0 +1,7 @@
+---
+summary: async example fixes and browser storage eviction guidance in the docs
+repo: garden-co/jazz2
+mergeDate: 2026-04-30
+prNumber: '708'
+---
+The docs for setting up a Jazz client had Vue and Svelte code examples missing `await` before `createJazzClient`, which returns a Promise — so copying the example would store a pending Promise instead of the actual client. I fixed those snippets and added a new section explaining how browsers can silently delete locally-stored data (called "storage eviction") and how to call `navigator.storage.persist()` to ask the browser to keep your data safe.
