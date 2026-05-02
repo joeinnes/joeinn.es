@@ -1,0 +1,7 @@
+---
+summary: a testing infrastructure cleanup for the chat-react example app
+repo: garden-co/jazz
+mergeDate: 2026-05-01
+prNumber: '739'
+---
+The chat-react example app had two separate test setups running in parallel — one using Playwright and one using vitest browser mode. I consolidated them by moving the Playwright end-to-end test into the main vitest browser test suite and deleting the now-redundant Playwright config. I also cleaned up some leftover React `act()` wrapper calls that were printing noisy warnings without actually doing anything useful.
