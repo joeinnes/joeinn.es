@@ -1,0 +1,7 @@
+---
+summary: a fix for a stale repository reference in the create-jazz scaffolding tool
+repo: garden-co/jazz
+mergeDate: 2026-05-04
+prNumber: '775'
+---
+The `create-jazz` tool, which scaffolds new Jazz projects, had a hardcoded reference to the old repo name `garden-co/jazz2`. After the repo was renamed back to `garden-co/jazz`, I updated that one-line constant so the scaffolding tool points to the right place.
