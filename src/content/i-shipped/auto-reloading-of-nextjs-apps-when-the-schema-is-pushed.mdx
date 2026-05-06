@@ -1,0 +1,7 @@
+---
+summary: auto-reloading of Next.js apps when the schema is pushed
+repo: garden-co/jazz
+mergeDate: 2026-05-05
+prNumber: '735'
+---
+During Jazz development, whenever you pushed a new schema, you had to manually refresh the browser to pick up the changes. I added a mechanism where the Jazz Webpack/Turbopack plugin writes a small "schema hash" file to a cache directory on every schema push, and the React provider imports this file during development — so the bundler notices the change and automatically reloads the page for you.
