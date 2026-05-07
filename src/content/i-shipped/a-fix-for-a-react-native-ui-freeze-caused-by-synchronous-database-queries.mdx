@@ -1,0 +1,7 @@
+---
+summary: a fix for a React Native UI freeze caused by synchronous database queries
+repo: garden-co/jazz
+mergeDate: 2026-05-06
+prNumber: '800'
+---
+The `jazz-rn` library was running database queries by blocking the JavaScript thread, which froze the UI during any database access and could also cause deadlocks when the server needed to respond before a query could complete. I converted the query function to be async, so it runs off the JavaScript thread and returns a Promise, keeping the app responsive while waiting for data.

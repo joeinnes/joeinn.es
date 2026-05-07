@@ -1,0 +1,7 @@
+---
+summary: a fix for broken polyfills in the Expo integration that were crashing third-party libraries
+repo: garden-co/jazz
+mergeDate: 2026-05-07
+prNumber: '802'
+---
+The Jazz Expo integration included three polyfills (bits of code that patch in missing browser features) for standard web networking types — but these were actually harmful. If they ran before React Native had set up its own network globals, they'd overwrite those globals with `undefined`, breaking third-party libraries like Clerk. I removed the three useless polyfills while keeping the two that do real work.
