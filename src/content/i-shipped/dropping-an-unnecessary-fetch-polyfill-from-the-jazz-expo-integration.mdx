@@ -1,0 +1,7 @@
+---
+summary: dropping an unnecessary fetch polyfill from the Jazz Expo integration
+repo: garden-co/jazz
+mergeDate: 2026-05-07
+prNumber: '812'
+---
+The Expo (React Native) integration for Jazz included a custom fetch polyfill that swapped out the built-in network library for one from expo/fetch. It was originally added to support reading response bodies as streams, but Jazz never actually does that — all fetch calls just grab the whole response at once with `.json()` or `.text()`, and real-time sync runs over WebSockets anyway. I removed the polyfill entirely, simplifying the code and preventing potential conflicts with third-party libraries that also try to override the global fetch.
