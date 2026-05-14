@@ -1,0 +1,7 @@
+---
+summary: a TypeScript type fix for the SvelteKit plugin in strict mode
+repo: garden-co/jazz
+mergeDate: 2026-05-13
+prNumber: '857'
+---
+Adding the Jazz SvelteKit plugin to `vite.config.ts` with TypeScript strict mode enabled would fail to compile because the plugin's `ssr.external` option was typed as `string[]`, but Vite's actual type is `true | string[]`. I widened the type to match what Vite expects, so it compiles cleanly under strict mode.

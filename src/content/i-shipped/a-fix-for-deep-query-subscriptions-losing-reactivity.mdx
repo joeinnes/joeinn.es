@@ -1,0 +1,7 @@
+---
+summary: a fix for deep query subscriptions losing reactivity
+repo: garden-co/jazz
+mergeDate: 2026-05-13
+prNumber: '861'
+---
+When you subscribed to Jazz data with deeply nested relationships — like posts that include authors that include teams — changes more than one level deep wouldn't trigger a UI update. The subscription system only registered top-level tables as dependencies and missed the deeper ones. I fixed the graph compilation step to walk all nesting levels and register every nested table, so deep mutations correctly invalidate subscriptions.

@@ -1,0 +1,7 @@
+---
+summary: markdown serving for AI agents from the Jazz docs
+repo: garden-co/jazz
+mergeDate: 2026-05-13
+prNumber: '856'
+---
+AI coding assistants work better with plain text than with HTML. I added a proxy to the Jazz docs site that serves any page as clean markdown when a request includes an `Accept: text/markdown` header or a `.md` suffix in the URL, making it easy for AI agents to read the docs directly.

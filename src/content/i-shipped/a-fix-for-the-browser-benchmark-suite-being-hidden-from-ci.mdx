@@ -1,0 +1,7 @@
+---
+summary: a fix for the browser benchmark suite being hidden from CI
+repo: garden-co/jazz
+mergeDate: 2026-05-13
+prNumber: '863'
+---
+Two separate regressions had quietly broken the browser benchmark tests so they weren't running in CI at all. A recent refactor changed how database insert results are structured, breaking the seed step, and a separate issue prevented the test files from being discovered. I fixed both problems so the benchmark suite runs correctly again.
