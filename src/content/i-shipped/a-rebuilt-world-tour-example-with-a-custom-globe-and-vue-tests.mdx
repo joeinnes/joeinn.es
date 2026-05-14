@@ -1,0 +1,7 @@
+---
+summary: a rebuilt world-tour example with a custom globe and Vue tests
+repo: garden-co/jazz
+mergeDate: 2026-05-13
+prNumber: '814'
+---
+The world-tour example app used a third-party map library to display a globe, which was a heavy external dependency. I replaced it with a hand-rolled canvas-based dot globe made from 50,000 Fibonacci sphere points, dropped the dependency entirely, added the example to the monorepo workspace, and included Jazz+Vue integration tests alongside it.

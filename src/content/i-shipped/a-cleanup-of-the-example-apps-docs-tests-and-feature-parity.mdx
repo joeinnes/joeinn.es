@@ -1,0 +1,7 @@
+---
+summary: a cleanup of the example apps' docs, tests, and feature parity
+repo: garden-co/jazz
+mergeDate: 2026-05-13
+prNumber: '846'
+---
+Several Jazz example apps had accumulated inconsistencies: some still used Playwright for testing while others had moved to Vitest browser mode, and their docs and feature sets had drifted out of sync. I migrated the remaining auth examples to Vitest browser mode and fixed the various inconsistencies to bring the examples back to parity.
