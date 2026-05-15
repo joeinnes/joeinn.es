@@ -1,0 +1,7 @@
+---
+summary: a type-level fix for hopTo destination row type inference
+repo: garden-co/jazz
+mergeDate: 2026-05-14
+prNumber: '877'
+---
+When you use `hopTo()` to jump from one table to a related table in a Jazz query, TypeScript was wrongly inferring that the result still had the type of the original table instead of the destination. I fixed this by properly threading the destination table's type information through the `hopTo` method, so now TypeScript correctly knows the shape of the data you're working with after the hop. The runtime behaviour was already correct — this was a purely type-level fix.
