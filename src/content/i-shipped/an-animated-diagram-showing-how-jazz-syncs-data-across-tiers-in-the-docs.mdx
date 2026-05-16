@@ -1,0 +1,7 @@
+---
+summary: an animated diagram showing how Jazz syncs data across tiers in the docs
+repo: garden-co/jazz
+mergeDate: 2026-05-15
+prNumber: '893'
+---
+I replaced a static diagram on the "how sync works" docs page with an animated SVG that shows how writes flow between global sync servers, edge servers, and local clients in real time. To keep things readable, I made each writer get a randomly generated color that's always different enough from its previous color. I also refactored the diagram building blocks into a shared module so future diagrams can reuse the same code.
