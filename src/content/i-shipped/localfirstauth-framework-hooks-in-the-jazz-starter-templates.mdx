@@ -1,0 +1,7 @@
+---
+summary: LocalFirstAuth framework hooks in the Jazz starter templates
+repo: garden-co/jazz
+mergeDate: 2026-05-18
+prNumber: '894'
+---
+The Jazz starter templates had a lot of repetitive boilerplate for setting up authentication. I updated the SvelteKit, React, and Next.js starters to use the new `LocalFirstAuth` reactive class and framework-specific hooks, which means cleaner code and auth state that automatically rebuilds when something changes — no manual page reload needed.

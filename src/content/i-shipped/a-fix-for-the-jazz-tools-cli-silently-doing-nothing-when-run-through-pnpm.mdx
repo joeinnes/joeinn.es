@@ -1,0 +1,7 @@
+---
+summary: a fix for the jazz-tools CLI silently doing nothing when run through pnpm
+repo: garden-co/jazz
+mergeDate: 2026-05-18
+prNumber: '891'
+---
+When you install Jazz using pnpm, it creates a symlink (a shortcut) pointing to the actual CLI program. The CLI checks whether it's the entry point by comparing file paths, but the symlinked path and the real path are different strings, so it thought it wasn't the entry point and quietly exited without doing anything — making schema pushes and migrations appear to succeed while actually no-oping. I fixed it by resolving both paths to their real locations before comparing them, so the CLI now dispatches correctly whether called directly or through pnpm's symlinks.
