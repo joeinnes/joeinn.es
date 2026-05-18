@@ -1,0 +1,7 @@
+---
+summary: dropping Node.js 20 support in favour of Node.js 22
+repo: garden-co/jazz
+mergeDate: 2026-05-18
+prNumber: '892'
+---
+Node.js 20 reached end-of-life, meaning it no longer receives security updates. I bumped the minimum required Node.js version to 22.12 and took the opportunity to clean up backwards-compatibility workarounds scattered across 19 files that only existed to support older Node versions.
