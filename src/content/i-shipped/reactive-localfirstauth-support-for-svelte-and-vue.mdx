@@ -1,0 +1,7 @@
+---
+summary: reactive LocalFirstAuth support for Svelte and Vue
+repo: garden-co/jazz
+mergeDate: 2026-05-18
+prNumber: '879'
+---
+Jazz already had a React hook for LocalFirstAuth — a way to handle user login in local-first apps (apps that work offline and sync data in the background). I added matching reactive integrations for Svelte and Vue, so developers using those frameworks can use LocalFirstAuth without having to wire up their own reactivity. I also fixed a crash that occurred when the module was imported on the server side, and made sign-out properly propagate across all open tabs.
