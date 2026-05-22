@@ -1,0 +1,8 @@
+---
+summary: >-
+  a fix for MCP server crashes when node:sqlite is unavailable
+repo: garden-co/jazz
+mergeDate: 2026-05-21
+prNumber: '910'
+---
+I fixed a crash in the Jazz MCP server that happened on Node.js versions older than 22. The crash was caused by the text-search fallback accidentally importing `node:sqlite` — a database built-in that doesn't exist in older Node versions — before it even had a chance to activate. I extracted the SQLite-free parsing helpers into a new standalone file so the fallback module's dependency chain never touches the database code.
