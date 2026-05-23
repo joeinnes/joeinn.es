@@ -1,0 +1,7 @@
+---
+summary: documentation for several new Jazz features including the schema hash CLI
+repo: garden-co/jazz
+mergeDate: 2026-05-22
+prNumber: '916'
+---
+I wrote docs for several previously-undocumented Jazz features: a CLI command for inspecting local schema hashes, guidance on what values to use in JWT sub claims (and why changing them later causes problems), how permission columns like `$canRead` work within nested queries, and two performance optimizations — `.indexOnly()` for leaner index lookups and `.merge("counter")` for summing concurrent integer edits without conflicts.
