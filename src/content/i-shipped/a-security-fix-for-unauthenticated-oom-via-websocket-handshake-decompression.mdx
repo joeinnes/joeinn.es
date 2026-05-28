@@ -1,0 +1,7 @@
+---
+summary: a security fix for unauthenticated OOM via WebSocket handshake decompression
+repo: garden-co/jazz
+mergeDate: 2026-05-28
+prNumber: '955'
+---
+I found that the WebSocket handshake frame (the first message when a new connection opens) was being decompressed before we'd checked who was connecting. A malicious actor could send a tiny compressed frame that claimed to expand to gigabytes, crashing the server by running out of memory. I added a check that rejects any handshake frame claiming to be larger than 1 MB — since a real handshake is only a few kilobytes of data, anything bigger is suspicious.
