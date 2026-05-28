@@ -1,0 +1,7 @@
+---
+summary: a fix for a flaky offline banner test that was matching the wrong element
+repo: joeinnes/brightblur
+mergeDate: 2026-05-26
+prNumber: '38'
+---
+I fixed a flaky end-to-end test for BrightBlur's offline banner. The test was checking whether the "offline" banner disappeared after reconnecting to the network, but the element locator was too broad — it matched the word "Offline" in a photo caption, not just the actual banner. So even after the real banner hid itself, the test kept finding the caption and failing. I scoped the locator to only look inside the `role="status"` region where the real banner lives.

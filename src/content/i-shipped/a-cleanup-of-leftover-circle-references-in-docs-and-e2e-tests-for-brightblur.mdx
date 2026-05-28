@@ -1,0 +1,7 @@
+---
+summary: a cleanup of leftover circle references in docs and e2e tests for BrightBlur
+repo: joeinnes/brightblur
+mergeDate: 2026-05-26
+prNumber: '37'
+---
+This was housekeeping after the main circle-removal work. I swept remaining mentions of "circle" out of the documentation prose, migrated the end-to-end tests from the old circles concept to the new people-based model, and deleted an old acceptance test suite that had rotted beyond repair. I also fixed a bug where the login throttle was accumulating across test runs, causing "too many requests" errors during automated testing.

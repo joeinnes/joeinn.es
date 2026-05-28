@@ -1,0 +1,7 @@
+---
+summary: per-user supplementary face recognition and a feed filter cache for BrightBlur
+repo: joeinnes/brightblur
+mergeDate: 2026-05-25
+prNumber: '29'
+---
+I shipped two improvements to BrightBlur. First, I added a short-lived cache for the photo feed's filter results so that switching between filters no longer triggers a flood of requests — this was causing "503 server too busy" errors on rapid toggling. Second, I improved face recognition so that when you tag someone, your own unconfirmed tags are immediately used to help recognise that person in your next upload, without waiting for the identity owner to approve them.

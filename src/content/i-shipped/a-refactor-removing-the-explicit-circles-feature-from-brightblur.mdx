@@ -1,0 +1,7 @@
+---
+summary: a refactor removing the explicit circles feature from BrightBlur
+repo: joeinnes/brightblur
+mergeDate: 2026-05-26
+prNumber: '30'
+---
+BrightBlur used to let you create "circles" — named groups you could manually add people to and use to filter who sees a photo. I removed this feature in favour of a simpler model: photos automatically reach everyone connected to the faces tagged in them. This involved removing the default-circles settings, the audience picker's circle bucket, the feed's circle filter, and the join-request flow, along with a database migration that deleted all existing circle data.

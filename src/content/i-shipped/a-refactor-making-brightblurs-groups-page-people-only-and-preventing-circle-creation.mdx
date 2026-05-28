@@ -1,0 +1,7 @@
+---
+summary: a refactor making BrightBlur's groups page people-only and preventing circle creation
+repo: joeinnes/brightblur
+mergeDate: 2026-05-26
+prNumber: '32'
+---
+With person management now moved to its own settings page, I simplified BrightBlur's groups page to only show people (not circles). I also locked the "create group" API so it can only create person-type groups — circles were already useless at this point, but this closes off the last way to create them.

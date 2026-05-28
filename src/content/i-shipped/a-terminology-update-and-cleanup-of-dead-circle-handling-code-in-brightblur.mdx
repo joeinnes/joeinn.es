@@ -1,0 +1,7 @@
+---
+summary: a terminology update and cleanup of dead circle-handling code in BrightBlur
+repo: joeinnes/brightblur
+mergeDate: 2026-05-26
+prNumber: '34'
+---
+I updated the user-facing language in BrightBlur: "My circle" became "You", "Others' circles" became "Other people", and a notification that said someone joined your circle now says they can see a person instead. I also removed dead code that was still checking for circle memberships during account deletion — those memberships no longer exist, so the code never ran. The cleanup now correctly removes encryption keys across all groups when an account is deleted.

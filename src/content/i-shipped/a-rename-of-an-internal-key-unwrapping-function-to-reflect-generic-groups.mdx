@@ -1,0 +1,7 @@
+---
+summary: a rename of an internal key-unwrapping function to reflect generic groups
+repo: joeinnes/brightblur
+mergeDate: 2026-05-26
+prNumber: '35'
+---
+I renamed an internal function called `unwrapCircleEpochKey` to `unwrapGroupEpochKey` — the function actually works for any kind of group, not just circles, so the old name was misleading. This was a pure code cleanup with no effect on how the app behaves.

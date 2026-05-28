@@ -1,0 +1,7 @@
+---
+summary: a fix for a broken feed empty-state and sweep of stale circle copy in BrightBlur
+repo: joeinnes/brightblur
+mergeDate: 2026-05-26
+prNumber: '33'
+---
+I fixed a broken "no photos yet" message in BrightBlur that was telling new users to "Create a circle to start sharing" — but circles had been removed, so that button was dead and the message was wrong. I replaced it with instructions matching how sharing actually works now. I also swept through the rest of the app to remove other leftover circle references and tidy up the navigation.
