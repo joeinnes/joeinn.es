@@ -1,0 +1,7 @@
+---
+summary: a fix for a Next.js SSR crash caused by duplicate React instances in withJazz
+repo: garden-co/jazz
+mergeDate: 2026-05-28
+prNumber: '963'
+---
+When using jazz with Next.js, our `withJazz` helper was mistakenly telling Next.js to load `jazz-tools` as a separate server-side module instead of bundling it together with your app. This caused two separate copies of React to be loaded at the same time — one for the server-rendered pages, one for the client components — which crashes Next.js during pre-rendering. I fixed it by only excluding `jazz-napi` (the native binary) from bundling, so jazz-tools gets bundled normally with your app and there's just one React instance throughout.
