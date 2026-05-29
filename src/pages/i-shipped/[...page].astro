@@ -1,0 +1,212 @@
+---
+import GitHubLink from "../../components/GitHubLink.astro";
+import Layout from "../../layouts/Default.astro";
+import Nav from "../../components/NewNav.astro";
+
+import { getCollection, render } from "astro:content";
+
+const ITEMS_PER_PAGE = 20;
+const { page } = Astro.params;
+const currentPage = page ? parseInt(page as string) : 1;
+
+const shipped = await getCollection("i-shipped");
+const sorted = shipped
+  .filter((item) => item.data?.mergeDate)
+  .sort((a, b) => {
+    const aTime = a.data?.mergeDate?.getTime() ?? 0;
+    const bTime = b.data?.mergeDate?.getTime() ?? 0;
+    return bTime - aTime;
+  });
+
+const totalPages = Math.ceil(sorted.length / ITEMS_PER_PAGE);
+const paginated = sorted.slice(
+  (currentPage - 1) * ITEMS_PER_PAGE,
+  currentPage * ITEMS_PER_PAGE,
+);
+
+const groupedByDate = paginated.reduce(
+  (groups, item) => {
+    const dateKey =
+      item.data.mergeDate?.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }) || "Unknown Date";
+
+    if (!groups[dateKey]) {
+      groups[dateKey] = [];
+    }
+    groups[dateKey].push(item);
+    return groups;
+  },
+  {} as Record<string, typeof sorted>,
+);
+
+export async function getStaticPaths() {
+  const ITEMS_PER_PAGE = 20;
+  const shipped = await getCollection("i-shipped");
+  const filtered = shipped.filter((item) => item.data?.mergeDate);
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+
+  return [
+    { params: { page: undefined } },
+    ...Array.from({ length: totalPages }, (_, i) => ({
+      params: { page: String(i + 1) },
+    })),
+  ];
+}
+---
+
+<style>
+  .date-heading {
+    font-size: 0.875rem;
+    color: var(--muted);
+    font-weight: 400;
+    line-height: 1;
+    margin-block: calc(var(--layout-spacing) * 0.75)
+      calc(var(--layout-spacing) / 3);
+    padding-inline-start: calc(var(--inline-spacing) * 2);
+    border-inline-start: 3px solid var(--primary);
+    white-space: nowrap;
+  }
+  .date-heading .count {
+    font-size: 0.7rem;
+    color: var(--very-muted);
+    margin-inline-start: calc(var(--inline-spacing) * 3);
+  }
+  section:first-of-type .date-heading {
+    margin-block-start: calc(var(--layout-spacing) / 3);
+  }
+
+  article {
+    padding-block: 0;
+  }
+  article + article {
+    border-block-start: 1px dashed var(--very-muted);
+  }
+
+  details {
+    padding-block: calc(var(--layout-spacing) / 3);
+  }
+  summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: calc(var(--inline-spacing) * 3);
+    font-size: 0.95rem;
+    transition: var(--transition);
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::before {
+    content: "+";
+    color: var(--primary);
+    font-weight: 700;
+    flex-shrink: 0;
+    width: 1ch;
+    text-align: center;
+  }
+  details[open] summary::before {
+    content: "−";
+  }
+  summary:hover {
+    color: var(--primary);
+  }
+
+  .details-body {
+    margin-inline-start: calc(1ch + var(--inline-spacing) * 3);
+  }
+  .pr-link-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-block-start: calc(var(--layout-spacing) / 3);
+  }
+
+  nav.pagination {
+    display: flex;
+    gap: calc(var(--inline-spacing) * 3);
+    justify-content: center;
+    align-items: center;
+    margin-block-start: calc(var(--layout-spacing) * 1.5);
+    font-size: 0.875rem;
+  }
+  nav.pagination a {
+    text-decoration: none;
+    padding: var(--inline-spacing) calc(var(--inline-spacing) * 4);
+    border: 1px solid var(--primary);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+  }
+  nav.pagination a:hover {
+    background-color: var(--primary);
+    color: var(--background);
+  }
+  nav.pagination .page-indicator {
+    color: var(--muted);
+  }
+</style>
+
+<Layout title="I Shipped...">
+  <main class="mono">
+    <Nav />
+
+    <h1 class="title">I Shipped...</h1>
+    {
+      Object.entries(groupedByDate).map(async ([dateKey, items]) => (
+        <section>
+          <h2 class="date-heading mono">
+            {dateKey}<span class="count">
+              ({items.length} {items.length === 1 ? "PR" : "PRs"})
+            </span>
+          </h2>
+
+          {items.map(async (item) => {
+            const { Content } = await render(item);
+            return (
+              <article>
+                <details>
+                  <summary>{item.data.summary}</summary>
+                  <div class="details-body">
+                    <Content />
+                    <div class="pr-link-row">
+                      <GitHubLink
+                        repo={item.data.repo}
+                        pr={item.data.prNumber}
+                      />
+                    </div>
+                  </div>
+                </details>
+              </article>
+            );
+          })}
+        </section>
+      ))
+    }
+
+    {
+      totalPages > 1 && (
+        <nav class="pagination">
+          {currentPage > 1 && (
+            <a
+              href={
+                currentPage === 2
+                  ? "/i-shipped/"
+                  : `/i-shipped/${currentPage - 1}/`
+              }
+            >
+              Prev
+            </a>
+          )}
+          <span class="page-indicator">
+            Page {currentPage} of {totalPages}
+          </span>
+          {currentPage < totalPages && (
+            <a href={`/i-shipped/${currentPage + 1}/`}>Next</a>
+          )}
+        </nav>
+      )
+    }
+  </main>
+</Layout>
