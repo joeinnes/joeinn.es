@@ -1,0 +1,7 @@
+---
+summary: connection-per-client caps and idle handshake timeouts for the Jazz sync server
+repo: garden-co/jazz
+mergeDate: 2026-05-29
+prNumber: '965'
+---
+I added two defences to the Jazz sync server to prevent a type of denial-of-service attack called a "reconnect storm". First, I capped the number of simultaneous WebSocket connections allowed per client at 4, automatically dropping the oldest connection when the limit is hit and sending a "RateLimited" error code. Second, I added a 10-second timeout for connections that start their handshake but never finish, so idle half-open connections can't pile up indefinitely.
