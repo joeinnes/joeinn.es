@@ -192,7 +192,8 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
 
 <style lang="postcss">
 	article h2 .word {
-		display: inline-block;
+		/* Keep words inline (not inline-block) so wrapped title lines don't gain
+		   extra leading; the gradient underline animates fine on inline spans. */
 		text-decoration: none;
 		background-image: linear-gradient(var(--border-colour), var(--border-colour));
 		background-position: 0% 100%;
