@@ -7,8 +7,12 @@ const posts = defineCollection({
     title: z.string(),
     page_bg: z.string().optional(),
     date: z.date(),
+    date_updated: z.date().optional(),
+    draft: z.boolean().optional(),
     excerpt: z.string().optional(),
     featured_image: z.string().optional(),
+    // AT-URI of a Bluesky post; when set, its replies render as comments.
+    bskyPostUri: z.string().optional(),
   }),
 });
 

@@ -3,6 +3,10 @@ import { getCollection, getEntry } from "astro:content";
 import Layout from "../../layouts/Default.astro";
 import Nav from "../../components/NewNav.astro";
 import Signature from "../../components/Signature.svelte";
+import Comments from "@bryanguffey/astro-standard-site/components/Comments.astro";
+import { generateDocumentLinkTag } from "@bryanguffey/astro-standard-site";
+import manifest from "../../../standard-site.manifest.json";
+import siteConfig from "../../../standard-site.config.json";
 
 const { slug } = Astro.params;
 if (!slug) throw new Error("Slug not found");
@@ -10,6 +14,15 @@ const post = await getEntry("posts", slug);
 
 if (!post) throw new Error("No post found for this slug");
 const { Content } = await post.render();
+
+// standard.site verification: if this post has been published, emit a <link>
+// pointing back to its document record.
+const docRecord = manifest.documents?.[`posts:${slug}`];
+const docRkey = docRecord?.docUri.split("/").pop();
+const linkTag = docRkey
+  ? generateDocumentLinkTag({ did: siteConfig.did, documentRkey: docRkey })
+  : null;
+const canonicalUrl = `${siteConfig.siteUrl}/blog/${post.slug}`;
 
 // Generate static pages
 export async function getStaticPaths() {
@@ -24,6 +37,7 @@ export async function getStaticPaths() {
   }
 </style>
 <Layout title={post.data.title} bg={post.data.page_bg}>
+  {linkTag && <Fragment slot="head" set:html={linkTag} />}
   <main>
     <Nav />
     <hgroup class="content meta">
@@ -64,5 +78,14 @@ export async function getStaticPaths() {
         <Signature client:load />
       </div>
     </article>
+    {
+      post.data.bskyPostUri && (
+        <Comments
+          bskyPostUri={post.data.bskyPostUri}
+          canonicalUrl={canonicalUrl}
+          maxDepth={3}
+        />
+      )
+    }
   </main>
 </Layout>

@@ -25,7 +25,7 @@ export default config({
           label: "Date",
         }),
         date_updated: fields.date({
-          label: "Date",
+          label: "Date Updated",
           validation: {
             isRequired: false,
           },
@@ -41,6 +41,12 @@ export default config({
           label: "Featured Image",
           directory: "./public",
           publicPath: "",
+        }),
+        bskyPostUri: fields.text({
+          label: "Bluesky Post URI (comments)",
+          description:
+            "Optional. To show comments, share this post on Bluesky, copy the post's AT-URI (at://…) and paste it here. Leave blank for no comments.",
+          validation: { isRequired: false },
         }),
         content: fields.mdx({
           label: "Content",

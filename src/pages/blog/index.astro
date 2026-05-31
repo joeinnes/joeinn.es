@@ -133,7 +133,16 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
                     })}
                   </time>
                   <div>
-                    <h2 transition:name={`post-title-${post.slug}`}>{post?.data.title}</h2>
+                    <h2 transition:name={`post-title-${post.slug}`}>
+                      {post.data.title.split(/\s+/).map((word, i, arr) => (
+                        <Fragment>
+                          <span class="word" style={`--word-index: ${i}`}>
+                            {word}
+                          </span>
+                          {i < arr.length - 1 ? " " : ""}
+                        </Fragment>
+                      ))}
+                    </h2>
                   </div>
 
                   {post?.data.excerpt ||
@@ -182,17 +191,26 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
 </Layout>
 
 <style lang="postcss">
-	article h2 {
+	article h2 .word {
+		display: inline-block;
 		text-decoration: none;
 		background-image: linear-gradient(var(--border-colour), var(--border-colour));
 		background-position: 0% 100%;
 		background-repeat: no-repeat;
 		background-size: 0% 0.3rem;
-		transition: background-size 0.3s;
+		transition: background-size 0.3s ease;
+		/* Stagger each word so the underline sweeps across one word at a time */
+		transition-delay: calc(var(--word-index, 0) * 0.07s);
 	}
 
-	article:hover h2,
-	article:focus h2 {
+	a:hover h2 .word,
+	a:focus-visible h2 .word {
 		background-size: 100% 0.3rem;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		article h2 .word {
+			transition-delay: 0s;
+		}
 	}
 </style>
