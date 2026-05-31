@@ -23,34 +23,59 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
     font-weight: normal;
     text-decoration: none;
   }
+  a:has(article):hover {
+    background-color: color-mix(
+      in hsl,
+      var(--primary) 4%,
+      var(--background) 96%
+    );
+  }
 
   h2 {
     display: inline-block;
+    margin-block-end: calc(var(--layout-spacing) / 2);
+  }
+
+  .post-meta {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    margin-block-end: calc(var(--inline-spacing) * 2);
+    letter-spacing: 0.03em;
+  }
+
+  .search {
+    position: relative;
+    display: block;
     margin-block-end: var(--layout-spacing);
   }
-  div:has(svg) {
-    position: relative;
-  }
-  svg {
+  .search svg {
     position: absolute;
-    top: 0;
-    left: var(--inline-spacing);
+    inset-inline-start: calc(var(--inline-spacing) * 2);
+    inset-block-start: 50%;
+    transform: translateY(-50%);
     width: auto;
-    height: 24px;
-    margin-block-start: calc(var(--inline-spacing) * 4);
-    fill: var(--background);
-    stroke: var(--foreground);
+    height: 1.1em;
+    stroke: var(--muted);
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
+    pointer-events: none;
   }
-  input {
+  .search input {
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid var(--foreground);
-    padding: calc(var(--layout-spacing) / 2);
-    padding-left: calc(var(--layout-spacing) * 1.4);
+    border-bottom: 1px solid var(--very-muted);
+    padding: calc(var(--inline-spacing) * 2)
+      calc(var(--inline-spacing) * 2)
+      calc(var(--inline-spacing) * 2)
+      calc(var(--inline-spacing) * 6 + 1.1em);
     outline: none;
+    transition: border-color 200ms ease;
+  }
+  .search input:focus {
+    border-bottom-color: var(--primary);
   }
 </style>
 
@@ -59,7 +84,7 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
   <main>
     <h1 class="title">Joe Innes's Blog</h1>
 
-    <div>
+    <label class="search">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -70,17 +95,16 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        class="lucide lucide-search-icon lucide-search"
+        aria-hidden="true"
         ><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"
         ></circle></svg
       >
-    </div>
-    <input
-      id="search"
-      type="text"
-      class="w-full py-2 pl-10 mt-2 border-b-2 outline-none border-primary-100 text-ellipsis"
-      placeholder={`Search (e.g.: ${posts[Math.floor(Math.random() * posts.length)]?.data.title})`}
-    />
+      <input
+        id="search"
+        type="text"
+        placeholder={`Search (e.g.: ${posts[Math.floor(Math.random() * posts.length)]?.data.title})`}
+      />
+    </label>
 
     <div
       class="relative flex flex-col justify-center w-full px-4 pb-8 mx-auto prose md:prose-xl max-md:max-w-full"
@@ -101,8 +125,15 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
                   style={`--border-colour: ${post?.data.page_bg || "black"};`}
                   data-title={post.data.title.toLowerCase()}
                 >
+                  <time class="post-meta" datetime={new Date(post.data.date).toISOString()}>
+                    {new Date(post.data.date).toLocaleDateString("en-GB", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </time>
                   <div>
-                    <h2>{post?.data.title}</h2>
+                    <h2 transition:name={`post-title-${post.slug}`}>{post?.data.title}</h2>
                   </div>
 
                   {post?.data.excerpt ||
@@ -113,33 +144,39 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
         }
       </div>
     </div>
-    <script is:inline>
-      const input = document.getElementById("search");
-      const posts = document.querySelectorAll("article");
-      let showingPosts = posts.length;
-      input.addEventListener("input", () => {
-        showingPosts = 0;
-        if (!input?.value) {
-          posts.forEach((post) => {
-            post.parentNode.style.display = "block";
-          });
-          return;
-        }
-        const query = input.value.toLowerCase();
-        posts.forEach((post) => {
-          const title = post.dataset.title;
-          post.parentNode.style.display = title.includes(query)
-            ? "block"
-            : "none";
-          showingPosts += title.includes(query) ? 1 : 0;
-        });
+    <script>
+      function initBlogSearch() {
+        const input = document.getElementById("search");
+        if (!input || input.dataset.bound === "true") return;
+        input.dataset.bound = "true";
 
-        if (!showingPosts) {
-          document.getElementById("no-results").style.display = "block";
-        } else {
-          document.getElementById("no-results").style.display = "none";
-        }
-      });
+        const posts = document.querySelectorAll("article");
+        const noResults = document.getElementById("no-results");
+
+        input.addEventListener("input", () => {
+          if (!input.value) {
+            posts.forEach((post) => {
+              post.parentNode.style.display = "block";
+            });
+            if (noResults) noResults.style.display = "none";
+            return;
+          }
+          const query = input.value.toLowerCase();
+          let showingPosts = 0;
+          posts.forEach((post) => {
+            const title = post.dataset.title;
+            const matches = title.includes(query);
+            post.parentNode.style.display = matches ? "block" : "none";
+            if (matches) showingPosts += 1;
+          });
+
+          if (noResults) {
+            noResults.style.display = showingPosts ? "none" : "block";
+          }
+        });
+      }
+
+      document.addEventListener("astro:page-load", initBlogSearch);
     </script>
   </main>
 </Layout>

@@ -1,6 +1,7 @@
 ---
 import "../styles.css";
 import NowPlaying from "../components/NowPlaying.svelte";
+import { ClientRouter } from "astro:transitions";
 
 export interface Props {
   title: string;
@@ -28,6 +29,7 @@ const { title, bg } = Astro.props;
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ClientRouter />
   </head>
   <body>
     <slot />

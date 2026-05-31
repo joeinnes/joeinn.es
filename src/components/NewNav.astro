@@ -1,3 +1,20 @@
+---
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(href + "/");
+};
+
+const links: { href: string; label: string }[] = [
+  { href: "/", label: "Home" },
+  { href: "/blog", label: "Blog" },
+  { href: "/i-shipped", label: "I Shipped" },
+  { href: "/smidgeons", label: "Smidgeons" },
+  { href: "/cv", label: "CV" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
 <style>
   details {
     position: absolute;
@@ -56,7 +73,6 @@
 
   nav li {
     margin: 0;
-    transition: color 0.2s ease-in-out;
     transition: background-color 0.2s ease-in-out;
   }
 
@@ -71,6 +87,19 @@
     text-decoration: none;
     color: inherit;
     padding: calc(var(--layout-spacing) / 4) calc(var(--layout-spacing) / 2);
+    position: relative;
+  }
+  a[aria-current="page"] {
+    color: var(--primary);
+    font-weight: 700;
+  }
+  a[aria-current="page"]::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block: 0;
+    width: 3px;
+    background: var(--primary);
   }
 </style>
 
@@ -92,12 +121,18 @@
   </summary>
   <nav>
     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/i-shipped">I Shipped</a></li>
-      <li><a href="/smidgeons">Smidgeons</a></li>
-      <li><a href="/cv">CV</a></li>
-      <li><a href="/contact">Contact</a></li>
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={isActive(link.href) ? "page" : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </details>

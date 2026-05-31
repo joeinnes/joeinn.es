@@ -27,7 +27,7 @@ export async function getStaticPaths() {
   <main>
     <Nav />
     <hgroup class="content meta">
-      <h1 class="title">
+      <h1 class="title" transition:name={`post-title-${post.slug}`}>
         {post.data.title}
       </h1>
       <small
