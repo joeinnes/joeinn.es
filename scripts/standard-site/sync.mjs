@@ -79,23 +79,35 @@ console.log(`Logged in as ${publisher.getDid()} via ${publisher.getPdsUrl()}`);
 
 const ctx = { siteUrl: config.siteUrl, transform: transformContent };
 
-for (const a of actions.create) {
-  const input = { site: config.siteUrl, ...a.source.toInput(a.entry, ctx) };
-  const res = await publisher.publishDocument(input);
-  manifest.documents[a.key] = { docUri: res.uri, docCid: res.cid, contentHash: a.hash };
-  console.log(`created ${a.key} → ${res.uri}`);
-}
-for (const a of actions.update) {
-  const input = { site: config.siteUrl, ...a.source.toInput(a.entry, ctx) };
-  const res = await publisher.updateDocument(a.rkey, input);
-  manifest.documents[a.key] = { docUri: res.uri, docCid: res.cid, contentHash: a.hash };
-  console.log(`updated ${a.key} → ${res.uri}`);
-}
-for (const a of actions.delete) {
-  await publisher.deleteDocument(a.rkey);
-  delete manifest.documents[a.key];
-  console.log(`deleted ${a.key}`);
+// Persist after every operation so a mid-run failure (network blip, rate limit)
+// never leaves published records unrecorded — a re-run resumes from here rather
+// than duplicating. The CI commit step runs with if: always() for the same reason.
+const persist = () =>
+  writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
+
+try {
+  for (const a of actions.create) {
+    const input = { site: config.siteUrl, ...a.source.toInput(a.entry, ctx) };
+    const res = await publisher.publishDocument(input);
+    manifest.documents[a.key] = { docUri: res.uri, docCid: res.cid, contentHash: a.hash };
+    persist();
+    console.log(`created ${a.key} → ${res.uri}`);
+  }
+  for (const a of actions.update) {
+    const input = { site: config.siteUrl, ...a.source.toInput(a.entry, ctx) };
+    const res = await publisher.updateDocument(a.rkey, input);
+    manifest.documents[a.key] = { docUri: res.uri, docCid: res.cid, contentHash: a.hash };
+    persist();
+    console.log(`updated ${a.key} → ${res.uri}`);
+  }
+  for (const a of actions.delete) {
+    await publisher.deleteDocument(a.rkey);
+    delete manifest.documents[a.key];
+    persist();
+    console.log(`deleted ${a.key}`);
+  }
+} finally {
+  persist();
 }
 
-writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
 console.log(`\nWrote ${MANIFEST_PATH}.`);
