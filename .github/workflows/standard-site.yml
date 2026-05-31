@@ -12,6 +12,7 @@ on:
       - "src/content/posts/**"
       - "scripts/standard-site/**"
       - "standard-site.config.json"
+  workflow_dispatch:
 
 concurrency:
   group: standard-site
@@ -37,13 +38,18 @@ jobs:
         env:
           ATPROTO_APP_PASSWORD: ${{ secrets.ATPROTO_APP_PASSWORD }}
         run: pnpm run standard-site:sync
+      # always() so a partially-completed backfill still commits its progress.
       - name: Commit manifest changes
+        if: always()
         run: |
           if ! git diff --quiet standard-site.manifest.json; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add standard-site.manifest.json
-            git commit -m "chore: sync standard.site manifest [skip ci]"
+            # No [skip ci]: this lets Vercel deploy the manifest so the per-post
+            # <link> tags go live. The push touches only the manifest, which is
+            # outside this workflow's path filter, so it will not re-trigger here.
+            git commit -m "chore: sync standard.site manifest"
             git push
           else
             echo "Manifest unchanged."
