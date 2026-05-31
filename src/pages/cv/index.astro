@@ -7,11 +7,27 @@ import Nav from "../../components/NewNav.astro";
   embed {
     width: 100%;
     aspect-ratio: 21/29;
+    margin-block-start: var(--layout-spacing);
+    border-radius: var(--border-radius);
   }
-  main > div {
+  .cv-actions {
     margin-block-start: var(--layout-spacing);
     display: flex;
-    gap: var(--layout-spacing);
+    flex-wrap: wrap;
+    gap: var(--inline-spacing);
+    align-items: center;
+  }
+  .button-ghost {
+    background-color: transparent !important;
+    color: var(--primary) !important;
+    border: 1px solid var(--primary) !important;
+  }
+  .button-ghost:hover {
+    background-color: color-mix(
+      in hsl,
+      var(--primary) 10%,
+      var(--background) 90%
+    ) !important;
   }
 </style>
 
@@ -19,14 +35,16 @@ import Nav from "../../components/NewNav.astro";
   <Nav />
   <main>
     <h1 class="title">My CV</h1>
-    <div>
+    <div class="cv-actions">
       <a
         class="button"
         href="/Joe Innes - CV.pdf"
         download
         data-umami-event="CV Download">Download a copy</a
       >
-      <a class="button" href="/contact">Need a different format?</a>
+      <a class="button button-ghost" href="/contact"
+        >Need a different format?</a
+      >
     </div>
   </main>
   <embed src="/Joe Innes - CV.pdf" />
