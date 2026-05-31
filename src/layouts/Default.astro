@@ -30,6 +30,7 @@ const { title, bg } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ClientRouter />
+    <slot name="head" />
   </head>
   <body>
     <slot />
