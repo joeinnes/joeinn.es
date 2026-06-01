@@ -24,6 +24,28 @@ const linkTag = docRkey
   : null;
 const canonicalUrl = `${siteConfig.siteUrl}/blog/${post.slug}`;
 
+const pageUrl = new URL(`/blog/${post.slug}`, Astro.site).href;
+const absoluteImage = post.data.featured_image
+  ? new URL(post.data.featured_image, Astro.site).href
+  : undefined;
+
+const blogPostingJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  datePublished: new Date(post.data.date).toISOString(),
+  dateModified: new Date(
+    post.data.date_updated ?? post.data.date,
+  ).toISOString(),
+  author: {
+    "@type": "Person",
+    name: "Joe Innes",
+  },
+  mainEntityOfPage: pageUrl,
+  ...(absoluteImage ? { image: absoluteImage } : {}),
+  ...(post.data.excerpt ? { description: post.data.excerpt } : {}),
+};
+
 // Generate static pages
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -36,10 +58,21 @@ export async function getStaticPaths() {
     margin-block-end: var(--layout-spacing);
   }
 </style>
-<Layout title={post.data.title} bg={post.data.page_bg}>
+<Layout
+  title={post.data.title}
+  bg={post.data.page_bg}
+  description={post.data.excerpt}
+  image={post.data.featured_image}
+  type="article"
+>
   {linkTag && <Fragment slot="head" set:html={linkTag} />}
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(blogPostingJsonLd)}
+    slot="head"
+  />
+  <Nav />
   <main>
-    <Nav />
     <hgroup class="content meta">
       <h1 class="title" transition:name={`post-title-${post.slug}`}>
         {post.data.title}
@@ -64,7 +97,12 @@ export async function getStaticPaths() {
               "https://source.unsplash.com/random/?" +
                 encodeURIComponent(post.data.title)
             }
-            style="width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-block-end: var(--layout-spacing);"
+            width="1200"
+            height="675"
+            decoding="async"
+            loading="eager"
+            fetchpriority="high"
+            style="width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; margin-block-end: var(--layout-spacing);"
           />
         </div>
       )

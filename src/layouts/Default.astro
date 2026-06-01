@@ -1,14 +1,18 @@
 ---
 import "../styles.css";
+import BaseHead from "../components/BaseHead.astro";
 import NowPlaying from "../components/NowPlaying.svelte";
 import { ClientRouter } from "astro:transitions";
 
 export interface Props {
   title: string;
   bg?: string;
+  description?: string;
+  image?: string;
+  type?: "website" | "article";
 }
 
-const { title, bg } = Astro.props;
+const { title, bg, description, image, type } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,21 +23,47 @@ const { title, bg } = Astro.props;
 }`}
 >
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="preconnect" href="https://fonts.bunny.net" />
-    <link
-      href="https://fonts.bunny.net/css?family=space-grotesk:400,700|space-mono:400,700"
-      rel="stylesheet"
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      type={type}
     />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
     <ClientRouter />
     <slot name="head" />
   </head>
   <body>
-    <slot />
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div id="main-content" tabindex="-1">
+      <slot />
+    </div>
     <NowPlaying client:load />
+    <style>
+      .skip-link {
+        position: absolute;
+        inset-inline-start: 0;
+        inset-block-start: 0;
+        transform: translateY(-100%);
+        padding: 0.5rem 1rem;
+        background: var(--background, #fff);
+        color: var(--foreground, #000);
+        z-index: 1000;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+        clip: auto;
+        clip-path: none;
+        overflow: visible;
+      }
+
+      #main-content:focus {
+        outline: none;
+      }
+    </style>
   </body>
 </html>

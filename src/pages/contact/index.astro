@@ -1,9 +1,12 @@
 ---
 import Layout from "../../layouts/Default.astro";
 import Nav from "../../components/NewNav.astro";
+
+const description =
+  "Get in touch with Joe Innes. Drop a message about projects, collaboration, or anything else using the contact form.";
 ---
 
-<Layout title="Joe Innes | Contact">
+<Layout title="Joe Innes | Contact" description={description}>
   <Nav />
   <main>
     <h1 class="title">Contact</h1>

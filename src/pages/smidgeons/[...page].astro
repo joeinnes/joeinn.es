@@ -35,6 +35,9 @@ export async function getStaticPaths() {
 
   return paths;
 }
+
+const description =
+  "Smidgeons from Joe Innes — short-form notes, snippets, and passing thoughts, inspired by Maggie Appleton.";
 ---
 
 <style>
@@ -57,7 +60,7 @@ export async function getStaticPaths() {
   }
 </style>
 
-<Layout title="Joe Innes | Smidgeons">
+<Layout title="Joe Innes | Smidgeons" description={description}>
   <Nav />
   <main>
     <h1 class="title">Smidgeons</h1>

@@ -1,0 +1,19 @@
+# Joe Innes
+
+> Personal website and blog for Joe Innes (joeinn.es): long-form writing, short-form notes, a log of open source contributions, and ways to get in touch.
+
+## Pages
+
+- [Home](https://joeinn.es/): Landing page with name, tagline, and hero image.
+- [CV](https://joeinn.es/cv): Curriculum vitae, viewable inline and available to download as a PDF.
+- [Now](https://joeinn.es/now): What Joe is focused on right now, plus recently played tracks.
+- [Contact](https://joeinn.es/contact): Get in touch via the contact form.
+
+## Writing
+
+- [Blog](https://joeinn.es/blog): Long-form blog posts, with client-side search by title.
+- [Smidgeons](https://joeinn.es/smidgeons): Short-form notes and quick thoughts, paginated.
+
+## Open source
+
+- [I Shipped](https://joeinn.es/i-shipped): Log of open source contributions, grouped by date with expandable details for each merged pull request.
