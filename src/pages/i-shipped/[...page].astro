@@ -55,6 +55,9 @@ export async function getStaticPaths() {
     })),
   ];
 }
+
+const description =
+  "Open source contributions from Joe Innes — a running log of merged pull requests and the projects they shipped to.";
 ---
 
 <style>
@@ -148,10 +151,9 @@ export async function getStaticPaths() {
   }
 </style>
 
-<Layout title="I Shipped...">
+<Layout title="I Shipped..." description={description}>
+  <Nav />
   <main class="mono">
-    <Nav />
-
     <h1 class="title">I Shipped...</h1>
     {
       Object.entries(groupedByDate).map(async ([dateKey, items]) => (

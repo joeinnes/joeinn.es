@@ -1,6 +1,9 @@
 ---
 import Layout from "../../layouts/Default.astro";
 import Nav from "../../components/NewNav.astro";
+
+const description =
+  "Joe Innes's CV — full-stack developer experience, skills, and history. Download a PDF copy or request a different format.";
 ---
 
 <style>
@@ -31,7 +34,7 @@ import Nav from "../../components/NewNav.astro";
   }
 </style>
 
-<Layout title="Joe Innes">
+<Layout title="Joe Innes | CV" description={description}>
   <Nav />
   <main>
     <h1 class="title">My CV</h1>

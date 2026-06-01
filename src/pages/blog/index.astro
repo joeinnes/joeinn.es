@@ -9,6 +9,9 @@ const filteredPosts = await getCollection("posts", ({ data }) => {
   return !data.draft && new Date(data.date) < now;
 });
 const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
+
+const description =
+  "Long-form writing from Joe Innes on local-first software, realtime sync, encrypted distributed data, and building for the web.";
 ---
 
 <style>
@@ -79,7 +82,7 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
   }
 </style>
 
-<Layout title="Joe Innes | Blog">
+<Layout title="Joe Innes | Blog" description={description}>
   <Nav />
   <main>
     <h1 class="title">Joe Innes's Blog</h1>
@@ -102,6 +105,7 @@ const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
       <input
         id="search"
         type="text"
+        aria-label="Search posts"
         placeholder={`Search (e.g.: ${posts[Math.floor(Math.random() * posts.length)]?.data.title})`}
       />
     </label>

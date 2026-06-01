@@ -9,11 +9,14 @@ const now = await reader.singletons.now.read();
 const content = await now?.now();
 const renderedMd = await marked.parse(content || "");
 import RecentTracks from "../../components/RecentTracks.svelte";
+
+const description =
+  "What Joe Innes is focused on right now — current projects, priorities, and recent listening.";
 ---
 
-<Layout title="Joe Innes | Now">
+<Layout title="Joe Innes | Now" description={description}>
+  <Nav />
   <main>
-    <Nav />
     <h1 class="title">Now</h1>
     <article set:html={renderedMd} />
     <article>

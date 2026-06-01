@@ -3,16 +3,34 @@ import { Image } from "astro:assets";
 import joeImage from "../../public/joei.webp";
 import Layout from "../layouts/Default.astro";
 import NewNav from "../components/NewNav.astro";
+
+const description =
+  "Joe Innes is a full-stack developer helping people build local-first, realtime apps with encrypted, distributed data.";
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Joe Innes",
+  jobTitle: "Full Stack Developer",
+  url: "https://joeinn.es",
+  image: new URL("/joei.webp", Astro.site).href,
+  sameAs: ["https://bsky.app/profile/joeinn.es"],
+};
 ---
 
-<Layout title="Joe Innes">
+<Layout title="Joe Innes" description={description}>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(personJsonLd)}
+    slot="head"
+  />
   <style>
     h1 + p {
       font-size: 1.5em;
     }
   </style>
+  <NewNav />
   <main>
-    <NewNav />
     <h1 class="title">Joe Innes</h1>
     <p class="mono">Full Stack Developer</p>
     <Image
