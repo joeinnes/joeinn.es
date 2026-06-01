@@ -15,6 +15,7 @@
       <li><a href="/contact">Contact</a></li>
       <li><a href="/smidgeons">Smidgeons</a></li>
       <li><a href="/now">Now</a></li>
+      <li><a href="/privacy">Privacy</a></li>
     </ul>
   </div>
   <div class="p-4">

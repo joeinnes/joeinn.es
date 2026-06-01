@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Default.astro";
+import Nav from "../components/NewNav.astro";
+
+const description =
+  "Sorry, the page you were looking for could not be found.";
+---
+
+<Layout title="Joe Innes | Page not found" description={description}>
+  <Nav />
+  <main>
+    <h1 class="title">Page not found</h1>
+    <p>
+      Sorry, the page you were after seems to have wandered off. It might have
+      been moved, renamed, or perhaps it never existed in the first place.
+    </p>
+    <p>
+      Let's get you back on track — head to the
+      <a href="/">home page</a> or take a look at the
+      <a href="/blog">blog</a>.
+    </p>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 60ch;
+  }
+
+  p {
+    margin-block: 1rem;
+  }
+
+  a {
+    color: var(--primary);
+  }
+</style>
