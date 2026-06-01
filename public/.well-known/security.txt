@@ -1,0 +1,5 @@
+# Security contact details for joeinn.es
+Contact: mailto:joe@joeinn.es
+Expires: 2027-06-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://joeinn.es/.well-known/security.txt
