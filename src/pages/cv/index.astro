@@ -1,20 +1,23 @@
 ---
+import { marked } from "marked";
+import { createReader } from "@keystatic/core/reader";
+import keystaticConfig from "../../../keystatic.config";
 import Layout from "../../layouts/Default.astro";
 import Nav from "../../components/NewNav.astro";
 
+const reader = createReader(process.cwd(), keystaticConfig);
+const cv = await reader.singletons.cv.read();
+const content = await cv?.content();
+const renderedMd = await marked.parse(content || "");
+
 const description =
-  "Joe Innes's CV — full-stack developer experience, skills, and history. Download a PDF copy or request a different format.";
+  "Joe Innes's CV — software engineer building local-first, real-time software, with a background leading technical teams. Print a copy or request a different format.";
 ---
 
 <style>
-  embed {
-    width: 100%;
-    aspect-ratio: 21/29;
-    margin-block-start: var(--layout-spacing);
-    border-radius: var(--border-radius);
-  }
   .cv-actions {
     margin-block-start: var(--layout-spacing);
+    margin-block-end: var(--layout-spacing);
     display: flex;
     flex-wrap: wrap;
     gap: var(--inline-spacing);
@@ -32,6 +35,23 @@ const description =
       var(--background) 90%
     ) !important;
   }
+  .cv :global(h4) {
+    color: var(--primary);
+  }
+  .cv :global(h4 + p em) {
+    color: var(--muted);
+    font-style: normal;
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+  }
+
+  @media print {
+    :global(nav),
+    :global(.now-playing),
+    .cv-actions {
+      display: none !important;
+    }
+  }
 </style>
 
 <Layout title="Joe Innes | CV" description={description}>
@@ -39,16 +59,19 @@ const description =
   <main>
     <h1 class="title">My CV</h1>
     <div class="cv-actions">
-      <a
-        class="button"
-        href="/Joe Innes - CV.pdf"
-        download
-        data-umami-event="CV Download">Download a copy</a
-      >
-      <a class="button button-ghost" href="/contact"
-        >Need a different format?</a
-      >
+      <button class="button" data-print-cv data-umami-event="CV Print">
+        Print / Save as PDF
+      </button>
+      <a class="button button-ghost" href="/contact">
+        Need a different format?
+      </a>
     </div>
+    <article class="cv" set:html={renderedMd} />
   </main>
-  <embed src="/Joe Innes - CV.pdf" />
 </Layout>
+
+<script>
+  document
+    .querySelector("[data-print-cv]")
+    ?.addEventListener("click", () => window.print());
+</script>

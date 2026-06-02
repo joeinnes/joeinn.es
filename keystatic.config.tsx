@@ -115,5 +115,14 @@ export default config({
         date: fields.date({ label: "Date" }),
       },
     }),
+    cv: singleton({
+      label: "CV",
+      path: "src/content/cv",
+      schema: {
+        content: fields.mdx({
+          label: "CV",
+        }),
+      },
+    }),
   },
 });
