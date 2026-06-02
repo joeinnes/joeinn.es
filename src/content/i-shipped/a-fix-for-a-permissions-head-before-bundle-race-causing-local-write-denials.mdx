@@ -1,0 +1,7 @@
+---
+summary: a fix for a permissions head-before-bundle race causing local write denials
+repo: garden-co/jazz
+mergeDate: 2026-06-02
+prNumber: '975'
+---
+When the permission header for a piece of data arrived before the data itself, Jazz was incorrectly rejecting local writes. I removed a redundant authorization call so that Jazz waits until the full data bundle is received before enforcing permissions, eliminating a race condition that caused intermittent test failures in CI.

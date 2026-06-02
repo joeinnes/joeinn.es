@@ -1,0 +1,7 @@
+---
+summary: an end-to-end test harness for Jazz starter templates
+repo: garden-co/jazz
+mergeDate: 2026-06-02
+prNumber: '978'
+---
+Individual starter tests ran against dev builds and missed regressions that only showed up at release time. I built a new testing package that scaffolds each of the 12 starters using the real CLI, installs dependencies, builds for production, and runs all Playwright tests against the production build — all gated in CI before any release goes out.
