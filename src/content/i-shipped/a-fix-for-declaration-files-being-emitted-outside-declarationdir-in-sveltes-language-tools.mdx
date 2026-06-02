@@ -1,0 +1,8 @@
+---
+summary: >-
+  a fix for declaration files being emitted outside declarationDir in Svelte's language tools
+repo: sveltejs/language-tools
+mergeDate: 2026-06-01
+prNumber: '2965'
+---
+When a Svelte component imported a TypeScript file from outside the configured source root, the `emitDts` tool would create `.d.ts` type declaration files in the wrong place — sometimes nesting them deep in the source tree with doubled absolute paths. I fixed the file-writing hook to skip any declarations that fall outside the intended output directory and to only prepend relative path prefixes when the filename is already relative.

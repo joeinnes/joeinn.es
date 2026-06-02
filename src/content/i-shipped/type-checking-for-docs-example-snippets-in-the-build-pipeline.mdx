@@ -1,0 +1,7 @@
+---
+summary: type-checking for docs example snippets in the build pipeline
+repo: garden-co/jazz
+mergeDate: 2026-06-02
+prNumber: '979'
+---
+Broken code examples in the Jazz docs were shipping silently because they weren't type-checked. I wired TypeScript checking for all six docs example packages into the build pipeline, which also surfaced a bunch of existing errors in the snippets — wrong function signatures, renamed components, non-existent columns — that I fixed at the same time.
