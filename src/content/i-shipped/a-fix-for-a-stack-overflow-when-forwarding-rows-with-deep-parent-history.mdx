@@ -1,0 +1,7 @@
+---
+summary: a fix for a stack overflow when forwarding rows with deep parent history
+repo: garden-co/jazz
+mergeDate: 2026-06-02
+prNumber: '940'
+---
+When a row has a very long chain of ancestors — around 300 levels deep — the code that forwards rows was calling itself recursively, eventually running out of call-stack space and crashing. I replaced the recursive approach with an iterative post-order walk, so deeply nested row histories no longer cause a stack overflow.
