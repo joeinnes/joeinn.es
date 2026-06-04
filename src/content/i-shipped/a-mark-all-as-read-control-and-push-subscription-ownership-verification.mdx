@@ -1,0 +1,7 @@
+---
+summary: a mark-all-as-read control and push-subscription ownership verification
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '67'
+---
+I added a "Mark all as read" button to the notifications panel that clears every unread notification at once. I also fixed a security issue where a push notification subscription from a previous user on a shared device could be incorrectly re-bound to the new user — it's now unsubscribed instead.

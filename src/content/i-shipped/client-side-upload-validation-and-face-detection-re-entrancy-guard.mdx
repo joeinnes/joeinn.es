@@ -1,0 +1,7 @@
+---
+summary: client-side upload validation and face-detection re-entrancy guard
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '58'
+---
+I added file-type, extension, and size validation (20 MB cap) on the client before a photo upload even starts, so bad files are rejected immediately with a clear message. I also added a guard to prevent the face-detection pipeline from running twice simultaneously on the same photo.

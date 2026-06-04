@@ -1,0 +1,7 @@
+---
+summary: hardened encrypted-blob storage with fixed content-type and per-part size cap
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '60'
+---
+I hardened brightblur's encrypted photo storage in two ways: encrypted blobs are now always stored with `application/octet-stream` instead of whatever content-type the browser guessed, and individual blob parts are now rejected early if they exceed a size cap before being assembled.

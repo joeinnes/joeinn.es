@@ -1,0 +1,7 @@
+---
+summary: a fix for a missing env var crashing the whole site
+repo: joeinnes/brightblur
+mergeDate: 2026-06-02
+prNumber: '51'
+---
+Production was returning a 500 error on every single request because the environment validator ran at the top of the request handler and threw an uncaught error when `CRON_SECRET` was missing. I fixed the validator so a missing non-critical env var no longer takes down the whole site.

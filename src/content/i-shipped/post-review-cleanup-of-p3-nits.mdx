@@ -1,0 +1,7 @@
+---
+summary: post-review cleanup of P3 nits
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '81'
+---
+I cleared the non-blocking review comments left from the P3 bug sweep: the search debounce timer is now cancelled on component unmount, a stale in-flight comment decryption is cancelled when new ones start, and several clarity and correctness nits across search, comments, and the face recognition libraries were tidied up.

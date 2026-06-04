@@ -1,0 +1,7 @@
+---
+summary: type-checking for docs example snippets in the build
+repo: garden-co/jazz
+mergeDate: 2026-06-02
+prNumber: '979'
+---
+I wired up type-checking for all the code examples embedded in Jazz's documentation — TypeScript, Svelte, and Vue variants. Before this, a snippet could have a type error and nobody would notice until a user tried to copy it. Now a broken snippet fails the build, so the docs always reflect working code.

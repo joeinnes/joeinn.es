@@ -1,0 +1,7 @@
+---
+summary: crypto-key rotation validation and decrypt error surfacing
+repo: joeinnes/brightblur
+mergeDate: 2026-06-02
+prNumber: '46'
+---
+I hardened three areas of brightblur's end-to-end encryption: key rotation now validates the new key before writing anything (so bad input can't brick an account), decryption errors are surfaced to the user instead of silently failing, and the app now asks whether to stay in a shared group when a key rotation happens.
