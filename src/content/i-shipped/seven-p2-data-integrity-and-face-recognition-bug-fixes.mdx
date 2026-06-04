@@ -1,0 +1,7 @@
+---
+summary: seven P2 data-integrity and face-recognition bug fixes
+repo: joeinnes/brightblur
+mergeDate: 2026-06-02
+prNumber: '42'
+---
+I fixed seven data-integrity and face-recognition bugs in brightblur. The most impactful was adding a database index to the face-slice rejection path, which was previously doing expensive full-table scans on an unbounded table every time a duplicate face was detected.

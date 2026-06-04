@@ -1,0 +1,7 @@
+---
+summary: an offline navigation shell with logout state purge
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '84'
+---
+I added an offline navigation shell to brightblur so the app loads from a cached shell when there's no internet connection, rather than showing a browser error page. I also made logout purge all per-user data from local storage so a subsequent login on the same device doesn't see a previous user's cached state.

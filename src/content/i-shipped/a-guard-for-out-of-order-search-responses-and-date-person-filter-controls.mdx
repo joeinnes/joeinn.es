@@ -1,0 +1,7 @@
+---
+summary: a guard for out-of-order search responses and date/person filter controls
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '62'
+---
+I fixed a race condition where a slow search response could arrive after a newer one and overwrite the results with stale data — each request now carries a sequence token so out-of-order responses are silently discarded. I also added date-range and person filter controls to the search UI.

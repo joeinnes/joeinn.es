@@ -1,0 +1,7 @@
+---
+summary: a fix for the person-page crash and cramped toast notifications
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '86'
+---
+I fixed two bugs: the person page was crashing with a "Something went wrong" error because a reactive cache write was happening inside a Svelte `$derived` block (which Svelte forbids), and the toast notifications were too cramped on smaller screens.

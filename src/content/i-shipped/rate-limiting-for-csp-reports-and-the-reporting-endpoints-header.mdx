@@ -1,0 +1,7 @@
+---
+summary: rate-limiting for CSP reports and the Reporting-Endpoints header
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '64'
+---
+I added a per-IP rate limit to the CSP report endpoint (Content Security Policy is a browser security feature that reports policy violations back to the server) so it can't be flooded, and added the modern `Reporting-Endpoints` header alongside the older `Report-To` header for broader browser compatibility.

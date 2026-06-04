@@ -1,0 +1,7 @@
+---
+summary: a fix for stale seeds after key rotation and zeroing of split-key halves
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '59'
+---
+I fixed two encryption issues: after a key rotation, the unlock flow now reads the new seed from storage without requiring a logout, and the two halves of the intersection split-key are now zeroed from memory immediately after being combined — so they're not sitting around longer than necessary.

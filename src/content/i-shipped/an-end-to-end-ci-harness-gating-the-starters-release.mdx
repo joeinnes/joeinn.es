@@ -1,0 +1,7 @@
+---
+summary: an end-to-end CI harness gating the starters release
+repo: garden-co/jazz
+mergeDate: 2026-06-02
+prNumber: '978'
+---
+I added a full end-to-end testing harness for Jazz's starter templates — the scaffolded projects a new user creates with `create-jazz`. The CI now actually builds each starter and runs Playwright browser tests against it before any release goes out, so a broken starter template can no longer silently ship to users.
