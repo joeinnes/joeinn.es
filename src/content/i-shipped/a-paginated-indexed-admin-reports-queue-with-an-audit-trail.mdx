@@ -1,7 +1,0 @@
----
-summary: a paginated, indexed admin reports queue with an audit trail
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '63'
----
-I overhauled brightblur's content moderation queue: reports are now paginated with a database index so it stays fast as reports accumulate, moderator actions are logged to an audit trail, and the reporter and uploader each get notified when a report is resolved. Admin routes now also go through shared error-handling middleware.

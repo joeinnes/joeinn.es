@@ -1,7 +1,0 @@
----
-summary: a scoped click-outside attachment replacing the leaky global window handler
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '65'
----
-Brightblur's dropdown menus were using a single global `window` click listener to detect outside clicks, which fired for every click anywhere on the page. I replaced it with a scoped `clickOutside` Svelte action that attaches only to the element it needs to watch, and added Escape key support to dismiss the desktop and mobile account menus too.

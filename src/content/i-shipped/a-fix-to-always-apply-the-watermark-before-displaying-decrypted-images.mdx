@@ -1,7 +1,0 @@
----
-summary: a fix to always apply the watermark before displaying decrypted images
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '55'
----
-Brightblur embeds an invisible per-viewer steganographic watermark in each photo at render time. I fixed a bug where the decrypted image URL was being published to the page before the watermark had been applied, meaning there was a window where an unwatermarked photo could be seen or captured.

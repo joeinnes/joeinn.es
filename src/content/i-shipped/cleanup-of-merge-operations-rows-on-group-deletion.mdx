@@ -1,7 +1,0 @@
----
-summary: cleanup of merge_operations rows on group deletion
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '66'
----
-When a person group is deleted in brightblur, the face-merge history rows that referenced it were being left behind as orphans in the database. I updated the `deletePerson` function to also sweep those rows so the merge history stays clean.

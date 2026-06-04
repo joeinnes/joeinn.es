@@ -1,7 +1,0 @@
----
-summary: pagination for loading earlier comments
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '82'
----
-The comment API had been updated to support pagination, but the client was only ever fetching the first page and silently dropping the rest. I wired the cursor through so long threads show a "Load more comments" button, and kept the next-page cursor around to fetch subsequent pages.

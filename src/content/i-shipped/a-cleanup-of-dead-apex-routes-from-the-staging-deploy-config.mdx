@@ -1,7 +1,0 @@
----
-summary: a cleanup of dead apex routes from the staging deploy config
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '56'
----
-I removed duplicate `brightblur.app` apex domain routes from the staging Cloudflare Worker config that were left over after disabling automatic branch deploys. They served no purpose without branch deploys and were cluttering the configuration.

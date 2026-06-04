@@ -1,7 +1,0 @@
----
-summary: cached feed rendering in the offline shell
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '85'
----
-After adding the offline shell, I extended it so a cold reload while offline shows the user's last saved feed instead of a blank shell. The service worker still only intercepts navigation failures — it doesn't redirect or cache navigation documents, so the online behaviour is completely unchanged.

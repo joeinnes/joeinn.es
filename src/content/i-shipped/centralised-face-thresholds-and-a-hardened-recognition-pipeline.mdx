@@ -1,7 +1,0 @@
----
-summary: centralised face thresholds and a hardened recognition pipeline
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '57'
----
-I pulled brightblur's face-matching thresholds into a single source of truth so they can't drift apart across different code paths, fixed the LSH index re-insert so it fully replaces bucket membership instead of leaving stale entries, and replaced a recursive union-find with an iterative one to avoid stack overflows on deep ancestry chains.

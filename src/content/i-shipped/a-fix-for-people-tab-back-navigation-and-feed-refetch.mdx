@@ -1,7 +1,0 @@
----
-summary: a fix for People tab back navigation and feed refetch
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '70'
----
-I fixed two issues on the People page: the Back button now works correctly after switching tabs because navigation uses `pushState` to add a history entry, and each tab's feed is memoised so switching between tabs no longer throws away the loaded data and re-fetches it from scratch.

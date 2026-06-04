@@ -1,7 +1,0 @@
----
-summary: a CI build gate with scheduled-handler validation
-repo: joeinnes/brightblur
-mergeDate: 2026-06-02
-prNumber: '49'
----
-I fixed brightblur's CI so it actually runs the Cloudflare adapter build, verifies the model checksums, and validates that the scheduled-task handler was injected correctly. Before this, the build and handler injection steps only ran at deploy time, so broken builds weren't caught until they were about to go to production.

@@ -1,7 +1,0 @@
----
-summary: hardened scheduled-handler injection, WASM caching, and CI lint gating
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '69'
----
-I hardened three infrastructure areas: the scheduled-task handler injection now resolves robustly and fails at build time with a clear error if the expected reference is missing; the service worker now caches whichever WASM binary variant the device loads (using a prefix match); and lint runs in CI so style issues are caught automatically.

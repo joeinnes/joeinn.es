@@ -1,7 +1,0 @@
----
-summary: paginated comment loading with incremental decryption
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '61'
----
-I added keyset pagination to brightblur's comment API so long threads load in pages rather than all at once, and changed the client to decrypt only newly loaded comments instead of re-decrypting the whole thread every time. A database index migration makes the cursor-based pagination fast.

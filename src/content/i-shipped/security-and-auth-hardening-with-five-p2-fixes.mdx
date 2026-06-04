@@ -1,7 +1,0 @@
----
-summary: security and auth hardening with five P2 fixes
-repo: joeinnes/brightblur
-mergeDate: 2026-06-02
-prNumber: '44'
----
-I added hardening headers (like X-Frame-Options and HSTS) to the error responses that were previously bypassing brightblur's security middleware, and fixed four other auth/security issues. These were edge-case responses — like rate-limit rejections — that were missing the protective headers the rest of the app already had.
