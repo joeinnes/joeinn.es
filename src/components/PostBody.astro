@@ -1,0 +1,55 @@
+---
+// Renders a Markdown post body (as stored in an atproto record) into prose +
+// hydrated interactive islands. `::island[key]{props}` directives are resolved
+// to real repo components — the component code lives here in the repo; the
+// record only carries the reference. No component code is stored in or run from
+// the PDS.
+//
+// NOTE: each island is dispatched with a *static* component reference (the
+// switch below). Astro can't generate a hydration script for a component picked
+// out of a map at runtime (`<Comp client:* />` where Comp is a variable fails
+// with NoMatchingImport), so adding an island means adding a case here as well
+// as a catalogue entry.
+import { renderPostBody } from "./islands/renderPostBody";
+import { coerceProps } from "./islands/catalogue";
+import PomodoroTimer from "./PomodoroTimer.svelte";
+import HowMuchTime from "./HowMuchTime.svelte";
+import WeatherDisplay from "./WeatherDisplay.svelte";
+import LimoCalculator from "./LimoCalculator.svelte";
+import ColourSwatch from "./ColourSwatch.svelte";
+import FontSample from "./FontSample.svelte";
+
+interface Props {
+  body: string;
+}
+
+const { body } = Astro.props;
+const blocks = renderPostBody(body);
+---
+
+{
+  blocks.map((block) => {
+    if (block.type === "html") return <Fragment set:html={block.html} />;
+    const props = coerceProps(block.key, block.props);
+    switch (block.key) {
+      case "pomodoro":
+        return <PomodoroTimer client:visible {...props} />;
+      case "howMuchTime":
+        return <HowMuchTime client:visible {...props} />;
+      case "weather":
+        return <WeatherDisplay client:visible {...props} />;
+      case "limo":
+        return <LimoCalculator client:visible {...props} />;
+      case "colourSwatch":
+        return <ColourSwatch client:visible {...props} />;
+      case "fontSample":
+        return <FontSample client:visible {...props} />;
+      default:
+        return (
+          <p class="island-missing">
+            Unknown island: <code>{block.key}</code>
+          </p>
+        );
+    }
+  })
+}

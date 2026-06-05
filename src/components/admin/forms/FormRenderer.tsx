@@ -1,5 +1,12 @@
 import { JsonFallbackEditor } from "./JsonFallbackEditor";
+import { MarkdownEditor } from "./MarkdownEditor";
 import type { PropSchema, RecordObjectSchema } from "./serialize";
+
+const MARKDOWN_FIELDS = new Set(["body", "content", "markdown", "text", "article", "post"]);
+
+function isMarkdownField(name: string, maxLength?: number): boolean {
+  return MARKDOWN_FIELDS.has(name.toLowerCase()) || (typeof maxLength === "number" && maxLength >= 3000);
+}
 
 interface FieldProps {
   name: string;
@@ -39,6 +46,15 @@ function Field({ name, prop, required, value, onChange }: FieldProps) {
 
   if (prop.type === "string") {
     const maxLength = (prop as { maxLength?: number }).maxLength;
+    if (isMarkdownField(name, maxLength)) {
+      return (
+        <div className="admin__field">
+          {label}
+          <span className="admin__hint">markdown · supports ::island embeds</span>
+          <MarkdownEditor value={typeof value === "string" ? value : ""} onChange={onChange} />
+        </div>
+      );
+    }
     const long = typeof maxLength === "number" && maxLength > 200;
     return (
       <div className="admin__field">

@@ -1,0 +1,33 @@
+---
+// Demo proving the phase-2 pipeline end to end: a Markdown body with ::island
+// directives -> renderPostBody -> hydrated interactive islands. Lives under
+// /admin so it's noindex + excluded from the sitemap. Safe to delete once the
+// real /blog rendering reads from the PDS.
+export const prerender = true;
+import Default from "../../layouts/Default.astro";
+import PostBody from "../../components/PostBody.astro";
+
+const sample = `# Hello from AT Protocol
+
+This post body is **Markdown**, stored as a record and rendered by Astro — with
+interactive *islands* embedded **by reference**, not as code.
+
+## A focus timer
+
+::island[pomodoro]
+
+Above is a real Svelte component, hydrated from a Markdown directive.
+
+## A colour swatch with props
+
+::island[colourSwatch]{h=210 s=80 l=55}
+
+That's the whole pipeline: \`::island[key]{props}\` resolves to a repo component.`;
+---
+
+<Default title="Post preview — admin" description="Island renderer demo">
+  <meta slot="head" name="robots" content="noindex, nofollow" />
+  <main style="max-width: 60ch; margin-inline: auto;">
+    <PostBody body={sample} />
+  </main>
+</Default>

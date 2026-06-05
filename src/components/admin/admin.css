@@ -192,3 +192,47 @@
 .admin__checkbox input {
   width: auto;
 }
+
+/* Inline markdown editor (CodeMirror) */
+.admin__md {
+  border: 1px solid var(--admin-border);
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+.admin__md-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.35rem 0.4rem;
+  border-block-end: 1px solid var(--admin-border);
+  background: color-mix(in srgb, currentColor 3%, transparent);
+}
+.admin__md-tool {
+  min-width: 1.9rem;
+  height: 1.9rem;
+  padding: 0 0.45rem;
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+.admin__md-tool:hover {
+  border-color: var(--admin-border);
+  background: var(--background, #fff);
+}
+select.admin__md-tool {
+  width: auto;
+  cursor: pointer;
+}
+.admin__md-spacer {
+  flex: 1 1 auto;
+}
+.admin__md-editor .cm-editor {
+  max-height: 32rem;
+}
+.admin__md-editor .cm-editor.cm-focused {
+  outline: none;
+}
