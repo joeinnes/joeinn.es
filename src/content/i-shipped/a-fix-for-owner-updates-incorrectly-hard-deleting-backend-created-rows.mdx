@@ -1,0 +1,7 @@
+---
+summary: a fix for owner updates incorrectly hard-deleting backend-created rows
+repo: garden-co/jazz
+mergeDate: 2026-06-04
+prNumber: '994'
+---
+There was a tricky bug where a row created by a backend server would sometimes get permanently deleted on both the server and the client. The root cause was that when the server sends a row to a client without its full history, and the client later edits it, the server rejects the edit because it looks like the client is trying to create a new row without permission — and that rejection would flip an already-accepted row into a deleted state. I fixed the logic so that owner updates no longer trigger this incorrect hard-delete path.

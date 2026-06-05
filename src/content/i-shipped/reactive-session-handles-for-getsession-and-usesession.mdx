@@ -1,0 +1,7 @@
+---
+summary: reactive session handles for Svelte's getSession and Vue's useSession
+repo: garden-co/jazz
+mergeDate: 2026-06-04
+prNumber: '986'
+---
+I fixed a problem where session changes weren't properly propagating in the Svelte and Vue integrations for Jazz. In Svelte, `getSession()` now returns a stable handle that always reads from the underlying reactive state, so switching sessions updates every consumer without tearing down the provider. In Vue, `useSession()` now returns a computed reference derived from the injected client, so any template or computed value that uses it automatically re-renders when the session changes.
