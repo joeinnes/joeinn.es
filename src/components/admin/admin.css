@@ -1,0 +1,194 @@
+/* Self-contained styling for the admin dashboard island. Reuses the site's CSS
+   custom properties (defined in styles.css) where present, with fallbacks so the
+   dashboard also renders sensibly in isolation. */
+.admin {
+  --admin-border: color-mix(in srgb, currentColor 18%, transparent);
+  --admin-muted: color-mix(in srgb, currentColor 60%, transparent);
+  --admin-accent: var(--primary, #4f6df5);
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  line-height: 1.5;
+}
+
+.admin a {
+  color: var(--admin-accent);
+}
+
+.admin__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding-block-end: 1rem;
+  margin-block-end: 1.5rem;
+  border-block-end: 1px solid var(--admin-border);
+}
+
+.admin__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.admin__who {
+  font-size: 0.85rem;
+  color: var(--admin-muted);
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+.admin__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  margin-block-end: 1.25rem;
+}
+.admin__crumbs button {
+  font: inherit;
+}
+
+.admin__muted {
+  color: var(--admin-muted);
+}
+
+.admin__row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.25rem;
+  border-block-end: 1px solid var(--admin-border);
+}
+.admin__row:hover {
+  background: color-mix(in srgb, currentColor 4%, transparent);
+}
+.admin__row-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.admin__row-title {
+  font-weight: 600;
+  word-break: break-word;
+}
+.admin__row-sub {
+  font-size: 0.78rem;
+  color: var(--admin-muted);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  word-break: break-all;
+}
+
+.admin button,
+.admin input,
+.admin textarea,
+.admin select {
+  font: inherit;
+  color: inherit;
+}
+
+.admin__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.4rem;
+  background: transparent;
+  cursor: pointer;
+}
+.admin__btn:hover {
+  border-color: var(--admin-accent);
+}
+.admin__btn--primary {
+  background: var(--admin-accent);
+  border-color: var(--admin-accent);
+  color: #fff;
+}
+.admin__btn--danger:hover {
+  border-color: #d33;
+  color: #d33;
+}
+.admin__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-block-end: 1rem;
+}
+.admin__field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.admin__field .admin__hint {
+  font-size: 0.74rem;
+  color: var(--admin-muted);
+}
+.admin__field input[type="text"],
+.admin__field input[type="number"],
+.admin__field input[type="datetime-local"],
+.admin__field textarea,
+.admin input[type="text"],
+.admin textarea {
+  width: 100%;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--admin-border);
+  border-radius: 0.4rem;
+  background: var(--background, #fff);
+  box-sizing: border-box;
+}
+.admin textarea {
+  min-height: 8rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.85rem;
+}
+
+.admin__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block-start: 1rem;
+}
+
+.admin__error {
+  border: 1px solid #d33;
+  background: color-mix(in srgb, #d33 8%, transparent);
+  color: #b00;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.4rem;
+  margin-block: 0.75rem;
+  white-space: pre-wrap;
+  font-size: 0.85rem;
+}
+
+.admin__tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.3rem;
+  border: 1px solid var(--admin-border);
+  color: var(--admin-muted);
+}
+
+.admin__array-item {
+  display: flex;
+  gap: 0.5rem;
+  margin-block-end: 0.4rem;
+}
+.admin__array-item input {
+  flex: 1 1 auto;
+}
+
+.admin__checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.admin__checkbox input {
+  width: auto;
+}

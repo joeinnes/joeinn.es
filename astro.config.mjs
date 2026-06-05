@@ -13,7 +13,14 @@ import vercel from "@astrojs/vercel";
 // https://astro.build/config
 export default defineConfig({
   site: "https://joeinn.es",
-  integrations: [react(), mdx(), keystatic(), svelte(), sitemap()],
+  integrations: [
+    react(),
+    mdx(),
+    keystatic(),
+    svelte(),
+    // Keep the private admin dashboard out of the public sitemap.
+    sitemap({ filter: (page) => !page.includes("/admin") }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },
