@@ -1,0 +1,7 @@
+---
+summary: end-to-end encryption of photo captions with an edit affordance in Brightblur
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '83'
+---
+Photo captions in Brightblur were stored as plain text, unlike the photos themselves which are end-to-end encrypted. I switched captions to use the same encryption key as the photo content, so they're now fully end-to-end encrypted too. I also re-added the ability to edit a caption after it's been saved.

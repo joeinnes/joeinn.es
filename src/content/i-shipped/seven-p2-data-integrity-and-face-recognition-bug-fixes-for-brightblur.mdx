@@ -1,0 +1,7 @@
+---
+summary: seven P2 data-integrity and face-recognition bug fixes for Brightblur
+repo: joeinnes/brightblur
+mergeDate: 2026-06-02
+prNumber: '42'
+---
+I fixed seven priority-2 issues in Brightblur covering data integrity and face recognition. This included adding a missing database index that was slowing down face-embedding lookups, fixing a bug where face-detection results could be stored multiple times, and hardening several edge cases in the recognition pipeline. Each fix was written red-green style — failing test first, then the fix.

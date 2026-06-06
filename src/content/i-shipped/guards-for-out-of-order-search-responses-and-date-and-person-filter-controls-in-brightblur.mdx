@@ -1,0 +1,7 @@
+---
+summary: guards for out-of-order search responses and date and person filter controls in Brightblur
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '62'
+---
+I fixed a race condition where typing quickly in the photo search could show results from an earlier, slower query instead of the latest one — I added a request-sequence token to discard stale responses. I also added date-range and person filter controls to the search UI, along with a "load more" button for paginated results.

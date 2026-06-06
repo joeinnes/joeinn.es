@@ -1,0 +1,7 @@
+---
+summary: a Mark All as Read feature and push-subscription ownership verification in Brightblur
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '67'
+---
+I added a "Mark all as read" button to Brightblur's notification centre that clears all unread notifications in one action. I also fixed a security issue: on a shared device, a push notification subscription could be resynced to the wrong user account. Now the subscription endpoint is verified against the current user before any resyncing happens.

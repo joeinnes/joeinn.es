@@ -1,0 +1,7 @@
+---
+summary: profile editing and a GDPR data-export endpoint in Brightblur
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '68'
+---
+Users can now edit their first name, last name, and email address in Brightblur's Settings page — email changes trigger re-verification. I also added a data-export endpoint (`GET /api/users/me/export`) that returns all personal data stored for the current user, fulfilling GDPR's "right to data portability."

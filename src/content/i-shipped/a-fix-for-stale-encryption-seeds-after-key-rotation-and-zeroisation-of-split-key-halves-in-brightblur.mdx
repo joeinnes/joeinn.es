@@ -1,0 +1,7 @@
+---
+summary: a fix for stale encryption seeds after key rotation and zeroisation of split-key halves in Brightblur
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '59'
+---
+After a key rotation in Brightblur, the app was using a cached (stale) encryption seed instead of the new one, requiring a logout to fix. I made the unlock function overwrite the cached seed with the new one immediately after rotation. I also added zeroisation — deliberately overwriting sensitive key material in memory with zeros after it's no longer needed, reducing the window where a key could be extracted.

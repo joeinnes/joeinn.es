@@ -1,0 +1,7 @@
+---
+summary: a paginated, indexed, and audited admin moderation queue in Brightblur
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '63'
+---
+The admin moderation queue for reviewing reported content now uses keyset pagination with a database index to make it fast and scalable. I also added a shared typed-error wrapper so all report-related routes handle errors consistently, and added an audit trail so moderation actions are logged.

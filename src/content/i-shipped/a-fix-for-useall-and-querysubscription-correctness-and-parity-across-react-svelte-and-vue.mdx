@@ -1,0 +1,7 @@
+---
+summary: a fix for useAll and QuerySubscription correctness and parity across React, Svelte, and Vue
+repo: garden-co/jazz
+mergeDate: 2026-06-05
+prNumber: '989'
+---
+I fixed a cluster of bugs in `useAll` and `QuerySubscription` — the hooks that let you query and subscribe to collections of data — across the React, Svelte, and Vue versions of Jazz. The bugs meant these hooks behaved differently depending on which framework you were using, and some edge cases returned incorrect results. I brought all three frameworks into parity and fixed the underlying orchestrator that coordinates subscriptions.

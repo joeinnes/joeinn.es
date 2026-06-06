@@ -1,0 +1,7 @@
+---
+summary: removal of dead apex route configuration from the Brightblur staging environment
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '56'
+---
+After disabling non-production branch builds in the Cloudflare dashboard, some now-redundant routing configuration for the staging environment was left behind in the config file. I removed these dead routes to keep the deployment config clean.

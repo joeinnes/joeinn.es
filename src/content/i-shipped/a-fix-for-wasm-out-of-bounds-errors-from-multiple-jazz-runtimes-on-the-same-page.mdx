@@ -1,0 +1,7 @@
+---
+summary: a fix for WASM out-of-bounds errors from multiple Jazz runtimes on the same page
+repo: garden-co/jazz
+mergeDate: 2026-06-05
+prNumber: '993'
+---
+The Svelte and Vue versions of Jazz were creating a brand new WASM runtime (a compiled binary module for running encryption and sync logic) for every client created on the page. If you mounted multiple Jazz-powered components for the same user, you'd end up with several runtimes all fighting over shared memory — causing "out of bounds" crashes. I fixed this by sharing a single WASM runtime instance across all clients on the page.

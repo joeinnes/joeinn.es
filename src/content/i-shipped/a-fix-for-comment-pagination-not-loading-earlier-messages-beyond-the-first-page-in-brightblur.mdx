@@ -1,0 +1,7 @@
+---
+summary: a fix for comment pagination not loading earlier messages beyond the first page in Brightblur
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '82'
+---
+When Brightblur's comment system was updated to use pagination, the client was only ever loading the first page and discarding the `nextCursor` needed to fetch more. Long comment threads were silently cut off at 100 comments. I wired up the cursor so clicking "load earlier" actually fetches the next page of comments.

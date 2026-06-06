@@ -1,0 +1,7 @@
+---
+summary: hardened scheduled-job injection, full WASM cache coverage, and CI lint and audit gates in Brightblur
+repo: joeinnes/brightblur
+mergeDate: 2026-06-03
+prNumber: '69'
+---
+I fixed three infrastructure issues in Brightblur: the Cloudflare Worker's scheduled-handler injection now fails the build if the expected code reference is missing, instead of silently producing a broken bundle. The service worker now caches all WASM variants (for different device capabilities), not just one. And I added lint and dependency-audit steps to CI so these checks can't be skipped.
