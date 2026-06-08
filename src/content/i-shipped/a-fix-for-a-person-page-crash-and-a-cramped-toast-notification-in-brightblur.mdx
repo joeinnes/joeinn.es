@@ -1,7 +1,0 @@
----
-summary: a fix for a person-page crash and a cramped toast notification in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '86'
----
-Visiting a person's profile page was throwing "Something went wrong" because a cache write was happening inside a Svelte 5 `$derived` reactive expression, which isn't allowed and caused an error. I moved the cache write outside the reactive context. I also fixed the toast notification display, which was rendering too small on some screen sizes.

@@ -1,7 +1,0 @@
----
-summary: a fix for People tab Back navigation and memoised tab feeds in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '70'
----
-Tapping "Back" after navigating into the People tab wasn't working because tab changes weren't being pushed to the browser history. I switched to `pushState` so Back works correctly. I also memoised each tab's photo feed so switching between tabs doesn't discard and re-fetch data that was already loaded.

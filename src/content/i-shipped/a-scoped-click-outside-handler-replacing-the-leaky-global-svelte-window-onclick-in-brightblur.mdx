@@ -1,7 +1,0 @@
----
-summary: a scoped click-outside handler replacing the leaky global svelte:window onclick in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '65'
----
-Brightblur's dropdown menus were using a global click listener on the entire window to detect outside clicks and close the menu. This listener stayed active even when the menu was closed, creating a leak. I replaced it with a scoped `clickOutside` action that attaches and detaches itself properly, and added Escape key support to dismiss menus too.

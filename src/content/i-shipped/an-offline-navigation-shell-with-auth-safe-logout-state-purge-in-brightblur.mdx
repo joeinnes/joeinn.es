@@ -1,7 +1,0 @@
----
-summary: an offline navigation shell with auth-safe logout state purge in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '84'
----
-I added the groundwork for true offline support in Brightblur. When you're offline, the service worker now serves a cached navigation shell instead of a network error. I also made logout purge all per-user cached state — fixing a security hole from an earlier attempt that had to be reverted because it allowed bypassing login when the app was offline.

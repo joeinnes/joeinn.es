@@ -1,7 +1,0 @@
----
-summary: client-side upload validation and face-detection re-entrancy guards in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '58'
----
-I added upfront validation for photo uploads — checking file type, extension, and size (20 MB cap) before creating a preview URL or attempting to decode the image. I also fixed a bug where triggering face detection on a photo that was already being processed would start a second simultaneous detection run.
