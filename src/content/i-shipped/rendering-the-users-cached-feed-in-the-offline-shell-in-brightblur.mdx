@@ -1,7 +1,0 @@
----
-summary: rendering the user's cached feed in the offline shell in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '85'
----
-Building on the offline navigation shell, I made Brightblur show your last loaded photo feed when you reload the app without a network connection — instead of showing an empty shell. The service worker still serves the static shell on network failure, but the cached feed data is now used to populate it.

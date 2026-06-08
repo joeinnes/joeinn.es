@@ -1,7 +1,0 @@
----
-summary: paginated comment loading with incremental decryption in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '61'
----
-Brightblur's comment system now uses keyset pagination (a technique that fetches results in efficient pages using a cursor) so long discussion threads don't all load at once. Instead of decrypting all comments in a batch, comments are now decrypted incrementally as each page loads — so you see them appear as they come in rather than waiting for everything.

@@ -1,7 +1,0 @@
----
-summary: rate-limiting for CSP violation reports and Reporting-Endpoints header support in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '64'
----
-CSP (Content Security Policy) violation reports are sent by browsers when suspicious scripts run — but without rate-limiting, a malicious page could flood your server with fake reports. I added a per-IP rate limit to Brightblur's CSP report endpoint. I also added the modern `Reporting-Endpoints` header alongside the legacy `Report-To` header so browsers know where to send reports.

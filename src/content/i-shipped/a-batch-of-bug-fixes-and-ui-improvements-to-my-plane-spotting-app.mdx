@@ -1,7 +1,0 @@
----
-summary: a batch of bug fixes and UI improvements to my plane-spotting app
-repo: joeinnes/plane-spotter
-mergeDate: 2026-02-18
-prNumber: '2'
----
-I built a web app that shows nearby aircraft in real time using your device's location and compass. Several bugs had crept in: the direction logic for eastward-flying planes was wrong (I had `||` where I needed `&&`), the app sat empty for 2.5 seconds waiting for its first data fetch, and the device compass only worked in Safari. I fixed all of these and polished the UI — adding a sky gradient, a status bar showing how many planes are in view, readable text shadows on flight labels, and a message when no aircraft are visible.

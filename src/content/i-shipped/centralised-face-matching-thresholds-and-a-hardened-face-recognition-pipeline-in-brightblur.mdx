@@ -1,7 +1,0 @@
----
-summary: centralised face matching thresholds and a hardened face recognition pipeline in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '57'
----
-Brightblur uses on-device face recognition to automatically group photos by person. I found the similarity thresholds used for matching were declared in multiple places and could silently drift apart. I consolidated them into a single source of truth, and fixed several bugs in the recognition pipeline — including one where re-inserting a face into the lookup index could corrupt it.

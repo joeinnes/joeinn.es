@@ -1,7 +1,0 @@
----
-summary: a fix ensuring decrypted photos are never shown without a steganographic watermark in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '55'
----
-Brightblur embeds an invisible steganographic watermark (a hidden per-viewer identifier) in each photo when it's displayed, so if a photo is leaked it can be traced back to who viewed it. I found a bug where decrypted photo data was being published to the display URL before the watermark was applied. I fixed the pipeline so the watermark is always embedded before the photo is ever shown.

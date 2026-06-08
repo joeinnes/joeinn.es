@@ -1,7 +1,0 @@
----
-summary: crypto-key hardening with rotation validation and improved error surfacing in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-02
-prNumber: '46'
----
-I made three improvements to Brightblur's encryption key management: validating that a rotation key is well-formed before starting a rotation (rejecting malformed keys early), surfacing decryption errors properly instead of silently swallowing them, and clarifying the decision logic for when to warn users about leaving the app mid-rotation.

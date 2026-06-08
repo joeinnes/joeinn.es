@@ -1,7 +1,0 @@
----
-summary: hardened encrypted-blob storage with a fixed content-type and per-blob size cap in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '60'
----
-I made two security improvements to how Brightblur stores encrypted photo data. First, encrypted blobs are now always stored with a fixed `application/octet-stream` content type, ignoring whatever file type the client claims (since the data is encrypted anyway and the type is meaningless). Second, I added a server-side cap on how large an individual encrypted blob part can be, preventing oversized uploads.

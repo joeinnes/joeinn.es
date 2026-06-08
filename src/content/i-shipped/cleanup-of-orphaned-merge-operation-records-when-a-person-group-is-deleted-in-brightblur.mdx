@@ -1,7 +1,0 @@
----
-summary: cleanup of orphaned merge operation records when a person group is deleted in Brightblur
-repo: joeinnes/brightblur
-mergeDate: 2026-06-03
-prNumber: '66'
----
-When a person group (which stores face-recognition groupings) was deleted in Brightblur, the app left behind orphaned "merge operation" records in the database that referenced the now-deleted group. I updated the delete function to also clean up these related records so no orphaned data is left behind.
