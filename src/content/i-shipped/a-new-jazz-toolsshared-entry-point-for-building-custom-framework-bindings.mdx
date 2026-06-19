@@ -1,0 +1,8 @@
+---
+summary: >-
+  a new `jazz-tools/shared` entry point for building custom framework bindings
+repo: garden-co/jazz
+mergeDate: 2026-06-18
+prNumber: '1029'
+---
+Jazz has bindings for React, Svelte, and Vue, but if you wanted to build a binding for another framework, you'd have to dig into the package's internals. I added a new `jazz-tools/shared` entry point that exposes the core utilities — the helpers that turn a live query into a reactive, in-place-updated result — so external developers can build custom bindings without touching anything private. The React, Svelte, and Vue bindings were also updated to import from this new public surface instead of deep internal paths.
