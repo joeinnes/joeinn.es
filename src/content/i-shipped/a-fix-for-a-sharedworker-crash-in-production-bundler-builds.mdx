@@ -1,0 +1,7 @@
+---
+summary: a fix for a SharedWorker crash in production bundler builds
+repo: garden-co/jazz
+mergeDate: 2026-06-18
+prNumber: '1030'
+---
+Jazz apps use a SharedWorker — a background browser thread — to coordinate data between tabs. The worker file was shipped with references to other files using bare paths, but bundlers like Webpack, Turbopack, and Vite in production mode couldn't recognise it as a worker entry, so they copied it verbatim and those references would 404, crashing every Jazz app with "Browser broker SharedWorker failed to start." I fixed this by bundling the worker into a single self-contained file at build time, so it works correctly regardless of which bundler the app uses.
