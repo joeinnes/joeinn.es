@@ -1,0 +1,7 @@
+---
+summary: a grow-only set merge strategy for array columns
+repo: garden-co/jazz
+mergeDate: 2026-06-19
+prNumber: '1032'
+---
+When multiple devices write to the same list at the same time in a collaborative app, the default behaviour is "last writer wins" — one write silently wipes out the others. I added a new merge strategy called a "grow-only set" for array columns: instead of one write winning, the list always grows to include everything anyone ever wrote, and all devices converge to the same sorted result. Once an element is added it can never be removed by a concurrent write, making it safe for things like tags or participant lists where losing data would be worse than seeing a duplicate.
