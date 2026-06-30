@@ -46,6 +46,51 @@ function rnd(i: number): number {
 	return s - Math.floor(s);
 }
 
+// Lobe layout for a cumulus cloud: [dx, dy, r] in units of the cloud scale s.
+// Flattish along the bottom, billowing toward the top-centre.
+const CLOUD_LOBES: [number, number, number][] = [
+	[-1.15, 0.2, 0.52],
+	[-0.62, 0.02, 0.74],
+	[-0.05, -0.3, 0.92],
+	[0.55, -0.1, 0.8],
+	[1.12, 0.18, 0.56],
+	[0.28, 0.22, 0.62],
+	[-0.55, 0.24, 0.54],
+];
+
+/** A soft, puffy cumulus cloud built from overlapping lobes filled as a single
+ *  shape (so there are no seams), with a top-lit vertical gradient for volume
+ *  and a faint grounding shadow underneath. `day` (0..1) tints it for the time
+ *  of day; `seed` varies the lobes so no two clouds are identical. */
+function drawCloud(ctx: Ctx, cx: number, cy: number, s: number, alpha: number, seed: number, day: number): void {
+	const path = new Path2D();
+	for (let j = 0; j < CLOUD_LOBES.length; j++) {
+		const jit = 0.82 + 0.36 * rnd(seed * 17 + j);
+		const dx = CLOUD_LOBES[j][0] * s;
+		const dy = CLOUD_LOBES[j][1] * s;
+		const r = CLOUD_LOBES[j][2] * s * jit;
+		path.moveTo(cx + dx + r, cy + dy);
+		path.arc(cx + dx, cy + dy, r, 0, Math.PI * 2);
+	}
+	const body = lerpRGB([188, 196, 210], [236, 240, 247], day);
+	const top = lerpRGB(body, [255, 255, 255], 0.5);
+	const under = lerpRGB(body, [110, 120, 140], 0.55);
+
+	// Grounding shadow: the same silhouette nudged down, darker and faint.
+	ctx.save();
+	ctx.translate(0, s * 0.22);
+	ctx.fillStyle = rgba(under, alpha * 0.45);
+	ctx.fill(path);
+	ctx.restore();
+
+	// Body, lit from the top via a vertical gradient.
+	const g = ctx.createLinearGradient(cx, cy - s, cx, cy + s * 0.7);
+	g.addColorStop(0, rgba(top, alpha));
+	g.addColorStop(1, rgba(body, alpha));
+	ctx.fillStyle = g;
+	ctx.fill(path);
+}
+
 function qrect(ctx: Ctx, q: Quad, u0: number, v0: number, u1: number, v1: number, fill: string): void {
 	ctx.beginPath();
 	const a = bilerp(q, u0, v0), b = bilerp(q, u1, v0), c = bilerp(q, u1, v1), d = bilerp(q, u0, v1);
@@ -123,10 +168,7 @@ export function drawWeatherInWindow(ctx: Ctx, q: Pt[], weather: WeatherId, tMs: 
 			const u = ((rnd(i) + tMs * 0.00002 * (1 + (i & 1))) % 1.2) - 0.1;
 			const v = 0.1 + rnd(i + 9) * 0.4;
 			const c = bilerp(quad, u, v);
-			ctx.fillStyle = rgba([212, 216, 226], (0.16 + p.cloud * 0.22) * dim);
-			ctx.beginPath();
-			ctx.ellipse(c.x, c.y, 10 + i * 2, 4, 0, 0, Math.PI * 2);
-			ctx.fill();
+			drawCloud(ctx, c.x, c.y, 8 + i * 2, (0.2 + p.cloud * 0.3) * dim, i, 0.7);
 		}
 	}
 	// Precipitation.
@@ -375,14 +417,12 @@ export function drawWindow(ctx: Ctx, q: Quad, weather: WeatherId, light: Lightin
 
 	// Drifting clouds.
 	if (p.cloud > 0.05) {
+		const day = light.daylight;
 		for (let i = 0; i < 5; i++) {
 			const u = (rnd(i) + tMs * 0.00002 * (1 + (i & 1))) % 1.2 - 0.1;
 			const v = 0.12 + rnd(i + 9) * 0.4;
 			const c = bilerp(q, u, v);
-			ctx.fillStyle = rgba([210, 214, 224], 0.16 + p.cloud * 0.22);
-			ctx.beginPath();
-			ctx.ellipse(c.x, c.y, 14 + i * 3, 6, 0, 0, Math.PI * 2);
-			ctx.fill();
+			drawCloud(ctx, c.x, c.y, 9 + i * 2.5, 0.2 + p.cloud * 0.3, i, day);
 		}
 	}
 
