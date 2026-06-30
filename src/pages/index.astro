@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import joeImage from "../../public/joei.webp";
 import Layout from "../layouts/Default.astro";
 import NewNav from "../components/NewNav.astro";
+import WindowBackdrop from "../components/room/WindowBackdrop.svelte";
 
 const description =
   "Joe Innes is a full-stack developer helping people build apps that are fast, work offline, and sync in real time.";
@@ -37,10 +38,10 @@ const fmtDate = (d: Date) =>
   d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
 const cards = [
-  { href: "/blog", label: "Blog", blurb: "Long-form writing. Essays, diatribes, recipes, and more." },
-  { href: "/i-shipped", label: "I Shipped", blurb: "A running log of my merged PRs." },
+  { href: "/blog", label: "Blog", blurb: "Long-form writing on local-first software and the web." },
+  { href: "/i-shipped", label: "I Shipped", blurb: "A running log of merged open-source pull requests." },
   { href: "/smidgeons", label: "Smidgeons", blurb: "Short notes, snippets, and passing thoughts." },
-  { href: "/now", label: "Now", blurb: "What I'm working on, listening to, and reading right now." },
+  { href: "/now", label: "Now", blurb: "What I'm working on and listening to right now." },
 ];
 ---
 
@@ -67,9 +68,14 @@ const cards = [
         </div>
       </div>
       <div class="hero-image">
+        <!-- Live-weather window behind the cutout; decorative, so aria-hidden. -->
+        <div class="window-frame">
+          <WindowBackdrop client:only="svelte" />
+        </div>
         <Image
+          class="avatar"
           src={joeImage}
-          alt="A playful render of Joe working on his laptop with his guitar in the background"
+          alt="A playful render of Joe at his laptop in front of a window, with his guitar beside him"
           widths={[320, 480, 640]}
           sizes="(min-width: 720px) 18rem, 60vw"
           loading="eager"
@@ -214,11 +220,27 @@ const cards = [
       text-underline-offset: 0.3em;
     }
 
-    .hero-image img {
+    /* The avatar is a transparent cutout sitting in front of a live-weather
+       window. The window covers the upper area (behind head + torso); his
+       chair and legs fall below it, so he reads as sitting in front of it. */
+    .hero-image {
+      position: relative;
+    }
+    .window-frame {
+      position: absolute;
+      inset-block-start: 1%;
+      inset-inline: 7%;
+      block-size: 66%;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+    }
+    .hero-image .avatar {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: auto;
       aspect-ratio: 1;
-      border-radius: var(--border-radius);
     }
 
     /* ---------- WAYFINDING CARDS ---------- */
