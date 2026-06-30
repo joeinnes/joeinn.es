@@ -35,4 +35,21 @@ const iShipped = defineCollection({
   }),
 });
 
-export const collections = { posts, smidgeons, iShipped };
+// Hand-authored digests summarising the most impactful work shipped over an
+// arbitrary period (month, quarter, year, ad-hoc). Mirrored to es.joeinn.shippedDigest.
+const shippedDigests = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string().optional(),
+    start: z.date(),
+    end: z.date(),
+    created: z.date(),
+  }),
+});
+
+export const collections = {
+  posts,
+  smidgeons,
+  iShipped,
+  "shipped-digests": shippedDigests,
+};

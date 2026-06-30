@@ -1,0 +1,45 @@
+{
+  "lexicon": 1,
+  "id": "es.joeinn.shippedDigest",
+  "description": "A digest summarising the most impactful work shipped over an arbitrary period (a month, quarter, year, or any ad-hoc span).",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A summary of the most impactful contributions shipped during a period.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["startDate", "endDate", "summary", "createdAt"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Free-form label for the period, e.g. 'March 2026', 'Q2 2026', '2026 in review'. Derived from the range when omitted.",
+            "maxGraphemes": 300,
+            "maxLength": 3000
+          },
+          "startDate": {
+            "type": "string",
+            "format": "datetime",
+            "description": "Start of the period covered by this digest."
+          },
+          "endDate": {
+            "type": "string",
+            "format": "datetime",
+            "description": "End of the period covered by this digest."
+          },
+          "summary": {
+            "type": "string",
+            "description": "Prose summary of the period's most impactful work (Markdown).",
+            "maxGraphemes": 3000,
+            "maxLength": 30000
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When this record was created."
+          }
+        }
+      }
+    }
+  }
+}

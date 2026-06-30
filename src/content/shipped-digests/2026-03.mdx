@@ -1,0 +1,41 @@
+---
+title: March 2026
+start: 2026-03-01
+end: 2026-03-31
+created: 2026-06-05
+---
+
+By March the new engine was where most of the work happened, and its character
+was different from anything before: database internals and distributed systems
+rather than docs and developer experience. In the SQL policy layer I added
+support for `EXISTS (SELECT ...)` subqueries — letting permission rules express
+a great deal more — and fixed how the outer row's ID resolved inside policy
+conditions. I implemented batching for the sync protocol's wire format, so the
+client accumulates payloads and flushes them in a single POST rather than one
+request apiece. And I chased down a clutch of subtle correctness bugs:
+`.include()` corrupting base columns when a subscription fired twice, multi-table
+migrations only emitting `DROP COLUMN` for the first table, a subscription
+callback racing ahead of the map meant to track it, and anonymous clients
+getting empty results because their session wasn't falling back to the one from
+the handshake.
+
+Some of it reached into security and infrastructure. I added JWKS rotation for
+self-hosted servers — a TTL-cached key set with on-demand refresh and a
+stale-if-error fallback, so signing keys roll over without a restart — and, in
+the classic codebase, fixed an `InvalidSignature` error on concurrent writes
+that turned out to be a textbook off-by-one: a count used where an index was
+needed, fetching one transaction beyond what the stored signature actually
+covered. I also moved both repositories off the npm `wasm-pack` package to a
+`cargo install`, dropping an `axios` transitive dependency and a slice of
+supply-chain risk with it.
+
+The thread of making the docs machine-readable came to a head as well. I built a
+Model Context Protocol server — runnable as `npx jazz-tools mcp` — that exposes
+the documentation to AI assistants through `search_docs`, `get_doc` and
+`list_pages` tools, backed by SQLite full-text search with a keyword fallback,
+so an assistant looks things up instead of guessing from stale training data.
+Across frameworks I brought Vue and Svelte up to parity with React and added a
+`reconcileArray` diff so list updates only re-render what actually changed. And
+there were flagship examples: a full React chat app with reactions, file uploads
+and row-level permissions, and Wequencer, a collaborative real-time music
+sequencer built with Svelte 5 and Tone.js.

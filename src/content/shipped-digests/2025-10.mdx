@@ -1,0 +1,32 @@
+---
+title: October 2025
+start: 2025-10-01
+end: 2025-10-31
+created: 2026-06-05
+---
+
+This was the month the documentation stopped being something I wrote and became
+something I engineered. The site had outgrown its two-level navigation, so I
+extended it to three levels with collapsible sections and then reorganised every
+page to match — internal links updated, redirects in place so old bookmarks
+still land in the right spot. I added whole new sections — testing, advanced
+performance tips, a guide for framework-less "vanilla" users — and consolidated
+sprawling pages like the four-file `ImageDefinition` docs into one.
+
+I also spent some efforts to make the docs more legible to
+language models. I rebuilt the `llms.txt` export so pages render to clean
+Markdown first, mocking the interactive components so things like the tabbed code
+groups come out sensibly, and added per-framework `llms.txt` and `llms-full.txt`
+files plus `.md`-suffix serving of any page — so an assistant only ever sees the
+framework it asked about. The `create-jazz-app` scaffolder had been shipping a
+stale, baked-in copy of the docs to users' AI agents; I pointed it at the live
+site instead.
+
+The library work continued at the edges. I added a proper invites API — `createInvite`
+ and `acceptInvite` for working with invite secrets directly — generalised the 
+ server-side-rendering agent so it was no longer React-only and
+worked under SvelteKit, fixed a CoFeed type that demanded options it never
+actually used, and cleared a batch of dependency security vulnerabilities, with
+the Better Auth API changes that came with them. A scattering of CSS and build
+fixes — overlay scrollbars on macOS trackpads, route collisions breaking the
+build, a search-equipped Not Found page — rounded the month out.

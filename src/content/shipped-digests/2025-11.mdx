@@ -1,0 +1,28 @@
+---
+title: November 2025
+start: 2025-11-01
+end: 2025-11-30
+created: 2026-06-05
+---
+
+November had three distinct strands. The first was the culmination of the
+docs-site engineering: I tore out Twoslash — the plugin that type-checked every
+code sample but made builds crawl — and replaced it with extracted, separately
+verified snippet files. The payoff was large. Roughly five minutes came off
+every Vercel build, about fourteen hours of compute a month, and dev-mode
+compiles dropped from 110 seconds to 7 — a fifteen-fold speed-up that made the
+docs far less painful to work on.
+
+The second strand was stepping outside Jazz. I landed a small
+fix in Zed, the code editor — dimming the commit button while a commit is in
+flight, so you stop clicking it wondering whether anything happened — and a
+build-ignore tweak in Vercel's Workflow SDK.
+
+The third was Groove, built for SyncConf 2025: a collaborative step sequencer in
+SvelteKit, where several iPads share an eight-beat grid and trigger samples in
+time with one another. Keeping the devices audibly in sync was the hard part — I
+ended up estimating clock skew from a heartbeat on the Jazz mesh. Under all of
+that ran the usual current of library and docs work: a bug in the
+`$onError: 'catch'` resolve path, a proposed pattern for building set-like
+collections, an XSS warning for apps that keep secrets in `localStorage`, and
+the documentation for Jazz's Workflow World feature.

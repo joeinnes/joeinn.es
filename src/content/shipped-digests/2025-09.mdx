@@ -1,0 +1,25 @@
+---
+title: September 2025
+start: 2025-09-01
+end: 2025-09-30
+created: 2026-06-05
+---
+
+Documentation in earnest. The centrepiece was a set of quickstart guides — React
+and Svelte built from one shared source, a follow-up for running Jazz on the
+server in a worker, and practical walkthroughs for the two things most real apps
+need: groups and permissions, and passkey authentication. The existing docs were
+reference-heavy and short on the "aha" moment; these were meant to supply it.
+
+Around the writing came a steady run of smaller fixes to the docs site and the
+framework itself. I extracted a reusable confirmation dialog and added a "clear
+local data" button to the dev tools, made invite links register when the URL's
+hash changes rather than only on first load, and fixed the progressive-image
+component, which flashed the image's alt text during a slow load — I swapped in a
+transparent pixel until the real placeholder is ready.
+
+Two changes reached further into the library. I lengthened the WebAuthn
+challenge from three bytes to twenty: legal within spec at three, but short
+enough to trip up third-party passkey managers like KeePassXC. And I added an
+option to the Svelte provider to namespace where credentials are stored, so two
+Jazz apps on the same domain no longer clash.
