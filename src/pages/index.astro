@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import joeImage from "../../public/joei.webp";
 import Layout from "../layouts/Default.astro";
 import NewNav from "../components/NewNav.astro";
@@ -16,6 +17,31 @@ const personJsonLd = {
   image: new URL("/joei.webp", Astro.site).href,
   sameAs: ["https://bsky.app/profile/joeinn.es"],
 };
+
+const now = new Date();
+
+const posts = await getCollection("posts", ({ data }) => !data.draft && data.date < now);
+const latestPost = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
+
+const shipped = await getCollection("i-shipped", ({ data }) => !!data.mergeDate);
+const recentShipped = shipped
+  .sort((a, b) => b.data.mergeDate.valueOf() - a.data.mergeDate.valueOf())
+  .slice(0, 4);
+
+const smidgeons = await getCollection("smidgeons", ({ data }) => data.created < now);
+const latestSmidgeon = smidgeons.sort(
+  (a, b) => b.data.created.valueOf() - a.data.created.valueOf(),
+)[0];
+
+const fmtDate = (d: Date) =>
+  d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+
+const cards = [
+  { href: "/blog", label: "Blog", blurb: "Long-form writing on local-first software and the web." },
+  { href: "/i-shipped", label: "I Shipped", blurb: "A running log of merged open-source pull requests." },
+  { href: "/smidgeons", label: "Smidgeons", blurb: "Short notes, snippets, and passing thoughts." },
+  { href: "/now", label: "Now", blurb: "What I'm working on and listening to right now." },
+];
 ---
 
 <Layout title="Joe Innes" description={description}>
@@ -24,24 +50,320 @@ const personJsonLd = {
     set:html={JSON.stringify(personJsonLd)}
     slot="head"
   />
+  <NewNav />
+  <main class="home">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow mono">Full Stack Developer</p>
+        <h1 class="hero-title">Joe Innes</h1>
+        <p class="lede">
+          I help people build apps that are <em>fast</em>, work
+          <em>offline</em>, and <em>sync in real&nbsp;time</em>.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="/contact">Want to talk?</a>
+          <a class="text-link mono" href="/cv">See my CV&nbsp;→</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <Image
+          src={joeImage}
+          alt="A playful render of Joe working on his laptop with his guitar in the background"
+          widths={[320, 480, 640]}
+          sizes="(min-width: 720px) 18rem, 60vw"
+          loading="eager"
+        />
+      </div>
+    </section>
+
+    <!-- WAYFINDING -->
+    <nav class="cards" aria-label="Explore the site">
+      {
+        cards.map((c) => (
+          <a class="card" href={c.href}>
+            <span class="card-label mono">{c.label}</span>
+            <span class="card-blurb">{c.blurb}</span>
+            <span class="card-arrow" aria-hidden="true">→</span>
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- LATEST -->
+    <section class="latest">
+      {
+        latestPost && (
+          <a class="feature" href={`/blog/${latestPost.slug}`}>
+            <span class="kicker mono">Latest writing</span>
+            <h2 class="feature-title">{latestPost.data.title}</h2>
+            <time class="meta mono" datetime={latestPost.data.date.toISOString()}>
+              {fmtDate(latestPost.data.date)}
+            </time>
+            {latestPost.data.excerpt && <p class="feature-excerpt">{latestPost.data.excerpt}</p>}
+            <span class="more mono">Read post →</span>
+          </a>
+        )
+      }
+
+      <div class="shipped">
+        <span class="kicker mono">Recently shipped</span>
+        <ul>
+          {
+            recentShipped.map((item) => (
+              <li>
+                <span class="shipped-summary">{item.data.summary}</span>
+                <span class="shipped-meta mono">
+                  {item.data.repo} · {fmtDate(item.data.mergeDate)}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+        <a class="more mono" href="/i-shipped">See everything I've shipped →</a>
+      </div>
+    </section>
+
+    {
+      latestSmidgeon && (
+        <a class="smidgeon-strip" href="/smidgeons">
+          <span class="kicker mono">Latest smidgeon</span>
+          <span class="smidgeon-summary">{latestSmidgeon.data.summary}</span>
+        </a>
+      )
+    }
+  </main>
+
   <style>
-    h1 + p {
-      font-size: 1.5em;
+    .home {
+      --max-width: 72ch;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      display: grid;
+      gap: var(--layout-spacing);
+      align-items: center;
+      margin-block-end: calc(var(--layout-spacing) * 1.5);
+    }
+    @media (min-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr minmax(12rem, 18rem);
+      }
+      .hero-image {
+        order: 2;
+      }
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+      margin-block-end: calc(var(--inline-spacing) * 2);
+    }
+
+    .hero-title {
+      display: inline;
+      white-space: nowrap;
+      line-height: 1.1;
+      background-image: linear-gradient(var(--primary), var(--primary));
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 0% 0.16em;
+      animation: draw-underline 0.7s 0.25s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+    }
+    @keyframes draw-underline {
+      to {
+        background-size: 100% 0.16em;
+      }
+    }
+
+    .lede {
+      font-size: clamp(1.2rem, 1rem + 1vw, 1.6rem);
+      margin-block-start: var(--layout-spacing);
+      max-width: 26ch;
+    }
+    .lede em {
+      font-style: normal;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--layout-spacing);
+      margin-block-start: var(--layout-spacing);
+    }
+    .text-link {
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    .text-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.3em;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      border-radius: var(--border-radius);
+    }
+
+    /* ---------- WAYFINDING CARDS ---------- */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: calc(var(--inline-spacing) * 3);
+    }
+    @media (min-width: 720px) {
+      .cards {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: calc(var(--inline-spacing) * 2);
+      padding: calc(var(--inline-spacing) * 4);
+      border: 1px solid var(--very-muted);
+      border-radius: var(--border-radius);
+      color: var(--foreground);
+      text-decoration: none;
+      transition:
+        border-color 200ms ease,
+        transform 200ms ease;
+    }
+    .card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .card-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .card-blurb {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.4;
+      flex: 1;
+    }
+    .card-arrow {
+      color: var(--primary);
+      transition: transform 200ms ease;
+    }
+    .card:hover .card-arrow {
+      transform: translateX(3px);
+    }
+
+    /* ---------- LATEST ---------- */
+    .latest {
+      display: grid;
+      gap: var(--layout-spacing);
+      margin-block-start: calc(var(--layout-spacing) * 1.5);
+    }
+    @media (min-width: 720px) {
+      .latest {
+        grid-template-columns: 1.2fr 1fr;
+      }
+    }
+
+    .kicker {
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-block-end: calc(var(--inline-spacing) * 2);
+    }
+
+    .feature {
+      display: block;
+      padding: calc(var(--inline-spacing) * 4);
+      border-radius: var(--border-radius);
+      border-inline-start: 3px solid var(--primary);
+      background-color: color-mix(in hsl, var(--primary) 4%, var(--background) 96%);
+      color: var(--foreground);
+      text-decoration: none;
+      transition: background-color 200ms ease;
+    }
+    .feature:hover {
+      background-color: color-mix(in hsl, var(--primary) 9%, var(--background) 91%);
+    }
+    .feature-title {
+      font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem);
+      margin: 0;
+      line-height: 1.15;
+    }
+    .meta {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-block: calc(var(--inline-spacing) * 2);
+    }
+    .feature-excerpt {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .more {
+      display: inline-block;
+      font-size: 0.78rem;
+      color: var(--primary);
+      margin-block-start: calc(var(--inline-spacing) * 3);
+    }
+
+    .shipped ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .shipped li {
+      padding-block: calc(var(--inline-spacing) * 2);
+    }
+    .shipped li + li {
+      border-block-start: 1px dashed var(--very-muted);
+    }
+    .shipped-summary {
+      display: block;
+      font-size: 0.9rem;
+    }
+    .shipped-meta {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-block-start: calc(var(--inline-spacing));
+    }
+
+    /* ---------- SMIDGEON STRIP ---------- */
+    .smidgeon-strip {
+      display: block;
+      margin-block-start: calc(var(--layout-spacing) * 1.5);
+      padding: calc(var(--inline-spacing) * 4);
+      border: 1px dashed var(--very-muted);
+      border-radius: var(--border-radius);
+      color: var(--foreground);
+      text-decoration: none;
+      transition: border-color 200ms ease;
+    }
+    .smidgeon-strip:hover {
+      border-color: var(--primary);
+    }
+    .smidgeon-summary {
+      font-size: 0.95rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-title {
+        animation: none;
+        background-size: 100% 0.16em;
+      }
     }
   </style>
-  <NewNav />
-  <main>
-    <h1 class="title">Joe Innes</h1>
-    <p class="mono">Full Stack Developer</p>
-    <Image
-      src={joeImage}
-      alt="A playful render of Joe working on his laptop with his guitar in the background"
-      style="width: 100%; aspect-ratio: 1; height: auto;"
-    />
-
-    <p>
-      Helping people build apps that are fast, work offline, and sync in real time.
-    </p>
-    <a href="/contact"> Want to talk? </a>
-  </main>
 </Layout>
