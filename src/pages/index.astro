@@ -135,8 +135,16 @@ const cards = [
   </main>
 
   <style>
+    /* Let the home <main> span the full content width so the cards can break
+       out of the reading column; individual text sections opt back in to 72ch. */
     .home {
-      --max-width: 72ch;
+      --max-width: 100%;
+    }
+    .hero,
+    .latest,
+    .smidgeon-strip {
+      max-width: 72ch;
+      margin-inline: auto;
     }
 
     /* ---------- HERO ---------- */
@@ -216,10 +224,18 @@ const cards = [
     /* ---------- WAYFINDING CARDS ---------- */
     .cards {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr; /* stack on phones */
       gap: calc(var(--inline-spacing) * 3);
+      /* spans the full content width of <main> (the page's 1rem body padding
+         provides the breathing room at the edges) */
+      margin-block: var(--layout-spacing);
     }
-    @media (min-width: 720px) {
+    @media (min-width: 540px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 900px) {
       .cards {
         grid-template-columns: repeat(4, 1fr);
       }
