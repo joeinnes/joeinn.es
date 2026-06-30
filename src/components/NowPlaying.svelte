@@ -41,6 +41,20 @@
 		}
 	});
 
+	// teal.fm stores MBIDs prefixed, e.g. "mbid:0fc05d92-255c-...". Cover Art
+	// Archive wants the bare UUID; the prefixed value yields a 400 "invalid MBID
+	// specified" page that also trips OpaqueResponseBlocking. Strip and validate.
+	const MBID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+	function cleanMbid(raw) {
+		if (typeof raw !== 'string') return null;
+		const id = raw.replace(/^mbid:/i, '').trim();
+		return MBID_RE.test(id) ? id : null;
+	}
+	function coverUrl(raw) {
+		const id = cleanMbid(raw);
+		return id ? `${COVER_ART_BASE}/${id}/front-250` : null;
+	}
+
 	function artistNames(t) {
 		if (t.artists?.length) return t.artists.map((a) => a.artistName).join(', ');
 		if (t.artistNames?.length) return t.artistNames.join(', ');
@@ -55,9 +69,9 @@
 {#if show && track}
 	<a href="/now" class="now-playing">
 		<div class="np-cover">
-			{#if track.releaseMbId}
+			{#if coverUrl(track.releaseMbId)}
 				<img
-					src="{COVER_ART_BASE}/{track.releaseMbId}/front-250"
+					src={coverUrl(track.releaseMbId)}
 					alt={track.releaseName || track.trackName}
 					onerror={handleImgError}
 				/>
