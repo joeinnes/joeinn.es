@@ -9,7 +9,7 @@
 // it falls back to a dry run so it is always safe to run.
 
 import { createHash } from "node:crypto";
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { StandardSitePublisher } from "@bryanguffey/astro-standard-site/publisher";
 import { transformContent } from "@bryanguffey/astro-standard-site/content";
 import { createRecordClient } from "./atproto.mjs";
@@ -27,6 +27,35 @@ const dryRun = process.argv.includes("--dry-run") || !password;
 
 const sha256 = (s) => "sha256:" + createHash("sha256").update(s).digest("hex");
 const rkeyOf = (uri) => uri.split("/").pop();
+
+// Validate an owned-lexicon record against its local lexicon. atproto strings
+// cap maxLength in UTF-8 bytes and maxGraphemes in graphemes, so check both with
+// the right units. standard.site documents use a third-party lexicon we don't
+// vendor, so lexiconFor returns null and they're skipped. Returns problem strings.
+const seg = new Intl.Segmenter("en", { granularity: "grapheme" });
+const lexiconFor = (nsid) => {
+  const path = `lexicons/${nsid.replaceAll(".", "/")}.json`;
+  return existsSync(path) ? JSON.parse(readFileSync(path, "utf8")) : null;
+};
+function validateRecord(record, nsid) {
+  const lex = lexiconFor(nsid);
+  if (!lex) return [];
+  const def = lex.defs.main.record;
+  const problems = [];
+  for (const key of def.required ?? []) {
+    const v = record[key];
+    if (v === undefined || v === null || v === "") problems.push(`missing required "${key}"`);
+  }
+  for (const [key, spec] of Object.entries(def.properties ?? {})) {
+    const v = record[key];
+    if (typeof v !== "string" || spec.type !== "string") continue;
+    if (spec.maxLength && Buffer.byteLength(v) > spec.maxLength)
+      problems.push(`"${key}" ${Buffer.byteLength(v)} bytes > maxLength ${spec.maxLength}`);
+    if (spec.maxGraphemes && [...seg.segment(v)].length > spec.maxGraphemes)
+      problems.push(`"${key}" ${[...seg.segment(v)].length} graphemes > maxGraphemes ${spec.maxGraphemes}`);
+  }
+  return problems;
+}
 
 // Desired state across all sources.
 const desired = new Map(); // key -> { source, entry }
@@ -66,6 +95,27 @@ for (const a of actions.create) console.log(`  + ${a.key}`);
 for (const a of actions.update) console.log(`  ~ ${a.key}`);
 for (const a of actions.delete) console.log(`  - ${a.key}`);
 
+const ctx = { siteUrl: config.siteUrl, transform: transformContent };
+
+// Build and validate every owned-lexicon record we're about to write. A record
+// that violates its lexicon (missing required field, over a length cap) would
+// otherwise only fail at the PDS on the live main push — catch it here instead,
+// dry run included. A real run aborts before touching the PDS.
+let invalid = 0;
+for (const a of [...actions.create, ...actions.update]) {
+  if (!a.source.toRecord) continue; // standard.site doc — third-party lexicon
+  const record = { $type: a.source.target, ...a.source.toRecord(a.entry, ctx) };
+  const problems = validateRecord(record, a.source.target);
+  if (problems.length) {
+    invalid += 1;
+    console.error(`  ✗ ${a.key}: ${problems.join("; ")}`);
+  }
+}
+if (invalid) {
+  console.error(`\n${invalid} record(s) fail lexicon validation.`);
+  if (!dryRun) process.exit(1);
+}
+
 if (dryRun) {
   if (!password) console.log("\nNo ATPROTO_APP_PASSWORD set — dry run only, nothing published.");
   process.exit(0);
@@ -75,8 +125,6 @@ if (!actions.create.length && !actions.update.length && !actions.delete.length) 
   console.log("Nothing to do.");
   process.exit(0);
 }
-
-const ctx = { siteUrl: config.siteUrl, transform: transformContent };
 
 // standard.site documents and owned-lexicon records use different backends. Log
 // in to each lazily so a run that only touches one record type makes one login.

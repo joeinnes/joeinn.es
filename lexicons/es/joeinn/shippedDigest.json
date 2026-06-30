@@ -33,14 +33,6 @@
             "maxGraphemes": 3000,
             "maxLength": 30000
           },
-          "highlights": {
-            "type": "array",
-            "description": "References to the featured es.joeinn.shipped records for this period.",
-            "items": {
-              "type": "ref",
-              "ref": "com.atproto.repo.strongRef"
-            }
-          },
           "createdAt": {
             "type": "string",
             "format": "datetime",
