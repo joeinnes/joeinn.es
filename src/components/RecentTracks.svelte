@@ -223,9 +223,20 @@
 		return 'Unknown Artist';
 	}
 
+	// teal.fm stores MBIDs prefixed, e.g. "mbid:0fc05d92-255c-4a91-b3ed-...".
+	// Cover Art Archive wants the bare UUID; passing the prefixed value yields a
+	// 400 "invalid MBID specified" HTML page, which also trips Firefox's
+	// OpaqueResponseBlocking. Strip the prefix and validate the UUID shape.
+	const MBID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+	function cleanMbid(raw) {
+		if (typeof raw !== 'string') return null;
+		const id = raw.replace(/^mbid:/i, '').trim();
+		return MBID_RE.test(id) ? id : null;
+	}
+
 	function coverUrl(releaseMbId) {
-		if (!releaseMbId) return null;
-		return `${COVER_ART_BASE}/${releaseMbId}/front-250`;
+		const id = cleanMbid(releaseMbId);
+		return id ? `${COVER_ART_BASE}/${id}/front-250` : null;
 	}
 
 	function filterByPeriod(tracks, period) {
@@ -329,7 +340,7 @@
 			{#each recentTracks as track}
 				<li class="recent-track">
 					<div class="recent-cover">
-						{#if track.releaseMbId}
+						{#if coverUrl(track.releaseMbId)}
 							<img
 								src={coverUrl(track.releaseMbId)}
 								alt={track.releaseName || track.trackName}
@@ -359,7 +370,7 @@
 		<div class="mosaic">
 			{#each weeklyAlbums as album}
 				<div class="mosaic-cell" title="{album.name} — {album.artist}">
-					{#if album.mbId}
+					{#if coverUrl(album.mbId)}
 						<img
 							src={coverUrl(album.mbId)}
 							alt="{album.name} by {album.artist}"
@@ -404,7 +415,7 @@
 			{#each stats as item}
 				<li class="stat-item">
 					<div class="stat-cover">
-						{#if item.mbId}
+						{#if coverUrl(item.mbId)}
 							<img
 								src={coverUrl(item.mbId)}
 								alt={item.name}
