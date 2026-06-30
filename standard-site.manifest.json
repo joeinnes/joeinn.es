@@ -856,11 +856,6 @@
       "docCid": "bafyreicbao7sma3u4h5dzvsne2fl2vnogcavv55ndq2r5sro7eymsqmsli",
       "contentHash": "sha256:5c57153b61d5db96dee2f6152da9102d51ca159dc43e491a9487e011b47e97d8"
     },
-    "i-shipped:a-jazz-demo-where-users-can-create-a-collaborative-piece-of-music-on-a-step-sequencer": {
-      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sjfkeu24",
-      "docCid": "bafyreich5n6xnrhi5pghh5jssodwvlki7sht2xhccf4oleoylic45my6lq",
-      "contentHash": "sha256:9aad89e4fd6589661876ab496259526591f260c26af97cc57b49938b1d226902"
-    },
     "i-shipped:a-link-validation-script-for-our-docs-pages": {
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sjjjcq2b",
       "docCid": "bafyreiei624w7i4hhwwqif7iiv5wle4bqayomqlkwx3q3j5zvpmfy4ix4a",
@@ -1250,11 +1245,6 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t7v2ra27",
       "docCid": "bafyreiaqjcp2szip5pzddrlvubcu4ioihmorktr2wzfhmcwzhqyox3fsmu",
       "contentHash": "sha256:5c085d58edc1f4457a40a2bc98e86318e81a9dfc7842a6dbd72b0d8100342ad8"
-    },
-    "i-shipped:an-end-to-end-test-harness-for-jazz-starter-templates": {
-      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tb3ed32m",
-      "docCid": "bafyreican6u5ohpkznkx7jhjdn3iybjavieeraijor7s6t77y5mfag3v3e",
-      "contentHash": "sha256:5233c13499813135e2e53979cdea949e7060e2dfa9930cba0d9d4461a26313c2"
     },
     "i-shipped:an-enhanced-and-completely-reworked-version-of-the-subscriptions-and-deep-loading-article": {
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tbbdrh2g",
@@ -2161,11 +2151,6 @@
       "docCid": "bafyreifkmjk54hyt5a5rihox7buqdmds3tprb4kp5mkwk6y3topr7zolh4",
       "contentHash": "sha256:ce3f65ddfa30e7aba6dcad0f43dc116a8cc6b24861f53e20025a66ce2b612359"
     },
-    "i-shipped:type-checking-for-docs-example-snippets-in-the-build-pipeline": {
-      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uuaxmv2c",
-      "docCid": "bafyreifeoh3bvly2zj6ceoseekvwbua6c62nydpvv77nhxyoeyfv3yrlcq",
-      "contentHash": "sha256:8101b919af5628d94639cdd835002c91857b301c6a6a8736ec409825b841599e"
-    },
     "i-shipped:type-checking-for-docs-example-snippets-in-the-build": {
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uvh2gp2g",
       "docCid": "bafyreifdxyerhjdcwmwbssr3rovvxelmlw5n7wi6txaayamj3dpok27yky",
@@ -2365,6 +2350,41 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3mpj5v6io7t2j",
       "docCid": "bafyreibixu7mv45tpe6crv4xp37m7xo374dzi5styykporukpzczwpnyuu",
       "contentHash": "sha256:3cb86648ad9f342bc247f3031dde481c1ba33f3a28a7a7ac6924032f512da590"
+    },
+    "i-shipped:a-fix-for-a-sharedworker-crash-in-production-bundler-builds": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj62c4hui2x",
+      "docCid": "bafyreihkdjc2qvr273r3kvyp6jjwnyzedvvivzlur62jfksyih4phcy2xy",
+      "contentHash": "sha256:49562cd11b8c011b58544c66cb035b5a1e254cd6e602c6127f37a59ddb81c59b"
+    },
+    "i-shipped:a-fix-for-owner-updates-incorrectly-hard-deleting-backend-created-rows": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj62clfin2c",
+      "docCid": "bafyreicvg4wfj6im5fd3ac7ylqiqpqvrrej44cnqyvprls7pxng5zczqgq",
+      "contentHash": "sha256:d4f33ae60f95305c6076ed603e2add1d021dc410cb968f6a12dc845009083436"
+    },
+    "i-shipped:a-fix-for-useall-and-querysubscription-correctness-and-parity-across-react-svelte-and-vue": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj62coxpx24",
+      "docCid": "bafyreiblxmj6tyynepl26dwlzo6bxk42tp2egbzlsgnikjguia2rxtn4rm",
+      "contentHash": "sha256:4983eb13ddbb8c8e1876dd37763138f6ce2f519b18a89e803754bc35ebab9620"
+    },
+    "i-shipped:a-fix-for-wasm-out-of-bounds-errors-from-multiple-jazz-runtimes-on-the-same-page": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj62dl7242b",
+      "docCid": "bafyreiaqph23f3sif2pw2nqldgpli4v2cqsptocyxq7t4kwvcpbj6ltgga",
+      "contentHash": "sha256:760dfb3a575ebd71a5990fc231e6ec53e2fb6a6c71656a40d73e8438a0ec458b"
+    },
+    "i-shipped:a-grow-only-set-merge-strategy-for-array-columns": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj62do2u22o",
+      "docCid": "bafyreifr4vmvvipvis5prvwbmomgg5bj2vflqlzmryefnlfjgj42t3tuye",
+      "contentHash": "sha256:7e06ad74cb2366849ca5c1c9bd66f9270ae4acbc93e33a2f7bff817c922b0d8a"
+    },
+    "i-shipped:a-new-jazz-toolsshared-entry-point-for-building-custom-framework-bindings": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj62dqkve27",
+      "docCid": "bafyreia6qfjih2tv2iipf64poxl5nxwpfclkkm5okryvwhr7witsqm3h6y",
+      "contentHash": "sha256:ac15d4f103033ae2b55eb13091748ffd2ba7d34de2b4a99cee434569ac63d8fb"
+    },
+    "i-shipped:reactive-session-handles-for-getsession-and-usesession": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj62dsv4e27",
+      "docCid": "bafyreih5nnnqfzpqpblv3h4qhdspf4gv2fuop6lghsnu7bxpwbn4ez6zku",
+      "contentHash": "sha256:3499c8327623ab8282401c2b95a17ecf3749939bf59487da9cdca6b9d9b6f5a6"
     }
   }
 }
