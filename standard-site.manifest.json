@@ -540,6 +540,1831 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/site.standard.document/3mn5k3zbzy2hu",
       "docCid": "bafyreihukim6tpvo4xwvjyhm2mjiyv2mta4itkm6nrndjxtmcdvl6tt3dm",
       "contentHash": "sha256:83ff1d4fa98dd4723a828e6f930215313eca4fb298c491d70193362e379fbd44"
+    },
+    "i-shipped:111-refactoring": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5rzzhby2b",
+      "docCid": "bafyreib2oxfdwce4ajhvymarlkj2nojwzi6nficgkgwuenz7arbhjwetvm",
+      "contentHash": "sha256:8bc4f64c839b0b51be9425007f8f6dbab79074b9dc318f85158fa27fd0ec6c1b"
+    },
+    "i-shipped:30-prompt-to-prompts-1": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s2f4bs2c",
+      "docCid": "bafyreiboog3zp5fwu6oyfp6twts6yt4ht7s3cudc3ixsznukonmxrt4uva",
+      "contentHash": "sha256:5bcba00d8d3d1a5b7e17610c1c4b3fe2ed29846bfc91f6fdc1a4a0e22f804922"
+    },
+    "i-shipped:a-bugfix-for-an-issue-where-ensure-loaded-was-throwing-despite-on-error-catch-being-set": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s2je232m",
+      "docCid": "bafyreidf2yeejurytnlziplupakoerlm4gdggl7m6tdounpzhf6qmws2v4",
+      "contentHash": "sha256:3aef85aa48de741e13ac8b1e22672eec496512a31ed2e26ffcac337c79c5fe0c"
+    },
+    "i-shipped:a-built-in-mcp-docs-server-for-jazz-tools": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s2nc2o2g",
+      "docCid": "bafyreibzy57isax25uxnqkyy57cmlm3mfdos2jy6hh76w6oltrhtjf4sum",
+      "contentHash": "sha256:4130f7fda058bfe4717223389a2865488c25a2d708438b6169290aed6c95c6f9"
+    },
+    "i-shipped:a-change-to-install-wasm-pack-via-cargo-in-jazz2": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s2raxh2x",
+      "docCid": "bafyreifssu7l3lcbsn7vetot6dj7blhrfp7vdcoa73gr3jwnkfs4blwc4u",
+      "contentHash": "sha256:6cd85b3cef2a6b7b89545516397665e0860922e71bf36e63f1c0cf031f044bef"
+    },
+    "i-shipped:a-change-to-install-wasm-pack-via-cargo-instead-of-npm": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s2v6yu24",
+      "docCid": "bafyreifayofcwpersxxmobptxann5e5vmwhc56xtqyjgs5nafxtemdbkom",
+      "contentHash": "sha256:2ffdc94072e43ca87440f3210ddb5d4b633b2daa45cb95913b006ff74f89cff1"
+    },
+    "i-shipped:a-cleanup-of-the-example-apps-docs-tests-and-feature-parity": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s2z7tx2b",
+      "docCid": "bafyreib7eqtv7vhf4a4bte5vohoy3oegx54l42vp2mi7rla6n4jrf3nfti",
+      "contentHash": "sha256:0907d9ac9d2067d0039a42eb8cb0ee05e1091b5df6749bcc9ba42099d0ff3304"
+    },
+    "i-shipped:a-compatibility-fix-for-better-auth-1-5-3-in-jazz-tools": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s356u62o",
+      "docCid": "bafyreibinosa3bfevisi7otbjq2ojwauhnwnjpclvf3ptqm5dp2niwfgdy",
+      "contentHash": "sha256:74f8ffdb60fa1f2f1b0687ef3aab7b0754e333813e81784a61cc97f16d182132"
+    },
+    "i-shipped:a-created-by-getter-allowing-users-to-quickly-work-out-who-created-a-particular-co-value": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s3b6px2x",
+      "docCid": "bafyreiebcjjg22yfswybci4ld7zavfxmdwk325ra55coky7pzjzokjvrcy",
+      "contentHash": "sha256:894ba010bd09a87efb628e9537344ff797c96c4f94f7c50d17aa3a5793253a3c"
+    },
+    "i-shipped:a-custom-declarative-diagram-engine-to-replace-mermaid-in-the-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s3fckk2c",
+      "docCid": "bafyreigvqdyl4owz62ureqry6ewo23w52tdtkwgztq4ab7yc2js46dtqju",
+      "contentHash": "sha256:6099c532a3c1d754a2ddef9b5c71f7f302579f18d2d86a0781218b1429d5e3bd"
+    },
+    "i-shipped:a-dashboard-link-to-the-jazz-docs-site-navigation": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s3uc4e24",
+      "docCid": "bafyreicq7vkdy4ksfcosbepc2iaryqz7haaetw4jt25abqs2s4rpyhsgnu",
+      "contentHash": "sha256:75868fe7a4ad628eaf6d3bb1202204546c5c7c21e12d13fe2d50155372717c6b"
+    },
+    "i-shipped:a-dedicated-docs-section-for-read-durability-tiers": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s3zvqt2m",
+      "docCid": "bafyreigo3gbkbp4wha62grl3zmgy4lsolvrzzmqstrjr5joupayyyqzqi4",
+      "contentHash": "sha256:b06c55fa7d6061e29af97c511c30ff5138079e7ae71c5574663a5f0d1eeeabe7"
+    },
+    "i-shipped:a-docs-update-regarding-credential-persistence-on-i-os": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s466hp2b",
+      "docCid": "bafyreihcnddgrhghrfbdqg7kvmzbnqorlhnp4dqp6h7n6k4oz5ierkcqvm",
+      "contentHash": "sha256:8c06131691d6c29ed8633b1110dce2bc839d8d52a58322c02b6d49c34c0155b9"
+    },
+    "i-shipped:a-docs-url-update-in-starter-agentsmd-files": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s4c4h325",
+      "docCid": "bafyreihkweznwlijt7ql5ydx6iezugvrydw6xhqlgpdzalxjzpcs7phvyy",
+      "contentHash": "sha256:2d7f9102133226325864122135031273883e7d1720e3500c86f04f48d482e37e"
+    },
+    "i-shipped:a-documented-new-pattern-for-credential-storage-on-i-os": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s4fzig2g",
+      "docCid": "bafyreidfdkzvfzzhdhnelc7h6wfruuoyph7t7nyzpw5zfysz5vsobovfcm",
+      "contentHash": "sha256:3d209bd95988d1993300e6923cda406774c4e4af2ee79ee444100fdaa87d24ad"
+    },
+    "i-shipped:a-fix-for-a-better-auth-race-condition": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s4jyh424",
+      "docCid": "bafyreihzug2hnmkbxfcdysswqoat36bectiki7wnkfxtugxmpnay2s6rzu",
+      "contentHash": "sha256:3746ad5920e15b480387b5f2e31a52b1318ebaa65f408d0d6a4b4b38e257463c"
+    },
+    "i-shipped:a-fix-for-a-bug-in-our-types-for-loading-options-on-co-feeds": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s4nvh424",
+      "docCid": "bafyreihzb3hxz3n2hhll3fasc7ajqcixd5m6ndem42z3fmbee4uotyarku",
+      "contentHash": "sha256:d1fe6dc7a1d1b0a9c5346a2862c3a2bcb14c6f3e5dc2b040ea0d67207b4114f0"
+    },
+    "i-shipped:a-fix-for-a-callback-race-condition-in-subscriptions": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s4sa3m2b",
+      "docCid": "bafyreigdpikzho77qa3oexogb7eutaptutt7t7j46kny2zwl6mi7tb43pu",
+      "contentHash": "sha256:67d4247f64b94fe8af02bacfee2af2f5e51cfbb9f312de28be395be72011af87"
+    },
+    "i-shipped:a-fix-for-a-hang-in-create-jazz-context-when-schema-migrations-fail": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s4wbz424",
+      "docCid": "bafyreicrc7ytwh7b4ueti7j3wklcr6xlhb3fuxr65ljnkn7zyzmd5b5wsa",
+      "contentHash": "sha256:547ce7ac2b45a8fd54fb9c0cd14c429689de9ac707b45e2abb31ab37952f7278"
+    },
+    "i-shipped:a-fix-for-a-jazzprovider-cleanup-cycle-caused-by-config-object-references": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s52c4s2z",
+      "docCid": "bafyreihpw36wf2lmpdqd4jguu5byr7js5sm5q32dzqjaie3md2wzkjebb4",
+      "contentHash": "sha256:beac16a98f563545c7883c3af818fe454b39312c97bf7438b9cbbb7a88c017f9"
+    },
+    "i-shipped:a-fix-for-a-nextjs-ssr-crash-caused-by-duplicate-react-instances-in-withjazz": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s56er42b",
+      "docCid": "bafyreiasv2ad4w5xadmf4gkpjveqbiojn6vwfvgtra262npucvovcmlnoe",
+      "contentHash": "sha256:2e5e098aa0a02a552f74fc9894343ab2580be5530dc33abde91eea70a99d3de8"
+    },
+    "i-shipped:a-fix-for-a-permissions-head-before-bundle-race-causing-local-write-denials": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s5cgmc2c",
+      "docCid": "bafyreiej4rq5sjv5pnm6kvbk6kpdn3uh5vfxpquccigbctwxd7iefp2pxa",
+      "contentHash": "sha256:176c1a77d704db82f61cdcea4dfb246793c819797872a515df832f955b0b7c44"
+    },
+    "i-shipped:a-fix-for-a-quirk-of-the-web-locks-api-in-safari": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s5gfks2c",
+      "docCid": "bafyreigxql3mrlbdlg4g6rmih7bwuqhmvubzm4z2c23k75qt5luq3dkfeq",
+      "contentHash": "sha256:b90684a85b507163b59d5063ffae79279f7d66a43c29908fe9ebb281b46647dc"
+    },
+    "i-shipped:a-fix-for-a-race-condition-in-our-auth-storage-code": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s5kelg2o",
+      "docCid": "bafyreiatdmgvpmcgldwm6msrolzorf47xzf2ds2fvmwkh3r5qcvby365sy",
+      "contentHash": "sha256:cf8bca25d954b8d0937e85b8ddae53fb33258fa10fbffd8e4572049f6e31e299"
+    },
+    "i-shipped:a-fix-for-a-react-native-ui-freeze-caused-by-synchronous-database-queries": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s5ohfu2b",
+      "docCid": "bafyreif44xehbs3uzop6ii6zy5pxxf4lqtbnzeqzefa4i4l5ty4qpdtz5a",
+      "contentHash": "sha256:f5eec65c55a09c7f53d2373862563b421efc77d8518696357a61b36706598ede"
+    },
+    "i-shipped:a-fix-for-a-stack-overflow-when-forwarding-rows-with-deep-parent-history": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s5sfe72x",
+      "docCid": "bafyreif2ft6nu5zb7z563afj3ndxpdm2uaorzhyow55hhuxcwcqxx6i3b4",
+      "contentHash": "sha256:52db60acc3d9068a7bce7858681b4889408f82c32bcf567c291eaed2568838e7"
+    },
+    "i-shipped:a-fix-for-a-stale-repository-reference-in-the-create-jazz-scaffolding-tool": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s5wfcu2b",
+      "docCid": "bafyreihutrngomzttlx64wolpryjblvfe75pvoolrch7zhikb2ayxwnlie",
+      "contentHash": "sha256:bba3a44dde905bbff7c64ca199499f4c6c015fe30a875254a1086eae62657a57"
+    },
+    "i-shipped:a-fix-for-admin-secrets-being-exposed-in-server-startup-logs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s62cbs2c",
+      "docCid": "bafyreihfaplhkkgm2p3em5kfg5xjslltlmomd56cytu3dagcyk2zbonlje",
+      "contentHash": "sha256:d2e3a461754bb5dfc334dd5762f77c615da85826d630832930143ac6903903d3"
+    },
+    "i-shipped:a-fix-for-broken-polyfills-in-the-expo-integration-that-were-crashing-third-party-libraries": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s66bbe2b",
+      "docCid": "bafyreibbxiph5cau7t43ho3esotzcxiyxfnky22xkxisiegjecr2uitrnu",
+      "contentHash": "sha256:9ec8e06b2c6fe75c43671c1d70b7ca19c4ae699da90f6aa9d48cf9d69e431c1d"
+    },
+    "i-shipped:a-fix-for-corrupted-columns-on-subscription-updates": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s6gmt72p",
+      "docCid": "bafyreibxrwzfqs5i6g64l3tkbg72zl4o6o5hmyyr2xtqjd7db3zstnhumq",
+      "contentHash": "sha256:a6a1744b1fde6fb001662eaeacd6c93ee7691e4b2e9bb3dfd09d3ad655a00d7b"
+    },
+    "i-shipped:a-fix-for-declaration-files-being-emitted-outside-declarationdir-in-sveltes-language-tools": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s6ry5w2o",
+      "docCid": "bafyreid3ju24sgmz77wmvfyrj2jm2c6wc4k3aqaye25f25ktmuy4bflzje",
+      "contentHash": "sha256:74eee9a1b1c39c161cd9ac517c1947bd3eff74e7fe6ba138bf910ade6a8d69b8"
+    },
+    "i-shipped:a-fix-for-deep-query-subscriptions-losing-reactivity": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s7coc32m",
+      "docCid": "bafyreiccgosnqbolhkegshw56xt7jyitmslzddo3egto4rdzgs4y4hbhva",
+      "contentHash": "sha256:412b19d5942feee3d5b21be4b50eb956657d7b73f5d5eb56d08936ef214f041e"
+    },
+    "i-shipped:a-fix-for-drop-column-generation-in-multi-table-migrations": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s7iayh2x",
+      "docCid": "bafyreidfuocl6d7yzrx7qiednx46cubm5kjki6xev5skbiyl7wvbsvclyu",
+      "contentHash": "sha256:12f9f98f366f1c332f4ecf4f64f5121c9bdc35dc5ce572bc721203557d4a97f1"
+    },
+    "i-shipped:a-fix-for-empty-query-results-from-anonymous-clients": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s7mdvi2b",
+      "docCid": "bafyreidoxtgigkawkuab5pnr2t27dtwi6peq35vv2fcac5c4f3uqqzhiyq",
+      "contentHash": "sha256:966f2a849b6973e0dcaa6fbe28573cff904583589ef6fc2dfe241c076bcc64c0"
+    },
+    "i-shipped:a-fix-for-garbled-query-results-when-using-include": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s7qhp32m",
+      "docCid": "bafyreicdl7esbd4lxteb3wcsn5h4g5e3lnphchy6szkpuxssz5emf32uzy",
+      "contentHash": "sha256:d9453d0d0b4e29412175ccf6397b321e6bd63f29aa17d2d88a6a81c845d85171"
+    },
+    "i-shipped:a-fix-for-incorrect-pluralization-in-the-code-generator": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5s7xu3z2c",
+      "docCid": "bafyreidsqtvsinpmvcy7tebitegc4nq3jisacxmdmh4jwwvrzxyqka2zia",
+      "contentHash": "sha256:9647c922f7a3ef8de794cf508ee03a0501b9a9cb14294595a2493bababcac924"
+    },
+    "i-shipped:a-fix-for-invalid-signature-errors-when-concurrent-writes-happen": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sbwf2g2o",
+      "docCid": "bafyreiflsbkxxkdwnpxhww2f57xcputz4qzaygut66ymg37ssve6c7syn4",
+      "contentHash": "sha256:420ec9c3b4958c7f60543bc363ae81ecddc18947e25602a5328d3b4a6f999def"
+    },
+    "i-shipped:a-fix-for-mcp-server-crashes-when-nodesqlite-is-unavailable": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sc2tt72j",
+      "docCid": "bafyreihvgncbvwxwznnwjsf45x2xqelemj23ohqjzcf2wmpjax5dpkfopm",
+      "contentHash": "sha256:51f5e6cfd8529aaee8bd5bc43badbc2fa21499aa0714db65537ac5a90189efae"
+    },
+    "i-shipped:a-fix-for-missing-policy-enforcement-in-queries": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sc6ygo2g",
+      "docCid": "bafyreiddkow42p6nj3aloe6dwgnbdalyrbxhkjz4zanrnnwlrl37dxeegu",
+      "contentHash": "sha256:fb5c54217e704bab0fd87b9603fe53cb54267c42590dc3a5becd1c49831c9a15"
+    },
+    "i-shipped:a-fix-for-policy-evaluation-with-ephemeral-claims": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5scd2jh2j",
+      "docCid": "bafyreighnot4c5sbpsjswaa2kvkmpa23vgpijtyww2lyakyo3bpjqngdyi",
+      "contentHash": "sha256:86b0cfa1b2672d930301ea50368360994f8c84aaeb4fc7a729c1864abb3e0581"
+    },
+    "i-shipped:a-fix-for-rows-vanishing-after-schema-migrations": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sckas624",
+      "docCid": "bafyreihuuxc64zzjjx2nkox54lzdktsggct2ko4qfe3yl4sigoqsq5t3dq",
+      "contentHash": "sha256:c53842c2870eea453ad7331da09c8423da1dfb4db81355c6569945ae242965e5"
+    },
+    "i-shipped:a-fix-for-sign-up-failing-on-react-native-after-a-local-first-session": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5scyxos2z",
+      "docCid": "bafyreiggy7jttczyqsluvsgorbcqiknfjgyqthiq3ujpfuw4m72ydsxmce",
+      "contentHash": "sha256:7e8ae85fc6586262eb2fac35158e70bfcebbddb2b94a4c3905f7bc99dc49aa7a"
+    },
+    "i-shipped:a-fix-for-startup-and-auth-issues-in-several-example-apps": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sd7hio2g",
+      "docCid": "bafyreigaeey63w6qa36xj3wcyz64xklzbjtc43yl6ul56sxyhi62ahxt7m",
+      "contentHash": "sha256:06e7f3ee1415d8eb24250e7fefc0d39ef63dfdac37cfaef198aa7e4d8e4f2a7a"
+    },
+    "i-shipped:a-fix-for-svelte-state-referenced-locally-warnings": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sdfulg2o",
+      "docCid": "bafyreigaqgz7ltdynxi76hd43o6344ypmcwrl5ocewublpqdigbrornfam",
+      "contentHash": "sha256:e2ac476e68f3299a4db3e34d0d1567011fe35edc74bb902ac8bb9e45233ba3b3"
+    },
+    "i-shipped:a-fix-for-the-browser-benchmark-suite-being-hidden-from-ci": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5see6aq2x",
+      "docCid": "bafyreihruil4vt6g6iqcfegvwnu4fcbqywgmvaxydywb7rnbxjbcf26zx4",
+      "contentHash": "sha256:a336e589c58f44c0e06d32a7fce1c5737d9c3e2e39e0fba9aa1b62141680a32a"
+    },
+    "i-shipped:a-fix-for-the-expo-fetch-polyfill-rejecting-url-and-request-objects": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sekdjl25",
+      "docCid": "bafyreih7yfamlsrxmybmzfyroiybvuwbeh6hgbnvdq4x3ybsu64yftyvzy",
+      "contentHash": "sha256:081320b439783e6b5c620c7a40c273fa88029f5d7b94b558d3a4ab5a8d39a022"
+    },
+    "i-shipped:a-fix-for-the-jazz-tools-cli-silently-doing-nothing-when-run-through-pnpm": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5seofnp2j",
+      "docCid": "bafyreibumfaybvwosewj654nx3slhihgz2t7lguwr64pebeka6lkzd5qme",
+      "contentHash": "sha256:9b37510d0ed1ec0563fdcdfa33429648953d581460d44e1ef90087ebfad12991"
+    },
+    "i-shipped:a-fix-for-the-responsive-image-component-to-avoid-an-ugly-flash-of-alt-text": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5seufta2b",
+      "docCid": "bafyreifcgz2xrpe2t5l4rynpfwuwlitsokfz3v6uqatbfqpenqmtzp7t6u",
+      "contentHash": "sha256:7eafc5d69d7616536e8f78a4853807d487a866f51caf01b1e6108093be8386a2"
+    },
+    "i-shipped:a-fix-for-the-sveltekit-dev-plugin-failing-to-apply-config-on-cold-start": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5seza4i27",
+      "docCid": "bafyreiau6vgccaprg2gscqzyjwsmz6llbskd3ve54dkpyr6kg4wbgc3k6a",
+      "contentHash": "sha256:dd3a3a80960f652e60a510a40a1338a26811b81dd544e768e18431ce3b2451af"
+    },
+    "i-shipped:a-fix-for-ugly-scrollbar-display-when-using-mac-os-trackpads": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sf6i3q2b",
+      "docCid": "bafyreihrgqh2gqsf3qq76fx3yhbhig2j7c7dkh245qh6m7itcgjhynbdmm",
+      "contentHash": "sha256:0384b323f9898865d828ef2f745c7fd42b5e9549112c8a8f212ae52d3424d3d2"
+    },
+    "i-shipped:a-fix-for-worker-url-resolution-in-bundlers": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sfcmul2m",
+      "docCid": "bafyreic2ssetg5jqyfgnfaa4h3qryaadbf7ut3vjjpi5ajigzukgq5mbhu",
+      "contentHash": "sha256:5d515f124e412ce5191622ee4d2abf8e22fff8b2b1c053a7187315e7f1e6bcdc"
+    },
+    "i-shipped:a-fix-to-add-jazz-wasm-as-a-direct-dependency-to-vite-based-starters": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sfgivd25",
+      "docCid": "bafyreiblgcxnjhcqtp7pirl4jnmlapzq6pr26mcjyhl2yq6ugonwt5i45m",
+      "contentHash": "sha256:a27aaef9dd5c6be6532fb0605d0505a24a7b0e6a9067d251890f6965616d0f38"
+    },
+    "i-shipped:a-fix-to-always-run-the-schema-build-on-every-build": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sfkkrh2b",
+      "docCid": "bafyreiedgtu7f6zjlg54p3xb7663z2kln46hgnf2zzcsgpbbrlp6vqwtfy",
+      "contentHash": "sha256:b32c79c8c05654664fbe87b40ad104b57d6c4f27cf05f66665011c052d0e0dd2"
+    },
+    "i-shipped:a-fix-to-eliminate-critical-security-vulnerabilities": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sfoiqt2m",
+      "docCid": "bafyreidbe3vlwgc2txnvbfloqm2i6ilyosjni26n234vytnwzhtgzrgt5i",
+      "contentHash": "sha256:6de1935cd8e0c1521180d265e70a15ea5b008aa03c6999b8af8072cce299b546"
+    },
+    "i-shipped:a-fix-to-our-homepage-after-an-update-caused-overflow-on-basically-every-element-resulting-in-scrollbars-appearing-everywhere": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sgvyfs2c",
+      "docCid": "bafyreie3w65hxym2nm6kwx5rn2x2qukejsqrgrn2yhyuos2gbetaxbijvm",
+      "contentHash": "sha256:231d9bed278527e96683b8468fe6e3aeffa3b8a4612c458cfbf7c5b4bb5acf3a"
+    },
+    "i-shipped:a-fix-to-our-passkey-implementation-which-increases-the-challenge-length-to-20-bytes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5siaguo24",
+      "docCid": "bafyreia5yovgozdzvortzcn6gmx6on7732mxhlorodksrpit4fjzo4ph4a",
+      "contentHash": "sha256:e9988f5a978a7a70e59201c4ef849a82ae22d06bb82918661e391a918246cef9"
+    },
+    "i-shipped:a-fix-to-pass-ssh-agent-variables-through-to-the-sandbox": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sih4qg2o",
+      "docCid": "bafyreibhwriy6a5gze4q27kkce2dbetnvwtr2e5sjumv4rhckim6tqt4mm",
+      "contentHash": "sha256:b6639595927de5541482eec05e90518fa6ca4aba510497324c1351c93026d5c0"
+    },
+    "i-shipped:a-fix-to-the-discriminated-union-docs-to-make-it-clearer-what-operations-we-do-and-don-t-support": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5silci325",
+      "docCid": "bafyreichklcow6j67dirz75ghxtt35xanxxq4htspbkny5ywgkzpqilaqq",
+      "contentHash": "sha256:3ec5d360c3be43995c9c8206bf1a102c2bf0c7caf39a8d37974774919d81c9f1"
+    },
+    "i-shipped:a-fix-to-wait-for-membership-confirmation-before-enabling-the-chat-composer": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sipibd25",
+      "docCid": "bafyreig6zotkbtp4k3c6yhrnszreqtuyzbw3knu7lt32gkoupy4ucwf6lq",
+      "contentHash": "sha256:2c9f28f96cd9af90b0318e26956bf70b2a63896d3a0e0e83cb05c560cd34a65b"
+    },
+    "i-shipped:a-friendlier-api-for-permission-relation-names": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5siti6x2b",
+      "docCid": "bafyreidxkl7mxz3hqptootf7u6hajzkkqxx5z2f7jjoiazlhvf7vuqnyvu",
+      "contentHash": "sha256:cf7da96f04e7ae2aa529a931d0652eb1b16fea6dbabbb53e74beb20c94c28406"
+    },
+    "i-shipped:a-full-chat-example-with-permissions-and-invite-flow": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sixyq32m",
+      "docCid": "bafyreibk6iewiivcldf6whkhraacn65qbhct77aas6c6abs4ywyururdne",
+      "contentHash": "sha256:e5253ba440a823d13173f4eb36f60e086937770e2b802fcf577d114f501c40ba"
+    },
+    "i-shipped:a-guide-on-how-to-model-data-in-a-jazz-application": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sj3xol2m",
+      "docCid": "bafyreif5u7gze36wh5b5gwdyrxkavedxfmas5fohfaioow6q37tx4rcy3a",
+      "contentHash": "sha256:6622beab26ab626cb522f61aff8af93d93b1ceacd15ed161fa5bf882408bc387"
+    },
+    "i-shipped:a-huge-docs-update-removing-twoslash-in-favour-of-extracted-code-snippets": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sjbhiq2b",
+      "docCid": "bafyreicbao7sma3u4h5dzvsne2fl2vnogcavv55ndq2r5sro7eymsqmsli",
+      "contentHash": "sha256:5c57153b61d5db96dee2f6152da9102d51ca159dc43e491a9487e011b47e97d8"
+    },
+    "i-shipped:a-jazz-demo-where-users-can-create-a-collaborative-piece-of-music-on-a-step-sequencer": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sjfkeu24",
+      "docCid": "bafyreich5n6xnrhi5pghh5jssodwvlki7sht2xhccf4oleoylic45my6lq",
+      "contentHash": "sha256:9aad89e4fd6589661876ab496259526591f260c26af97cc57b49938b1d226902"
+    },
+    "i-shipped:a-link-validation-script-for-our-docs-pages": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sjjjcq2b",
+      "docCid": "bafyreiei624w7i4hhwwqif7iiv5wle4bqayomqlkwx3q3j5zvpmfy4ix4a",
+      "contentHash": "sha256:71f8d632dd8185f99e9e4359edc9c76ee3793cde320f58fbd530ff02a4c9fe74"
+    },
+    "i-shipped:a-minor-fix-for-a-regression-introduced-in-our-navigation": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sjnm6a2b",
+      "docCid": "bafyreig5ggopjme7ibtsjy6trh23wtwdkj4mmxusbad4f5onckozzc3aia",
+      "contentHash": "sha256:fa672fe9bd946c5c63bd717d1e30d95bf40c3997ade0b9e435a7679e9abd66d8"
+    },
+    "i-shipped:a-module-type-declaration-fix-for-the-jazz-wasm-package": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sjst5y2b",
+      "docCid": "bafyreidv2qiqblyyux25wlhnofwrtbk2imongdesfs2cym35c7holposri",
+      "contentHash": "sha256:ea329e196b8953b04740f24f6a7a38ab2e8cda590dfe04c5d4b4b074f7498323"
+    },
+    "i-shipped:a-moon-lander-multiplayer-game-example": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sjwuzm2b",
+      "docCid": "bafyreihzwxymft35mzhed724ls3kum6wlbdgquzagnypf5tweqxfxkhkxa",
+      "contentHash": "sha256:21d796135d5d09fd393e9add29dfece7f4dd4a1ab199f0c23175a2579134d229"
+    },
+    "i-shipped:a-new-not-found-page": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sk2uy62g",
+      "docCid": "bafyreiadf4iy5mugcx26bs7segja4qwieoilicxysmrkftkkkk53zqrnse",
+      "contentHash": "sha256:e9b877c7c230d935b520edbb617f592e18180be72d946979af8e532161bb0819"
+    },
+    "i-shipped:a-new-section-for-our-docs-offering-performance-tips-for-advanced-users": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5skn5v22c",
+      "docCid": "bafyreifov25ybm3qdosfxbr5nsbq4g3vflr3pg6xaj6i72ju2zy6zwd7gi",
+      "contentHash": "sha256:00ef0ad2937e02e81ac6a86f632553c5ed87bab8291436521cc4d0e97f896ef4"
+    },
+    "i-shipped:a-new-section-for-vanilla-users": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sl3nr72p",
+      "docCid": "bafyreibmrjvartzbdiwvbqtjy2ohougi47vjihbqf2mxzdn4jj7xenm5ay",
+      "contentHash": "sha256:32d5cd0739138304af338ece3926322fc98ee4e9a8b521a831a770280fe1bc3d"
+    },
+    "i-shipped:a-new-testing-section-for-our-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5slcbpi27",
+      "docCid": "bafyreifr5mdtzpo4cxbmnq3lvlk3mabwpvg3gilwiowvhsel2wmk6khxym",
+      "contentHash": "sha256:5475393476e6552350d91d62254ca665087fd8d781f495cd67e15553ca30a059"
+    },
+    "i-shipped:a-new-way-to-create-invites-to-groups": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5slgigq2x",
+      "docCid": "bafyreidjx5lq5sc236s6vmqrucxumbpqlpddyrmizmtjruz7wy4krgrmay",
+      "contentHash": "sha256:066e0127cefa73ce36505be7315049d165f492db4d7efd5899673d9b3faa5259"
+    },
+    "i-shipped:a-note-in-our-docs-warning-of-the-risk-of-xss-attacks": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5slkpai27",
+      "docCid": "bafyreicu4sldka2qc2vjz7pjlqaz5i74jlnqty4pzog7frlz3elmr35zgm",
+      "contentHash": "sha256:8a22d6c222a7ae2f78839c48110f752074a081497d8290d69e37c1977aa8afae"
+    },
+    "i-shipped:a-performance-tip-for-using-selectors": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sloo5x2p",
+      "docCid": "bafyreiewxq7pwoomj3riyweklb7aaz2lhighkok4ccwrsutbxrzrrmedme",
+      "contentHash": "sha256:a51d4e815760fc81a16a69643ad0d7c6b7a9a9643734a7ec544c8e8eb9126cee"
+    },
+    "i-shipped:a-pr-to-fix-an-infinite-navigation-loop-on-our-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5slszuh24",
+      "docCid": "bafyreidtoegii4aoc74omkv6nicfeb7wyosqcxr5eolj77tpen6zh2ixg4",
+      "contentHash": "sha256:271bdb63447a6e903240fa93842b2130706b10ee746b0352378e58e11c685e28"
+    },
+    "i-shipped:a-quick-fix-to-address-a-security-issue-in-next": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5slx7ng2g",
+      "docCid": "bafyreicls7qt4yk3s3nleimdawpimychggo2b5ubotdijxkx5h6ptscq6e",
+      "contentHash": "sha256:eb3915a6674b8e2214e1130d110d1be4527d9b43fa947ef00f9f9d751f295e5a"
+    },
+    "i-shipped:a-quick-fix-to-upgrade-our-svelte-versions": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sm34my27",
+      "docCid": "bafyreieepjcepb6aweukvf6lhj4t2nses6u6iturog5hggtbrhsao2bpte",
+      "contentHash": "sha256:5c138209e6964060d400e0e6e9dc392f72d62237b4e24cf9ae11d7f9eb8add68"
+    },
+    "i-shipped:a-react-quick-start-guide": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sm74jt2m",
+      "docCid": "bafyreifconxloyt5ju3pqdfsxlceo7v5vwrzvo2und3wd4kzrsvhtmqjvy",
+      "contentHash": "sha256:f6fb692eabd5b2a00dc3ba81fe942d5b46b1694a4121ac57912ad2116e06d38c"
+    },
+    "i-shipped:a-rebuilt-world-tour-example-with-a-custom-globe-and-vue-tests": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5smosji2b",
+      "docCid": "bafyreidlscc2tfamqo6pllouqszusvptlrxaezkkoeqxc4sbgkcbk27vw4",
+      "contentHash": "sha256:8b6c8b777c86b13c075d9c56d6b3c91eec0c41cf751e230893d13042847e6929"
+    },
+    "i-shipped:a-refactoring-of-our-use-framework-hook": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5snidvw2g",
+      "docCid": "bafyreihy5bhbem44omhwhjpky55btkhzvub3o7eqogb7rjlcl2sdpm33cy",
+      "contentHash": "sha256:d889e9bf09f0806d1e7e0613e42a704e355e2be51569e63a2de85cd44c529ced"
+    },
+    "i-shipped:a-reorganisation-of-recipe-docs-and-a-new-group-permissions-recipe": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5snmgrb2b",
+      "docCid": "bafyreibdfjtz3ezc5t3pj7dqm76sgtzvewmpyy4mctyjmf3ol4e4p5biqi",
+      "contentHash": "sha256:c8e6045992be649da05b6b76f0a11f4cf614421c3232ca8ac0b84ee9fc3a1b86"
+    },
+    "i-shipped:a-schema-hash-cli-command": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5snqnia2x",
+      "docCid": "bafyreihsj57ohkbt2yrget5weypvz5tugxukclpo6vutjfpzdt66jttxza",
+      "contentHash": "sha256:37de3c7647e31b9f4810ef154254a9300bd33b27409276ba1d37be414c69ae26"
+    },
+    "i-shipped:a-security-fix-for-unauthenticated-oom-via-websocket-handshake-decompression": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5snuscn25",
+      "docCid": "bafyreieyeyub6g3ximhrv4djo7dofskienkax46pd7y3wn3rc7oxys5hoy",
+      "contentHash": "sha256:fc43094cb021e60efedf6851f6c32b83122a93da6c27e5473b34128fd0064d77"
+    },
+    "i-shipped:a-small-docs-update-to-clarify-how-to-use-recursive-references": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5so5hpa2o",
+      "docCid": "bafyreifqbogmfq2zketopynn4sr4dspbspo3o74of3l4mjankcvsgyy5qq",
+      "contentHash": "sha256:add5e897f019f9d14ab0d61306c803db523073caae0375de794de63dd44ae90d"
+    },
+    "i-shipped:a-sveltekit-vite-plugin-for-jazz": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5socdxa2o",
+      "docCid": "bafyreihsvjbt54bcl25guxhfq5jfeiu43quaablbvobudwgk5hcvfwszmy",
+      "contentHash": "sha256:c84eb15629cff0a8281f90ca06d4b97dd85ee16eaa09b401f4e7cff6ad6751ff"
+    },
+    "i-shipped:a-testing-infrastructure-cleanup-for-the-chat-react-example-app": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sogcuy27",
+      "docCid": "bafyreig4sx2n2bkk44yspn6nfo2u4lpos5lf5dpwqji355jp47mlwmjy2e",
+      "contentHash": "sha256:a8bb2f3d9a4c36d8d9bdc5aeb2bd0235f063488f275936ddc34925497fa72123"
+    },
+    "i-shipped:a-type-import-fix-in-the-svelte-quickstart-example": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sokb322z",
+      "docCid": "bafyreifeatyu7fm6jxhorns3ra2mz73diaygpmpdcau3t7fztvuwg5vvke",
+      "contentHash": "sha256:bfe87329807102c66dfbac42ff0e7bc5650e704e525c60ad7b15cff975b65ff8"
+    },
+    "i-shipped:a-type-level-fix-for-hopto-destination-row-type-inference": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5soodqh24",
+      "docCid": "bafyreid2eps7msqxnd4i3q7airwgbxjug5sh2bcncbtdza6vjwk3hylp74",
+      "contentHash": "sha256:edc6ec45b991d25270d4e35b24cc87996338f95216b243e73118dcd14d9b2451"
+    },
+    "i-shipped:a-typescript-type-fix-for-the-sveltekit-plugin-in-strict-mode": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5soskgy2x",
+      "docCid": "bafyreifmc3ihnpr7cp3jlcv3da22szvigc5pbuvajaxow2fubhuajxclly",
+      "contentHash": "sha256:f520dfdb456eed878eeb29d81c7ec205e88e22ac505eaa60d512b6d8fc7c427c"
+    },
+    "i-shipped:a-typo-fix-in-the-tiptap-svelte-installation-guide": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sowobq2x",
+      "docCid": "bafyreic675es7h4nplblgvcikoqyf6vbpbfnxqkhywp76bednvtpgflrte",
+      "contentHash": "sha256:10dd974317af8b20a6499d372879f18fb76c5799d6700fe644b85bc425123958"
+    },
+    "i-shipped:a-unified-signature-for-create-invite-link-across-core-and-browser": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5spcbex2p",
+      "docCid": "bafyreihzfkfoen3wwey26wixt4xvyrnhumofdgu2mayfhab6j2b7bny35q",
+      "contentHash": "sha256:5eb9131045b26bbfaf9e3fbee222f737834a2832f5fa8bf3f3f35cc79f41c72e"
+    },
+    "i-shipped:a-vue-3-example-app-showcasing-jazz": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sphggu2b",
+      "docCid": "bafyreihtsx2ug7owa252f4or4catv57qi3jic7ubhoa7ev7uhspwsmnhim",
+      "contentHash": "sha256:b3b62c83aaa2ef9bb0d368ae10d4c8ed47ef01a37b54d93525af794abd2f8caf"
+    },
+    "i-shipped:a-vue-3-todo-example-for-jazz": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5spltzl2m",
+      "docCid": "bafyreievoxt3ujpkjft4msw2xyuos4ma5m4hkceahuruwvcrhyfvu6t5y4",
+      "contentHash": "sha256:802df03f931e5c416a4cafadbfbe616b12431ab4c4dc0a86b704faefec93f8a9"
+    },
+    "i-shipped:add-a-512px-progressive-image-variant": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sppr3e24",
+      "docCid": "bafyreids7olzxv2nixic7q6bl4225ofhtckdhhxvenowsywqgqs2zrml7q",
+      "contentHash": "sha256:a74ec01a84ced267d571ecae85a0daed55aca42309022288de9965cfaf5951a7"
+    },
+    "i-shipped:add-a-clickhandler-export-which-allows-you-to-handle-clicks-on-data-points": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5spv6tl2c",
+      "docCid": "bafyreiemmjpg7mcpcbyq4em5gmdbu5gymbixu5x5kmggkesgm526woyxre",
+      "contentHash": "sha256:59dcecb291c5f854f0076c15d0daaf798e49edbd8e8eb6f9219beda9152a3f53"
+    },
+    "i-shipped:add-a-daily-excess-metric-which-shows-how-many-days-you-exceeded-the": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sq2pm72b",
+      "docCid": "bafyreiftroxlbz2eohglb7nqulavobyobrbzrsnnq4gf6rc64m54dkv3hq",
+      "contentHash": "sha256:83b4a872ba9df51be23b48496fd433c5efb551a591630d81bae78ef4120fe007"
+    },
+    "i-shipped:add-a-delete-local-storage-option-to-the-inspector": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sq6rih2b",
+      "docCid": "bafyreicb3csnzonbdvctcvp2umca2t4pzkbcncsyquqzagqqfwdtly76im",
+      "contentHash": "sha256:56ac3e15e3f7d5dbdc2dcd77900240675bac130958fea05ac6a7b53836e08d6c"
+    },
+    "i-shipped:add-a-docs-index-to-agentsmd": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sqfblc2c",
+      "docCid": "bafyreid455p273r3zklz55wvfks7ny2qfi6ii3jgpsdjupa7jbeytvcwtq",
+      "contentHash": "sha256:fbe9383991a1a43457df6c92a0661daa044ae0a3d7e774bc5b404819ceeee3e3"
+    },
+    "i-shipped:add-a-hash": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sqkjhp2b",
+      "docCid": "bafyreib2kjyyq7yh34s6yc5j7iciuyrpehal462suqihi45bhe5epb6z7u",
+      "contentHash": "sha256:9c98005e68f304a05527d674b5520e979574fc81e27d60429a4241e91faffb5a"
+    },
+    "i-shipped:add-a-tip-explaining-http-only-cookies-issue": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sqomct2c",
+      "docCid": "bafyreigeppldjedptlgmh55goch27kpqgqvm4gfbyh722v4u4fmwos7mkm",
+      "contentHash": "sha256:bf2963fb761bf82703d8d03381bd9fa7df0bcdb91acf0ef785ceb845a6d92523"
+    },
+    "i-shipped:add-an-empty-state-to-artist-search": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5squcxy27",
+      "docCid": "bafyreieucdaw3nlzgltfawzyqu5w5c2qtf7spuigcp3jyianorysffzgcm",
+      "contentHash": "sha256:92fac69fbecfd008340219cf3d6fa9059ac3b5e9349c890c32e70f67cfa89d9e"
+    },
+    "i-shipped:add-cleanup-function-to-useeffect-example-of-dynamic-imports": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sskpgh2j",
+      "docCid": "bafyreicpzw6ywdp553ptkorwyhpfbjd7pim2rwqpen3piixk2ipy467meu",
+      "contentHash": "sha256:1c2a87707c41c1bae89694b03b0b961df491f5bf717f78fb8c7bf9b2e9a55d5b"
+    },
+    "i-shipped:add-contextual-error-hints-when-covalue-cant-load-due-to-sync-config": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5stbxcr2x",
+      "docCid": "bafyreiedweaz54i7o3yaygbhvyhfvt7zf3sllod6tgp2gembbhyvkj6lna",
+      "contentHash": "sha256:89d638dcc40d12f86e4f488661f4707b505a26564e390776319c2341dd0c3295"
+    },
+    "i-shipped:add-custom-placeholders-for-image-components": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5stgzgl2m",
+      "docCid": "bafyreibh3bf2q47kuksvxgudun7gvaqhpxyco7c6kdwl3lotdamga6lrti",
+      "contentHash": "sha256:e0a49cceafe6a8d66731f18e92b6bdd75545b5ee6b73627d58fdf32b04a30dc9"
+    },
+    "i-shipped:add-defaultlayout-as-an-optional-property-in-markdownoptions": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5stlb6g25",
+      "docCid": "bafyreicaxeyrtvdpkmdf5nklty5bwn4kwdx4tpnqd6ulwcffaht2ovfgha",
+      "contentHash": "sha256:fd6b678dfbaff7f9ac859b05a5010518f895b6e964fbdc6b7c85e4d909cdf091"
+    },
+    "i-shipped:add-documentation-of-optionsparamsendpoint-to-the-s3-section-of-readme": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5stpb5g2g",
+      "docCid": "bafyreicrvgjtty4uzakqn3xkf3wyzlwwp2x7loqhqtw64wt77wcw4jicbu",
+      "contentHash": "sha256:dd291d69e38641abd369c5ef5f3a09c0bc2556925d22afa998522711713ec6ba"
+    },
+    "i-shipped:add-documentation-on-using-nextimage": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5suihqd2x",
+      "docCid": "bafyreia73f3bnfvig3fetgwgtwhsg2tqmjvxec3qejy7poofcynt2rmr7y",
+      "contentHash": "sha256:41313be0e38f9613dcae3a88f6ef91b7de8b619a6227f8c770eceab6b2b8876b"
+    },
+    "i-shipped:add-improved-docs-for-suspenseerror-boundaries": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5suomyt2x",
+      "docCid": "bafyreihivbqu7sxjaowfuc2t72dtb6ij2ot5uphrkbl7ooppzwwvtadqs4",
+      "contentHash": "sha256:e4e82d37fa6879892413a3bc5def0584ac81343febc111558253cc39625c28d2"
+    },
+    "i-shipped:add-jazz-workflow-world-documentation": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sutemk2z",
+      "docCid": "bafyreifxuk6rdqvn7tr43przhdabsutrakk6x66jipshqmpbcu33r2fmke",
+      "contentHash": "sha256:4f396254a7229be01f8012ef40210380f77e840811bc624ffa9dd1cfd4dbb36e"
+    },
+    "i-shipped:add-joeinnes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5suxgb32m",
+      "docCid": "bafyreidevb6cju5bpx5fephm6vuveberpb3odkbprudgzl7csdvyfsr5lu",
+      "contentHash": "sha256:70360016912fdc95e0df3cd184fb1d6c49f77827686b3aa9ab0fa4e9653d9279"
+    },
+    "i-shipped:add-joeinnessvelte-image": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sv5wd22o",
+      "docCid": "bafyreidzbiudtzcbdx4rquf4mif5qbbpermnhtbn3kpb4bkiut2nv7hbl4",
+      "contentHash": "sha256:9edc97f0349984760e17fca4cbead10ff28618c21c04697e372b113bff320d47"
+    },
+    "i-shipped:add-pagination-and-fix-table-layout-issues": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5svml2x24",
+      "docCid": "bafyreieeehmuvxnq5t7lwtm2dzc5ft6ab4z3nbvq4gzh75dad4ozdz7dra",
+      "contentHash": "sha256:285776b168ed25b23f3858c535d5d8d349f8400cfd9f8f56c162297be86ec8eb"
+    },
+    "i-shipped:add-some-skills-and-reference-material": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5svqpuj2b",
+      "docCid": "bafyreicc6du7jfzwkhnywusiekx3zeum5szkeix4ramlf3stux33htzwze",
+      "contentHash": "sha256:4a11948f4ffde6e2cae41147df9823259f58c00cb1cdf42e2f545e3afaaea7e9"
+    },
+    "i-shipped:add-svelte-kit-to-ignored-paths": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5svutnt2x",
+      "docCid": "bafyreigxqwdvlxupsy3racvhicp7uyewo3lhd7iceh3gn4iln4cmvfj4nq",
+      "contentHash": "sha256:5279cdbc72e4cdeb450d5f5a60df09f27d76f037542c243e9660cadef2800fe1"
+    },
+    "i-shipped:add-svelte-provider-documentation-and-metadata": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sx3pt52b",
+      "docCid": "bafyreihiqwoo5iqz6osigm5g5jycvlovgvj7gg4xod6lpcukrz6przvaum",
+      "contentHash": "sha256:ff67f44607b6325465b5399c0f0eca60cef67d6e8edff896341fd36fd3465359"
+    },
+    "i-shipped:add-vanilla-code-snippets-everywhere": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sxag6x2p",
+      "docCid": "bafyreibaxx6jzgjfvfy4vwvstri6xlgyrm4db4oxxja7bivifd3kwdtszq",
+      "contentHash": "sha256:dc87d6d83682322a760423c6356b4be8bf537257d12ac7715716dcdcda62ef0a"
+    },
+    "i-shipped:add-w-full-to-the-pagefind-container-div": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sxooc62g",
+      "docCid": "bafyreiaeqqanjzjas5y6ks32jfonbmzziq7tq26yvwz2qzupnztsgk7fpu",
+      "contentHash": "sha256:1d4d8719527015ad8d47957c44b9f7ad5b8c937a5b408bacc4e1baa781e28a0d"
+    },
+    "i-shipped:added-a-time-to-station-parameter": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sxsxyu24",
+      "docCid": "bafyreict52qfq5dcuvs5pjb57qkuwgylfznpqixdz47utrrerti5w6n5ry",
+      "contentHash": "sha256:4a5bb879f41f7e733d00d30bf39761a9354601e2211d7d31e420dae7f0ab38b7"
+    },
+    "i-shipped:added-an-options-property-to-set-headings-manually": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sxxxep2j",
+      "docCid": "bafyreiavheslmsy6cijf5g4tcvw6cxj4mjciakbhrjioj44p6nyn7t4hnq",
+      "contentHash": "sha256:07a6037b8a1fdd30145ad1639756d08a0e0d71a3e0de818d1c1f4eab554043a0"
+    },
+    "i-shipped:added-chatwoot": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5syi3pt2x",
+      "docCid": "bafyreihd4s6izs4reo65pychf2odscakfl3cdcrtlz4cn4dwbbuy5bcs5i",
+      "contentHash": "sha256:248ac95dfbe25dee4a36273f448566b76694707c248e6b7823ea56dcc1593ce8"
+    },
+    "i-shipped:added-details-for-semya": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5symxzg2g",
+      "docCid": "bafyreiebwvd4e7hbftvmfvnrsibeaanwfytd6tik4m2j5g6k4awn3ixnme",
+      "contentHash": "sha256:1a9a50151d0b0cd555d64ac48e41dd0da05619c864892a73390e63df9e6046c6"
+    },
+    "i-shipped:added-documentation-for-tourremovestep-fixes-278": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5syqy5k2z",
+      "docCid": "bafyreibwnt2nlgjbt6tbohmkcqpateefvlsatufmvoyplfackgvxzvzkve",
+      "contentHash": "sha256:d5c8928fd48889350e88215ebf2fef34e827cf3c334097a92c1aa32d01c93acb"
+    },
+    "i-shipped:added-links-to-sections": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5syuu6c2z",
+      "docCid": "bafyreie5cyb4ojxzykitv3ukmlvso5lwcvteemx4oqe2rx2ycqespz5zfi",
+      "contentHash": "sha256:256f30918984d348343a5958a38b42767d3601ffc989c4fde1dd48b63208b990"
+    },
+    "i-shipped:added-missing-close-curly-brace": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5syyutd2x",
+      "docCid": "bafyreif2orubnhc3c7eddad7qgetf6sxga54yesae7bqrravpmp4mlqpty",
+      "contentHash": "sha256:2851509f60459d80012f08a4eb3590756914bf83a97e2578789ac994971d2d2a"
+    },
+    "i-shipped:added-myself": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5sz4wqz2b",
+      "docCid": "bafyreifdg7vlet4fad2lngos5r3szrqcnxbsmwp6mjbnrpktvjbkndvyem",
+      "contentHash": "sha256:8c6f99d9385143ca526bce3666cf2495b98bd5f46cd2b47686b5b285459632db"
+    },
+    "i-shipped:added-newer-mockup-screenshot": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t22g4o2g",
+      "docCid": "bafyreiaaz6j7mfbvp7qrldpefwk7ohtmrkwuqjn5fgoupiv2e3tah7quma",
+      "contentHash": "sha256:bd1a732e11cda0d0f15da954adae0ef7b2b3952fc10af0037cfd31c316e44774"
+    },
+    "i-shipped:added-noncritical-css": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t2iyvf2b",
+      "docCid": "bafyreidwbs6f57k6s2pip6p2aboewb5qmlojd2xqoazf57r2zootky7p6e",
+      "contentHash": "sha256:344126e89227453e9744fa15de6b46eddbd773765912820598186619ab197633"
+    },
+    "i-shipped:added-note-on-when-option": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t2n7nv2b",
+      "docCid": "bafyreiduwq6vkqyksv2pfzoqsrwx6vmhje7mlb6j6peq7wcmckewwzx5im",
+      "contentHash": "sha256:2b28b5925d64ecfcbd940b7e1987d4c0ea7a12ca206730fd7a9fb59304930953"
+    },
+    "i-shipped:added-reactive-timing-and-subscriptions-logic": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t2tb262g",
+      "docCid": "bafyreiecqi5juhydk4rl5y5ccfd3iqcd522ibzh27ticqjl3ttjggxgqye",
+      "contentHash": "sha256:0828096c1080d2077556d18c7b9df2124e7717be1677b794f36bb808cf71a6e1"
+    },
+    "i-shipped:added-websockets": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t3mkmp24",
+      "docCid": "bafyreig4v3n533pr6mfkxjnbvosncspteanq5gam35m5vycozof4dxmf3a",
+      "contentHash": "sha256:bb4b37ad125a39001ae8e5bf776f51dc6e59117dd0cdbc64401719efca39a01c"
+    },
+    "i-shipped:adjust-prominence-of-node-20-alert": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t4tybm2c",
+      "docCid": "bafyreib6yc5a2ebv477riqab5pxjsrda63alfbyzai7agorw3claamif6q",
+      "contentHash": "sha256:b6789aa7fe681c9709760db605a21b0f805a8b9847d563e760f8106ba105b648"
+    },
+    "i-shipped:agents-md-and-skill-files-into-newly-scaffolded-jazz-projects": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t4zts32m",
+      "docCid": "bafyreihhhcy4cldenry5kuowce7cyykscufumyi2bgwkxw7mjtxjzidw2i",
+      "contentHash": "sha256:347a7685c769be73be402fec735229f08395ae0c034a3be1bdaf1c0f72863cd1"
+    },
+    "i-shipped:agentsmd-files-for-jazz-starter-templates": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t62etw2g",
+      "docCid": "bafyreieupbxsafhmchqrgteop2lbposhhr75wychqrzcrpco7xc53djfmy",
+      "contentHash": "sha256:a36d53dc01bdeb6742932a42c09254579186523d5e802b114a1f15b3c660f0d9"
+    },
+    "i-shipped:aligned-vue-and-svelte-bindings-to-match-the-react-api": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t6a7l22z",
+      "docCid": "bafyreieqyw2h35f36o74hbu4k52agaoucbiq7bgjxb6fhbzeczbout5q4m",
+      "contentHash": "sha256:1b973d38328d7b0bb5d6cd27bbefe52e0ba659531e304cf4b5cefd461d12d4d5"
+    },
+    "i-shipped:allow-passing-version-to-knex": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t6ee7t2c",
+      "docCid": "bafyreihunllmhnyeyhehdfd2cumzzssucp7kigc66lvwtkqpztxze3amye",
+      "contentHash": "sha256:5f07c9716c3f182aaa48fa0a16d683179bbca1171ee7fc433955bbedb0a2940e"
+    },
+    "i-shipped:an-additional-section-to-our-performance-docs-documenting-batching-as-a-strategy-to-improve-performance": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t6ih272g",
+      "docCid": "bafyreia6pido3wq66palltrmjzrvozhpiu32rsvetw2bpdm5jjyejtjjhq",
+      "contentHash": "sha256:2a2241385e5b3bf60a95308d0afc59e3673186cf104b6f3e3a3fe6ff6ac30723"
+    },
+    "i-shipped:an-advanced-internals-reference-page-for-the-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t6mgwd2x",
+      "docCid": "bafyreifyejo5jeilxghoarzpwv4wcpjhcgxczprji6wjds5lb45uzgkmua",
+      "contentHash": "sha256:079bbd7dff6c2d5eb94bfb792c412fea8040f03419306cd553d22cff83c30b47"
+    },
+    "i-shipped:an-advent-of-jazz-banner-for-our-homepage-to-promote-the-initiative": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t7hobh2j",
+      "docCid": "bafyreihvdhr4lx7e3lhnknpifzslwfrqmmrlrlvadix64figegz5iwwfre",
+      "contentHash": "sha256:f7f4ffa002c80112f53b72f765c4f0c55df11891ba59bbda94638bb707c3db4a"
+    },
+    "i-shipped:an-alphatab-dependency-update-and-vite-integration": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t7mm7t2x",
+      "docCid": "bafyreif6v2c2ynvk3y7tgxfnm2nqqoo5vqnao3wbbglxaqkllmt7mrjf7u",
+      "contentHash": "sha256:80e2fc364d83b042ba9171b097b6686c79c7473638083bdea5676e9b0b10e323"
+    },
+    "i-shipped:an-animated-diagram-showing-how-jazz-syncs-data-across-tiers-in-the-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t7qztd2m",
+      "docCid": "bafyreifwhuxkdeivqzrbdnxvrdiwrdt75zcsnrj7nu73v2xdnl26rw3v3e",
+      "contentHash": "sha256:7c75be2a510cad6abe39fafafb40454a41997b40339c155985c6e7ae895cd0a6"
+    },
+    "i-shipped:an-end-to-end-ci-harness-gating-the-starters-release": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5t7v2ra27",
+      "docCid": "bafyreiaqjcp2szip5pzddrlvubcu4ioihmorktr2wzfhmcwzhqyox3fsmu",
+      "contentHash": "sha256:5c085d58edc1f4457a40a2bc98e86318e81a9dfc7842a6dbd72b0d8100342ad8"
+    },
+    "i-shipped:an-end-to-end-test-harness-for-jazz-starter-templates": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tb3ed32m",
+      "docCid": "bafyreican6u5ohpkznkx7jhjdn3iybjavieeraijor7s6t77y5mfag3v3e",
+      "contentHash": "sha256:5233c13499813135e2e53979cdea949e7060e2dfa9930cba0d9d4461a26313c2"
+    },
+    "i-shipped:an-enhanced-and-completely-reworked-version-of-the-subscriptions-and-deep-loading-article": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tbbdrh2g",
+      "docCid": "bafyreienxgitu77vv5euky7ygrukkwcpuavb3p6umexezh56rs7whncv7q",
+      "contentHash": "sha256:f8629669dd7f4c3c5c0ca37ca19784e5153b364dbab6bef630006a2d70b04659"
+    },
+    "i-shipped:an-enhancement-to-our-existing-server-side-rendering-agent-which-allows-it-to-be-used-outside-of-react": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tbfsec2o",
+      "docCid": "bafyreidil5jexyxlcqvmfht3szl4yitvzrh66ta6qpckqs7oyx3ugjc3li",
+      "contentHash": "sha256:3158bafe321bed573ac7ca45da116741376ee340411f78118b931c4e55efc3c1"
+    },
+    "i-shipped:an-enhancement-to-the-commit-button": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tbjw5d2m",
+      "docCid": "bafyreig3jqntqqnhgneu6j4zudzotb3bw7oor46lnrtckltbybvwontmxu",
+      "contentHash": "sha256:b519e21ad78ae82c5195d017d02dd4479170a1200b32c50f31d9f94eebf8d00f"
+    },
+    "i-shipped:an-example-for-clerk-integration-with-svelte": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tbo7th2b",
+      "docCid": "bafyreiapae4fdm2vnwscrvyeint46rjl457dot6w5gdklrffu46yon7aim",
+      "contentHash": "sha256:f182336e1a0d482c097275b0d4766253d864991631498d9ee4a63c9ec64f5033"
+    },
+    "i-shipped:an-expanded-local-first-auth-docs-section-with-internals-reference": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tbscox2b",
+      "docCid": "bafyreibwzw6ubex3tru5wi2ry3blwa637vzw4rglq2a4nnoda4mq7doelm",
+      "contentHash": "sha256:f634749b1d4d4e0d5da9b699abfaefadbdb4184e45f751546df923e76b2f6ea3"
+    },
+    "i-shipped:an-extension-to-our-cryptography-docs-and-faq-clarifying-our-understanding-of-the-legal-status-of-jazz-s-encryption-algorithms": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tbwiiv2b",
+      "docCid": "bafyreig7znr2hvfxzvs7uxih7rhojqhdxmh7554j6u7ockajrasfjggj4q",
+      "contentHash": "sha256:e4e2f08aade009038ec0e5cf121e0d97b9f111d709054e9775b765076683667c"
+    },
+    "i-shipped:an-improvement-for-our-existing-code-group-component-s-copy-function": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tctwuo25",
+      "docCid": "bafyreiac6zqn2shmqkc5cf4hf2ntyubbo5tqb6i33ut76tgdfmabzarhiy",
+      "contentHash": "sha256:985506e00d2e5830e14960ea7493f310a44d2f56c310378fa205fb8d73706d93"
+    },
+    "i-shipped:an-improvement-to-our-docs-consolidating-our-various-bits-of-copy-for-getting-an-api-key-into-a-reusable-component": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tcyiff2b",
+      "docCid": "bafyreicrgsjkwg3aorsuvcbxuwkiaxnxztdjeskguovd34j6s2z6w3c6vi",
+      "contentHash": "sha256:2e0c15b29e8cb97cf951e47b1a3dcf7ed4242373e9447eec4c33e280434ab33c"
+    },
+    "i-shipped:an-improvement-to-our-homepage-which-lets-us-know-when-someone-abandons-a-search": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5td4lad2m",
+      "docCid": "bafyreiadsaibb6c6mfkznczonqrwnujiacgzcxizbpai3i3wjsloc5gboy",
+      "contentHash": "sha256:298c116272a77e33c123c264a56aa815ec62450a0cda6e8eda7afe1f218ad8d5"
+    },
+    "i-shipped:an-interactive-app-id-generation-widget-for-the-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5te5a6f2b",
+      "docCid": "bafyreiertl5psxijv37uyutfqplukelyxz6ei6nymh6tkcskvefckqqcmi",
+      "contentHash": "sha256:73938f09287cdfaabae78a76b9120a0dd87e47b2975be68c5f27d4eb4d522b49"
+    },
+    "i-shipped:an-interactive-lens-diagram-to-the-migrations-documentation": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5teciep2j",
+      "docCid": "bafyreibmvrubik5d5e74el5qgtgl54l6hkdgfuldggswpxogvvaiba345a",
+      "contentHash": "sha256:575a7d54bc1e5e590563835549a66ed247804cea061095b582c325225b1c7e74"
+    },
+    "i-shipped:an-interactive-write-tier-diagram-for-the-jazz-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5teyfdp2g",
+      "docCid": "bafyreigvp5dd32reenjxdl4m5lrev3qkwuvisbaain4nrigdzr3l6txvka",
+      "contentHash": "sha256:b553ece7d1f279e87a05d98e1886ca7d38aa95da14888d1a9a1002d5bb60017b"
+    },
+    "i-shipped:an-mcp-server-that-lets-ai-assistants-search-the-jazz-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tf5amc2b",
+      "docCid": "bafyreifbqmpowbrzpes4yao7v4rb7kipedalhyhuw2b3xohscf6mxw4pcq",
+      "contentHash": "sha256:cacd6977d7fcc0ca0615a23df92fed30a6ab5b69cb106fed52ed0680c0ecb178"
+    },
+    "i-shipped:an-option-for-the-svelte-provider-which-allows-users-to-pass-a-configuration-option-identifying-their-credentials": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tfbaqp2j",
+      "docCid": "bafyreidtrznaqb4pdqpuh2gybyndz5fohksj6iwiuhntabirorer7df4oq",
+      "contentHash": "sha256:c6c8b55ae44af7580a9dc5e9ac1f6a26c2a4cbf64ff4c37e30ce4ec60d68b941"
+    },
+    "i-shipped:an-rss-feed-for-the-jazz-docs-blog": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tffcem2c",
+      "docCid": "bafyreia7rcadeakkihhnnnqrxj5re7egbrgxqj2lmf3n5wdl3q6zgutsfe",
+      "contentHash": "sha256:6ccee02b53a6fb4ddcc345f2db98d1c4d73b285d4c0ff915eea27fe108581d07"
+    },
+    "i-shipped:an-update-to-our-cli-tool-to-make-sure-that-the-correct-llms-full-txt-is-fetched-based-on-the-user-s-framework": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tfv2cn2b",
+      "docCid": "bafyreienpji2fbeq5cln64p7anfuvnrvdorqznt7aj6nikhezl332eq6c4",
+      "contentHash": "sha256:a7c183a53ea95190aad640d20bacb9bf89565f7815f9f4ae2c612e3cef8036ea"
+    },
+    "i-shipped:an-update-to-our-cli-tool-which-adds-more-options": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tg2j5k2o",
+      "docCid": "bafyreicqtk42a5wxkyubmpfbgwxndg5llfytszlij6dmncio7sasnku5x4",
+      "contentHash": "sha256:de129e30446bbc367875da5539cba44c8a6148adbd37e9424798c0a1ad796913"
+    },
+    "i-shipped:an-update-to-our-cli-which-makes-sure-that-the-latest-docs-are-always-fetched-when-a-new-project-is-initialised": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tg6k2k2o",
+      "docCid": "bafyreic54na3a5ehwtx2muavt2pwiqmxnfs23xiplo67poojege6x5c6py",
+      "contentHash": "sha256:28196d18cec9a32c1175dc88f7d1fc0bf56918231781a9fb0cd148803ad522d2"
+    },
+    "i-shipped:an-update-to-our-create-jazz-app-utility-to-ensure-that-only-the-appropriate-llms-full-txt-is-fetched": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5thd27q2j",
+      "docCid": "bafyreiefoqkutmmirsyslpfolweu6hnosdwlv3vslaljg5akdhtemlc35a",
+      "contentHash": "sha256:f4273782d04ff6fa7d14787b8535b7b4c91c5baea8df3146dbe8389729e55105"
+    },
+    "i-shipped:an-update-to-our-docs-clarifying-that-jazz-deduplicates-loads-under-the-hood": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5thjkxg25",
+      "docCid": "bafyreidy5cucmg7ncp6nftjaab3ypdlr4e7rmnkzxoohmwthrltoldtmxq",
+      "contentHash": "sha256:52349edbe13d9f950941165e6a52b1d09da2264932ae63069fc4b636eb0887e4"
+    },
+    "i-shipped:an-update-to-our-docs-landing-page-with-a-minimal-example-of-how-to-use-jazz": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5thnwlx2b",
+      "docCid": "bafyreihd7mnpf3q6ihku2rm2lzs7urigirudizwcqbqfvxiywkm4e7kabi",
+      "contentHash": "sha256:4769adc79e6ab9fce330235d04530b8607771200214ee68cf4f38be3fd22b79f"
+    },
+    "i-shipped:an-update-to-our-docs-showing-how-to-use-version-control-effectively-in-different-frameworks": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tis7yb2j",
+      "docCid": "bafyreidjckuwlou6yhhupk7embor7bondcbl67g3zs44mbmj77m2cks5py",
+      "contentHash": "sha256:a9a19dd4a1fbb278d226f52e5971b7ccf25fcd7aab43f3b9dcfa700be5517736"
+    },
+    "i-shipped:an-update-to-our-image-definition-docs-which-makes-it-more-maintainable": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tjjfyv2c",
+      "docCid": "bafyreidt5vgrztw2fhiu2cp2f54snwc5t7ub3cjymezrry2w2qci23gpje",
+      "contentHash": "sha256:1580c6b202e99b7d64a79ff5416a8cfd113d05f51f4cf79f407389d3fde858cf"
+    },
+    "i-shipped:an-update-to-our-react-native-and-expo-example-apps-demonstrating-how-to-use-images": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tjoqt625",
+      "docCid": "bafyreibllkc6jxdvnto6aan65jebbx2sva5lvzwgeewosycaprw2oxqchu",
+      "contentHash": "sha256:dcfea83d772f7553b2bae20ac15c92f66b06a7322cc851831eb250c305c6c239"
+    },
+    "i-shipped:an-update-to-the-docs-clarifying-how-to-use-react-native-fast-encoder": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tkagc22b",
+      "docCid": "bafyreicirql5e5ef3rsc62gjikektqxu7txac2wbw4erw3ndcv3acofo3y",
+      "contentHash": "sha256:c3ac36443522c7fc5ac1e8fa275f362b15dc35de66e64b1752be8bfad5521ce1"
+    },
+    "i-shipped:an-update-to-the-docs-encouraging-users-to-sign-up-for-api-keys-rather-than-using-their-email-address": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tndyrh2b",
+      "docCid": "bafyreigjo2m7lhrkbkjhe6x3fadb5ahlh5gpredvdhtzhrekikh6cujhl4",
+      "contentHash": "sha256:89839fa57f0044b7a61d422583c50a5387131ae9ec4edfe2e0d9ce65ee80fb97"
+    },
+    "i-shipped:an-update-to-the-svelte-invite-listener-so-that-it-listens-to-hash-change-events": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tnihdx2b",
+      "docCid": "bafyreigjdiq4u7wz443fjhppfuha77o3ldxjbrge2eu6xeekbfuauqwviy",
+      "contentHash": "sha256:1d09b528d5b290d78e73dd01d5cd56fc1f11c546f1573fb83d94a1cbdc965b00"
+    },
+    "i-shipped:api-reference": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tnmjbz24",
+      "docCid": "bafyreic5sapiegad3e5euj4ezam6ojybmf24gcntu6k2jw23fy3bhlrwja",
+      "contentHash": "sha256:9a45b85a5f8d421a7ee379d0ffcd1dc79599d17d962a034f9168e94d20f0a566"
+    },
+    "i-shipped:assorted-example-app-updates": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tnqi6t2m",
+      "docCid": "bafyreie73dqcvdn2quqyejkutjimamebzewnkcvweawhdl7itd2reageli",
+      "contentHash": "sha256:e8406599811c9b4fd490205273586e5d7c7cdfd8122f50402f38b60e4d602706"
+    },
+    "i-shipped:async-example-fixes-and-browser-storage-eviction-guidance-in-the-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tnug5y2p",
+      "docCid": "bafyreicifpo33wbzfvcphruwouoogn3we3bbws4hhvjtwoszhlkpuln3ju",
+      "contentHash": "sha256:f7c1d69e97602d6ba17a35d68cbbf7dc18d7309b44c4e594a19a3cab33e07d54"
+    },
+    "i-shipped:auto-reloading-of-nextjs-apps-when-the-schema-is-pushed": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tnybhc2z",
+      "docCid": "bafyreibfde4ykuowrnddcrra3sscmzav6iwpiryajoajjkxxeg63ga42cq",
+      "contentHash": "sha256:21ea4f10b07894b6dac1793d2d5e339c94116e3d61668247aabc6ca2a1c768ff"
+    },
+    "i-shipped:autogenerate-better_auth_secret": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5to476w25",
+      "docCid": "bafyreibhftwydw5oig337pbewbkbyeb2lmgjmimpjfabqptc2umvgnyf74",
+      "contentHash": "sha256:4ceab318b4b282434cda983d2190ffad68136765ba9c9b9318641989fc642b0a"
+    },
+    "i-shipped:automatic-browser-reloads-when-schema-changes-are-pushed-in-development": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5toa2bz24",
+      "docCid": "bafyreidkepzjhinwihzzramysq7w3ondjhsw7zddzexx37hhzhmhitf2me",
+      "contentHash": "sha256:6b52b1284e3c48ae51043e9c98a1f98d87d8a56d3b2b8716fac1d4a0a38c0834"
+    },
+    "i-shipped:changeset-entries-for-two-bug-fixes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5togjau2c",
+      "docCid": "bafyreihohbxis4hdptcbr7xwfbk4kg3zhpefabzhk2thsiz6pqx7kgrdeq",
+      "contentHash": "sha256:838c93b77df1fa24d052338e662343c49c83de6065e4ded07333c7e8a1ced7fd"
+    },
+    "i-shipped:channel-permissions": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tokwul2m",
+      "docCid": "bafyreig2xybupruaggozna6tffuahrqxv2luws4q4hmrkiz62wwlikrmee",
+      "contentHash": "sha256:2547cdcebbe57bd383ef3c766031ddf8620bcb21cfd288389332bc61e3d4135d"
+    },
+    "i-shipped:clarify-polyfill-installation-instructions-in-react-native-setup": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5top3wj2j",
+      "docCid": "bafyreifncoxftg7q2ljwah3frkwmpakgcjkmoacqfmzgdc2jgdperelslm",
+      "contentHash": "sha256:f05d8baa6df42a41b8ac22b7f4950cca4b8bff86559ff9e7f168c09dbb66a88d"
+    },
+    "i-shipped:clarify-use-case-for-ensureloaded": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tosxpv2b",
+      "docCid": "bafyreidvwllbhqmcglf2t44kgqqqmmivc2lryabldaznve7czxquuqtzre",
+      "contentHash": "sha256:3d257c70d0ffbe0e5fb84891b1ac648cab631a7b03b2600d078fd7aabf9b86a4"
+    },
+    "i-shipped:connection-per-client-caps-and-idle-handshake-timeouts-for-the-jazz-sync-server": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5towxmm2c",
+      "docCid": "bafyreichutyrgrxvat7ys22hposbynvbyhmfxekqwiagzii7ap52u6abny",
+      "contentHash": "sha256:544e45e94b88b734197ff145dec2252a81c01370187e729fbfe62c135efe643c"
+    },
+    "i-shipped:correct-spelling-of-google": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tp2vub2j",
+      "docCid": "bafyreicxesd5gfrvuom3hkwuy5qgmnaubcgyw7c6l3ojrqgsbljhr6p4xi",
+      "contentHash": "sha256:edb393ea5ff97bc8a2891202b598248b6afd229d0abe000df6a08dc332a8195e"
+    },
+    "i-shipped:corrected-docstrings-for-database-operations": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tp6tmx2g",
+      "docCid": "bafyreicopazdc6fbe46kulpohmxmmxcy437dkjyklud7uroa7vya5c2r2e",
+      "contentHash": "sha256:334bebbe093d85d2488e07dec6bfd91594f129a0372563ce195ae0c168cba71b"
+    },
+    "i-shipped:corrected-spelling": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tpf4su24",
+      "docCid": "bafyreichljl56tr6loubsti3ybnco47vj3feuunpvrqparussea5nm637u",
+      "contentHash": "sha256:ffd352dd6d9607cf1d10d88c362d2e020f142f0e3e5856f4a8420cbb16d699bd"
+    },
+    "i-shipped:correcting-typo-in-gitignore": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tpjfjs2o",
+      "docCid": "bafyreifi6d5z2s2vonqrsn2mtarcuh4hnopbze2tghjp3ytdl2nb44ro74",
+      "contentHash": "sha256:aee0e9cebb4b2918925596e122251cb1a8cdd4626348aa3bbf808d2d56317ed6"
+    },
+    "i-shipped:cors-update": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tppskd2x",
+      "docCid": "bafyreihvhxubk4zmg5t2uuxsenhwtck7s6wz6gi2iuomyhaezclxy3rrti",
+      "contentHash": "sha256:e7d623eae8e48beeebc83f8b2c741a2300dbad4f334cbf08e61d1beaec25d453"
+    },
+    "i-shipped:create-projectsjson": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tqdpde24",
+      "docCid": "bafyreih5kc46niovjgjgmyewn6s5pettylejvkm3g5wcd7ej7c5fs7dr7a",
+      "contentHash": "sha256:06d56c3d922e946f022b8c85367331a6ff6cad6c960eb688cc72568f73bbdce0"
+    },
+    "i-shipped:create-readme": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tqj53y2b",
+      "docCid": "bafyreibvihx4jsnet2xghea4mi6tnbatevl3l7mpkefgonsvmncbwuhhuq",
+      "contentHash": "sha256:8f3314b6e9eff1ff9712687da5bce2d94893624e11cff3e3181d2105abc0fe82"
+    },
+    "i-shipped:created-fizzbuzz-implementation-using-ugly-ternary": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tqo2dd2m",
+      "docCid": "bafyreifn74tqdgobm2ux3cwe76yk3shxwbzu6tmuyx6pj2ggtg5dgcmnxq",
+      "contentHash": "sha256:776d0395844d7f3171a6d14ce771903ffc3823c95ba4a29a112a626d0d2e673b"
+    },
+    "i-shipped:deduplication-of-identical-permissions-bundle-publishes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tragaf2b",
+      "docCid": "bafyreihi7kav6keelu26n6c3ugvol5wwktmilhzi4w6vgd3yajnpufekfy",
+      "contentHash": "sha256:5c3a9f122798127dab9b4943d5b6538ac8d8f20843b8af6f3c802d76539a9446"
+    },
+    "i-shipped:deploy-time-warnings-for-missing-permission-policies": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5trmgzk2b",
+      "docCid": "bafyreibvppzvamm2djkrgpco7ufpc42aoew7mskurlebk4u4eneal7ozda",
+      "contentHash": "sha256:6a6e0825035e6d63ca7e01f824617772e89dc38427360990d835f3ba1c1ba153"
+    },
+    "i-shipped:dev": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5trqdzk2b",
+      "docCid": "bafyreiho2vg72sfhyqeqifw3tur7mlba625nhzvohbq2t7hs7zauija5bi",
+      "contentHash": "sha256:f21289a146b646acb562ab0a109b216c436e090f401f2b901feaaaba4c2b263c"
+    },
+    "i-shipped:docs-correct-example-of-getgithubfile-usage-with-incorrect-parameters": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tru7zy27",
+      "docCid": "bafyreicz6mp3azk6wy7k5wh4cpd2odtni5c5vi6hrtfbf7bola4z2strgy",
+      "contentHash": "sha256:620e0275ec1412474225bef42d699ad8ed5bfe6db71c492ecebc40e7e20b4497"
+    },
+    "i-shipped:docs-update-for-tinacmstinacms1703": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5try25x2c",
+      "docCid": "bafyreibxcwdwmy5jdxjlakfmaafj3alwpwntjyxakhbeuoetlzqidl2tme",
+      "contentHash": "sha256:2ebd6575eb83d43d829f672bcba5c8ccd9fd00947340de092ebe1c9e5670f3b0"
+    },
+    "i-shipped:docsoptional-references": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ts4qif2b",
+      "docCid": "bafyreiavlbbsmfeq622hs7jqrjdm7lpdews3e7rya2vbjqlirfc4vi742y",
+      "contentHash": "sha256:f82aa549fd88b7f7b300404784a47ea1517fae6cc14c0d28713b444f72291ebe"
+    },
+    "i-shipped:docsquick-fixes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tsax7u2c",
+      "docCid": "bafyreihkajmui42pscv6n3uz7kdycch7pipsp5gj4ts7fxcrithpq6hffy",
+      "contentHash": "sha256:a993e2e40f0b6d0c49f01afc815520f9981837a5aa36fd5e0b3a6fe45b1c3399"
+    },
+    "i-shipped:document-dealing-with-complex-getters": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tsf23l2x",
+      "docCid": "bafyreibznat3fish7hm5hkmin3ogutljtmookrra7dvrxfx4pzpo654tqi",
+      "contentHash": "sha256:b386ad3000c29556e9c72593d5adbe8f6e47419fc60d32106336a611b281d03c"
+    },
+    "i-shipped:documentation-for-a-pattern-on-how-to-create-set-like-collections": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tsiw4o25",
+      "docCid": "bafyreig4mg76zwxxlf5moheg4bt6ftkckzxkfyjaihqdfyvdspdcqgmr5e",
+      "contentHash": "sha256:868718e8cdd95c9304722539e3783f8c1cd74724e02c00956aba22d39191de19"
+    },
+    "i-shipped:documentation-for-several-new-jazz-features-including-the-schema-hash-cli": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tsmrap2c",
+      "docCid": "bafyreibbdyvnd4jqezfndyrsjfry77htsyrxreavq5yl5r5z7qrz7wzfsq",
+      "contentHash": "sha256:7dfe5fc5c4c6fae9a69f6ca429a6a9ec5c4c49145b98d870cd35bd9d4d50c22f"
+    },
+    "i-shipped:documentation-of-a-couple-of-type-script-options-that-jazz-doesn-t-work-well-with": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tsqp4u2c",
+      "docCid": "bafyreihqsm2dcfwdhbls4k6ra3z5ird2coibl2oekgtn4im636fajgi5ni",
+      "contentHash": "sha256:1f5db026476c1beaefec951d836798e0a0cefefb83debdd2bd7407fa249cfc08"
+    },
+    "i-shipped:documentation-on-how-to-use-suspense-hooks": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tsuo3w25",
+      "docCid": "bafyreicjwom2enhocxkz3lvxzxwrpee2dqiagtbxqajaa6cqrweiop47wm",
+      "contentHash": "sha256:8e67816657ac615ed576889182421fe7bf12419b153b7d3f8f7d7e950b2d1a40"
+    },
+    "i-shipped:documentation-regarding-subscription-error-handling-using-on-unauthorized-and-on-unavailable": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ttpsby27",
+      "docCid": "bafyreiahp6f4gsrybzwvvuuxd5pcf6evzuhl254xy2f2n2vubm63h5zvwm",
+      "contentHash": "sha256:35d2ea13f8085a4875cdfc2d53ee38b28535a71ee1162c2f1b277d06ed455d25"
+    },
+    "i-shipped:dropping-an-unnecessary-fetch-polyfill-from-the-jazz-expo-integration": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ttu6wh2g",
+      "docCid": "bafyreignyapeabxibjizgkmaf75xmbiyg6bqjqjott4z5hetb6nwsakxym",
+      "contentHash": "sha256:c6f01e762b4965a53e574d4e102e0e9d6d0582756a8b85858003da909eab1f5f"
+    },
+    "i-shipped:dropping-nodejs-20-support-in-favour-of-nodejs-22": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tty3uz2p",
+      "docCid": "bafyreie6mv656fecs2ysksn75epb2fkiggv77i4qvy4nqcpj6mdmxxqwya",
+      "contentHash": "sha256:269765f530fe1e17320afbf53f69460c498a50d0ab69eecb7767d550193542c3"
+    },
+    "i-shipped:edit-messages": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tu45rg25",
+      "docCid": "bafyreifycw3nw3pfmlpyvcpzqlud4tjlmgkqszfozwpiwblxpsl5d5kz4a",
+      "contentHash": "sha256:225b02eb581b376f3c1768deadb0c20e7a383d914e8a844f421c509036170ea2"
+    },
+    "i-shipped:enable-dark-mode-support-for-minimal-to-do-list-example": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tua5p42m",
+      "docCid": "bafyreiha7ctdqwtrxqt6c4b3os72xz2bmq2s4x253dxet2ft5im6tn4kwq",
+      "contentHash": "sha256:b8979984276155c961e5d3c72b6be86b803b2e9b0334d5b4f962269fa566f215"
+    },
+    "i-shipped:enable-monitor-to-keep-running-in-case-apostrophe-cant-start": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tue5mq2b",
+      "docCid": "bafyreidliw23o6bd2bol5whtxrnktp2bxtckjm7yfugcdtko3ptwibdaf4",
+      "contentHash": "sha256:5cf8cfbb51c126332be8f5e4f2b6491086b6fa92c3a689068953fa54d9d6b204"
+    },
+    "i-shipped:enforce-sync-before-load-sveltekit-ssr": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tui2mq2b",
+      "docCid": "bafyreiexgfxzig2wknnbnwynzlw3o3uccvtzic5g5gtpvjmxvpww6de7xa",
+      "contentHash": "sha256:e022725fbd1c2b12144f6e8a2a570436f3e647d22f8f2de196376986a1cc3b03"
+    },
+    "i-shipped:enhancements-to-our-llms-txt-files": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tum5ie2m",
+      "docCid": "bafyreibfcmnpyi7a5ikdppxym4o2q2oxllcb6xgib56m73lcpzx2n4yv7y",
+      "contentHash": "sha256:d700e7dd8260226209e9d9d776be02096e6dc2916efdc340a0d875bfbc4c79e1"
+    },
+    "i-shipped:ensure-params-are-set-in-creates-and-removes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tupyjw25",
+      "docCid": "bafyreia67ytdip2x2l6d3afvjmpy4yvzpjpyjqe7yfkhul5znkjopdnysi",
+      "contentHash": "sha256:88f3d0d06a27a2f8631696e19d91388d93e9fd81192a80d589e50f43678313a9"
+    },
+    "i-shipped:ephemeral-storage-fallback-for-firefox-private-browsing": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tutxk424",
+      "docCid": "bafyreicmifjvt3ppasrprcba4vlbf5orc32hr7zbgqbuhmaokmrtp6lqza",
+      "contentHash": "sha256:60b42493df395b29b676703258beca1a50ecd5b743315b3dfb002511b1ad3f19"
+    },
+    "i-shipped:example-app-alignment-with-docs-and-permission-fixes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tvrks22b",
+      "docCid": "bafyreiclasrbwovcqngsd2bxzkenkj5f3xj4kdzbtno4beq4whmvzvebda",
+      "contentHash": "sha256:ea8b5602649c2c1006bbe2a9ca7129781f1e3c28ac6e0ae0b2ad89ad5720cd6b"
+    },
+    "i-shipped:exists-subquery-support-in-policy-expressions": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tvw4cd2b",
+      "docCid": "bafyreifz62nspea7bey34azhfnkia4h35qf6jvyie45qcbopntjau2t5gi",
+      "contentHash": "sha256:f82930d0b50f962d3d4eec58e3fcc575a58eff0305adec4436c813636a7e0a73"
+    },
+    "i-shipped:expanded-scaffold-test-coverage-to-all-self-hosted-starters": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tw2g7c2j",
+      "docCid": "bafyreiel5rsev63iyamjuflnhbnlekzfkoftml3ezrzrtkfgi66gvm2dzu",
+      "contentHash": "sha256:b6abd7b6aab075558b088413388d0aca4597ed3325d9a9383e37a4eda04a36de"
+    },
+    "i-shipped:experimental-clock-sync-for-clients-with-drifting-system-clocks": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tw6jzs2z",
+      "docCid": "bafyreiatzhcz6h5krv546m45jmk2slqqp4e2wjb25nygi7i47ld66bbnl4",
+      "contentHash": "sha256:6dc2a080237566e96c82541617b2df1622351db7a3182da7011e8bb2e6fc69f1"
+    },
+    "i-shipped:explain-double-prime-symbol-better": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5twclq22o",
+      "docCid": "bafyreial2ea5oy3pfddc5lgjssewpyizz4xf4hpwcorkkwj6el2rgdwl2e",
+      "contentHash": "sha256:4a49d1949e1b20e187cc46cfc16b4aa9c2c93cc594536f95d5189060481d0ae0"
+    },
+    "i-shipped:export-singlecofeedentry": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5twgojr2p",
+      "docCid": "bafyreif6lfmfukzbvamk5gdmh2tmg5aeuj7nnj672qnyxpholaxnfucuia",
+      "contentHash": "sha256:6e30da87843ab558d4bc6584cc4ad8a90eb7890c3d27662906be7cdb0f74f5ce"
+    },
+    "i-shipped:extend-auth-quickstart-to-demonstrate-passkey-auth": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5twkll32b",
+      "docCid": "bafyreib5fgqrobygumqvl5je3ydz4uxbcc5yzczus54eyvqkqnk725dfiu",
+      "contentHash": "sha256:df73f62c7785fbca7f11eaa933960ac4ef6682cd0f750ee3a7279f05ead1b28e"
+    },
+    "i-shipped:fail-create-when-user-has-no-write-access-to-owner-group": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5twojkh2g",
+      "docCid": "bafyreigkrle4owmxdjbjavbfd6sast5itgxf2x45xo63w55lzvsmty7zfy",
+      "contentHash": "sha256:7224962a2d5054dd1b211eabd5da4431d53b4f1170550bb51317a5a75f855aa1"
+    },
+    "i-shipped:fallback-support-for-framework-prefixed-environment-variables-in-the-jazz-cli": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5twt2zv2b",
+      "docCid": "bafyreiculfpy3g24op5nygxneuucpblgmbhyjzux4aoluaqb3jio4ipg5a",
+      "contentHash": "sha256:a180267215e5db88a26e0afa798f5d065514d1caf38fe61ae9f9e91f8da13601"
+    },
+    "i-shipped:feedback-options-for-folks-using-our-docs-to-vote-on-whether-they-found-our-content-helpful-or-not": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ty3tpb2p",
+      "docCid": "bafyreie4qxqpbl6xsbpb4jjesxhjsma76pxf2rgyiyxt22gnl3ux2h3xji",
+      "contentHash": "sha256:1e535b922a767a959e98bf98458bc30380ff4323dac1004ffb9a774629ff017a"
+    },
+    "i-shipped:file-and-blob-storage-for-the-wequencer-example": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tyb5uk2z",
+      "docCid": "bafyreihabdj3tp7tfsh745gfjxdrsnzbn3nfwd3w5t62e2uzfp5yvqozxe",
+      "contentHash": "sha256:9e3bf40dcddf04f88b27139f6bc830cff5a84531ae7d9425bfa907589662cfc2"
+    },
+    "i-shipped:filter-all-the-code-snippets-to-show-only-the-framework-relevant-snippets": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tyffft2b",
+      "docCid": "bafyreibpyr2ug67z4eo4djzvhyrsiupzfvtrwunaqsfo7sx3bnatev6yve",
+      "contentHash": "sha256:8bec6057dd7a1f346314d42b4c1e3b864bfd71548e286897021308f8745f50f0"
+    },
+    "i-shipped:first-class-svelte-support-for-better-auth": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tyjm6d2b",
+      "docCid": "bafyreifqexfqwa4qjiadd3crfggis4j7eugpb54ii2rcrwupovp33jyq5a",
+      "contentHash": "sha256:8e76dd45f3ecf4a9772401d30780e90c3a748e4d7bb28ba3ef2bd798b74c0c83"
+    },
+    "i-shipped:first-commit": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tynutt2x",
+      "docCid": "bafyreic76jtlawpisfrn3h5qgbnboiuqeguyexuv5svozp2ddfqca2jpwy",
+      "contentHash": "sha256:1f7d1204870a5248c8a1d9af7d2b71e98851aa5429ff1f3dacb444b563642298"
+    },
+    "i-shipped:fix-3186": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tzkbck2j",
+      "docCid": "bafyreictbkk5gflmd2njwzglo5oarl7x7uubaben462fy4f3ccjbjb2uva",
+      "contentHash": "sha256:eaf4a93169b739a62b2842b99056e62ddec558836e377d0003daf83d2c3add47"
+    },
+    "i-shipped:fix-build-issues": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tzqgks2z",
+      "docCid": "bafyreieyisxtlxcxdpsircfdxkf6s7nbd4xcanuacxjuqwhoagqtgn7n2q",
+      "contentHash": "sha256:ac8cb68aee9944743de8649663f82c8c5f1acf760fc63feda589e7ee83d0caa9"
+    },
+    "i-shipped:fix-charset-issues-on-mysql-fixes-388": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5tzv5qj24",
+      "docCid": "bafyreiauhyp4f4xummzqoz2l5vp2wg5zvgqe6ob6e4wugkjlxsejnrf524",
+      "contentHash": "sha256:631e581997d78954b1ff60eb37b9a1b9cdd1f3924c272a1256a89b15706647b9"
+    },
+    "i-shipped:fix-chat-demo": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u27rmh2c",
+      "docCid": "bafyreidram6hduut576jpd7aoollw3fbfwvz6m54w54m4lrpxtu4hkqo4m",
+      "contentHash": "sha256:0233de960f1c05ddb545f949feccc3075fe9c5f387bfd65399a0b93b093a814e"
+    },
+    "i-shipped:fix-docs-check-if-cleanup-is-needed-before-cleaning-up": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u2ektz2p",
+      "docCid": "bafyreibset74czjg22xjenhwa4glgxwf6yzo7pz5dqhmaqa466cb3ig3yy",
+      "contentHash": "sha256:584747fbb7fcc076e21ed8a0db0771d61421764b8332f152211b403b76e67f29"
+    },
+    "i-shipped:fix-error-in-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u2kngk2z",
+      "docCid": "bafyreicngj7bayba7d4ofwnted6pw6lkngn3su2k7ntooruvxgrtaywr5i",
+      "contentHash": "sha256:8b68078a997151d77fa436753e44ab7e06ab31f608b3376d8a11eb69b7c4e844"
+    },
+    "i-shipped:fix-expo-placeholders": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u3bkl42c",
+      "docCid": "bafyreibfxy6bfggokmknoqf2a356bcwngrvgfdjvaqhc6x3gvgiplt2o4a",
+      "contentHash": "sha256:06732a2185278ba3a98fcc3a931089ca1e814cbf9b00ea619513a02a773a4810"
+    },
+    "i-shipped:fix-homepage-build-issues": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u3g72x2g",
+      "docCid": "bafyreigrak7yyatu7vdy37hsmlgik234rzmilv2dkz33w4n7oxycoj7nae",
+      "contentHash": "sha256:2cd66f660be1dc938a05a25930f83203fe52fcb0f731084f7e6f1ea881053825"
+    },
+    "i-shipped:fix-http-api-link-in-inboxmdx-fixes-2687": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u3k52j24",
+      "docCid": "bafyreifnb3vat5wtx52q66l4nu3ctzr5f76jlh2lqgpm4i3kqxsjdx2eiu",
+      "contentHash": "sha256:dce8adec08ad4576bc39283e9e42ba35f3aec2aef2edca278577d0acd7f1e69f"
+    },
+    "i-shipped:fix-issue-when-code-sample-is-formatted": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u3osft2x",
+      "docCid": "bafyreihbpulu72pj72g64uzjamqzr3ndnx4bd2dbdtvyyhs3d2eq5qtrzi",
+      "contentHash": "sha256:1fc04fbeb0b6ac928e005d6c39b51fca2498e5f7920e479ef0e1ac17ad8d02f2"
+    },
+    "i-shipped:fix-issue-with-reactivity-and-add-jazz-inspector": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u3v3mt2b",
+      "docCid": "bafyreicg4kq6ykxepaapsvyt27umontxcbhfgstnxur3j2yxzewljqoj4i",
+      "contentHash": "sha256:3bb2e039624004fb49f39c0294f58231fca2de0cae5a958ce3b27ee1ce70a2c5"
+    },
+    "i-shipped:fix-missing-in-template-literal": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u4btts2o",
+      "docCid": "bafyreibwlr4ur5wujfav7pcfhl47dvsjuuxssjlrhky6roy4sgeur5pype",
+      "contentHash": "sha256:4c60fca54c67077a4a79f259b8e7100f877f850b9c34117615d3ddfcdc8f45aa"
+    },
+    "i-shipped:fix-missing-link-to-the-betterauth-database-adapter-doc": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u4jprt2b",
+      "docCid": "bafyreiclotf2u6zgkt7ulbzxwz4avsdnl6mq6fyd6rtp5j5lcdkuiga3qy",
+      "contentHash": "sha256:16cb24dc1f5ae2b5f871d469da087054d0d047b5adb9c2789fe37e15cde34e81"
+    },
+    "i-shipped:fix-readme-typo": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u4nop625",
+      "docCid": "bafyreig556mmusprhipfdweifrnshgrtriqvzyarndop2lglff6famwofq",
+      "contentHash": "sha256:a4584f47a8c3554efe0c1a75386dbed0c7aa58eac03edfdf5fe270c7d5f0a9e7"
+    },
+    "i-shipped:fix-tojson-serialisation-for-corecord": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u4wqra27",
+      "docCid": "bafyreifjnrgjkjycj4cg6elrhlh4k73mkthm5dy3tw5hv2cuxi7g2jl3cy",
+      "contentHash": "sha256:f3c4ebbdb82b271e3dd2ee1c5ea9f8911e60cd383e749439226966e9554b97c6"
+    },
+    "i-shipped:fix-typo-in-heading": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u55qfx2g",
+      "docCid": "bafyreid325uvzmbljukba7cef2crgtb5ppf7vko5wjyp4ceupmuptgiioy",
+      "contentHash": "sha256:bd721b1d65eda1354257bbc070506facae4ef11857dbede7dbfba0d453de7eae"
+    },
+    "i-shipped:fix-typo": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u5brjl2j",
+      "docCid": "bafyreie6pf45d4lndmtohwdp5ij2zohnlpxr5x2edgj7aqx6oxz6g4f4mi",
+      "contentHash": "sha256:ce410443270d404b014b99c8967805c2ba7b9272a26a6addf3f73f8a2323bd79"
+    },
+    "i-shipped:fixed-insert-vulnerability": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u5fq7y2b",
+      "docCid": "bafyreih2fw6g2iulfj7r5oox2ca4xcrj5c2lzzg2b5ohgixjhev62bc7wq",
+      "contentHash": "sha256:44884ee1b6c9949c6904445af287929a1e30f1524f9fb985369716e7e2c0976e"
+    },
+    "i-shipped:fixes-794": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u5jnbr24",
+      "docCid": "bafyreibhzgtbsj7cqphdnvr3hmlbqn5ma2pyx5qbv4qbjfcb3ae5eqstuu",
+      "contentHash": "sha256:df0913f6ae2a53a41171b791cd12f8eebdc220eacf6b6735532a971808b2406a"
+    },
+    "i-shipped:fixes-for-our-end-to-end-tests-which-were-failing-in-ci-due-to-incorrect-imports-caused-by-our-test-runners-upgrading-slowly-to-node-22-19": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u5nm6i2b",
+      "docCid": "bafyreicxnbi7pijill6zd7ixk32hsrai6dgjjwnvtf3m3wfy4uilafij5a",
+      "contentHash": "sha256:83f87ae0cf662afd33b6d412d2311b4e8aa50023b4543c8ae26db03ccacdca13"
+    },
+    "i-shipped:fixreact-native-clear-stored-session-id-when-clearing-user-credentials": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u5rj642c",
+      "docCid": "bafyreidsyruz7ssbnqg6rhbu4rrxye5t4qjeilufj5ytjrssvpt2qvibpq",
+      "contentHash": "sha256:17d1860e5160bf3a42a007ee6b8a934b43f1c0327ae5005063a7dfeeed225bf1"
+    },
+    "i-shipped:flash-fix": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u5vjed2j",
+      "docCid": "bafyreiex7ymwcjemktlypnuarb3kkkiuqq3dyv5zrquxx5ua2lycqwxvhe",
+      "contentHash": "sha256:42a7165a5eea2fcffea646253a1f71c12bf974747ce1a5084ea759e2079fc8f4"
+    },
+    "i-shipped:fluid-typography-enabled": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u5zj2o2b",
+      "docCid": "bafyreicbbjzp6bz2b7nj5mcgwwlybf6hsmvyifjpargcx3esc4vbtfbl24",
+      "contentHash": "sha256:f3d107f973178d2af65766bea28a8498b42c651e7d73e443ef8b7ad842ba2210"
+    },
+    "i-shipped:four-bug-fixes-for-my-chicken-dinner-timer-app": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u65iyg2b",
+      "docCid": "bafyreifrmcxobipzrjmrjrtcjr5v5vdbyvo2j3bb32rwz3ydvefjnsp2na",
+      "contentHash": "sha256:fbd3a22f0a48ecba07b3bc59b6619ffedb39079a8d226497d8f18b3c635c4b8a"
+    },
+    "i-shipped:from-implementations-and-a-row-input-macro": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u6vonk2z",
+      "docCid": "bafyreic3mlvyj7okx4764m4labzuumsndvkno5brqykgqgrvteqwn4kif4",
+      "contentHash": "sha256:856e8a4aceca9dd5bf2275db236aac043e52d20b14bb504528e50caa3cb209b7"
+    },
+    "i-shipped:git_ui-give-visual-feedback-when-an-operation-is-pending": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5u73e4424",
+      "docCid": "bafyreihapmgbc6xleqbhencog4bzjumwawgfs6q2zsru6nfy4zpo73agdi",
+      "contentHash": "sha256:9e7415d6faf48eca77020916d03f97e7d11db0f91545c86b26cb4c1bd62f0287"
+    },
+    "i-shipped:glitch-2": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uayxq625",
+      "docCid": "bafyreigekbtels7mud62itbxm3rl4nmy4apvbaeabg26ifyby7pzf5d2m4",
+      "contentHash": "sha256:b50228128d2012cc1d4b833dd92079a49ba6365be53ce34bb9321a71b03e6a28"
+    },
+    "i-shipped:glitch-3": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ub6xf32j",
+      "docCid": "bafyreiedata6hmodbtcqegkrq3uacnzyeovzlez4hieveswi32ga3torj4",
+      "contentHash": "sha256:0ab8a4700c8120f4261d05c28be932234f63bd4f5964897f03f65d0f746d358a"
+    },
+    "i-shipped:glitch": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ubcz2a27",
+      "docCid": "bafyreigevflcjiyxjw6g742vaqlg4t3kxyumdxo4wlncpxxjunokwk2x3i",
+      "contentHash": "sha256:1fc711955edd2e45b3e9625db3ee02d90211b385c9b3d521413b254715675654"
+    },
+    "i-shipped:granular-reactivity-for-svelte-and-vue": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ubh5su2c",
+      "docCid": "bafyreihyxj7ihigyk2p5yfilbczhq3sbmpft7tkvozv7jbvmcr7vgqn7fy",
+      "contentHash": "sha256:00fc7799d5d6781f92fb187548b9f2015284be565a8d1055aa051b1f1f93cd6b"
+    },
+    "i-shipped:grey-out-quickstarts-for-rn": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ubl7pj2p",
+      "docCid": "bafyreibjj7caztpghvnfirwu3lrymg3utj5brc46ifsqoz776zmadd2hzu",
+      "contentHash": "sha256:f018625d6c823d144e8010342783cd09c32863ce2377fdcd88f9417775720027"
+    },
+    "i-shipped:guides-quickstarts-and-framework-patterns-for-the-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ubp4pn2m",
+      "docCid": "bafyreigminjpkzpagbfmyn2ksiflvc3js2jmbvnichmrwbcxssdgezx5mm",
+      "contentHash": "sha256:9d69a2956f9f84b3c4420700a1cb1f0b74602e154a4cdde65e97e6cb6c1d8439"
+    },
+    "i-shipped:hotfix-for-homepage": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ubt4vd2j",
+      "docCid": "bafyreicg6yzxv4jrify55xmvggxigriklo4rbt4jnm4waz2mvc4qo5d6dy",
+      "contentHash": "sha256:b9fd30c774d5b3285109785c29b7fd189ab9a5e15d9db3e6241bf8c0c15226e8"
+    },
+    "i-shipped:hover-styles-now-included": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ubx7iq2b",
+      "docCid": "bafyreifoaigxfvyxjjsjowd2ag6axmmh6i6zph2aq6ykv6og34pj4y4cky",
+      "contentHash": "sha256:85ba3dd4d1d9acee2ca4749d2d81b5be75cf855e97c29d0fef5fe5a7ccfeac22"
+    },
+    "i-shipped:improve-showcase-display-on-smaller-screens": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uc3bem2c",
+      "docCid": "bafyreihbkiwswldqyak3or4rk62r77tx4uzhxr7sqtk6pdoatndtpq7gra",
+      "contentHash": "sha256:3c8a527183d2138778d5751668bc0560be25a20c839e080c07d1dea79189471f"
+    },
+    "i-shipped:improved-spinner-ux-and-dotenv-support-for-the-jazz-tools-cli": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uci3jt2x",
+      "docCid": "bafyreifue6vdf7ieub2zpzm7inebccvqbhp4h2jmjfrfvatal5n36bgvju",
+      "contentHash": "sha256:01fa5990fee9dd31ce1dfd64a280c5f56f9bacaf61d05cf2f7a52df5baa1299e"
+    },
+    "i-shipped:improved-type-checking-for-vanilla-snippets": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ucnmcf2m",
+      "docCid": "bafyreiejclxgqyw6sg7gdcztvywzxcnxgso55m2nilnu7mz74hke2kxa6u",
+      "contentHash": "sha256:c05405a4e94aba1f1d85a1f2f7e068386f0472be7d8fcd9feac11179aa69cb61"
+    },
+    "i-shipped:improvements-to-our-react-native-and-expo-documentation-added-a-polyfills-module-to-jazz": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ud4huz2p",
+      "docCid": "bafyreibhvhbhzwaq6t5y3w5zmrmmx3rqx3b6demsioxybpj6xe4p3r72ou",
+      "contentHash": "sha256:f90f6fd58cbace057acd8e26cdf24807f158c9b2db3377a292462b8639a0a14c"
+    },
+    "i-shipped:increase-z-index-of-aoj-banner": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5udcbic2o",
+      "docCid": "bafyreiaxrpgdedjjty7wqkbeutauy2jlpfhvnkhhju7vrmh53fg4zpk7wu",
+      "contentHash": "sha256:d0e9041ca2fddb4ee5d29472c9dab6248708bed5b0395774e5cf92be76eabca8"
+    },
+    "i-shipped:initial-set-up": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5udgfj22z",
+      "docCid": "bafyreibrncvmfzyq4nzhgxy2yj2mbxko5d46q6xz4bkeep2c3et6utpbxe",
+      "contentHash": "sha256:2c0cf40229bd63e1711f4d1df3410e88f7d67b3b42bc69fed46d64b4c14797bd"
+    },
+    "i-shipped:joeinnesissue4": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5udkpyk2o",
+      "docCid": "bafyreibdr7xxbno2qzudb4n732iiulvltszxr5hzdnkvbyfwfxbvyt2s2q",
+      "contentHash": "sha256:04aa8739830feac96f7c8bf5213b64ae4e309389481c37461a7de63499975b89"
+    },
+    "i-shipped:jwks-rotation-support-for-self-hosted-servers": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5udorsz2p",
+      "docCid": "bafyreibk2aow7r5icehn6qerxpebsqbpikvwudktij4bmakyb52gpx7sr4",
+      "contentHash": "sha256:c2495e49c1f2b071f16ac158304307e67e49b90b6610773d603e96c6d79f0251"
+    },
+    "i-shipped:loaded-non-critical-styles": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5udtfdk2o",
+      "docCid": "bafyreifewez4rzdx2wacohydodzeroqjc5owidmewcq7rnbgzk2tkbushu",
+      "contentHash": "sha256:fc123cab375177ddc94f148b4eb1517b0e0e020700682fed8a13727666a1c04d"
+    },
+    "i-shipped:localfirstauth-framework-hooks-in-the-jazz-starter-templates": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ue4dfm2c",
+      "docCid": "bafyreife7ogcueksfyfbx75vcmiywcep2uvra27fnyknrbqekaagrcl33e",
+      "contentHash": "sha256:b84ac88f087437a3a94b162099480e3236f51a33ea543b144be49d7f2ec25fd2"
+    },
+    "i-shipped:make-latency-bar-red-if-theres-an-ongoing-outage": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ueby4p2g",
+      "docCid": "bafyreiaq7kdzuodihr4ru6ena75yoes277mpahpjxrnhrjbrnvr5fbvyv4",
+      "contentHash": "sha256:390954b52b2799662de4bcafeff64670c853b45df99876163f67c5bab15c5677"
+    },
+    "i-shipped:markdown-emoticons": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uegphy27",
+      "docCid": "bafyreiea6k3xf5rik7ejcapwklxz2str4mbxcwginlsg6j6wzn27yusonq",
+      "contentHash": "sha256:efa2e76a8487f7efcf2f486904f6e1fbf13c6b48bea24b117acd8a79b6f38f14"
+    },
+    "i-shipped:markdown-serving-for-ai-agents-from-the-jazz-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uekmgy2b",
+      "docCid": "bafyreibr5pevybxyum45bo7aaxnyonbpko6wejuqjp2dztn46oyjrxiot4",
+      "contentHash": "sha256:b308efac59491c0bf92f9ffc6ce39d595678a031936c88fe42c6cece370e203f"
+    },
+    "i-shipped:merge-in-initial": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ueomel2x",
+      "docCid": "bafyreiawcvfautmbjvdypz4pssxazjqdvgqdcl7dz6iyi6t4nhyokokazq",
+      "contentHash": "sha256:70814117d2e47850a1698f1576a28c18d563c1bd3583e0da950e94f2c5bf6f5a"
+    },
+    "i-shipped:merge-pull-request-5-from-joeinnesmarkdown-emoticons": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ueskm32j",
+      "docCid": "bafyreicgnsnh2ghy3uizicg2dshp4hlmqumyhcohqib42fx2gukoja4qwe",
+      "contentHash": "sha256:2068a38263ddd8fc89b5721b578d5ab71866ca3845aee886dac34ef884ef19f6"
+    },
+    "i-shipped:merging-in-dev": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uewiep2g",
+      "docCid": "bafyreic65ha5zp7bqxyfg4q75fcm5fbw5wf3te756vnsui2r56dnc6oyte",
+      "contentHash": "sha256:dfb7149a969daedc2af731722b92892e9be4eaf84f4c0c6c80ee6a08f65cab65"
+    },
+    "i-shipped:message-permissions": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ufhr3g2b",
+      "docCid": "bafyreiapvotv7ry7xi6clhsmf3yoihccfnu5roc3efl2p634b3jo4hkqfm",
+      "contentHash": "sha256:cd6db140d0c972947e8a79b3f32c6fb33453d797700cbab6fe2bfc71dfa9e643"
+    },
+    "i-shipped:migration-of-example-code-to-row-input-macro": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uftkb22z",
+      "docCid": "bafyreickfgnpy5ug6z35u5ykxmneyq26oidjlesr2wazfgqesk27j4ujwi",
+      "contentHash": "sha256:9da20c022c6afb271605b023a8b69cd7a3173b8251dd867135a81be6a63fc1ab"
+    },
+    "i-shipped:minor-typo-fix": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uhcssa2c",
+      "docCid": "bafyreiac7q25rsm4oybhjk4lbbbu7zo7u2rjvu75gvpem3dcwaugdvchkq",
+      "contentHash": "sha256:f0f88f71fb7c0115f53a06ad5747e995cabefbd9dafb4631e9370c1a2aa2c6bf"
+    },
+    "i-shipped:more-verbose-example": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uhgtmj2p",
+      "docCid": "bafyreiejlwumsep2fze56tbhgffbc2bwxnwytnqomolseronmgd2pu5lvy",
+      "contentHash": "sha256:3771b8426ff567bbbc75c2d4728f9102f8b1200dd3e89b119964c57d172db2fe"
+    },
+    "i-shipped:move-codecs-under-schema-and-republish-link": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uhl5ek2o",
+      "docCid": "bafyreifvnczwubzjbvbdc32xzgrv7koef7lrtlyjbe4jii7k75kwshxdgi",
+      "contentHash": "sha256:237f5a30822c1fd0b0823e8c81dd637a534b3209c6df878452bc0db52f98864c"
+    },
+    "i-shipped:new-apps-to-the-jazz-showcase-and-redesigned-the-layout-to-a-card-grid": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uhplwz24",
+      "docCid": "bafyreibfalx36p7zdnl2d4qkjl2ifef4glxb4rki7gterjsqghp5swswmy",
+      "contentHash": "sha256:75f18ef7c415c79e041b8aa14bddb988edb35c0eaa5f320a522531727971d729"
+    },
+    "i-shipped:notifications": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uibqyu24",
+      "docCid": "bafyreif5in7ez5272pglyktz23qreogxqe52ner66bpatcvlwhcwl2agha",
+      "contentHash": "sha256:5ba9bec16fd0d84b841a164f23013249db1946b3a80f81df2b25857d04b63d2a"
+    },
+    "i-shipped:options-object-support-for-svelte-querysubscription": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uihvbl2b",
+      "docCid": "bafyreiccm5l6vciqao74vjn3ounyx2ogl7ethngwfsrlwqzgxarn6ojopi",
+      "contentHash": "sha256:e3e56aeb6932627a7fc98e4ca80c7cbd39d08d4b55396f545376b5c886a6565f"
+    },
+    "i-shipped:ordered-transport-batching-for-sync": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uiq64s2z",
+      "docCid": "bafyreiem3mjbn7lixtwhwfyw335oiaairn6wpnesl4tbie7wsmomtojf4i",
+      "contentHash": "sha256:cad35b7079214292ee80eb3819ebb48905f58fd7a10f30f0737fde0d08f2b6ce"
+    },
+    "i-shipped:passphrase-and-passkey-backup-restore-ui-for-starters": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ujhiyb27",
+      "docCid": "bafyreiba4azdljgp5wttv7sovhenzpzvtps5b6idzwbslycfg2snqo5tg4",
+      "contentHash": "sha256:a6b3a0d0935e12d737f957ede9a5d56e39a15d059f02c7bcca0c6548b3817993"
+    },
+    "i-shipped:per-package-progress-on-the-create-jazz-dependency-spinner": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ujnjdd2x",
+      "docCid": "bafyreiernyj3gq5m6rhznaivbbhqd3ujmmcazcsbqbxbe5vk4vtkwd2biu",
+      "contentHash": "sha256:466fe8269809a326ded481c310ec767e4a7e4d2817df7a1b97406016bdf002c9"
+    },
+    "i-shipped:post-015-docs-fixes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ukd6qu24",
+      "docCid": "bafyreibucqb57m7gscrewv53bbkaiznjhveugsjecggg4akzawsxgcxrhu",
+      "contentHash": "sha256:b7e647172103f3ab2256b55fa86ff2731534a1794a55f7d4f2c5e4ead4d2cb80"
+    },
+    "i-shipped:proofreadcopy-edited-readme": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ukkk2w2b",
+      "docCid": "bafyreigjpv6meucsz6ju3mwr5bzawnebrczwqajvfgxfvxguq6asqgduh4",
+      "contentHash": "sha256:270c0037049d2b9a7d49e08c7502ff6484af9a2be850d273b921b80cdcbfaba4"
+    },
+    "i-shipped:pruned-tests-in-the-moon-lander-example": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ukoh2w2b",
+      "docCid": "bafyreigigr2xcdrmwjcdw7uesqdjg5c3ogn6h5qsdyd2btxq2azf4qu3me",
+      "contentHash": "sha256:e1405d708c7c1e837d4824cdb2a59eb71c48b1402b44826959a40b8f1ef12219"
+    },
+    "i-shipped:pushed-footer-to-bottom": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ul5zdk2z",
+      "docCid": "bafyreiafvye2r7jmwmlo4wjsddpjm5cgrmr3c2c7k4pw76srlghusymfve",
+      "contentHash": "sha256:f836e4af0f3bab8e6702017f3a127edd9011f680d0e7d7c12200fdd1d7271849"
+    },
+    "i-shipped:query-in-url": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ulcwct2x",
+      "docCid": "bafyreihg5k5crhuxh3ztpk3pankq2mwn5tnxbcr3y3v2bfor2ee4ll4wna",
+      "contentHash": "sha256:de158a0c04b3ac55dd72265d3dbc0e52f1126266fec4039c3bcb3468db4bf1a3"
+    },
+    "i-shipped:quickstart-guides-for-react-svelte-and-server-workers-for-jazz": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ulgtcy2b",
+      "docCid": "bafyreiamxxujfxvkmt3ez2iwphze46wghrpk7i53r6iwrcfu4jxxiblozi",
+      "contentHash": "sha256:fa0efeff3c5f9e7fea9d28acb60cf4ec7c2599e204e1b4c6490744e007128674"
+    },
+    "i-shipped:react-spa-starter-variants-and-create-jazz-provisioning": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ulksck27",
+      "docCid": "bafyreieumjycghzdi7gemsi526qyvpim2duhrwupcpzsod4if33oobvtpi",
+      "contentHash": "sha256:ad00ae759e8ae80eaf693102c4abb80aae72dc6c4b5fd835ef68a21575823527"
+    },
+    "i-shipped:reactive-localfirstauth-support-for-svelte-and-vue": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uloocf2m",
+      "docCid": "bafyreihguov6utrpugxjbojr3aj2ercngwbsvuq3m3csb6kgp3rvs74ma4",
+      "contentHash": "sha256:02d708788ac7ecbecc8aaa2fffa26a87a9bd5f5bc602a30240affe37542a9f43"
+    },
+    "i-shipped:real-urls-for-placeholder-links-in-a-blog-post": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ulsmck27",
+      "docCid": "bafyreia274fj2vuwovvusjg6gm4zkz6nvq7cawtxlhjevezgeuzk5w2w7a",
+      "contentHash": "sha256:9ca35106c6bf0afaa2c774d0a5ea3ab9bb4e955d55fb90f1b80ca1768ea20e49"
+    },
+    "i-shipped:reliable-end-to-end-test-setup-for-svelte": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ulwjbn2m",
+      "docCid": "bafyreiensqe6ftukkkqkznvyqkapkong3ray57lbvnnmorfdtknjy2xlfu",
+      "contentHash": "sha256:6ee4d4155f635c80fb71f690e62cf15977c99383a8ac1278e538c8a566dd57f9"
+    },
+    "i-shipped:removal-of-stale-jwt-claims-from-starter-templates": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5um2hc72g",
+      "docCid": "bafyreibkglu4jsxgamdhgr6zwhd4oqm5xsnorfyz2yqys4gacwss4uppzu",
+      "contentHash": "sha256:5768378d681473b3df17c286757d9085b925385b7092ae82965072bceeb44fa6"
+    },
+    "i-shipped:remove-arrow-from-initialisation-instructions-for-safari-compatibility": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5um6cey2c",
+      "docCid": "bafyreieanapqowkmanfilfwf7lypbpyuuivlwugfjyyob6ebnfpqusonnq",
+      "contentHash": "sha256:e24cee9cb3be405e7c64e3f6dbe12f495ef6fba0cdb7429f419c04e1148bf35b"
+    },
+    "i-shipped:remove-await-from-create-calls-in-code-examples": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5umcd7g25",
+      "docCid": "bafyreidlmkohzjngjefrus4gi7u344krm4hd6qqm7rej7ios3z4d6waf7y",
+      "contentHash": "sha256:ceba4ef19dbc10d9916780abfd7bde320f43d7a9a0851a197b2ff392f78e0a79"
+    },
+    "i-shipped:remove-manuscriptsprosemirror-recreate-steps-and-replace-with-local": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5umg7ao2b",
+      "docCid": "bafyreictwsluqbca6hykiubhw2kwozgs6t5iwq3gciqf6ah5ppw7gcifiu",
+      "contentHash": "sha256:ad731a6560aab93624aeacfa3123d11390608210a9e86eff0f996bdeb9f2df67"
+    },
+    "i-shipped:remove-unnecessary-consolelog": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5umk4i32j",
+      "docCid": "bafyreibnmcnw3kfuvx5akq66ogqllr5km7araza5b2iqg5suan2ghel37q",
+      "contentHash": "sha256:d159ec16cc3743296ce442ed474e57cf45e02af6dfdf3db76f620b19e6bdd501"
+    },
+    "i-shipped:reorganised-docs-to-split-deployment-configuration-from-server-setup": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5umnz7z2p",
+      "docCid": "bafyreibpf24diy472nazb5qznvs5tftzuxidwqmed7nqq5nawypldz5izm",
+      "contentHash": "sha256:0ea5dcf815cbaf0af482d865db7c575818de928b9a712b70e94491e035cab9c0"
+    },
+    "i-shipped:replace-delete-local-data-modal-with-a-reusable-component": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5umrxaz24",
+      "docCid": "bafyreigijw6onvzamccmmqm44drjmyssdxw6ap2de6g2v3rqroo7hdfrpu",
+      "contentHash": "sha256:1b7107686349fca36d63c191228305afea2a9c9daadbbdb49afb8421d3d467bb"
+    },
+    "i-shipped:restructure-the-docs-following-the-nav-menu-updates": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5umvtao2b",
+      "docCid": "bafyreif4seisil764gei4os5bxwdiknrtblf4sc6tiox4ohab3zolthyga",
+      "contentHash": "sha256:6e19c4ca4852d0d9514f69cfdcde1a49c06d152fe759dc83e7f85f73d647327e"
+    },
+    "i-shipped:rune-based-test-infrastructure-for-svelte": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5umzr7d2p",
+      "docCid": "bafyreicln5hwuqh6zgs64vtclogtn4jdyhmlo2oavtqgriea4oahxghhaa",
+      "contentHash": "sha256:4aeccc9f04b4505f354a4752f88d989aabd4e3a390295934f0eebef705ff6053"
+    },
+    "i-shipped:rust-examples-for-the-files-and-blobs-docs-page": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uo2d6y2b",
+      "docCid": "bafyreidyt7zzkcldww22pe5usby7orzti2xehjmc6aqscaz2az2zpnmtl4",
+      "contentHash": "sha256:d96d5e39b65041ce93f5c0c64dfa0bf1b79b534f83b0dde137a22e8448ec175b"
+    },
+    "i-shipped:sass-modules": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uo7j7n2m",
+      "docCid": "bafyreiby5t574zaonacdz33oc4ehqhzwlmbldrcrt2i3pmt4nm7k423hvi",
+      "contentHash": "sha256:fa2e4fea27bdeff97495ecb59d993b9deeed9e81c27d2f1fd2a0a0492f2f9644"
+    },
+    "i-shipped:sdk-start-auth-refresh-job-when-constructor-is-initialised": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uoppzd2j",
+      "docCid": "bafyreicuvfccuhekdlrrqjunpl6n4o3hsgzvc7gcwrbtde5mpyl3kr6chm",
+      "contentHash": "sha256:4be14dc94ca71d96429d4dbdace274faf08648413c431a5a313ec156a1b45a8c"
+    },
+    "i-shipped:serialize-secretseed-as-array-in-auth-header": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uouak32z",
+      "docCid": "bafyreieuk5mevgtyie62h27wzie5rsvzjjrksfegqn4abqym4zh6jl4odm",
+      "contentHash": "sha256:96579fbef9ddede0cec8acf7b894c612d09660a432eea59344831b11f34e16ad"
+    },
+    "i-shipped:set-encoding-as-utf-8-in-diff_match_patchphp": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uoybh32z",
+      "docCid": "bafyreicbfm3wdeyzmkceee2ndl7dvgaznsdhovfxhgv6t6nj7qdqfc3d6u",
+      "contentHash": "sha256:0b2cc4bf11b317e298e815e312fb733cc539c43c5b27b1fa671c2e62c3d403e2"
+    },
+    "i-shipped:shadcn": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5up4c5l2b",
+      "docCid": "bafyreicsecyvg2upe2smnyxn33gpomdjys5q6tpnaerfnqxpr36xfmt4li",
+      "contentHash": "sha256:58136fd6c13609cfdb80c3d62bb3321d166e1ce70987a1df11c6dc7d20fdbe68"
+    },
+    "i-shipped:some-extensive-changes-to-our-navigation-menu": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5upac3r24",
+      "docCid": "bafyreiapzqdj2wow5m67vquc5j4help75vjshgbuxlvpg2vesf7vmspvk4",
+      "contentHash": "sha256:5004fdeecca353fb1bc745bfd9dd7f958c04392f931039915ddcccbbfa9707d7"
+    },
+    "i-shipped:some-options-for-globalformplugin-cant-be-passed-through-useformscreenplugin": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uqp43d2x",
+      "docCid": "bafyreidcbsan7pnrwwlew5k3p4jwjg2snxgnxx7buuuxague6o4u2fzs7i",
+      "contentHash": "sha256:b0fe2f831df128de14656dc9c2b2ba0740499ad1aa9c52afaed122b80d4ed55b"
+    },
+    "i-shipped:subs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uqvm3q2b",
+      "docCid": "bafyreibvi6z73pvtonr2cdtl766azilp2gn5z63wfj3jp2o4433za3dx7q",
+      "contentHash": "sha256:dc77551755c1e8f998f9ef1f6a5438194f6c30542477d1cbd4a87865599aa1b2"
+    },
+    "i-shipped:suggested-trick-for-pushing-menu-below-toolbar": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ur2nb227",
+      "docCid": "bafyreihcdligci7xbwhm6qdzj4st2ggzu7ryrcgd4g2ddw3266lck4w7ky",
+      "contentHash": "sha256:badf8b7f83da4c0d435f9f3533ef16f375725715e3feb13e9395a4e9f49f2d04"
+    },
+    "i-shipped:support-for-getter-functions-in-svelte-querysubscription": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5url3lv2m",
+      "docCid": "bafyreidrgk5w6cggucrgkjqwpbk6stir3g5glcibhzso2hoj6lhtek7jjq",
+      "contentHash": "sha256:7bffef3c77f4ea7183d3d413f36bd31aeb0a376d450ee876cc53ee5677dc3e6f"
+    },
+    "i-shipped:support-for-real-float-column-types": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5urozmh2g",
+      "docCid": "bafyreihxs2hvpjs22xdnzj4mov5kgdxsqcsub2zmed4ygv3bhcg5awevuu",
+      "contentHash": "sha256:9e93c9df2589b080ed5416ae4aa6bcacd733f2455f6bd975b60619cf44c0d602"
+    },
+    "i-shipped:svelte-5-bindings-for-jazz-tools": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ury6lt2o",
+      "docCid": "bafyreiewhgeleddm5g6wyj3gnzo2amzvno544o6m4d6dwj3ybaeieb7lde",
+      "contentHash": "sha256:827b38d1905d585ef0531ba1510e759887eb5b00f83d563cfa17f376d9944b2e"
+    },
+    "i-shipped:sveltekit": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5us4chi2c",
+      "docCid": "bafyreib5cggqix4kqlghlrx5a2uyiagnreqpqassqn572maw6rla7lw57u",
+      "contentHash": "sha256:216e1d8563414572cd73232d7edde7d6f0417eb9b7e6cbcbb6ee306568c60c8d"
+    },
+    "i-shipped:swap-out-single-quotes-for-backticks": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5usasvt2p",
+      "docCid": "bafyreifampteszv4ehbztlxauxfjr54l2ochkzcrbjocpufs5oh3gmqhue",
+      "contentHash": "sha256:ac7958f7eedd0d75c986ca734e895132fb9d7b8f1b1a4eefb43ab6f372f1bc18"
+    },
+    "i-shipped:test-failure-guidance-for-ai-agents": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ut2qxv2c",
+      "docCid": "bafyreih65metbrlsphmyxknbnao3xq4uowfybexkuccktf6drysztswyba",
+      "contentHash": "sha256:7ea8eb83c8ea9d17d89278f887d83e2d8a85166fa8293870addcf21f9ce9e145"
+    },
+    "i-shipped:the-create-jazz-cli-scaffolder": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uttqtd2b",
+      "docCid": "bafyreibcumnrcgfbv6gn3tmno5x5x5khhl4ifac2575j5tkufxh4b6qm6e",
+      "contentHash": "sha256:0ff4a6150043a5f370194e438ae31db96fa50236c70dbc2a0fb95c3183db0dd2"
+    },
+    "i-shipped:three-new-typescript-only-starter-templates": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5utyzs524",
+      "docCid": "bafyreic74qyxbkdwvkqgmp57bu6dyurkl74qk55vfrsj4zez3tx4ehvzme",
+      "contentHash": "sha256:53cd45bb176f86fb9125de420f212850bef2586196e2777ca20e32310804b561"
+    },
+    "i-shipped:two-quickstart-guides-one-for-authentication-and-one-for-groups-and-permissions": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uu4wqa2b",
+      "docCid": "bafyreifkmjk54hyt5a5rihox7buqdmds3tprb4kp5mkwk6y3topr7zolh4",
+      "contentHash": "sha256:ce3f65ddfa30e7aba6dcad0f43dc116a8cc6b24861f53e20025a66ce2b612359"
+    },
+    "i-shipped:type-checking-for-docs-example-snippets-in-the-build-pipeline": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uuaxmv2c",
+      "docCid": "bafyreifeoh3bvly2zj6ceoseekvwbua6c62nydpvv77nhxyoeyfv3yrlcq",
+      "contentHash": "sha256:8101b919af5628d94639cdd835002c91857b301c6a6a8736ec409825b841599e"
+    },
+    "i-shipped:type-checking-for-docs-example-snippets-in-the-build": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uvh2gp2g",
+      "docCid": "bafyreifdxyerhjdcwmwbssr3rovvxelmlw5n7wi6txaayamj3dpok27yky",
+      "contentHash": "sha256:39a5e675485a276447bc1557668b145f585ec14a426ae74f02485934afde3bae"
+    },
+    "i-shipped:update-chat-example-to-use-jazz-for-message-and-image-handling": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uvxnna2b",
+      "docCid": "bafyreib5csdtekm7flubvknhdobzsorw2ofzjs6vatzp6unao2jvd5yz7m",
+      "contentHash": "sha256:d3c8714282f6d31056f0d441386a17beaf84a768cfa35d6fb4cf13213af9cc59"
+    },
+    "i-shipped:update-examples-to-use-environment-variable-for-api-key": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uw4oro25",
+      "docCid": "bafyreicr4m32hbet6jz5thskarr2blqyfo4rlz6yvqw6qprtjmrw5zrukm",
+      "contentHash": "sha256:7ebc4cef9cdf80bbd5081500a9c1c9a2b90840dc33761f4df73fbb1095dabf65"
+    },
+    "i-shipped:update-querying_mongodbmd": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uwatld2x",
+      "docCid": "bafyreib2bgxgllqtpbskj2atgyffkb3glwdsaikpyqwataawm6oas2ildy",
+      "contentHash": "sha256:7ecfc7a55b3620470243745be433e4bc4669919f66f5c8fc41482ce2e3602cf9"
+    },
+    "i-shipped:update-readme-and-gitignore-files": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uwo3fy2b",
+      "docCid": "bafyreibfiefkmlscm5lurbxgkopgajjfkzmv55aqxbp2q7dzn45xo5nqbq",
+      "contentHash": "sha256:49465e55fa69fa80d979188ea8ec73c06e582abb88ee0a9ad55e953ed9ae576c"
+    },
+    "i-shipped:update-readme-files-to-reflect-changes-in-local-sync-server-setup": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uwsvpo25",
+      "docCid": "bafyreifzgyhx3h3huyuy5kwrvdgzodkepwi3tvx24bz3bv5xcoypbi53sy",
+      "contentHash": "sha256:bfd70f8602b976976e27c49a944e3766241542535680467b6d4da7a51531794a"
+    },
+    "i-shipped:update-readmemd-2": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uwwqtq2c",
+      "docCid": "bafyreifiqjpqoviqzpsxuucx5g5tzj665dkyc3njel4rsdifotp5axraym",
+      "contentHash": "sha256:5847556a320c4a5d92fd7b7aed89b6851cf93dd4e999a75034fa5280cc42a336"
+    },
+    "i-shipped:update-readmemd-3": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5ux2oyd2j",
+      "docCid": "bafyreiht6p7scmbwg556meubl6t65ltuw6xau2peyrin6ihvoaoqbe43ay",
+      "contentHash": "sha256:ef97a85c69cc6e438c11997a63f3b7d8f4e9f6ae73ac8f769e32cde62caba2de"
+    },
+    "i-shipped:update-readmemd-4": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uy24nj24",
+      "docCid": "bafyreiehiyyelsj5h3zl4chixdn5nfux5eytcpi4hh4ymqyoi4zpz34fk4",
+      "contentHash": "sha256:acf73f6a77cfec4a15c074a5b150db44f091e24bc65cf5728b42a6cf520d0401"
+    },
+    "i-shipped:update-readmemd-5": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uya4y625",
+      "docCid": "bafyreidgqsqsnu3oqfbdzxvzxij37hbbxtkrm7myriwzirx6z7oxoqmgiq",
+      "contentHash": "sha256:33811f72859acfe1b4e7d9861bdb4d0a5f22df41296f6ce72a8c99aef2f6445c"
+    },
+    "i-shipped:update-readmemd": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uye6532j",
+      "docCid": "bafyreia2m4fwevwckxyilywhq2s2lniz2u65vnzqlztuzpum7tsqvroxi4",
+      "contentHash": "sha256:9b73b845da4040a430800b34697799a166078af86ffa45227d447a9d51fb56ee"
+    },
+    "i-shipped:update-svelte-starter": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uyrdqn2c",
+      "docCid": "bafyreigvi4yfhyqwjfzea7wrclub6xms6yww2534zaoru74ijt4hte6jx4",
+      "contentHash": "sha256:0aa6356a2c1edc946a996d11370b0906c0cd5ded85c910acc88d006e227a633d"
+    },
+    "i-shipped:update-svelte-testing-path-in-packagejson": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5uzliog25",
+      "docCid": "bafyreigvudab3hli2vlmpzjpiaqxr4hgndaf2v6m7fsklvw4qctngojnbq",
+      "contentHash": "sha256:87b0eb4f6b0c367a50f733fa0063b4e6244c919509966c23d4e6735cf798370d"
+    },
+    "i-shipped:update-to-newest-version-of-nextjs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v2uqat2z",
+      "docCid": "bafyreidfeua563lzlxrr3mseo6cp2ob6ygch5osbat26rlnerlzvrukjea",
+      "contentHash": "sha256:2c9bef59447af4bb7694e41e84ca1d90d0f4050e5bd5f50ab9c61bee503fb4e3"
+    },
+    "i-shipped:update-useframework-to-respond-to-tab_change_events-emitted-on-the-window": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v2zv2g25",
+      "docCid": "bafyreih6ozp3jyl2qry6b2ebof2bqgzuw7dxwcqvhixujrdkvrbi64muki",
+      "contentHash": "sha256:4b4b92f8c47a355f43e6ccdcfc5c7f54b781844fa5d37b4fa3c22943dd1db479"
+    },
+    "i-shipped:updated-app": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v367pl2x",
+      "docCid": "bafyreici7pt2knl3eubczzcz3poowmvhmfon4hcebpnrkw3nblq2co2mo4",
+      "contentHash": "sha256:2a3f072aa46c5f5cb4a01f6261a16d25ec092e05e46c11a4fe1e193f12ae427b"
+    },
+    "i-shipped:updated-dev-docs-reflecting-the-build-less-workflow": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v3c7nn2m",
+      "docCid": "bafyreid4n3o74pagefwbxaohbpveczqfqrluesm7bggq3enisp6myv33ba",
+      "contentHash": "sha256:cc4c95c4203732af74fe9ed06b9e23e405b5c0f18e77ad1bf44442257be1c8e9"
+    },
+    "i-shipped:updated-with-glitch-2": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v3gaki2b",
+      "docCid": "bafyreiggfhbu5gkfrh2nfvbvjzgr46r6jgv7ixyq3trhzw3owtvqz7tftm",
+      "contentHash": "sha256:a4ac64b323bbb5b6daa05306160cbbb489d5151ad864f8ae28ea6228e962038f"
+    },
+    "i-shipped:updated-with-glitch-3": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v3k5ki2b",
+      "docCid": "bafyreidry7d2kxyyw55c6r66buxzpmqlqvond3qhua5nqanf5qnp6j6woe",
+      "contentHash": "sha256:3acd18bbe1b34bade00b8281196864a4b593c96415d527d12b85acd4d949198d"
+    },
+    "i-shipped:updated-with-glitch-4": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v3nzlg25",
+      "docCid": "bafyreid6rlrrkihzioe6dys3vga2663sr5ivcydnr2nnpcyc7ev6nbzj24",
+      "contentHash": "sha256:255cfd9c1359715e850d6d719ed4a6ca66854e4c64a9f1423f6b9a57712a425a"
+    },
+    "i-shipped:updated-with-glitch-5": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v3ryl42b",
+      "docCid": "bafyreif2ior4sthpi22ozplep3deyggz4xem7vfpgrkylje7zb4fjixu4a",
+      "contentHash": "sha256:6c3bc3fa68e569e4c6b97fa6f73498769bc87be754932cb8141b25d86cff13e9"
+    },
+    "i-shipped:updated-with-glitch": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v3w3gm2b",
+      "docCid": "bafyreiap5oro7lzzhnb33yh27vr5h7mrlj4qjpa5gkkiciqbown62cqqdm",
+      "contentHash": "sha256:00fe60b98da47f9a707855e23ddbaa97fc5b9b1e31c09b4ee55ec36ad4f43ced"
+    },
+    "i-shipped:updates-to-the-quickstart-guide-for-authentication-which-illustrates-how-to-add-a-recovery-key-using-passphrase-authentication": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v423d52m",
+      "docCid": "bafyreihfjxvfal2f2u2txzupoxntddumboxfpjnh7xzef7ho6jfmpembuq",
+      "contentHash": "sha256:dbfa4d348047b3ecb90b00dba980908b67ec475710f6e6f9bc98f53b7611cc5b"
+    },
+    "i-shipped:updates-to-the-way-we-generate-our-docs-export-for-ll-ms-to-consume": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v4647t2x",
+      "docCid": "bafyreieh2qa2ax6wcnkfpq7h3jajbeyvw5kmhlvutkdlmoksilm4yfvnie",
+      "contentHash": "sha256:46ee2a55b7f1665a535587b4ff6c9bd31d9be6e5f4f92046f165022d75c99d6e"
+    },
+    "i-shipped:updating-dev": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v4bybg2b",
+      "docCid": "bafyreiefcvfppghcve7zbedw2kkk7osca3j2b2bthof4lp2ymms5efe6pu",
+      "contentHash": "sha256:09174958caa7c83be9cd469c26b9830684302ae742e2e477fec99621f298a886"
+    },
+    "i-shipped:use-hash-fragment-in-invite-url-example": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v4fxhd2j",
+      "docCid": "bafyreid6dxwridvlncibutdpyp2fk63imkrzxjufrx4xrkcdo4ykx5dqym",
+      "contentHash": "sha256:cbb4a9137e0f06f15059f288e6cbd652305bbd30cda233d5a17eb1c6d650429c"
+    },
+    "i-shipped:using-exif-data-for-file-names-will-give-more-accuracy": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v4jx6e2b",
+      "docCid": "bafyreiearv2khstpc7ama6qmkis6kkeosphscsldscndb64xsvcggyx2vu",
+      "contentHash": "sha256:0db334752ecfbf920fcd7db24b92480e57e905c5b4b3094b7cae0df107cbe42c"
+    },
+    "i-shipped:vite-config-hooks-for-worker-format-and-optimizedeps": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v4nw3d2x",
+      "docCid": "bafyreigttmtdmzmroc7q5v757btnmqryxmgqabvjqhmygi3mfq25a7rkoy",
+      "contentHash": "sha256:07c6584d459b86c994f5df93c3519b4c6d2d32572f219d4c9a0bcbd81be8ca09"
+    },
+    "i-shipped:wequencer-a-collaborative-real-time-music-sequencer-example": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v4rs432x",
+      "docCid": "bafyreidozk67btd5xwvs7wkp6hnc6adbs2vfkt653okl427x5bfy5bckwe",
+      "contentHash": "sha256:ba180159b6fa8e9208651bc33ad0b29c82532b526a88d29152d757f14408a90a"
+    },
+    "i-shipped:zug": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpj5v4vxxd2o",
+      "docCid": "bafyreibcrbcpr43awatef6owtj3u7qqjzyvqpyd42xkvp4tjaazcpjt4xi",
+      "contentHash": "sha256:0566580d836fe20d9541daa40789c16ac755f1eef1355fe575a6f329242a7ad0"
+    },
+    "shipped-digests:2025-08": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3mpj5v53uel2x",
+      "docCid": "bafyreibxbvazvsadvat2zjwwpkplnoladie7qbl6iioq36xiuw2zv4setq",
+      "contentHash": "sha256:5eea7306389fa0fdb6dc18e1bffa76e894fc6444cc3d0690499c1c124b118b50"
+    },
+    "shipped-digests:2025-09": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3mpj5v5aqon24",
+      "docCid": "bafyreic7sccmbj7ev6yksl3qe663eyocrpz2qrdn5pk5z4uteudkp7jpoy",
+      "contentHash": "sha256:02e9b7a674133fbf769385c71579f947a5b8425e2303e1a44a3a30264d02d5d5"
+    },
+    "shipped-digests:2025-10": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3mpj5v5eqsd2z",
+      "docCid": "bafyreihg2lozomcwsu3wcrqevly4m3f7pabkmk4wfu4eeni5z3sijqfvmu",
+      "contentHash": "sha256:ac79f3fd42f3eed3e8e6246e00b4cf7583caa6494aafd69f7a061db8750c9694"
+    },
+    "shipped-digests:2025-11": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3mpj5v5j5762b",
+      "docCid": "bafyreiagff5vbkf6x4sr57acjpdh6klwbljc6yf5r73jwedbu2faibtaxa",
+      "contentHash": "sha256:335982e5ae59fcf1bf4779ecd8a334dcfe299e6613e389584d51372eff61493c"
+    },
+    "shipped-digests:2025-12": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3mpj5v5nwjg2b",
+      "docCid": "bafyreih6yzr4unstmxhn7kanczpe6sdvbzvo5kbl7qksj3hq53ax2f2j7i",
+      "contentHash": "sha256:fff619efa92114c2289efb61b9498ad1b8c49ec05b68108fe020ea179f353dbc"
+    },
+    "shipped-digests:2026-01": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3mpj5v5rwgd2x",
+      "docCid": "bafyreidfqqifaz46qf4zb55gxeih4ki25iirml3vxwp55l74kh4ba374m4",
+      "contentHash": "sha256:281ae1d5a6866704e0d3c9619fe35be53addb0d90c561db9c43da9b10fcc001b"
+    },
+    "shipped-digests:2026-02": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3mpj5v5vrjt2o",
+      "docCid": "bafyreia5fe4dnzlqeaima4zdhdzqrwvreyjncy47u6lfrozkz33xsfgwcy",
+      "contentHash": "sha256:d9b349f0f82bd728fe3d6d990802042a555397d956dc55adc056ebe8907effe7"
+    },
+    "shipped-digests:2026-03": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3mpj5v5zqh62b",
+      "docCid": "bafyreidev6nj7w5yhctdswykpp5ne4dylrufppewygm6kh5zlo7tm4qche",
+      "contentHash": "sha256:fbb6978d438367c442580c44abb68e0034206d86465e89790eeebd5b51376661"
+    },
+    "shipped-digests:2026-04": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3mpj5v6dpzd2j",
+      "docCid": "bafyreiemiekz3lfy34lpb2hh6ruul5eb3y26dphgwhq2kezjsqwf2oh5pi",
+      "contentHash": "sha256:e3757ca617029a6da0364c737f6e4a31da130dba10065ae59b775038c64213f7"
+    },
+    "shipped-digests:2026-05": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3mpj5v6io7t2j",
+      "docCid": "bafyreibixu7mv45tpe6crv4xp37m7xo374dzi5styykporukpzczwpnyuu",
+      "contentHash": "sha256:3cb86648ad9f342bc247f3031dde481c1ba33f3a28a7a7ac6924032f512da590"
     }
   }
 }
