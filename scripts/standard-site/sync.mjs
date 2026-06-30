@@ -12,6 +12,7 @@ import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
 import { StandardSitePublisher } from "@bryanguffey/astro-standard-site/publisher";
 import { transformContent } from "@bryanguffey/astro-standard-site/content";
+import { createRecordClient } from "./atproto.mjs";
 import { SOURCES } from "./sources.mjs";
 
 const CONFIG_PATH = "standard-site.config.json";
@@ -47,10 +48,12 @@ for (const [key, { source, entry }] of desired) {
 }
 
 // Deletes: managed entries that are no longer desired (post removed / unpublished).
-const managed = new Set(SOURCES.map((s) => s.collection));
+// Carry the target collection so the right backend handles the delete.
+const sourceByCollection = new Map(SOURCES.map((s) => [s.collection, s]));
 for (const [key, record] of Object.entries(manifest.documents)) {
-  if (managed.has(key.split(":")[0]) && !desired.has(key)) {
-    actions.delete.push({ key, rkey: rkeyOf(record.docUri) });
+  const src = sourceByCollection.get(key.split(":")[0]);
+  if (src && !desired.has(key)) {
+    actions.delete.push({ key, rkey: rkeyOf(record.docUri), target: src.target });
   }
 }
 
@@ -73,11 +76,57 @@ if (!actions.create.length && !actions.update.length && !actions.delete.length) 
   process.exit(0);
 }
 
-const publisher = new StandardSitePublisher({ identifier: config.handle, password });
-await publisher.login();
-console.log(`Logged in as ${publisher.getDid()} via ${publisher.getPdsUrl()}`);
-
 const ctx = { siteUrl: config.siteUrl, transform: transformContent };
+
+// standard.site documents and owned-lexicon records use different backends. Log
+// in to each lazily so a run that only touches one record type makes one login.
+const isStandardDoc = (target) => target === "site.standard.document";
+
+let _stdPublisher = null;
+async function standardPublisher() {
+  if (!_stdPublisher) {
+    _stdPublisher = new StandardSitePublisher({ identifier: config.handle, password });
+    await _stdPublisher.login();
+    console.log(`standard.site: logged in as ${_stdPublisher.getDid()} via ${_stdPublisher.getPdsUrl()}`);
+  }
+  return _stdPublisher;
+}
+
+let _recordClient = null;
+async function recordClient() {
+  if (!_recordClient) {
+    _recordClient = await createRecordClient({ identifier: config.handle, password });
+    console.log(`atproto: logged in as ${_recordClient.did} via ${_recordClient.getPdsUrl()}`);
+  }
+  return _recordClient;
+}
+
+async function applyCreate({ source, entry }) {
+  if (isStandardDoc(source.target)) {
+    const pub = await standardPublisher();
+    return pub.publishDocument({ site: config.siteUrl, ...source.toInput(entry, ctx) });
+  }
+  const client = await recordClient();
+  return client.create(source.target, { $type: source.target, ...source.toRecord(entry, ctx) });
+}
+
+async function applyUpdate({ source, entry, rkey }) {
+  if (isStandardDoc(source.target)) {
+    const pub = await standardPublisher();
+    return pub.updateDocument(rkey, { site: config.siteUrl, ...source.toInput(entry, ctx) });
+  }
+  const client = await recordClient();
+  return client.put(source.target, rkey, { $type: source.target, ...source.toRecord(entry, ctx) });
+}
+
+async function applyDelete({ target, rkey }) {
+  if (isStandardDoc(target)) {
+    const pub = await standardPublisher();
+    return pub.deleteDocument(rkey);
+  }
+  const client = await recordClient();
+  return client.del(target, rkey);
+}
 
 // Persist after every operation so a mid-run failure (network blip, rate limit)
 // never leaves published records unrecorded — a re-run resumes from here rather
@@ -87,21 +136,19 @@ const persist = () =>
 
 try {
   for (const a of actions.create) {
-    const input = { site: config.siteUrl, ...a.source.toInput(a.entry, ctx) };
-    const res = await publisher.publishDocument(input);
+    const res = await applyCreate(a);
     manifest.documents[a.key] = { docUri: res.uri, docCid: res.cid, contentHash: a.hash };
     persist();
     console.log(`created ${a.key} → ${res.uri}`);
   }
   for (const a of actions.update) {
-    const input = { site: config.siteUrl, ...a.source.toInput(a.entry, ctx) };
-    const res = await publisher.updateDocument(a.rkey, input);
+    const res = await applyUpdate(a);
     manifest.documents[a.key] = { docUri: res.uri, docCid: res.cid, contentHash: a.hash };
     persist();
     console.log(`updated ${a.key} → ${res.uri}`);
   }
   for (const a of actions.delete) {
-    await publisher.deleteDocument(a.rkey);
+    await applyDelete(a);
     delete manifest.documents[a.key];
     persist();
     console.log(`deleted ${a.key}`);

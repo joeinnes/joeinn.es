@@ -1,0 +1,22 @@
+---
+title: December 2025
+start: 2025-12-01
+end: 2025-12-31
+created: 2026-06-05
+---
+
+A lighter month, but not an idle one. I proposed and launched "Advent of Jazz"
+on the community Discord and gave it a homepage banner, and I shipped the
+smallest useful thing I could think of: a working, syncing to-do list in under a
+hundred lines of code, placed on the docs landing page as the fastest possible
+demonstration of what Jazz actually is.
+
+A couple of the fixes were genuinely fiddly. Safari doesn't release its Web
+Locks immediately on navigation, which was hanging the docs landing page; I
+solved it by lifting the route coordination up into a parent component. I also
+patched a Next.js security issue inherited from a React vulnerability, tidied the
+React Native polyfills into a single importable module, and added guidance on
+keeping selector functions cheap — moving heavy computation into a `useMemo`
+outside the selector so it benefits from batching. The rest was steady upkeep:
+responsive fixes to the showcase, a navigation regression, and corrected
+hash-fragment URLs so invite links keep sensitive data out of server requests.

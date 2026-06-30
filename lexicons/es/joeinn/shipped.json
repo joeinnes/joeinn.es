@@ -1,0 +1,53 @@
+{
+  "lexicon": 1,
+  "id": "es.joeinn.shipped",
+  "description": "A merged open-source contribution shipped by Joe Innes.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A single shipped contribution (a merged pull request).",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["summary", "repo", "prNumber", "mergedAt", "createdAt"],
+        "properties": {
+          "summary": {
+            "type": "string",
+            "description": "Headline of the contribution.",
+            "maxGraphemes": 300,
+            "maxLength": 3000
+          },
+          "repo": {
+            "type": "string",
+            "description": "GitHub repository in owner/name form."
+          },
+          "prNumber": {
+            "type": "string",
+            "description": "Pull request number (string to preserve original formatting)."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Canonical URL of the pull request."
+          },
+          "description": {
+            "type": "string",
+            "description": "Longer prose description of the contribution (Markdown).",
+            "maxGraphemes": 3000,
+            "maxLength": 30000
+          },
+          "mergedAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When the pull request was merged."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When this record was created."
+          }
+        }
+      }
+    }
+  }
+}

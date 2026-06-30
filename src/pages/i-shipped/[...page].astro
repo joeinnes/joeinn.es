@@ -42,6 +42,25 @@ const groupedByDate = paginated.reduce(
   {} as Record<string, typeof sorted>,
 );
 
+// Latest digest (any period) — shown as an intro summary on the first page only.
+const digests = await getCollection("shipped-digests");
+const latestDigest =
+  currentPage === 1
+    ? digests
+        .filter((d) => d.data?.end)
+        .sort(
+          (a, b) =>
+            (b.data.end?.getTime() ?? 0) - (a.data.end?.getTime() ?? 0),
+        )[0]
+    : undefined;
+const DigestContent = latestDigest ? (await render(latestDigest)).Content : null;
+const digestLabel =
+  latestDigest?.data.title ??
+  latestDigest?.data.end?.toLocaleDateString("en-GB", {
+    month: "long",
+    year: "numeric",
+  });
+
 export async function getStaticPaths() {
   const ITEMS_PER_PAGE = 20;
   const shipped = await getCollection("i-shipped");
@@ -61,6 +80,22 @@ const description =
 ---
 
 <style>
+  .digest {
+    margin-block: calc(var(--layout-spacing) / 2) var(--layout-spacing);
+    padding: calc(var(--layout-spacing) / 2) calc(var(--inline-spacing) * 4);
+    border-inline-start: 3px solid var(--primary);
+    border-radius: var(--border-radius);
+    background: color-mix(in srgb, var(--primary) 6%, transparent);
+  }
+  .digest-heading {
+    font-size: 0.95rem;
+    color: var(--primary);
+    margin-block: 0 calc(var(--layout-spacing) / 3);
+  }
+  .digest-body {
+    font-size: 0.95rem;
+  }
+
   .date-heading {
     font-size: 0.875rem;
     color: var(--muted);
@@ -155,6 +190,16 @@ const description =
   <Nav />
   <main class="mono">
     <h1 class="title">I Shipped...</h1>
+    {
+      DigestContent && (
+        <section class="digest">
+          <h2 class="digest-heading mono">{digestLabel}</h2>
+          <div class="digest-body">
+            <DigestContent />
+          </div>
+        </section>
+      )
+    }
     {
       Object.entries(groupedByDate).map(async ([dateKey, items]) => (
         <section>

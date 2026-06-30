@@ -1,15 +1,18 @@
 name: Publish to standard.site
 
-# Publishes / updates site.standard.document records when blog posts change on
-# main. The app password lives in the ATPROTO_APP_PASSWORD repo secret; the run
-# commits the updated manifest back so the next site build can emit the matching
-# verification <link> tags.
+# Publishes / updates AT Protocol records when content changes on main: blog posts
+# (site.standard.document), shipped contributions (es.joeinn.shipped) and digests
+# (es.joeinn.shippedDigest). The app password lives in the ATPROTO_APP_PASSWORD
+# repo secret; the run commits the updated manifest back so the next site build can
+# emit the matching verification <link> tags.
 
 on:
   push:
     branches: [main]
     paths:
       - "src/content/posts/**"
+      - "src/content/i-shipped/**"
+      - "src/content/shipped-digests/**"
       - "scripts/standard-site/**"
       - "standard-site.config.json"
   workflow_dispatch:
@@ -34,7 +37,7 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - name: Sync posts to standard.site
+      - name: Sync content to AT Protocol
         env:
           ATPROTO_APP_PASSWORD: ${{ secrets.ATPROTO_APP_PASSWORD }}
         run: pnpm run standard-site:sync

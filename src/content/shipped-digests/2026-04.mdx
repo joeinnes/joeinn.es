@@ -1,0 +1,47 @@
+---
+title: April 2026
+start: 2026-04-01
+end: 2026-04-30
+created: 2026-06-05
+---
+
+April was the busiest month so far by a distance, and the breadth is what stands 
+out — the work spanned the engine's Rust core, build tooling, onboarding, 
+correctness, infrastructure and docs. The newest of those was the Rust: after months 
+working mostly in TypeScript, I added `From<T>` implementations on the `Value` type 
+and a `row_input!` macro for constructing rows, which between them removed around 250
+lines of boilerplate across the codebase, and Rust examples began appearing in
+the docs alongside the TypeScript ones.
+
+A large slice of the month went on getting people from nothing to a running app.
+I built the `create-jazz` scaffolder — `npm create jazz`, which prompts for
+framework and auth mode, fetches the right template, resolves dependencies,
+initialises git, and can provision Jazz Cloud hosting in the same step — along
+with a set of starter templates to go with it, including account backup and
+restore by recovery phrase or passkey. Underneath sat a good deal of
+build-tooling plumbing: a SvelteKit Vite plugin that manages the dev-server
+lifecycle, a switch to static `new URL(...)` worker bootstrapping so Vite,
+webpack and Turbopack co-bundle the worker and WASM correctly, and automatic
+injection of the fiddly Vite config most people would otherwise write by hand.
+
+The fixes kept coming, and several were the kind that quietly lose data or lock
+people out. Rows could vanish after a schema migration because the resolved
+table name wasn't threaded through the query engine; a React Native local-first
+account couldn't be upgraded to a full one because the proof method reached for
+WebAssembly that isn't available there; a Better Auth race let a slow
+`/get-session` response log a freshly-signed-in user straight back out. On the
+infrastructure side I added deploy-time warnings for tables missing permission
+policies, content-based deduplication so an unchanged permissions bundle doesn't
+bump a version, and — in the classic codebase — an experimental clock-sync
+feature that estimates a drifting device's clock offset from existing ping
+traffic and quietly corrects timestamps.
+
+The documentation grew an Advanced Internals page — data model, browser
+architecture, query engine, sync protocol, schema evolution — and the auth docs
+were reorganised around mental models, with the theory (Ed25519 key derivation,
+JWT structure) split into its own reference. The AI-agent thread carried on:
+`AGENTS.md` files across all nine starters pointing assistants at the live docs,
+and a note in `CLAUDE.md` asking agents to investigate failing tests rather than
+quietly rewrite them. And there were examples to show it all off — a Vue 3
+relational-database app, and a multiplayer moon-lander built with React and
+Phaser.

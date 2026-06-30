@@ -1,0 +1,25 @@
+---
+title: February 2026
+start: 2026-02-01
+end: 2026-02-28
+created: 2026-06-05
+---
+
+February is where the ground shifted. Alongside the usual classic-Jazz
+maintenance, I started contributing to the new Jazz — a from-scratch rewrite
+built around a real query engine, with typed columns, a code generator,
+SQL-backed permission policies and a Rust core underneath. My first
+contributions there marked wading deeper into the new core: a React
+quickstart to find my feet, Svelte 5 bindings (a reactive query-subscription
+class, context helpers, a user switcher), and a run of correctness fixes in the
+query and policy layers — `.include()` queries reading from the wrong columns,
+floating-point columns that TypeScript allowed but the Rust SQL parser rejected,
+and `query()` and `subscribe()` quietly skipping permission checks because the
+session wasn't being threaded through.
+
+The classic codebase was still very much alive, and the notable changes there
+leaned towards safety and clarity. I replaced an unmaintained, vulnerable
+ProseMirror dependency with a small purpose-built version, turned silent
+failures into loud ones — writing to a group you can only read now throws
+immediately rather than failing to sync later — and cleaned up a React Native
+logout that was leaving a session ID behind in secure storage.

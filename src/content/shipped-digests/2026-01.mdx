@@ -1,0 +1,23 @@
+---
+title: January 2026
+start: 2026-01-01
+end: 2026-01-31
+created: 2026-06-05
+---
+
+January was where library work became routine rather than occasional. The
+headline was first-class Better Auth support for Svelte — a full provider, with
+an example app and documentation — extending to Svelte an authentication story
+that had until then been mostly React's. Underneath it I fixed an auth-header
+serialisation bug, where secret keys were being encoded as an object instead of
+a plain list of numbers, which had broken passphrase and passkey login on the
+client.
+
+On the docs side the writing turned more conceptual. I wrote a guide to
+modelling data in Jazz aimed at developers arriving from traditional databases,
+a proper API reference page, and explanations of the trickier React integration
+points — Suspense hooks, error boundaries, and circular references that can send
+data loading into a loop. I also added a set of "skills" — structured reference
+documents that AI assistants like Claude and Cursor can draw on to write better
+Jazz code, covering performance, permissions, UI integration and testing — which 
+carried forward the make-the-docs-machine-readable thread from the autumn.

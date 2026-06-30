@@ -1,0 +1,46 @@
+---
+title: May 2026
+start: 2026-05-01
+end: 2026-05-31
+created: 2026-06-05
+---
+
+May split into three kinds of work: hardening the sync server against abuse,
+ironing out the rough edges where the library meets each front-end framework,
+and rebuilding how the documentation explains itself. Thirty pull requests in
+all.
+
+The most consequential were two security fixes on the sync server. The handshake
+frame that opens a WebSocket connection was being decompressed before the server
+knew who was connecting, so a single tiny frame claiming to expand to gigabytes
+could exhaust memory and bring the server down — a decompression bomb,
+exploitable with no authentication at all. I capped the decompressed handshake
+at 1 MB, comfortably above anything legitimate. The companion change defends
+against reconnect-storm denial of service: at most four simultaneous connections
+per client — oldest evicted, with a `RateLimited` code returned — and a
+ten-second timeout on connections that start a handshake but never finish, so
+half-open sockets can't accumulate.
+
+Most of the rest was about robustness across frameworks, where the fixes that
+mattered most were the quiet ones buried in core paths. A Next.js helper was
+mis-externalising `jazz-tools`, loading two copies of React at once and crashing
+every app during server-side pre-rendering. On React Native, database queries
+were blocking the JavaScript thread, freezing the UI and occasionally
+deadlocking; I made them asynchronous. Deeply nested subscriptions had quietly
+stopped being reactive — mutations more than one level down never triggered a
+re-render — which I traced to the dependency graph only registering top-level
+tables. And the CLI was silently doing nothing when invoked through pnpm's
+symlinks, so schema pushes and migrations looked like they were succeeding while
+changing nothing. Around those sat a run of smaller integration fixes across
+Expo, SvelteKit and the type layer, plus new starter templates and examples
+spanning plain TypeScript, Vue, Svelte and Next.js.
+
+The documentation gained a bespoke diagram engine. I replaced Mermaid across the
+docs with a custom declarative one built around `<Graph>` and `<Sequence>`
+components: a single definition renders cleanly on both desktop and mobile, it
+animates, and the geometry and layout logic is covered by 35 unit tests. On top
+of it I built a set of interactive diagrams — how a write propagates across
+durability tiers, how data flows through a migration's lens chain — that explain
+Jazz's harder ideas better than prose can. I also taught the docs site to serve
+any page as clean Markdown to AI coding assistants, continuing a thread that
+began with the `llms.txt` work the previous autumn.

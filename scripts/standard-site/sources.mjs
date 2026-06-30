@@ -1,11 +1,26 @@
 // Registry of "publishable sources". Each source maps a content collection to a
-// standard.site / ATProto record. Phase 1 registers blog posts only; adding
-// smidgeons or i-shipped later is a matter of appending one source to SOURCES
-// (smidgeons would target app.bsky.feed.post — standard.site is longform-only).
+// standard.site or ATProto record. Sources targeting `site.standard.document`
+// expose `toInput` (the standard.site document shape); sources targeting an owned
+// lexicon (es.joeinn.*) expose `toRecord` (the bare record body — the sync engine
+// adds `$type`). Adding another collection later is a matter of appending one
+// source here plus a matching lexicon under lexicons/.
 
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import matter from "gray-matter";
+
+// Read every MDX/Markdown file in a directory as { slug, file, data, body }.
+// A missing directory yields no entries (so the delete sweep still runs).
+function readEntries(dir) {
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => /\.mdx?$/.test(f))
+    .map((file) => {
+      const slug = file.replace(/\.mdx?$/, "");
+      const { data, content } = matter(readFileSync(join(dir, file), "utf8"));
+      return { slug, file, data, body: content };
+    });
+}
 
 const NOTICE = "This post includes an interactive component.";
 
@@ -88,4 +103,84 @@ export const postsSource = {
   },
 };
 
-export const SOURCES = [postsSource];
+// Each merged contribution → an es.joeinn.shipped record. MDX stays the authoring
+// and render source; this mirrors it to the PDS.
+export const shippedSource = {
+  collection: "i-shipped",
+  target: "es.joeinn.shipped",
+  dir: "src/content/i-shipped",
+
+  list() {
+    return readEntries(this.dir);
+  },
+
+  shouldPublish(entry) {
+    return Boolean(entry.data.mergeDate);
+  },
+
+  toRecord(entry) {
+    const mergedAt = new Date(entry.data.mergeDate).toISOString();
+    const repo = entry.data.repo;
+    const prNumber = String(entry.data.prNumber);
+    const description = entry.body.trim();
+    return {
+      summary: entry.data.summary,
+      repo,
+      prNumber,
+      url: `https://github.com/${repo}/pull/${prNumber}`,
+      ...(description ? { description } : {}),
+      mergedAt,
+      createdAt: mergedAt,
+    };
+  },
+
+  hashInput(entry) {
+    return JSON.stringify({
+      summary: entry.data.summary,
+      repo: entry.data.repo,
+      prNumber: String(entry.data.prNumber),
+      mergeDate: entry.data.mergeDate,
+      body: entry.body,
+    });
+  },
+};
+
+// Each digest → an es.joeinn.shippedDigest record. Covers any period (month,
+// quarter, year, ad-hoc) via a startDate/endDate range; the body is the summary.
+export const shippedDigestSource = {
+  collection: "shipped-digests",
+  target: "es.joeinn.shippedDigest",
+  dir: "src/content/shipped-digests",
+
+  list() {
+    return readEntries(this.dir);
+  },
+
+  shouldPublish(entry) {
+    return Boolean(entry.data.start && entry.data.end);
+  },
+
+  toRecord(entry) {
+    const startDate = new Date(entry.data.start).toISOString();
+    const endDate = new Date(entry.data.end).toISOString();
+    const summary = entry.body.trim();
+    return {
+      ...(entry.data.title ? { title: entry.data.title } : {}),
+      startDate,
+      endDate,
+      summary,
+      createdAt: startDate,
+    };
+  },
+
+  hashInput(entry) {
+    return JSON.stringify({
+      title: entry.data.title ?? null,
+      start: entry.data.start,
+      end: entry.data.end,
+      body: entry.body,
+    });
+  },
+};
+
+export const SOURCES = [postsSource, shippedSource, shippedDigestSource];
