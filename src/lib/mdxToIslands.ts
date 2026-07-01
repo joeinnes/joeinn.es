@@ -134,13 +134,22 @@ function componentToDirective(name: string, attrs: string): string {
  */
 export function convertMdxToIslands(mdxBody: string): string {
   const out = mdxBody
-    // Drop ESM import/export lines (component wiring the island format has no use for).
-    .replace(/^[ \t]*(?:import|export)\b.*\n?/gm, "")
+    // Drop ESM wiring. Handle the multi-line default-import shape first (a break
+    // after `from`, as Prettier/Keystatic emit), then any single-line import/export.
+    .replace(
+      /^[ \t]*(?:import|export)\b[^\n]*\bfrom[ \t]*\r?\n[ \t]*["'][^"'\n]*["'];?[ \t]*$/gm,
+      "",
+    )
+    .replace(/^[ \t]*(?:import|export)\b.*\r?\n?/gm, "")
     // Rewrite self-closing component usages (uppercase-initial tags) into directives.
     .replace(/<([A-Z][\w.]*)\b([^>]*?)\/>/g, (_match, name: string, attrs: string) =>
       componentToDirective(name, attrs),
-    );
+    )
+    // Promote each island directive to its own block (blank line either side) so
+    // it parses even when the source wrapped it in an HTML element (e.g. a styling
+    // <div>) — otherwise remark treats the directive as literal HTML content.
+    .replace(/^[ \t]*(::island\[[^\]]+\](?:\{[^}]*\})?)[ \t]*$/gm, "\n$1\n");
 
-  // Tidy the blank lines left where imports were, without disturbing prose.
+  // Tidy the blank lines left where imports/wrappers were, without disturbing prose.
   return out.replace(/\n{3,}/g, "\n\n").trim();
 }

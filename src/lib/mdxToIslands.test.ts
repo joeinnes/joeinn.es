@@ -109,4 +109,30 @@ describe("convertMdxToIslands", () => {
     expect(componentIslandMap.F1Grid.islandKey).toBe("f1Grid");
     expect(componentIslandMap.ColourSwatch.props.map((p) => p.name)).toEqual(["h", "s", "l"]);
   });
+
+  it("removes a multi-line default import broken after `from`", () => {
+    const mdx =
+      "import VoterPowerCalculator from\n" +
+      '  "../../components/VoterPowerCalculator.svelte";\n' +
+      "\n" +
+      "Body text.\n" +
+      "\n" +
+      "<VoterPowerCalculator year={2015} />";
+    const out = convertMdxToIslands(mdx);
+    expect(out).not.toContain("VoterPowerCalculator.svelte");
+    expect(out).not.toContain("import");
+    expect(out).toBe("Body text.\n\n::island[voterPower]{year=2015}");
+  });
+
+  it("promotes a directive to its own block when the source wrapped it in HTML", () => {
+    const mdx =
+      '<div class="p-2 rounded shadow">\n' +
+      "<ColourSwatch h={201} s={85} l={31} />\n" +
+      "</div>";
+    // Blank lines either side of the directive let remark parse it instead of
+    // swallowing it into the surrounding HTML block.
+    expect(convertMdxToIslands(mdx)).toBe(
+      '<div class="p-2 rounded shadow">\n\n::island[colourSwatch]{h=201 s=85 l=31}\n\n</div>',
+    );
+  });
 });
