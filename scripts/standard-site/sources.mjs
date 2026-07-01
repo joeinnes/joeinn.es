@@ -5,7 +5,7 @@
 // adds `$type`). Adding another collection later is a matter of appending one
 // source here plus a matching lexicon under lexicons/.
 
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import matter from "gray-matter";
 
@@ -218,4 +218,43 @@ export const smidgeonSource = {
   },
 };
 
-export const SOURCES = [postsSource, shippedSource, shippedDigestSource, smidgeonSource];
+// The /now page is a small append-style collection: each publish is a snapshot
+// and the site shows the most recent. Backfills the current now.mdx as one
+// es.joeinn.now record; createdAt comes from the file mtime (the singleton has
+// no date field).
+export const nowSource = {
+  collection: "now",
+  target: "es.joeinn.now",
+  dir: "src/content/now",
+
+  list() {
+    const file = join(this.dir, "now.mdx");
+    if (!existsSync(file)) return [];
+    const { data, content } = matter(readFileSync(file, "utf8"));
+    return [{ slug: "now", file: "now.mdx", data, body: content }];
+  },
+
+  shouldPublish(entry) {
+    return Boolean(entry.body?.trim());
+  },
+
+  toRecord(entry) {
+    const createdAt = statSync(join(this.dir, "now.mdx")).mtime.toISOString();
+    return {
+      content: entry.body.trim(),
+      createdAt,
+    };
+  },
+
+  hashInput(entry) {
+    return JSON.stringify({ body: entry.body });
+  },
+};
+
+export const SOURCES = [
+  postsSource,
+  shippedSource,
+  shippedDigestSource,
+  smidgeonSource,
+  nowSource,
+];

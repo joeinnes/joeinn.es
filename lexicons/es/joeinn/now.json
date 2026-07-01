@@ -5,11 +5,11 @@
   "defs": {
     "main": {
       "type": "record",
-      "description": "Singleton record holding the current /now page content.",
-      "key": "literal:self",
+      "description": "A /now page snapshot; the site renders the most recent one.",
+      "key": "tid",
       "record": {
         "type": "object",
-        "required": ["content", "updatedAt"],
+        "required": ["content", "createdAt"],
         "properties": {
           "content": {
             "type": "string",
@@ -17,10 +17,10 @@
             "maxGraphemes": 30000,
             "maxLength": 300000
           },
-          "updatedAt": {
+          "createdAt": {
             "type": "string",
             "format": "datetime",
-            "description": "When the /now page was last updated."
+            "description": "When this /now snapshot was published."
           }
         }
       }

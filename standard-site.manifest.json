@@ -2690,6 +2690,11 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp4gbf52n",
       "docCid": "bafyreib6wwcs3xpm62wlptabqh3dpeunj24nu45cetznuuj65jngtad3fq",
       "contentHash": "sha256:a56ebeeb418afd0f7cd6d83432312b7b41467e7b2ef6c8a694824aa5a555b5d1"
+    },
+    "now:now": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.now/3mplhlaojqh2m",
+      "docCid": "bafyreih55uqv5pksmvgrssva3if7y2bf2umbcimjgqlxouqtkqgm4y7iay",
+      "contentHash": "sha256:4600482942d5f55eced47ce443a608c553c9ad826a8df2eefa72f81776a1cccb"
     }
   }
 }
