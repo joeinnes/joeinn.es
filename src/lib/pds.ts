@@ -198,3 +198,71 @@ export async function fetchNow(): Promise<NowView | null> {
   if (views.length === 0) return null;
   return views.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())[0];
 }
+
+export const BLOG_COLLECTION = "es.joeinn.blog.post";
+
+/** The record key (the post slug, for blog posts) from an at:// uri. */
+export function rkeyFromUri(uri: string): string {
+  return uri.split("/").pop() ?? uri;
+}
+
+function didFromUri(uri: string): string | null {
+  return /^at:\/\/(did:[^/]+)\//.exec(uri)?.[1] ?? null;
+}
+
+/** A blob (e.g. a featured image) resolved to its public getBlob URL. */
+function blobUrl(did: string | null, blob: any): string | undefined {
+  const cid = blob?.ref?.$link;
+  if (!did || !cid) return undefined;
+  return `${PDS}/xrpc/com.atproto.sync.getBlob?did=${did}&cid=${encodeURIComponent(cid)}`;
+}
+
+/** A blog post shaped for the /blog listing and post pages. `body` is the rich
+ *  Markdown + ::island body; render it with renderPostBody / PostBody.astro. */
+export interface BlogPostView {
+  slug: string;
+  title: string;
+  date: Date;
+  dateUpdated?: Date;
+  excerpt?: string;
+  pageBg?: string;
+  featuredImage?: string;
+  body: string;
+}
+
+export function mapBlogPost(r: PdsRecord): BlogPostView {
+  const v = r.value;
+  return {
+    slug: rkeyFromUri(r.uri),
+    title: v.title,
+    date: new Date(v.createdAt),
+    dateUpdated: v.updatedAt ? new Date(v.updatedAt) : undefined,
+    excerpt: typeof v.excerpt === "string" ? v.excerpt : undefined,
+    pageBg: typeof v.pageBg === "string" ? v.pageBg : undefined,
+    featuredImage: blobUrl(didFromUri(r.uri), v.featuredImage),
+    body: typeof v.richBody === "string" ? v.richBody : "",
+  };
+}
+
+/** Fetch one record by rkey, or null when it doesn't exist (404). */
+export async function getRecord(
+  collection: string,
+  rkey: string,
+  repo: string = HANDLE,
+): Promise<PdsRecord | null> {
+  const params = new URLSearchParams({ repo, collection, rkey });
+  const res = await fetch(`${PDS}/xrpc/com.atproto.repo.getRecord?${params}`);
+  if (!res.ok) return null;
+  return (await res.json()) as PdsRecord;
+}
+
+/** A single blog post by slug (= rkey), or null when not migrated to a record. */
+export async function fetchBlogPost(slug: string): Promise<BlogPostView | null> {
+  const rec = await getRecord(BLOG_COLLECTION, slug);
+  return rec ? mapBlogPost(rec) : null;
+}
+
+/** Every blog post as a view model. */
+export async function fetchBlogPosts(): Promise<BlogPostView[]> {
+  return (await fetchAllRecords(BLOG_COLLECTION)).map(mapBlogPost);
+}
