@@ -1,0 +1,60 @@
+{
+  "lexicon": 1,
+  "id": "es.joeinn.blog.post",
+  "description": "A long-form blog post written by Joe Innes.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A single blog post authored in Markdown, with embedded ::island directives.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["title", "createdAt", "richBody"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title of the post.",
+            "maxGraphemes": 300,
+            "maxLength": 3000
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When the post was first published."
+          },
+          "richBody": {
+            "type": "string",
+            "description": "Body of the post as Markdown, including inline ::island directives.",
+            "maxGraphemes": 100000,
+            "maxLength": 1000000
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When the post was last updated."
+          },
+          "excerpt": {
+            "type": "string",
+            "description": "Short summary used in listings and metadata.",
+            "maxGraphemes": 3000,
+            "maxLength": 30000
+          },
+          "pageBg": {
+            "type": "string",
+            "description": "Custom accent/background colour for the post page."
+          },
+          "bskyPostUri": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "AT URI of the corresponding Bluesky post, if any."
+          },
+          "featuredImage": {
+            "type": "blob",
+            "description": "Featured image for the post.",
+            "accept": ["image/*"]
+          }
+        }
+      }
+    }
+  }
+}
