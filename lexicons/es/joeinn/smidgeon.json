@@ -9,7 +9,7 @@
       "key": "tid",
       "record": {
         "type": "object",
-        "required": ["summary", "createdAt", "richBody"],
+        "required": ["summary", "createdAt"],
         "properties": {
           "summary": {
             "type": "string",

@@ -183,4 +183,39 @@ export const shippedDigestSource = {
   },
 };
 
-export const SOURCES = [postsSource, shippedSource, shippedDigestSource];
+// Each smidgeon (short-form note) → an es.joeinn.smidgeon record. Smidgeons are
+// plain Markdown (no MDX components), so the body maps straight to richBody.
+export const smidgeonSource = {
+  collection: "smidgeons",
+  target: "es.joeinn.smidgeon",
+  dir: "src/content/smidgeons",
+
+  list() {
+    return readEntries(this.dir);
+  },
+
+  shouldPublish(entry) {
+    return Boolean(entry.data.created);
+  },
+
+  toRecord(entry) {
+    const createdAt = new Date(entry.data.created).toISOString();
+    const richBody = entry.body.trim();
+    return {
+      summary: entry.data.summary,
+      createdAt,
+      // Summary-only smidgeons have no body; omit richBody rather than store "".
+      ...(richBody ? { richBody } : {}),
+    };
+  },
+
+  hashInput(entry) {
+    return JSON.stringify({
+      summary: entry.data.summary,
+      created: entry.data.created,
+      body: entry.body,
+    });
+  },
+};
+
+export const SOURCES = [postsSource, shippedSource, shippedDigestSource, smidgeonSource];
