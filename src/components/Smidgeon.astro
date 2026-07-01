@@ -1,8 +1,9 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import { marked } from "marked";
+// A smidgeon normalised to a plain view model, so this renders identically
+// whether the source is a PDS record or the local content collection.
 export interface Props {
-  smidgeon: CollectionEntry<"smidgeons">;
+  smidgeon: { summary: string; body: string; created: Date | string };
 }
 
 const { smidgeon } = Astro.props;
@@ -19,11 +20,11 @@ const { smidgeon } = Astro.props;
   }
 </style>
 <article>
-  <p>{smidgeon.data.summary}</p>
+  <p>{smidgeon.summary}</p>
   {smidgeon.body && <div set:html={marked.parse(smidgeon.body)} />}
   <small>
     {
-      new Date(smidgeon.data.created).toLocaleDateString("en-GB", {
+      new Date(smidgeon.created).toLocaleDateString("en-GB", {
         weekday: "short",
         year: "numeric",
         month: "short",
