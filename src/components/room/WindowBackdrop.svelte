@@ -128,6 +128,11 @@
 			drawWindow(ctx, quad, weather, lighting, tMs, tinted(lighting.grade), cityZoom);
 		};
 
+		// Paint the first frame synchronously on mount so the window shows the
+		// instant the island hydrates, rather than a blank gap until the first
+		// requestAnimationFrame tick.
+		frame(0);
+
 		const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 
 		// Illustrated cityscape (optional) — drawn behind the weather once loaded.
