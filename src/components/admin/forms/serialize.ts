@@ -6,6 +6,7 @@ export interface PropSchema {
   type: string;
   format?: string;
   items?: { type: string };
+  accept?: string[];
 }
 
 export interface RecordObjectSchema {
@@ -64,8 +65,11 @@ function encodeField(prop: PropSchema | undefined, value: unknown): unknown {
       return value;
     case "array":
       return Array.isArray(value) ? value : [];
+    case "blob":
+      // Kept as the blob-ref object so the upload field can inspect it.
+      return value ?? undefined;
     default:
-      // blob / ref / union / unknown -> raw-JSON passthrough
+      // ref / union / unknown -> raw-JSON passthrough
       return toJsonText(value);
   }
 }
@@ -84,6 +88,9 @@ function decodeField(prop: PropSchema | undefined, value: unknown): unknown {
       return Boolean(value);
     case "array":
       return Array.isArray(value) ? value : [];
+    case "blob":
+      // The blob-ref object passes straight through; an unset field is omitted.
+      return value == null || value === "" ? undefined : value;
     default:
       return fromJsonText(value);
   }

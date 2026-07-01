@@ -168,7 +168,7 @@ export function RecordEditor({ agent, repo, nsid, rkey, lex, onSaved, onCancel }
       {error ? <div className="admin__error">{error}</div> : null}
 
       {mode === "form" && schema ? (
-        <FormRenderer schema={schema} value={form} onChange={setForm} />
+        <FormRenderer schema={schema} value={form} onChange={setForm} agent={agent} />
       ) : (
         <JsonFallbackEditor value={jsonText} onChange={setJsonText} />
       )}

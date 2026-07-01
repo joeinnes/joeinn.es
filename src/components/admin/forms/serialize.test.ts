@@ -24,7 +24,7 @@ const schema = {
     count: { type: "integer" },
     done: { type: "boolean" },
     tags: { type: "array", items: { type: "string" } },
-    blob: { type: "blob" }, // unsupported in iteration 1 -> JSON passthrough
+    blob: { type: "blob" }, // object passthrough (the upload field handles it)
   },
 };
 
@@ -39,15 +39,15 @@ const record = {
 };
 
 describe("recordToForm / formToRecord", () => {
-  it("encodes a record into form values (datetime -> local input, blob -> JSON text)", () => {
+  it("encodes a record into form values (datetime -> local input, blob -> object passthrough)", () => {
     const form = recordToForm(schema, record);
     expect(form.text).toBe("hello");
     expect(form.when).toBe("2026-06-05T09:00:00");
     expect(form.count).toBe(3);
     expect(form.done).toBe(true);
     expect(form.tags).toEqual(["a", "b"]);
-    expect(typeof form.blob).toBe("string");
-    expect(JSON.parse(form.blob as string)).toEqual(record.blob);
+    // The blob ref is kept as an object (not JSON text) so the upload field can read it.
+    expect(form.blob).toEqual(record.blob);
     expect(form).not.toHaveProperty("$type");
   });
 

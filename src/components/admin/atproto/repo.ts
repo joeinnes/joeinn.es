@@ -18,6 +18,10 @@ export interface ListRecordsPage {
  * real Agent satisfies this shape, and tests provide a minimal mock.
  */
 export interface RepoAgent {
+  uploadBlob(
+    data: Blob | Uint8Array,
+    opts?: { encoding?: string },
+  ): Promise<{ data: { blob: unknown } }>;
   com: {
     atproto: {
       repo: {
@@ -128,6 +132,13 @@ export async function deleteRecord(
   opts: { repo: string; collection: string; rkey: string; swapRecord?: string | null },
 ): Promise<void> {
   await agent.com.atproto.repo.deleteRecord(opts);
+}
+
+/** Upload a file as a blob and return its blob ref (to store in a record field). */
+export async function uploadBlob(agent: RepoAgent, file: Blob): Promise<unknown> {
+  const encoding = (file as { type?: string }).type || "application/octet-stream";
+  const res = await agent.uploadBlob(file, { encoding });
+  return res.data.blob;
 }
 
 /** Accumulate every record across pages (used for small collections / counts). */

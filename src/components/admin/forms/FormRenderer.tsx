@@ -1,5 +1,7 @@
+import { useState, type ChangeEvent } from "react";
 import { JsonFallbackEditor } from "./JsonFallbackEditor";
 import { MarkdownEditor } from "./MarkdownEditor";
+import { uploadBlob, type RepoAgent } from "../atproto/repo";
 import type { PropSchema, RecordObjectSchema } from "./serialize";
 
 const MARKDOWN_FIELDS = new Set(["body", "content", "markdown", "text", "article", "post"]);
@@ -14,13 +16,71 @@ interface FieldProps {
   required: boolean;
   value: unknown;
   onChange: (value: unknown) => void;
+  agent?: RepoAgent;
 }
 
 function hintFor(prop: PropSchema): string {
   return prop.format ? `${prop.type} · ${prop.format}` : prop.type;
 }
 
-function Field({ name, prop, required, value, onChange }: FieldProps) {
+// Upload a file as a blob and store its ref in the record field. The blob-ref
+// object round-trips through serialize (blob case) untouched.
+function BlobField({ name, prop, required, value, onChange, agent }: FieldProps & { agent: RepoAgent }) {
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [preview, setPreview] = useState<string | null>(null);
+  const ref = value && typeof value === "object" ? (value as { ref?: { $link?: string } }) : null;
+  const cid = ref?.ref?.$link;
+  const accept = prop.accept?.length ? prop.accept.join(",") : "image/*";
+
+  const onFile = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setError(null);
+    setUploading(true);
+    try {
+      const blob = await uploadBlob(agent, file);
+      onChange(blob);
+      if (file.type.startsWith("image/")) setPreview(URL.createObjectURL(file));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  return (
+    <div className="admin__field">
+      <label>
+        {name}
+        {required ? " *" : ""}
+      </label>
+      <span className="admin__hint">blob · file upload</span>
+      {preview ? (
+        <img src={preview} alt="" style={{ maxWidth: "12rem", height: "auto", borderRadius: "0.25rem" }} />
+      ) : cid ? (
+        <span className="admin__hint">Attached ({cid.slice(0, 16)}…)</span>
+      ) : null}
+      <input type="file" accept={accept} disabled={uploading} onChange={onFile} />
+      {uploading ? <span className="admin__hint">Uploading…</span> : null}
+      {error ? <div className="admin__error">{error}</div> : null}
+      {value ? (
+        <button
+          type="button"
+          className="admin__btn"
+          onClick={() => {
+            onChange(undefined);
+            setPreview(null);
+          }}
+        >
+          Remove
+        </button>
+      ) : null}
+    </div>
+  );
+}
+
+function Field({ name, prop, required, value, onChange, agent }: FieldProps) {
   const label = (
     <label>
       {name}
@@ -134,7 +194,12 @@ function Field({ name, prop, required, value, onChange }: FieldProps) {
     );
   }
 
-  // blob / ref / union / unknown / array-of-objects -> raw JSON
+  // blob -> file upload (when we have an agent to upload through)
+  if (prop.type === "blob" && agent) {
+    return <BlobField name={name} prop={prop} required={required} value={value} onChange={onChange} agent={agent} />;
+  }
+
+  // ref / union / unknown / array-of-objects -> raw JSON
   return (
     <JsonFallbackEditor
       label={`${name}${required ? " *" : ""}`}
@@ -149,6 +214,7 @@ interface FormRendererProps {
   schema: RecordObjectSchema;
   value: Record<string, unknown>;
   onChange: (next: Record<string, unknown>) => void;
+  agent?: RepoAgent;
 }
 
 /**
@@ -156,7 +222,7 @@ interface FormRendererProps {
  * a flat form state (as produced by recordToForm). Untouched fields are simply
  * absent from `value`, so formToRecord omits them.
  */
-export function FormRenderer({ schema, value, onChange }: FormRendererProps) {
+export function FormRenderer({ schema, value, onChange, agent }: FormRendererProps) {
   const props = schema.properties ?? {};
   const required = new Set(schema.required ?? []);
   return (
@@ -169,6 +235,7 @@ export function FormRenderer({ schema, value, onChange }: FormRendererProps) {
           required={required.has(name)}
           value={value[name]}
           onChange={(v) => onChange({ ...value, [name]: v })}
+          agent={agent}
         />
       ))}
     </>
