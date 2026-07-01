@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { deleteRecord, listRecords, type RepoAgent, type RepoRecord } from "./atproto/repo";
+import { triggerRebuild } from "./deployHook";
 
 export function rkeyFromUri(uri: string): string {
   return uri.split("/").pop() ?? uri;
@@ -65,6 +66,7 @@ export function RecordList({ agent, repo, nsid, onEdit, onNew }: RecordListProps
     try {
       await deleteRecord(agent, { repo, collection: nsid, rkey, swapRecord: record.cid });
       setRecords((prev) => prev.filter((r) => r.uri !== record.uri));
+      await triggerRebuild();
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
     } finally {

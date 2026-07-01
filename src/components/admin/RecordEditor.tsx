@@ -5,6 +5,7 @@ import { validateRecord } from "./lexicons/registry";
 import { FormRenderer } from "./forms/FormRenderer";
 import { JsonFallbackEditor } from "./forms/JsonFallbackEditor";
 import { formToRecord, isoToLocalInput, recordToForm, type RecordObjectSchema } from "./forms/serialize";
+import { triggerRebuild } from "./deployHook";
 
 function objectSchemaFor(lex: Lexicons, nsid: string): RecordObjectSchema | null {
   const def = lex.getDef(nsid) as { type?: string; record?: RecordObjectSchema } | undefined;
@@ -114,6 +115,7 @@ export function RecordEditor({ agent, repo, nsid, rkey, lex, onSaved, onCancel }
           rkey: newRkey.trim() || undefined,
         });
       }
+      await triggerRebuild();
       onSaved();
     } catch (err) {
       const message = err instanceof Error ? err.message : String(err);
