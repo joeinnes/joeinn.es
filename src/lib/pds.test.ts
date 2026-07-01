@@ -4,6 +4,7 @@ import {
   mapShippedDigest,
   mapSmidgeon,
   mapNow,
+  mapBlogPost,
   type PdsRecord,
 } from "./pds";
 
@@ -134,5 +135,44 @@ describe("pds now mapper", () => {
       createdAt: new Date("2026-06-05T03:35:37.648Z"),
     });
     expect(view.createdAt).toBeInstanceOf(Date);
+  });
+});
+
+describe("pds blog-post mapper", () => {
+  it("maps an es.joeinn.blog.post record, slug from rkey and a getBlob featured image", () => {
+    const rec: PdsRecord = {
+      uri: "at://did:plc:abc/es.joeinn.blog.post/my-post",
+      value: {
+        $type: "es.joeinn.blog.post",
+        title: "My Post",
+        createdAt: "2024-05-31T00:00:00.000Z",
+        updatedAt: "2024-06-01T00:00:00.000Z",
+        excerpt: "An excerpt",
+        pageBg: "#abc",
+        richBody: "Hello\n\n::island[pomodoro]",
+        featuredImage: { $type: "blob", ref: { $link: "bafc" }, mimeType: "image/jpeg", size: 9 },
+      },
+    };
+    const view = mapBlogPost(rec);
+    expect(view.slug).toBe("my-post");
+    expect(view.title).toBe("My Post");
+    expect(view.date).toEqual(new Date("2024-05-31T00:00:00.000Z"));
+    expect(view.dateUpdated).toEqual(new Date("2024-06-01T00:00:00.000Z"));
+    expect(view.excerpt).toBe("An excerpt");
+    expect(view.pageBg).toBe("#abc");
+    expect(view.body).toBe("Hello\n\n::island[pomodoro]");
+    expect(view.featuredImage).toBe(
+      "https://bsky.social/xrpc/com.atproto.sync.getBlob?did=did:plc:abc&cid=bafc",
+    );
+  });
+
+  it("leaves featuredImage undefined when the record has no image", () => {
+    const rec: PdsRecord = {
+      uri: "at://did:plc:abc/es.joeinn.blog.post/no-image",
+      value: { title: "T", createdAt: "2024-01-01T00:00:00.000Z", richBody: "body" },
+    };
+    const view = mapBlogPost(rec);
+    expect(view.featuredImage).toBeUndefined();
+    expect(view.dateUpdated).toBeUndefined();
   });
 });
