@@ -148,3 +148,30 @@ export async function fetchShipped(): Promise<ShippedView[]> {
 export async function fetchShippedDigests(): Promise<ShippedDigestView[]> {
   return (await fetchAllRecords(SHIPPED_DIGEST_COLLECTION)).map(mapShippedDigest);
 }
+
+export const SMIDGEON_COLLECTION = "es.joeinn.smidgeon";
+
+/** A smidgeon (short-form note), shaped for the /smidgeons feed. */
+export interface SmidgeonView {
+  summary: string;
+  body: string;
+  created: Date;
+}
+
+/**
+ * Map an es.joeinn.smidgeon record to its view model. `richBody` is optional on
+ * the record (summary-only smidgeons omit it), so `body` becomes "" when absent.
+ */
+export function mapSmidgeon(r: PdsRecord): SmidgeonView {
+  const v = r.value;
+  return {
+    summary: v.summary,
+    body: typeof v.richBody === "string" ? v.richBody : "",
+    created: new Date(v.createdAt),
+  };
+}
+
+/** Fetch every smidgeon as a view model. */
+export async function fetchSmidgeons(): Promise<SmidgeonView[]> {
+  return (await fetchAllRecords(SMIDGEON_COLLECTION)).map(mapSmidgeon);
+}
