@@ -175,3 +175,26 @@ export function mapSmidgeon(r: PdsRecord): SmidgeonView {
 export async function fetchSmidgeons(): Promise<SmidgeonView[]> {
   return (await fetchAllRecords(SMIDGEON_COLLECTION)).map(mapSmidgeon);
 }
+
+export const NOW_COLLECTION = "es.joeinn.now";
+
+/** A /now page snapshot. The site renders the most recent one. */
+export interface NowView {
+  content: string;
+  createdAt: Date;
+}
+
+export function mapNow(r: PdsRecord): NowView {
+  const v = r.value;
+  return {
+    content: typeof v.content === "string" ? v.content : "",
+    createdAt: new Date(v.createdAt),
+  };
+}
+
+/** The most recent /now snapshot, or null when there are none. */
+export async function fetchNow(): Promise<NowView | null> {
+  const views = (await fetchAllRecords(NOW_COLLECTION)).map(mapNow);
+  if (views.length === 0) return null;
+  return views.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())[0];
+}
