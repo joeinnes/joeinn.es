@@ -2,22 +2,105 @@
 import GitHubLink from "../../components/GitHubLink.astro";
 import Layout from "../../layouts/Default.astro";
 import Nav from "../../components/NewNav.astro";
+import { marked } from "marked";
 
-import { getCollection, render } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import {
+  fetchShipped,
+  fetchShippedDigests,
+  safe,
+  type ShippedView,
+  type ShippedDigestView,
+} from "../../lib/pds";
+
+// A shipped contribution normalised across both sources. PDS records carry a
+// Markdown `markdown` body; local content entries carry an `entry` we render as
+// MDX. Exactly one of the two is set.
+interface ShippedItem {
+  summary: string;
+  repo: string;
+  prNumber: string;
+  mergeDate: Date;
+  entry?: CollectionEntry<"i-shipped">;
+  markdown?: string | null;
+}
+
+// The latest digest, normalised the same way.
+interface DigestVm {
+  label: string;
+  entry?: CollectionEntry<"shipped-digests">;
+  markdown?: string | null;
+}
+
+// Prefer the PDS (es.joeinn.shipped) at build; fall back to the local content
+// collection when the fetch fails OR returns nothing, so the build stays green
+// throughout the migration. Sorted newest-first either way.
+async function loadShippedItems(): Promise<ShippedItem[]> {
+  const pds: ShippedItem[] = (await safe(fetchShipped(), [] as ShippedView[]))
+    .filter((r) => r.mergedAt instanceof Date && !isNaN(r.mergedAt.getTime()))
+    .map((r) => ({
+      summary: r.summary,
+      repo: r.repo,
+      prNumber: r.prNumber,
+      mergeDate: r.mergedAt,
+      markdown: r.description,
+    }));
+  if (pds.length > 0) {
+    return pds.sort((a, b) => b.mergeDate.getTime() - a.mergeDate.getTime());
+  }
+
+  const local: ShippedItem[] = (await getCollection("i-shipped"))
+    .filter((item) => item.data?.mergeDate)
+    .map((item) => ({
+      summary: item.data.summary,
+      repo: item.data.repo,
+      prNumber: item.data.prNumber,
+      mergeDate: item.data.mergeDate,
+      entry: item,
+    }));
+  return local.sort((a, b) => b.mergeDate.getTime() - a.mergeDate.getTime());
+}
+
+// Latest digest (any period), from the PDS (es.joeinn.shippedDigest) with the
+// same PDS-then-local fallback. Returns null when neither source has one.
+async function loadLatestDigest(): Promise<DigestVm | null> {
+  const pds = (await safe(fetchShippedDigests(), [] as ShippedDigestView[]))
+    .filter((d) => d.endDate instanceof Date && !isNaN(d.endDate.getTime()))
+    .sort((a, b) => b.endDate.getTime() - a.endDate.getTime());
+  const latest = pds[0];
+  if (latest) {
+    return {
+      label:
+        latest.title ??
+        latest.endDate.toLocaleDateString("en-GB", {
+          month: "long",
+          year: "numeric",
+        }),
+      markdown: latest.summary,
+    };
+  }
+
+  const entry = (await getCollection("shipped-digests"))
+    .filter((d) => d.data?.end)
+    .sort((a, b) => (b.data.end?.getTime() ?? 0) - (a.data.end?.getTime() ?? 0))[0];
+  if (!entry) return null;
+  return {
+    label:
+      entry.data.title ??
+      entry.data.end?.toLocaleDateString("en-GB", {
+        month: "long",
+        year: "numeric",
+      }) ??
+      "",
+    entry,
+  };
+}
 
 const ITEMS_PER_PAGE = 20;
 const { page } = Astro.params;
 const currentPage = page ? parseInt(page as string) : 1;
 
-const shipped = await getCollection("i-shipped");
-const sorted = shipped
-  .filter((item) => item.data?.mergeDate)
-  .sort((a, b) => {
-    const aTime = a.data?.mergeDate?.getTime() ?? 0;
-    const bTime = b.data?.mergeDate?.getTime() ?? 0;
-    return bTime - aTime;
-  });
-
+const sorted = await loadShippedItems();
 const totalPages = Math.ceil(sorted.length / ITEMS_PER_PAGE);
 const paginated = sorted.slice(
   (currentPage - 1) * ITEMS_PER_PAGE,
@@ -27,7 +110,7 @@ const paginated = sorted.slice(
 const groupedByDate = paginated.reduce(
   (groups, item) => {
     const dateKey =
-      item.data.mergeDate?.toLocaleDateString("en-GB", {
+      item.mergeDate.toLocaleDateString("en-GB", {
         day: "numeric",
         month: "long",
         year: "numeric",
@@ -39,33 +122,30 @@ const groupedByDate = paginated.reduce(
     groups[dateKey].push(item);
     return groups;
   },
-  {} as Record<string, typeof sorted>,
+  {} as Record<string, ShippedItem[]>,
 );
 
 // Latest digest (any period) — shown as an intro summary on the first page only.
-const digests = await getCollection("shipped-digests");
-const latestDigest =
-  currentPage === 1
-    ? digests
-        .filter((d) => d.data?.end)
-        .sort(
-          (a, b) =>
-            (b.data.end?.getTime() ?? 0) - (a.data.end?.getTime() ?? 0),
-        )[0]
-    : undefined;
-const DigestContent = latestDigest ? (await render(latestDigest)).Content : null;
-const digestLabel =
-  latestDigest?.data.title ??
-  latestDigest?.data.end?.toLocaleDateString("en-GB", {
-    month: "long",
-    year: "numeric",
-  });
+const digest = currentPage === 1 ? await loadLatestDigest() : null;
+const DigestContent = digest?.entry ? (await render(digest.entry)).Content : null;
+const digestHtml: string =
+  digest && !digest.entry ? await marked.parse(digest.markdown ?? "") : "";
+const digestLabel = digest?.label;
 
 export async function getStaticPaths() {
   const ITEMS_PER_PAGE = 20;
-  const shipped = await getCollection("i-shipped");
-  const filtered = shipped.filter((item) => item.data?.mergeDate);
-  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+
+  // Mirror the page body's source selection so the emitted page count matches
+  // what actually renders: PDS when it has records, else the local collection.
+  const pdsValid = (await safe(fetchShipped(), [] as ShippedView[])).filter(
+    (r) => r.mergedAt instanceof Date && !isNaN(r.mergedAt.getTime()),
+  );
+  const shippedCount =
+    pdsValid.length > 0
+      ? pdsValid.length
+      : (await getCollection("i-shipped")).filter((item) => item.data?.mergeDate)
+          .length;
+  const totalPages = Math.ceil(shippedCount / ITEMS_PER_PAGE);
 
   return [
     { params: { page: undefined } },
@@ -191,11 +271,15 @@ const description =
   <main class="mono">
     <h1 class="title">I Shipped...</h1>
     {
-      DigestContent && (
+      digest && (
         <section class="digest">
           <h2 class="digest-heading mono">{digestLabel}</h2>
           <div class="digest-body">
-            <DigestContent />
+            {DigestContent ? (
+              <DigestContent />
+            ) : (
+              <Fragment set:html={digestHtml} />
+            )}
           </div>
         </section>
       )
@@ -210,18 +294,22 @@ const description =
           </h2>
 
           {items.map(async (item) => {
-            const { Content } = await render(item);
+            const Content = item.entry ? (await render(item.entry)).Content : null;
+            const bodyHtml: string = item.entry
+              ? ""
+              : await marked.parse(item.markdown ?? "");
             return (
               <article>
                 <details>
-                  <summary>{item.data.summary}</summary>
+                  <summary>{item.summary}</summary>
                   <div class="details-body">
-                    <Content />
+                    {Content ? (
+                      <Content />
+                    ) : (
+                      <Fragment set:html={bodyHtml} />
+                    )}
                     <div class="pr-link-row">
-                      <GitHubLink
-                        repo={item.data.repo}
-                        pr={item.data.prNumber}
-                      />
+                      <GitHubLink repo={item.repo} pr={item.prNumber} />
                     </div>
                   </div>
                 </details>
