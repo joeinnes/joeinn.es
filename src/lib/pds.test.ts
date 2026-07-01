@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { mapShipped, mapShippedDigest, type PdsRecord } from "./pds";
+import { mapShipped, mapShippedDigest, mapSmidgeon, type PdsRecord } from "./pds";
 
 describe("pds shipped mappers", () => {
   it("mapShipped maps an es.joeinn.shipped record to a view model with a Date mergedAt", () => {
@@ -77,5 +77,37 @@ describe("pds shipped mappers", () => {
       },
     };
     expect(mapShippedDigest(rec).title).toBeNull();
+  });
+});
+
+describe("pds smidgeon mapper", () => {
+  it("mapSmidgeon maps an es.joeinn.smidgeon record with a Date created", () => {
+    const rec: PdsRecord = {
+      uri: "at://did:plc:abc/es.joeinn.smidgeon/3mplgp4gbf52n",
+      value: {
+        $type: "es.joeinn.smidgeon",
+        summary: "A hyperplane divides a space of arbitrary dimensionality",
+        richBody: "This boggled my brain a bit at first.",
+        createdAt: "2025-12-13T00:00:00.000Z",
+      },
+    };
+    const view = mapSmidgeon(rec);
+    expect(view).toEqual({
+      summary: "A hyperplane divides a space of arbitrary dimensionality",
+      body: "This boggled my brain a bit at first.",
+      created: new Date("2025-12-13T00:00:00.000Z"),
+    });
+    expect(view.created).toBeInstanceOf(Date);
+  });
+
+  it("mapSmidgeon yields an empty body for a summary-only smidgeon (no richBody)", () => {
+    const rec: PdsRecord = {
+      uri: "at://did:plc:abc/es.joeinn.smidgeon/1",
+      value: {
+        summary: "Nikon made space cameras",
+        createdAt: "2025-01-01T00:00:00.000Z",
+      },
+    };
+    expect(mapSmidgeon(rec).body).toBe("");
   });
 });
