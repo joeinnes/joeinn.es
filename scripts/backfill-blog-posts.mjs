@@ -61,13 +61,23 @@ if (skipped.length) console.log("  skipped:", skipped.join(", "));
 async function imageBytes(ref) {
   try {
     if (/^https?:\/\//.test(ref)) {
-      const res = await fetch(ref);
-      if (!res.ok) return null;
-      return { bytes: Buffer.from(await res.arrayBuffer()), mime: res.headers.get("content-type") || "image/jpeg" };
+      // Retry 5xx (e.g. a flaky storage host returning 504); give up on 4xx.
+      for (let attempt = 0; attempt < 3; attempt += 1) {
+        const res = await fetch(ref);
+        if (res.ok) {
+          return {
+            bytes: Buffer.from(await res.arrayBuffer()),
+            mime: res.headers.get("content-type") || "image/jpeg",
+          };
+        }
+        if (res.status < 500) return null;
+      }
+      return null;
     }
-    const path = join(PUBLIC_DIR, ref.replace(/^\//, ""));
+    // Local /public paths are often URL-encoded in frontmatter (%20 for spaces).
+    const path = join(PUBLIC_DIR, decodeURIComponent(ref.replace(/^\//, "")));
     if (!existsSync(path)) return null;
-    const ext = (ref.split(".").pop() || "").toLowerCase();
+    const ext = (path.split(".").pop() || "").toLowerCase();
     const mime = ext === "png" ? "image/png" : ext === "webp" ? "image/webp" : ext === "gif" ? "image/gif" : "image/jpeg";
     return { bytes: readFileSync(path), mime };
   } catch {
