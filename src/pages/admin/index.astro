@@ -1,0 +1,12 @@
+---
+// Static shell only — all logic (OAuth, XRPC) runs client-side in the island,
+// which must never be server-rendered (it touches window/IndexedDB/WebCrypto).
+export const prerender = true;
+import Default from "../../layouts/Default.astro";
+import AdminApp from "../../components/admin/AdminApp";
+---
+
+<Default title="Admin — joeinn.es" description="Content admin dashboard">
+  <meta slot="head" name="robots" content="noindex, nofollow" />
+  <AdminApp client:only="react" />
+</Default>

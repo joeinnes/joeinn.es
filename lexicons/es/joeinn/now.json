@@ -1,0 +1,29 @@
+{
+  "lexicon": 1,
+  "id": "es.joeinn.now",
+  "description": "The current /now page content for Joe Innes.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A /now page snapshot; the site renders the most recent one.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["content", "createdAt"],
+        "properties": {
+          "content": {
+            "type": "string",
+            "description": "Body of the /now page as Markdown.",
+            "maxGraphemes": 30000,
+            "maxLength": 300000
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When this /now snapshot was published."
+          }
+        }
+      }
+    }
+  }
+}

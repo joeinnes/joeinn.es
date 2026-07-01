@@ -9,7 +9,7 @@
       "key": "tid",
       "record": {
         "type": "object",
-        "required": ["summary", "repo", "prNumber", "mergedAt", "createdAt"],
+        "required": ["summary", "repo", "prNumber", "url", "mergedAt", "createdAt"],
         "properties": {
           "summary": {
             "type": "string",

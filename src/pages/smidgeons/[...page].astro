@@ -3,37 +3,60 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Default.astro";
 import Smidgeon from "../../components/Smidgeon.astro";
 import Nav from "../../components/NewNav.astro";
+import { fetchSmidgeons, safe, type SmidgeonView } from "../../lib/pds";
 
 const ITEMS_PER_PAGE = 20;
+
+// Prefer the PDS (es.joeinn.smidgeon); fall back to the local content collection
+// when the fetch fails or returns nothing, so the build stays green throughout
+// the migration. Only past-dated smidgeons, newest first — same as before.
+async function loadSmidgeons(): Promise<SmidgeonView[]> {
+  const now = new Date();
+  const isPast = (d: Date) => d instanceof Date && !isNaN(d.getTime()) && d < now;
+
+  const pds = (await safe(fetchSmidgeons(), [] as SmidgeonView[])).filter((s) =>
+    isPast(s.created),
+  );
+  if (pds.length > 0) {
+    return pds.sort((a, b) => b.created.getTime() - a.created.getTime());
+  }
+
+  const local = (await getCollection("smidgeons", ({ data }) => data.created < now)).map(
+    (e) => ({ summary: e.data.summary, body: e.body, created: e.data.created }),
+  );
+  return local.sort((a, b) => b.created.getTime() - a.created.getTime());
+}
+
 const { page } = Astro.params;
 const currentPage = page ? parseInt(page as string) : 1;
-const now = new Date();
-const filteredSmidgeons = await getCollection("smidgeons", ({ data }) => {
-  return data.created < now;
-});
-const totalPages = Math.ceil(filteredSmidgeons.length / ITEMS_PER_PAGE);
-const paginatedSmidgeons = filteredSmidgeons
-  .sort((a, b) => b.data.created.valueOf() - a.data.created.valueOf())
-  .slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+const allSmidgeons = await loadSmidgeons();
+const totalPages = Math.ceil(allSmidgeons.length / ITEMS_PER_PAGE);
+const paginatedSmidgeons = allSmidgeons.slice(
+  (currentPage - 1) * ITEMS_PER_PAGE,
+  currentPage * ITEMS_PER_PAGE,
+);
 
 export async function getStaticPaths() {
   const ITEMS_PER_PAGE = 20;
-
   const now = new Date();
+  const isPast = (d: Date) => d instanceof Date && !isNaN(d.getTime()) && d < now;
 
-  const filteredSmidgeons = await getCollection("smidgeons", ({ data }) => {
-    return data.created < now;
-  });
-  const totalPages = Math.ceil(filteredSmidgeons.length / ITEMS_PER_PAGE);
+  // Mirror the body's source selection so the emitted page count matches.
+  const pdsCount = (await safe(fetchSmidgeons(), [] as SmidgeonView[])).filter((s) =>
+    isPast(s.created),
+  ).length;
+  const count =
+    pdsCount > 0
+      ? pdsCount
+      : (await getCollection("smidgeons", ({ data }) => data.created < now)).length;
+  const totalPages = Math.ceil(count / ITEMS_PER_PAGE);
 
-  const paths = [
+  return [
     { params: { page: undefined } }, // Handle /smidgeons
     ...Array.from({ length: totalPages }, (_, i) => ({
       params: { page: String(i + 1) },
     })),
   ];
-
-  return paths;
 }
 
 const description =

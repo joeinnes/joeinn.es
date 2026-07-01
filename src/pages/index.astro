@@ -234,6 +234,9 @@ const cards = [
       border-radius: var(--border-radius);
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+      /* Sky-toned poster so the box reads as a window, not a blank gap, in the
+         brief moment before the canvas island hydrates and paints over it. */
+      background: linear-gradient(#7ba7cc, #c6d8e6);
     }
     .hero-image .avatar {
       position: relative;

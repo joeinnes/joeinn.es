@@ -10,9 +10,13 @@
 	const DB_STORE = 'cache';
 	const CACHE_KEY = 'tracks';
 
+	// Seeded from the server so the "Recently Played" list paints immediately
+	// instead of a "Loading listening data..." block; onMount refreshes to live
+	// and loads the stats history client-side.
+	let { initialRecentTracks = [] } = $props();
 	let allTracks = $state([]);
-	let recentTracks = $state([]);
-	let loading = $state(true);
+	let recentTracks = $state(initialRecentTracks);
+	let loading = $state(initialRecentTracks.length === 0);
 	let loadingMore = $state(false);
 	let error = $state('');
 	let selectedPeriod = $state('week');
@@ -480,6 +484,7 @@
 		height: 100%;
 		object-fit: cover;
 		z-index: 1;
+		color: transparent;
 	}
 	.recent-cover-fallback {
 		position: absolute;
@@ -536,6 +541,7 @@
 		height: 100%;
 		object-fit: cover;
 		z-index: 1;
+		color: transparent;
 	}
 	.mosaic-fallback {
 		position: absolute;
@@ -621,6 +627,7 @@
 		height: 100%;
 		object-fit: cover;
 		z-index: 1;
+		color: transparent;
 	}
 	.stat-cover-fallback {
 		position: absolute;

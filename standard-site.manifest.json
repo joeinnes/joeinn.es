@@ -2386,6 +2386,316 @@
       "docCid": "bafyreih5nnnqfzpqpblv3h4qhdspf4gv2fuop6lghsnu7bxpwbn4ez6zku",
       "contentHash": "sha256:3499c8327623ab8282401c2b95a17ecf3749939bf59487da9cdca6b9d9b6f5a6"
     },
+    "smidgeons:a-hyperplane-divides-a-space-of-arbitrary-dimensionality": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgotlbru2r",
+      "docCid": "bafyreiee47olshaoh353lp3isxqrhj4zcdzv7fqw6z3x6kwhnfkck7mkkq",
+      "contentHash": "sha256:25c1c6e96790c83bfdf783baf37f506a5ec380e63ba2daa83636f6508e444ed1"
+    },
+    "smidgeons:adhd-glucose-brain": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgou3kc42r",
+      "docCid": "bafyreidps4wnjtvwmdlechjdkbxra6bh7mfggmcb64iqk77slastm2oine",
+      "contentHash": "sha256:f64427aca1bc32adf3170c9637bc8f359487fba3c9c57f348b0477a6038d802e"
+    },
+    "smidgeons:ai-model-zoos": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoubuli2h",
+      "docCid": "bafyreiamgowjypeiricb7wup6apljjdf5xlmkurpona4iu3us6xdoqvkz4",
+      "contentHash": "sha256:fdcc7a3f76d2e4f5ac89ad73ffba3c3f9d4a8624a4e187a81e3bea4cc49133e9"
+    },
+    "smidgeons:airliner-inspections": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoug63x2y",
+      "docCid": "bafyreieldca2hiiqe4e4mu2xj2svzmkznevlanmffz2dqeif5euoubwh6i",
+      "contentHash": "sha256:13ad8167e9a22faf357233f4885cf8213b769f10c1c2a9ad398b60b8af43380a"
+    },
+    "smidgeons:albert-guillaumes-has-made-models-of-from-what-i-can-tell-basically-every-metro-station-in-europe": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoukaxh2y",
+      "docCid": "bafyreibknsjmubs3ohqoyirfakengzczqhxrkic47fr3icqxdz4m37bzke",
+      "contentHash": "sha256:dbb7d8f32bb5a3f8f69c300b8704f358181eec14498c0f3bf6d7355215177dbd"
+    },
+    "smidgeons:alexisonfire-acoustic-album": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgouoexy2h",
+      "docCid": "bafyreiayncechgsf6iypmyk6y576pmfmrdcevb2qtxvh5bctpi3o6xd7sm",
+      "contentHash": "sha256:8a749a177ff60d43f0c60d2d706d604842edba2a0558eedceb2d6e1565a75502"
+    },
+    "smidgeons:all-clocks-30-seconds-late": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgousoij2u",
+      "docCid": "bafyreibherfghl7cxixxvrbmzrcuezya4srp724qicl5jtvuhloulphutu",
+      "contentHash": "sha256:52fb450e1565974e9e7b2dcdc99c6e4610f61ddac1d329997260b7c48335d322"
+    },
+    "smidgeons:andromeda-bigger-than-moon": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgouwwev24",
+      "docCid": "bafyreichtdi7as7wrxyp5d63ayqeu6kivyxcjbntq25gwiwy6vfenpxflq",
+      "contentHash": "sha256:eb4554c293387d60eef2f4ee7981bb2b38f60f70dd75d1f362713b0a94a36e02"
+    },
+    "smidgeons:any-similarity-coincidental-rasputin": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgov2y4j2u",
+      "docCid": "bafyreibjfflyaveekwx736aewhrbv3r2fq5lptoiolk5oshflupbc45ady",
+      "contentHash": "sha256:f2f9b60b11f76d6ec214b0e200647a9d9a04e4422d1c3ab4bb25b6a854f0b731"
+    },
+    "smidgeons:apple-configurator-no-space": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgov73642i",
+      "docCid": "bafyreid2ili3fabr5rurlqolm7evejiuyt6ea2sjmuq2o3duijexrrmvni",
+      "contentHash": "sha256:9b83896bbbe9965ae4f8ed933d1d57f683bf591790e52f3a00de7cf830e03be3"
+    },
+    "smidgeons:apple-data-layer": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgovd32f24",
+      "docCid": "bafyreihdxl7qvyph2agp3ni5c3m4xtrg7cyrfzkm3rizgfxzwleh2y4g64",
+      "contentHash": "sha256:b896fa216b5d0399be2b367e4894ba9e1d7dff0001f7fbfb57821c99212296a8"
+    },
+    "smidgeons:apple-music-last-played": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgovh4wn24",
+      "docCid": "bafyreifjnqdiv2r7gpwgu5nfirtzmyqmethcuzle3i4hky7snfsih43s7y",
+      "contentHash": "sha256:0cf96b5d2e47033c51a04965fc211e983a651fffe7db047e4016cea78da3d7ab"
+    },
+    "smidgeons:aston-barrett-41-children": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgovl6sp2u",
+      "docCid": "bafyreig7xgqmfxcp4losak7o72cfogulzydz3u4uu2pxoup3r6k7gdho7e",
+      "contentHash": "sha256:f8f866a2cf0a5f4ccdc4939ae01a90569ee1b4fd37bccc6682888cc4bd93c63c"
+    },
+    "smidgeons:bees-sibling-relatedness": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgow3mh32a",
+      "docCid": "bafyreid5tjtarz5ojpgdpw3ht7lv677djfbw4draoz5v3mtzgjc7oqitxe",
+      "contentHash": "sha256:c63cf45c0d29eeee30d9177094001eb010f57dac06ef99463704329e7fcaa9d8"
+    },
+    "smidgeons:camels-actually-kind-of-do-store-water-in-their-humps": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgowd6b723",
+      "docCid": "bafyreihccxevp767sozdscaxwwg4llsayrbcns2tiwk2nwbc6ec4zy7l7y",
+      "contentHash": "sha256:3bbb873e1df1d2c5ae9cfc1626c0eefbf50846f302377c807a5cc748cc50fc0b"
+    },
+    "smidgeons:chatgpt-transform-analyse-data": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgowhb472y",
+      "docCid": "bafyreifzshu5kjcmpdey3gbf7lwzp35ufjanblpdkgtsrgacrerqgafuaq",
+      "contentHash": "sha256:c73802a538693aac65c529516e2c0493c83fbbad4e03b1110f7dcb94610e762c"
+    },
+    "smidgeons:city-road-orientations": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgowldyu2r",
+      "docCid": "bafyreicccuja7fzlofx6aw4lp233qa7cxgo2skp5vohesmna26jdvzvlfm",
+      "contentHash": "sha256:ad9589860353c9e00aa4384e087dfa72c8dda9f42c15d65f255f3ba3a5653d3d"
+    },
+    "smidgeons:coffee-brain-plasticity": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgowpgze2i",
+      "docCid": "bafyreiaylpr2njno5gh27uxtwzid7g6uxqgun57pu4ti6f5dstci64tq2a",
+      "contentHash": "sha256:4ce40f32e8965e59f941ed968f20815dfc04781f43a5e81fe1f69b84cb5801fe"
+    },
+    "smidgeons:coheed-cambria-new-album": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgowtf6t2a",
+      "docCid": "bafyreifsm534swdd5xhn42qjs6mn7g4rbkvw2kdck6xe4p7rgatvr2mjqu",
+      "contentHash": "sha256:eda826e7eb720430337f33f14ad2431e26688a25981eedd69b8f85269bec19a1"
+    },
+    "smidgeons:date-parsing-differences": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgowxgty2o",
+      "docCid": "bafyreid5ltkzlsjd2qxcl3d63crqhdcyreax22byqn3d2gbvpo6yinop3m",
+      "contentHash": "sha256:f4a2f21a6b225b1e258264c3d69edeccb58aeaf2f48275e524c1571f240b26d2"
+    },
+    "smidgeons:drafts-electrical-sockets": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgox3hs62q",
+      "docCid": "bafyreidvxefazyu6njs5phjrgr2cnocxgnpryeuqkcw7qmmnlbtwt4ui64",
+      "contentHash": "sha256:5400677921833bb0c00d4b1a24d44dd6f7d86049a2bb78e53dfaf02670209ee6"
+    },
+    "smidgeons:energy-condense-mass": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgox7lkx2u",
+      "docCid": "bafyreifwxikw22tzasyo2yohnl4abzkgzdpchh2h2oa7tpfn2or4ckbvbm",
+      "contentHash": "sha256:a5587944f817e59f05038fa1d2779217dc40307b21bec656e3dc52fd2b8fb342"
+    },
+    "smidgeons:epilepsy-cognitive-performance": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoxdnbv2n",
+      "docCid": "bafyreidty5jumgv2iiv742bxa5blgljkyok6fdbyrsxb3otcq4g34l2voa",
+      "contentHash": "sha256:2b58d164420beab964532d28f56a740ef81118afed646b4214fff70015f7aee8"
+    },
+    "smidgeons:facebook-cost-per-user": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoxhwg32a",
+      "docCid": "bafyreigjfh2sypoz3pnbvngejiaebwej2qem3yvav5ywq3rzzwkt7iskhq",
+      "contentHash": "sha256:116c771fc887c302bc451ce0a435914e124c9c9d1a19f11dafa6571b3d3de82d"
+    },
+    "smidgeons:flying-saucers-gardening": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoxnkuq2h",
+      "docCid": "bafyreie2vfrjbh73h5rxgxfpciognoogvaou5pch7znmvgriortmj6haeu",
+      "contentHash": "sha256:ab78118b3478d16e7705c1fff99dc95fdae60d4e04ba77dea9811e810f70b4e0"
+    },
+    "smidgeons:friends-make-you-less-sick": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoxrqhf2n",
+      "docCid": "bafyreib5lqac5uicfaznc4qnjk6fkcn5r6hphtfhhpew3liabqfkcyuuqq",
+      "contentHash": "sha256:76353d9256186e081c416c49f0de7139c28e75d56a55d4b174e7f8c90d4bfa21"
+    },
+    "smidgeons:ganymede-bigger-than-mercury": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoxvvbf2n",
+      "docCid": "bafyreibebunq7sppmkcxiy5zbhdye4h2otpzeda7dnsiznt53k7efrwt64",
+      "contentHash": "sha256:dcef6b28b09708d0fdba3027c45c0586cb05045899485c2f12487c97991f02c6"
+    },
+    "smidgeons:george-birnbaum-orban-netanyahu": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoy256n24",
+      "docCid": "bafyreiel4bhjt5dyuh3qcfhmg5vqhbhnzypw6jijjp7hhgni2pe3xkcosu",
+      "contentHash": "sha256:1b828cdf8cd9f720a10c8368952b54f771de761bb17d2d7eba5314c120df4b7a"
+    },
+    "smidgeons:hide-details-marker": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoy67vh2y",
+      "docCid": "bafyreihhis33b2547vsxpvrsweli6cvodr2yyh6k7nkh54si6f2wcyhtmi",
+      "contentHash": "sha256:2bdbb3f3165a29a5e29f713e8716b9faab4e216b02ad2fcf4b877fd722e467ea"
+    },
+    "smidgeons:hindustan-times-circulation": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoycnp62q",
+      "docCid": "bafyreig3zc6cawbgxp3zpnzpfjjjonrd65mlo3d4em7gt5nrp7jnimbyx4",
+      "contentHash": "sha256:a4906fb47b85156abcdc965b357f9bc1bb711bdc40314fc775d79f230f69e7e2"
+    },
+    "smidgeons:hungary-musical-notes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoygpl42i",
+      "docCid": "bafyreia76id6h3ydyvt3bcjr222kwtkzyfxz2ha36hwdzxoo4vq3z3kamy",
+      "contentHash": "sha256:441de26e43a330ebb59dc1e8581217465b2069dc95b28deba03d32f653723a6c"
+    },
+    "smidgeons:jorja-smith-uk-garage": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoyktfu2i",
+      "docCid": "bafyreiaqujoltdqm7b35v6mkldtwvnylmncaulj3jziudzlui6bzxnzjzy",
+      "contentHash": "sha256:631b17915cd7834e131ac1452643c959f887ccae0aa26b255bc94d96a6b20f50"
+    },
+    "smidgeons:jura-filter-every-20-days": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoyotbx2u",
+      "docCid": "bafyreibdu3xez24lou3zhyohm2l5ycvybf7srst3yw7sb2qp2mlq225mou",
+      "contentHash": "sha256:2ef71ac590a1cb264c1bfee51b9586f4b3f459a100ba52189ad10ae7e6ce8dc0"
+    },
+    "smidgeons:kiwi-big-eggs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoystay2h",
+      "docCid": "bafyreicmuo2gjisn7b6edy2t3vd7i5sxg5zxqucxm7jsxu5uz57shtexgi",
+      "contentHash": "sha256:05e7a4bc3e737f9c56c67af506ee2e012497f9bbb9e548047b40af72193e73f6"
+    },
+    "smidgeons:kuka-trashcan-origin": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoyxphv24",
+      "docCid": "bafyreihuejv32avoavpoyafeqyxqqmpuc2c2wimta6zgb5jey6f3jcjpim",
+      "contentHash": "sha256:b9a88fcd45a13db8ae9bfdc1a1349214617e81eeedc25e45dcef1c73961102c7"
+    },
+    "smidgeons:meteor-rocks-locked": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgoz4qjo2m",
+      "docCid": "bafyreicudxm6z6m6shcut6jzjcwa4n4aey3e64j4exszft2yyxlzktf62m",
+      "contentHash": "sha256:264ba7764b1bec8528207d3b044b919e04b458a3c715f46a6c625baf0df7e4aa"
+    },
+    "smidgeons:nespresso-pods-technology": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgozaxbx2z",
+      "docCid": "bafyreigmn4iuixo3coly5zrix7sbb5qv4qoec4upcl7w2go4ny7bza7bhq",
+      "contentHash": "sha256:c6ffae7a6e813d0d80b9ae68669cd7bd7db12f1e9f35b1a38c03da9ff5f35424"
+    },
+    "smidgeons:nikon-space-cameras": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgozfe2g2q",
+      "docCid": "bafyreiaxv3qqiwfxpkqs3kkcerl6owqeyu3uowwsuuadvxjcenphqq6hy4",
+      "contentHash": "sha256:54cd68f54e9819935d5b3d6e38a176fde2fde27f72134501a3e1064b6f124156"
+    },
+    "smidgeons:no-aside-in-markdown": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgozkd2723",
+      "docCid": "bafyreiarwhfrej5s2uhzyd6736ahcb2wx2al77k4ourz6j5nn66h75ggme",
+      "contentHash": "sha256:4bd939500ce30adbccedbd7d2f62795653008ca4577ba43d451861619cca35d5"
+    },
+    "smidgeons:pocketbase-localstorage": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgozoju72z",
+      "docCid": "bafyreig366conus2bjydixrozm2xauvc3lpbqpi5bkdlsqpzvqhcgoslny",
+      "contentHash": "sha256:adf20a639ec90d6b0bba8fab27cc9822bd7e6601d13c869fc8c9ab723598de55"
+    },
+    "smidgeons:powerpoint-morph-tween": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgozskof2n",
+      "docCid": "bafyreiajshdy54qrvwyty3tzrcbzdqxoz55aib22ejxgaiickjreqqieh4",
+      "contentHash": "sha256:67f0341e0b6c3b7cb53f6a3df5af0ed0de11aacfe8a6194e34ce79c209d2269a"
+    },
+    "smidgeons:qantas-a380-mistakes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgozwopa2o",
+      "docCid": "bafyreid4culrx45efwdr4c2pb26gextgyhvm3u4eyykqkxp44qm35tkla4",
+      "contentHash": "sha256:6d533cecceac05d02d481a6d7c4e098a4712d5fe80bd8bf0a5dcb1b85f562e66"
+    },
+    "smidgeons:ransomware-tax-deduction": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp22sep2y",
+      "docCid": "bafyreidp5pe454jgck2ih5hckhmw3j2jdhbgimrzxv3ivu2chjqcjcb7s4",
+      "contentHash": "sha256:7a9b7afa1e2a73ff3464fedc2c278f57667dc6201909868fd12ca4cc730c8352"
+    },
+    "smidgeons:select-invalid-event": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp26wfw2q",
+      "docCid": "bafyreie5lztsnigcyd6z6ydpjqnjh4huqd3gjagzz3g3pfszczllmrkate",
+      "contentHash": "sha256:bb984047a083befdf30bfdec0995751a8f2a17f69b6946b9005ed257b9536e8a"
+    },
+    "smidgeons:sidewalks-promise-connection": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp2dvlo2q",
+      "docCid": "bafyreidmbjakq63voso37tlrvu6ffjtab27dwmwas54yrm5kubwgihogrm",
+      "contentHash": "sha256:b4b1e7948098dfdc2f7ca75f18e1c6567fb77dd35d6a18184dc506f86c869213"
+    },
+    "smidgeons:sids-sudep-seizures": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp2hxcm2r",
+      "docCid": "bafyreihbjdgzj575hc7yfktzyvwzaphdff6wbtw7jubbfxb6h2whtmuqca",
+      "contentHash": "sha256:4277d94f77227ce099abd402ac25f5a355e115565391d0856bc09107bdfe76ab"
+    },
+    "smidgeons:solar-eclipse-age-93": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp2m67a2o",
+      "docCid": "bafyreicrij4rvbwjpiixtlf6omafccf4uceclafh54bqo5fq3qgzk4af7y",
+      "contentHash": "sha256:89ed630754751d310217660b218258e4ae955690c7774de1ee5e3a20a5f7d4e8"
+    },
+    "smidgeons:son-online-privacy": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp2qokz2u",
+      "docCid": "bafyreihgmze2wgwge76cnjpibdb2rdhzgglvfuahr2gzwwuf6elvvfksg4",
+      "contentHash": "sha256:1c7aa5b00c28b9680a741cb468c4ec00d5ba279e47d8f67af98f0a5ac18c7887"
+    },
+    "smidgeons:steelmanning-vs-strawmanning": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp2uzah2y",
+      "docCid": "bafyreiaykrxfsahc3zfp7w4tm4de4rj6pss6lckjupvubiktfg6icvw7qy",
+      "contentHash": "sha256:6bc67be0cc493ca41f6cc891bb606c3726f52cc924325bb20ddb7134486141dc"
+    },
+    "smidgeons:supafly-carter-walsh-and-greg-stainer-i-just-can-t-stop": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp2z57v24",
+      "docCid": "bafyreiap3krvlyaor2ohlefpk5rk6vak7sr6k2uwk4we7ftqzolutkspii",
+      "contentHash": "sha256:c7e1de671ab4b64e6aa17b8a79d15819bc4d02dbe553a1850bf291c531b5a8cc"
+    },
+    "smidgeons:sveltekit-node-bodysizelimit": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp3564p2u",
+      "docCid": "bafyreia6stq4izuxl5mbs3gazamyd6cqneqce6kgzqacjoencme2vwatpy",
+      "contentHash": "sha256:f4b8d918395aebc0b8f7ff70a87588ac5498f78d2aab46663ce051d223e62962"
+    },
+    "smidgeons:svg-foreignobject-html": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp3bfwg2q",
+      "docCid": "bafyreigtjv2wjjetd54huf2tgds2ae56h3uklimfygiek7fl6mfbkgewr4",
+      "contentHash": "sha256:0af97ef29e210619b89fd10aefaa60df592366671c352d11bc4b5a2edf411afc"
+    },
+    "smidgeons:swiss-goitre-iodine": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp3fepm2r",
+      "docCid": "bafyreibtb5lqlmgusfpurjo47kb3u5wtlrnzgragvqkp22yygbieiy4vyq",
+      "contentHash": "sha256:874bf41b2fb22d4a1ba2e33708d7b66bbb04a361270089df1b5de5f57920f2a1"
+    },
+    "smidgeons:t-rex-vs-stegosaurus": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp3jkmy2o",
+      "docCid": "bafyreibnabjc5t4l5wdvoav6hr2thgju2k3ajxlbz6l23rxq7qnzj3lkmu",
+      "contentHash": "sha256:a5195f74ea6db545c5fe9498fcb8c11c21044fbdbf617c16fb102dd88ea8fec9"
+    },
+    "smidgeons:the-web-locks-api-is-implemented-a-bit-differently-in-different-browsers": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp3nqbh23",
+      "docCid": "bafyreiacttuvdzrudih22hbtjuu3ygxgdxzvod5qw7hwe6ioxj7hytxvye",
+      "contentHash": "sha256:cc8f3621c112a59d096e4365c93b9b2b02a063324988100a5174777ca8a7a493"
+    },
+    "smidgeons:there-is-a-specific-name-for-the-type-of-argument-where-people-can-t-agree-on-groups-of-stuff": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp3rvbg2q",
+      "docCid": "bafyreiaqlodo3kwnsx3qzvx67edncgtlrq7q6erkdvudspqgkialdzqdae",
+      "contentHash": "sha256:a3c83687f16f80115c4664ce730bd0ad19768281c99ffcc83eb4702465429a76"
+    },
+    "smidgeons:tide-swimming-naked-buffett": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp3vu7w2q",
+      "docCid": "bafyreiam3ez4cpebizkidoe22gf2t7oz3cjdhxabslsabw2x7kpucgshda",
+      "contentHash": "sha256:9bda727bd33afd8ae8c6b39dc775397a19cd37355ee845df89bab8ecb6890da1"
+    },
+    "smidgeons:video-webapp-transcoding": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp3zsz42r",
+      "docCid": "bafyreihwz7x3hmhrcpjbk5xpnti5okfbahpgoin3s6marnzv3mdkwze6xy",
+      "contentHash": "sha256:76d9c5bd90c6fe7b3469996bb153e75ad509233ded9d6968ec4247f6db035def"
+    },
+    "smidgeons:vienna-budapest-18-minutes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp45xrz2u",
+      "docCid": "bafyreibtipjfvqyewugk6xpm7i7usmpw74f5zxfzevouzf2bq4ygtkn57i",
+      "contentHash": "sha256:cadf8ec85aefe28bb58bb2d967e0a8fdf3e4ff91517007f2ba768e334fb3fe31"
+    },
+    "smidgeons:what-a-bop": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp4capg2q",
+      "docCid": "bafyreiawn47hjtwphtmpzujeg2cmtrajrcovtstajpdbzkn4rthjt6g3vi",
+      "contentHash": "sha256:37d58dbd03d5ae2c3baa1e9f00148da28f2478eadba74c2757eb6c381e3d1688"
+    },
+    "smidgeons:zappa-improvisation": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.smidgeon/3mplgp4gbf52n",
+      "docCid": "bafyreib6wwcs3xpm62wlptabqh3dpeunj24nu45cetznuuj65jngtad3fq",
+      "contentHash": "sha256:a56ebeeb418afd0f7cd6d83432312b7b41467e7b2ef6c8a694824aa5a555b5d1"
+    },
+    "now:now": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.now/3mplhlaojqh2m",
+      "docCid": "bafyreih55uqv5pksmvgrssva3if7y2bf2umbcimjgqlxouqtkqgm4y7iay",
+      "contentHash": "sha256:4600482942d5f55eced47ce443a608c553c9ad826a8df2eefa72f81776a1cccb"
+    },
     "i-shipped:a-fix-for-broken-image-links-in-a-few-old-blog-posts": {
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpkxc5e6nw25",
       "docCid": "bafyreigv75ss4zhgndwymyopyh6qaibatwbbk4eml6uy23aigb5wmwroni",

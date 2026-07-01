@@ -1,0 +1,35 @@
+{
+  "lexicon": 1,
+  "id": "es.joeinn.smidgeon",
+  "description": "A short-form note (smidgeon) written by Joe Innes.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A single smidgeon: a brief note authored in Markdown, with embedded ::island directives.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["summary", "createdAt"],
+        "properties": {
+          "summary": {
+            "type": "string",
+            "description": "Short summary of the smidgeon, used in listings.",
+            "maxGraphemes": 300,
+            "maxLength": 3000
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When the smidgeon was created."
+          },
+          "richBody": {
+            "type": "string",
+            "description": "Body of the smidgeon as Markdown, including inline ::island directives.",
+            "maxGraphemes": 30000,
+            "maxLength": 300000
+          }
+        }
+      }
+    }
+  }
+}
