@@ -24,6 +24,12 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  adapter: vercel(),
+  // Featured images live on the PDS as blobs, served via getBlob. Allow that host
+  // so Astro's <Image> can hand them to Vercel's on-demand image optimizer
+  // (resize/format at the edge) instead of shipping the raw full-size blob.
+  image: {
+    remotePatterns: [{ protocol: "https", hostname: "bsky.social" }],
+  },
+  adapter: vercel({ imageService: true }),
   viewTransitions: true,
 });
