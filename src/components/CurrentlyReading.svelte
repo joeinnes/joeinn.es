@@ -6,7 +6,9 @@
 	const PDS = 'https://bsky.social';
 	const READING = 'buzz.bookhive.defs#reading';
 
-	let books = $state([]);
+	// Seeded from the server for an instant first paint; onMount refreshes to live.
+	let { initialBooks = [] } = $props();
+	let books = $state(initialBooks);
 
 	// Records are returned as at://did:plc:.../buzz.bookhive.book/<rkey>;
 	// the DID is needed to fetch the cover blob.
@@ -111,6 +113,8 @@
 		height: 100%;
 		object-fit: cover;
 		z-index: 1;
+		/* Hide the alt text while the cover loads; the fallback glyph shows behind. */
+		color: transparent;
 	}
 	.book-cover-fallback {
 		position: absolute;

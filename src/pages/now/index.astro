@@ -11,6 +11,24 @@ const renderedMd = await marked.parse(content || "");
 import RecentTracks from "../../components/RecentTracks.svelte";
 import CurrentlyReading from "../../components/CurrentlyReading.svelte";
 import RightNow from "../../components/RightNow.svelte";
+import { fetchLatestTrack, fetchReadingBooks, fetchRecentTracks } from "../../lib/now";
+
+// Fetch the widgets' data here so the first paint already shows content instead
+// of an empty box that pops in after hydration. Best-effort: on any failure the
+// islands still fetch client-side on mount, exactly as before. The islands also
+// re-fetch on mount, so a stale build-time value refreshes to live on load.
+async function safe<T>(p: Promise<T>, fallback: T): Promise<T> {
+  try {
+    return await p;
+  } catch {
+    return fallback;
+  }
+}
+const [initialTrack, initialBooks, initialRecentTracks] = await Promise.all([
+  safe(fetchLatestTrack(), null),
+  safe(fetchReadingBooks(), []),
+  safe(fetchRecentTracks(3), []),
+]);
 
 const description =
   "What Joe Innes is focused on right now — current projects, priorities, and recent listening.";
@@ -20,14 +38,14 @@ const description =
   <Nav />
   <main>
     <h1 class="title">Now</h1>
-    <RightNow client:load />
+    <RightNow client:load initialTrack={initialTrack} initialBook={initialBooks[0] ?? null} />
     <article set:html={renderedMd} />
     <article>
-      <CurrentlyReading client:load />
+      <CurrentlyReading client:load initialBooks={initialBooks} />
     </article>
     <article>
       <h2>Listening To...</h2>
-      <RecentTracks client:load />
+      <RecentTracks client:load initialRecentTracks={initialRecentTracks} />
     </article>
   </main>
 </Layout>

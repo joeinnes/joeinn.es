@@ -8,8 +8,10 @@
 	const READING = 'buzz.bookhive.defs#reading';
 	const COVER_ART_BASE = 'https://coverartarchive.org/release';
 
-	let track = $state(null);
-	let book = $state(null);
+	// Seeded from the server for an instant first paint; onMount refreshes to live.
+	let { initialTrack = null, initialBook = null } = $props();
+	let track = $state(initialTrack);
+	let book = $state(initialBook);
 
 	// --- music cover: MusicBrainz id (prefixed "mbid:") via Cover Art Archive ---
 	const MBID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -182,6 +184,8 @@
 		height: 100%;
 		object-fit: cover;
 		z-index: 1;
+		/* Hide the alt text while the cover loads; the fallback glyph shows behind. */
+		color: transparent;
 	}
 	.rn-cover-fallback {
 		position: absolute;
