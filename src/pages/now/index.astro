@@ -4,14 +4,11 @@ import { createReader } from "@keystatic/core/reader";
 import keystaticConfig from "../../../keystatic.config";
 import Layout from "../../layouts/Default.astro";
 import Nav from "../../components/NewNav.astro";
-const reader = createReader(process.cwd(), keystaticConfig);
-const now = await reader.singletons.now.read();
-const content = await now?.now();
-const renderedMd = await marked.parse(content || "");
 import RecentTracks from "../../components/RecentTracks.svelte";
 import CurrentlyReading from "../../components/CurrentlyReading.svelte";
 import RightNow from "../../components/RightNow.svelte";
 import { fetchLatestTrack, fetchReadingBooks, fetchRecentTracks } from "../../lib/now";
+import { fetchNow } from "../../lib/pds";
 
 // Fetch the widgets' data here so the first paint already shows content instead
 // of an empty box that pops in after hydration. Best-effort: on any failure the
@@ -29,6 +26,19 @@ const [initialTrack, initialBooks, initialRecentTracks] = await Promise.all([
   safe(fetchReadingBooks(), []),
   safe(fetchRecentTracks(3), []),
 ]);
+
+// /now content: prefer the most recent es.joeinn.now record; fall back to the
+// Keystatic singleton when the PDS read fails or is empty (Keystatic is removed
+// entirely in the later cleanup phase).
+const nowSnapshot = await safe(fetchNow(), null);
+let renderedMd: string;
+if (nowSnapshot?.content) {
+  renderedMd = await marked.parse(nowSnapshot.content);
+} else {
+  const reader = createReader(process.cwd(), keystaticConfig);
+  const nowSingleton = await reader.singletons.now.read();
+  renderedMd = await marked.parse((await nowSingleton?.now()) || "");
+}
 
 const description =
   "What Joe Innes is focused on right now — current projects, priorities, and recent listening.";
