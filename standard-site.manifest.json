@@ -2695,6 +2695,11 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.now/3mplhlaojqh2m",
       "docCid": "bafyreih55uqv5pksmvgrssva3if7y2bf2umbcimjgqlxouqtkqgm4y7iay",
       "contentHash": "sha256:4600482942d5f55eced47ce443a608c553c9ad826a8df2eefa72f81776a1cccb"
+    },
+    "i-shipped:a-fix-for-broken-image-links-in-a-few-old-blog-posts": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpkxc5e6nw25",
+      "docCid": "bafyreigv75ss4zhgndwymyopyh6qaibatwbbk4eml6uy23aigb5wmwroni",
+      "contentHash": "sha256:facb54fa80c205002160ad85bf303e7f96acd4a56de930fd21add1a6ed2c941c"
     }
   }
 }
