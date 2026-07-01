@@ -1,5 +1,5 @@
 ---
-import { getCollection, getEntry } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import Layout from "../../layouts/Default.astro";
 import Nav from "../../components/NewNav.astro";
 import Signature from "../../components/Signature.svelte";
@@ -7,46 +7,63 @@ import Comments from "@bryanguffey/astro-standard-site/components/Comments.astro
 import { generateDocumentLinkTag } from "@bryanguffey/astro-standard-site";
 import manifest from "../../../standard-site.manifest.json";
 import siteConfig from "../../../standard-site.config.json";
+import PostBody from "../../components/PostBody.astro";
+import { fetchBlogPost, safe } from "../../lib/pds";
 
 const { slug } = Astro.params;
 if (!slug) throw new Error("Slug not found");
-const post = await getEntry("posts", slug);
 
-if (!post) throw new Error("No post found for this slug");
-const { Content } = await post.render();
+// Prefer the PDS record (es.joeinn.blog.post, rkey = slug); fall back to the MDX
+// entry for posts not yet migrated (the hand-migrate set) and drafts.
+const record = await safe(fetchBlogPost(slug), null);
+const entry = record ? null : await getEntry("posts", slug);
+if (!record && !entry) throw new Error("No post found for this slug");
 
-// standard.site verification: if this post has been published, emit a <link>
-// pointing back to its document record.
+// One normalised shape, whichever source we have.
+const post = record ?? {
+  slug,
+  title: entry!.data.title,
+  date: new Date(entry!.data.date),
+  dateUpdated: entry!.data.date_updated ? new Date(entry!.data.date_updated) : undefined,
+  excerpt: entry!.data.excerpt as string | undefined,
+  pageBg: entry!.data.page_bg as string | undefined,
+  featuredImage: entry!.data.featured_image as string | undefined,
+  body: "",
+};
+const bskyPostUri = entry?.data.bskyPostUri;
+const Content = entry ? (await render(entry)).Content : null;
+
+// standard.site verification: if this post has a published document record, emit
+// a <link> pointing back to it.
 const docRecord = manifest.documents?.[`posts:${slug}`];
 const docRkey = docRecord?.docUri.split("/").pop();
 const linkTag = docRkey
   ? generateDocumentLinkTag({ did: siteConfig.did, documentRkey: docRkey })
   : null;
-const canonicalUrl = `${siteConfig.siteUrl}/blog/${post.slug}`;
+const canonicalUrl = `${siteConfig.siteUrl}/blog/${slug}`;
 
-const pageUrl = new URL(`/blog/${post.slug}`, Astro.site).href;
-const absoluteImage = post.data.featured_image
-  ? new URL(post.data.featured_image, Astro.site).href
+const pageUrl = new URL(`/blog/${slug}`, Astro.site).href;
+const absoluteImage = post.featuredImage
+  ? new URL(post.featuredImage, Astro.site).href
   : undefined;
 
 const blogPostingJsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  headline: post.data.title,
-  datePublished: new Date(post.data.date).toISOString(),
-  dateModified: new Date(
-    post.data.date_updated ?? post.data.date,
-  ).toISOString(),
+  headline: post.title,
+  datePublished: post.date.toISOString(),
+  dateModified: (post.dateUpdated ?? post.date).toISOString(),
   author: {
     "@type": "Person",
     name: "Joe Innes",
   },
   mainEntityOfPage: pageUrl,
   ...(absoluteImage ? { image: absoluteImage } : {}),
-  ...(post.data.excerpt ? { description: post.data.excerpt } : {}),
+  ...(post.excerpt ? { description: post.excerpt } : {}),
 };
 
-// Generate static pages
+// Generate a page for every post slug (records + any un-migrated MDX), so URLs
+// stay byte-identical.
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
   return posts.map((post) => ({ params: { slug: post.slug } }));
@@ -59,10 +76,10 @@ export async function getStaticPaths() {
   }
 </style>
 <Layout
-  title={post.data.title}
-  bg={post.data.page_bg}
-  description={post.data.excerpt}
-  image={post.data.featured_image}
+  title={post.title}
+  bg={post.pageBg}
+  description={post.excerpt}
+  image={post.featuredImage}
   type="article"
 >
   {linkTag && <Fragment slot="head" set:html={linkTag} />}
@@ -75,7 +92,7 @@ export async function getStaticPaths() {
   <main>
     <hgroup class="content meta">
       <h1 class="title" transition:name={`post-title-${post.slug}`}>
-        {post.data.title}
+        {post.title}
       </h1>
       <small
         >{
@@ -83,20 +100,16 @@ export async function getStaticPaths() {
             dateStyle: "full",
             timeStyle: "short",
             hour12: true,
-          }).format(new Date(post.data.date))
+          }).format(post.date)
         }.</small
       >
     </hgroup>
     {
-      post.data.featured_image && (
+      post.featuredImage && (
         <div>
           <img
-            alt={post.data.title}
-            src={
-              post.data.featured_image ||
-              "https://source.unsplash.com/random/?" +
-                encodeURIComponent(post.data.title)
-            }
+            alt={post.title}
+            src={post.featuredImage}
             width="1200"
             height="675"
             decoding="async"
@@ -109,7 +122,7 @@ export async function getStaticPaths() {
     }
 
     <article class="content">
-      <Content />
+      {record ? <PostBody body={record.body} /> : <Content />}
       <div
         style="color: var(--primary); width: 30% !important; margin-inline-start: auto; margin-block: var(--layout-spacing);"
       >
@@ -117,9 +130,9 @@ export async function getStaticPaths() {
       </div>
     </article>
     {
-      post.data.bskyPostUri && (
+      bskyPostUri && (
         <Comments
-          bskyPostUri={post.data.bskyPostUri}
+          bskyPostUri={bskyPostUri}
           canonicalUrl={canonicalUrl}
           maxDepth={3}
         />

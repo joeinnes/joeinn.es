@@ -2,13 +2,27 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Default.astro";
 import Nav from "../../components/NewNav.astro";
+import { fetchBlogPosts, safe, type BlogPostView } from "../../lib/pds";
 
-const posts = await getCollection("posts");
 const now = new Date();
-const filteredPosts = await getCollection("posts", ({ data }) => {
-  return !data.draft && new Date(data.date) < now;
-});
-const dateSort = (a, b) => new Date(b.data.date) - new Date(a.data.date);
+
+// Prefer the PDS (es.joeinn.blog.post); merge in any not-yet-migrated MDX posts
+// so the index stays complete during the migration. Newest first.
+const pds = (await safe(fetchBlogPosts(), [] as BlogPostView[])).filter((p) => p.date < now);
+const pdsSlugs = new Set(pds.map((p) => p.slug));
+const mdxOnly: BlogPostView[] = (
+  await getCollection("posts", ({ data }) => !data.draft && new Date(data.date) < now)
+)
+  .filter((e) => !pdsSlugs.has(e.slug))
+  .map((e) => ({
+    slug: e.slug,
+    title: e.data.title,
+    date: new Date(e.data.date),
+    excerpt: e.data.excerpt,
+    pageBg: e.data.page_bg,
+    body: "",
+  }));
+const filteredPosts = [...pds, ...mdxOnly].sort((a, b) => b.date.getTime() - a.date.getTime());
 
 const description =
   "Long-form writing from Joe Innes on local-first software, real-time sync, and building for the web.";
@@ -106,7 +120,7 @@ const description =
         id="search"
         type="text"
         aria-label="Search posts"
-        placeholder={`Search (e.g.: ${posts[Math.floor(Math.random() * posts.length)]?.data.title})`}
+        placeholder={`Search (e.g.: ${filteredPosts[Math.floor(Math.random() * filteredPosts.length)]?.title})`}
       />
     </label>
 
@@ -123,14 +137,14 @@ const description =
 
         {
           filteredPosts.length &&
-            filteredPosts.sort(dateSort).map((post) => (
-              <a href={`/blog/${post?.slug}`}>
+            filteredPosts.map((post) => (
+              <a href={`/blog/${post.slug}`}>
                 <article
-                  style={`--border-colour: ${post?.data.page_bg || "black"};`}
-                  data-title={post.data.title.toLowerCase()}
+                  style={`--border-colour: ${post.pageBg || "black"};`}
+                  data-title={post.title.toLowerCase()}
                 >
-                  <time class="post-meta" datetime={new Date(post.data.date).toISOString()}>
-                    {new Date(post.data.date).toLocaleDateString("en-GB", {
+                  <time class="post-meta" datetime={post.date.toISOString()}>
+                    {post.date.toLocaleDateString("en-GB", {
                       day: "numeric",
                       month: "long",
                       year: "numeric",
@@ -138,7 +152,7 @@ const description =
                   </time>
                   <div>
                     <h2 transition:name={`post-title-${post.slug}`}>
-                      {post.data.title.split(/\s+/).map((word, i, arr) => (
+                      {post.title.split(/\s+/).map((word, i, arr) => (
                         <Fragment>
                           <span class="word" style={`--word-index: ${i}`}>
                             {word}
@@ -149,7 +163,7 @@ const description =
                     </h2>
                   </div>
 
-                  {post?.data.excerpt ||
+                  {post.excerpt ||
                     "No excerpt available for this post. Click and see what's inside!"}
                 </article>
               </a>
