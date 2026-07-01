@@ -37,7 +37,7 @@ const { title, bg, description, image, type } = Astro.props;
     <div id="main-content" tabindex="-1">
       <slot />
     </div>
-    <NowPlaying client:idle />
+    <NowPlaying client:idle transition:persist />
     <style>
       .skip-link {
         position: absolute;
