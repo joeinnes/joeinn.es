@@ -18,6 +18,9 @@ import WeatherDisplay from "./WeatherDisplay.svelte";
 import LimoCalculator from "./LimoCalculator.svelte";
 import ColourSwatch from "./ColourSwatch.svelte";
 import FontSample from "./FontSample.svelte";
+import VoterPowerCalculator from "./VoterPowerCalculator.svelte";
+import F1Grid from "./F1Grid.svelte";
+import Tweet from "./Tweet.svelte";
 
 interface Props {
   body: string;
@@ -44,6 +47,13 @@ const blocks = renderPostBody(body);
         return <ColourSwatch client:visible {...props} />;
       case "fontSample":
         return <FontSample client:visible {...props} />;
+      case "voterPower":
+        return <VoterPowerCalculator client:visible {...props} />;
+      case "f1Grid":
+        return <F1Grid client:visible {...props} />;
+      case "tweet":
+        // Tweet takes a single `tweet` object rather than discrete props.
+        return <Tweet client:visible tweet={props} />;
       default:
         return (
           <p class="island-missing">

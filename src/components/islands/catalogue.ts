@@ -11,8 +11,8 @@
 // editor (the insert-island picker) and the Astro renderer.
 
 export interface IslandPropDef {
-  type: "string" | "number" | "boolean";
-  default?: string | number | boolean;
+  type: "string" | "number" | "boolean" | "string[]";
+  default?: string | number | boolean | string[];
   label?: string;
 }
 
@@ -67,6 +67,35 @@ export const islandCatalogue: Record<string, IslandDef> = {
       pinHue: { type: "number" },
     },
   },
+  voterPower: {
+    key: "voterPower",
+    label: "Voter Power Calculator",
+    description: "How much your vote counted in a UK general election.",
+    props: {
+      year: { type: "number", default: 2015, label: "Election year" },
+    },
+  },
+  f1Grid: {
+    key: "f1Grid",
+    label: "F1 Grid",
+    description: "A Formula 1 finishing-order grid.",
+    props: {
+      // Comma-separated driver names, coerced to a string[] (see coerceProps).
+      results: { type: "string[]", label: "Results" },
+    },
+  },
+  tweet: {
+    key: "tweet",
+    label: "Tweet",
+    description: "An embedded tweet card.",
+    props: {
+      content: { type: "string" },
+      authorName: { type: "string" },
+      authorHandle: { type: "string" },
+      link: { type: "string" },
+      date: { type: "string" },
+    },
+  },
 };
 
 export const islandKeys = Object.keys(islandCatalogue);
@@ -86,7 +115,16 @@ export function coerceProps(key: string, raw: Record<string, string>): Record<st
   for (const [name, value] of Object.entries(raw)) {
     const type = def?.props[name]?.type;
     out[name] =
-      type === "number" ? Number(value) : type === "boolean" ? value !== "false" : value;
+      type === "number"
+        ? Number(value)
+        : type === "boolean"
+          ? value !== "false"
+          : type === "string[]"
+            ? value
+                .split(",")
+                .map((item) => item.trim())
+                .filter(Boolean)
+          : value;
   }
   if (def) {
     for (const [name, prop] of Object.entries(def.props)) {
