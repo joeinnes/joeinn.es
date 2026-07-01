@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { convertMdxToIslands, componentIslandMap } from "./mdxToIslands";
+import { convertMdxToIslands, componentIslandMap, unmigratableReasons } from "./mdxToIslands";
 
 describe("convertMdxToIslands", () => {
   it("rewrites a self-closing component with numeric expression props", () => {
@@ -134,5 +134,43 @@ describe("convertMdxToIslands", () => {
     expect(convertMdxToIslands(mdx)).toBe(
       '<div class="p-2 rounded shadow">\n\n::island[colourSwatch]{h=201 s=85 l=31}\n\n</div>',
     );
+  });
+
+  it("leaves fenced code blocks untouched (imports and JSX inside are content)", () => {
+    const mdx =
+      "Here's an example:\n\n" +
+      "```jsx\n" +
+      "import App from './App';\n" +
+      "ReactDOM.render(<App />, root);\n" +
+      "```\n\n" +
+      "<PomodoroTimer />";
+    const out = convertMdxToIslands(mdx);
+    expect(out).toContain("import App from './App';");
+    expect(out).toContain("ReactDOM.render(<App />, root);");
+    expect(out).toContain("::island[pomodoro]");
+  });
+
+  it("flattens a legacy <Tweet tweet={{…}} /> embed to an attributed blockquote", () => {
+    const mdx = [
+      "<Tweet",
+      "  tweet={{",
+      '    content: `Hello <a href="x">world</a>`,',
+      '    authorName: "Jane Doe",',
+      '    authorHandle: "@jane",',
+      '    date: "April 4, 2018",',
+      '    link: "https://example.com/1",',
+      "  }}",
+      "/>",
+    ].join("\n");
+    const out = convertMdxToIslands(mdx);
+    expect(out).not.toContain("<Tweet");
+    expect(out).toContain('> Hello <a href="x">world</a>');
+    expect(out).toContain("> — Jane Doe (@jane) [April 4, 2018](https://example.com/1)");
+  });
+
+  it("unmigratableReasons flags prose components but ignores those inside code", () => {
+    expect(unmigratableReasons("```\n<Card />\n```\n\nclean prose")).toEqual([]);
+    expect(unmigratableReasons("<Card>paired</Card>")).toContain("leftover <Card>");
+    expect(unmigratableReasons("just prose, no components")).toEqual([]);
   });
 });

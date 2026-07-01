@@ -15,7 +15,7 @@ import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import matter from "gray-matter";
 import { AtpAgent } from "@atproto/api";
-import { convertMdxToIslands } from "../src/lib/mdxToIslands.ts";
+import { convertMdxToIslands, unmigratableReasons } from "../src/lib/mdxToIslands.ts";
 
 const HANDLE = "joeinn.es";
 const SERVICE = "https://bsky.social";
@@ -46,11 +46,8 @@ const ready = [];
 const skipped = [];
 for (const p of publishable) {
   const richBody = convertMdxToIslands(p.body);
-  const unmigratable =
-    /TODO: manually migrate/.test(richBody) || // unknown component
-    /<[A-Z][A-Za-z0-9]/.test(richBody) || // leftover JSX (paired/unhandled)
-    /^\s*["'][^"'\n]*\.(?:svelte|jsx|tsx|[cm]?[jt]s)["'];?\s*$/m.test(richBody); // leftover import specifier
-  if (unmigratable) skipped.push(p.slug);
+  const reasons = unmigratableReasons(richBody);
+  if (reasons.length) skipped.push(`${p.slug} (${reasons.join(", ")})`);
   else ready.push({ ...p, richBody });
 }
 

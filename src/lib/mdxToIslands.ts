@@ -125,31 +125,106 @@ function componentToDirective(name: string, attrs: string): string {
     : `::island[${entry.islandKey}]`;
 }
 
-/**
- * Rewrite the JSX component usages in an MDX post body into `::island` leaf
- * directives. Drops ESM import/export wiring lines, converts every self-closing
- * component tag (`<Comp a={1} b="x" c />`) to `::island[key]{a=1 b=x c=true}`
- * using componentIslandMap, and leaves ordinary prose alone. Pure and
- * synchronous, so it is usable at build time and in unit tests alike.
- */
-export function convertMdxToIslands(mdxBody: string): string {
-  const out = mdxBody
-    // Drop ESM wiring. Handle the multi-line default-import shape first (a break
-    // after `from`, as Prettier/Keystatic emit), then any single-line import/export.
+// Legacy `<Tweet tweet={{ content: `…`, authorName: "…", … }} />` embeds carry
+// rich HTML in a nested object — impossible to express as a directive attribute.
+// These are static historical tweets, so flatten each to a Markdown blockquote
+// (the inline HTML in the content still renders).
+function flattenTweets(text: string): string {
+  return text.replace(/<Tweet\s+tweet=\{\{([\s\S]*?)\}\}\s*\/>/g, (_m, obj: string) => {
+    const field = (re: RegExp) => re.exec(obj)?.[1]?.trim() ?? "";
+    const content = field(/content:\s*`([\s\S]*?)`\s*,/).replace(/\s*\n\s*/g, " ");
+    const authorName = field(/authorName:\s*"([^"]*)"/);
+    const authorHandle = field(/authorHandle:\s*"([^"]*)"/);
+    const date = field(/date:\s*"([^"]*)"/);
+    const link = field(/link:\s*"([^"]*)"/);
+    const dateText = link && date ? `[${date}](${link})` : date;
+    const attribution = [`— ${authorName}`, authorHandle && `(${authorHandle})`, dateText]
+      .filter(Boolean)
+      .join(" ");
+    return `\n> ${content}\n>\n> ${attribution}\n`;
+  });
+}
+
+// Rewrite the prose (non-code) part of a body: flatten tweets, drop ESM wiring,
+// convert self-closing components to directives, and promote each directive to
+// its own block so it parses even when wrapped in a styling element.
+function convertProse(text: string): string {
+  return flattenTweets(text)
     .replace(
       /^[ \t]*(?:import|export)\b[^\n]*\bfrom[ \t]*\r?\n[ \t]*["'][^"'\n]*["'];?[ \t]*$/gm,
       "",
     )
     .replace(/^[ \t]*(?:import|export)\b.*\r?\n?/gm, "")
-    // Rewrite self-closing component usages (uppercase-initial tags) into directives.
-    .replace(/<([A-Z][\w.]*)\b([^>]*?)\/>/g, (_match, name: string, attrs: string) =>
+    .replace(/<([A-Z][\w.]*)\b([^>]*?)\/>/g, (_m, name: string, attrs: string) =>
       componentToDirective(name, attrs),
     )
-    // Promote each island directive to its own block (blank line either side) so
-    // it parses even when the source wrapped it in an HTML element (e.g. a styling
-    // <div>) — otherwise remark treats the directive as literal HTML content.
     .replace(/^[ \t]*(::island\[[^\]]+\](?:\{[^}]*\})?)[ \t]*$/gm, "\n$1\n");
+}
 
-  // Tidy the blank lines left where imports/wrappers were, without disturbing prose.
+interface Segment {
+  text: string;
+  code: boolean;
+}
+
+// Split a body into alternating prose / fenced-code segments so conversion never
+// touches code examples (a post *about* React has `import`s and `<Component/>`
+// inside ``` fences that are content, not wiring to strip).
+function splitFences(body: string): Segment[] {
+  const lines = body.split("\n");
+  const segments: Segment[] = [];
+  let buffer: string[] = [];
+  let fence: string | null = null;
+  const flush = (code: boolean) => {
+    segments.push({ text: buffer.join("\n"), code });
+    buffer = [];
+  };
+  for (const line of lines) {
+    const open = /^[ \t]*(```+|~~~+)/.exec(line);
+    if (fence === null && open) {
+      flush(false);
+      fence = open[1][0];
+      buffer.push(line);
+    } else if (fence !== null && new RegExp(`^[ \\t]*[${fence}]{3,}[ \\t]*$`).test(line)) {
+      buffer.push(line);
+      flush(true);
+      fence = null;
+    } else {
+      buffer.push(line);
+    }
+  }
+  flush(fence !== null); // an unterminated fence is treated as code, to be safe
+  return segments;
+}
+
+/**
+ * Rewrite the JSX component usages in an MDX post body into `::island` leaf
+ * directives. Fenced code blocks are left verbatim; in prose it flattens legacy
+ * <Tweet> embeds, drops ESM wiring, converts self-closing component tags
+ * (`<Comp a={1} b="x" c />`) to `::island[key]{a=1 b=x c=true}`, and leaves
+ * ordinary prose alone. Pure and synchronous.
+ */
+export function convertMdxToIslands(mdxBody: string): string {
+  const out = splitFences(mdxBody)
+    .map((seg) => (seg.code ? seg.text : convertProse(seg.text)))
+    .join("\n");
   return out.replace(/\n{3,}/g, "\n\n").trim();
+}
+
+/**
+ * Reasons a converted body still can't be safely published as a record: a TODO
+ * marker (unknown component) or a leftover component tag — but only in prose,
+ * not inside code blocks (where `<Component>` is just example text). An empty
+ * array means the post is clean to migrate.
+ */
+export function unmigratableReasons(convertedBody: string): string[] {
+  const prose = splitFences(convertedBody)
+    .filter((s) => !s.code)
+    .map((s) => s.text)
+    .join("\n");
+  const reasons: string[] = [];
+  if (/TODO: manually migrate/.test(prose)) reasons.push("unknown component");
+  const tag = /<([A-Z][A-Za-z0-9]*)[\s/>]/.exec(prose);
+  if (tag) reasons.push(`leftover <${tag[1]}>`);
+  if (/^[ \t]*import\b/m.test(prose)) reasons.push("leftover import");
+  return reasons;
 }
