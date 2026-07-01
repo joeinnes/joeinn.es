@@ -1,5 +1,11 @@
 import { describe, it, expect } from "vitest";
-import { mapShipped, mapShippedDigest, mapSmidgeon, type PdsRecord } from "./pds";
+import {
+  mapShipped,
+  mapShippedDigest,
+  mapSmidgeon,
+  mapNow,
+  type PdsRecord,
+} from "./pds";
 
 describe("pds shipped mappers", () => {
   it("mapShipped maps an es.joeinn.shipped record to a view model with a Date mergedAt", () => {
@@ -109,5 +115,24 @@ describe("pds smidgeon mapper", () => {
       },
     };
     expect(mapSmidgeon(rec).body).toBe("");
+  });
+});
+
+describe("pds now mapper", () => {
+  it("mapNow maps an es.joeinn.now record with a Date createdAt", () => {
+    const rec: PdsRecord = {
+      uri: "at://did:plc:abc/es.joeinn.now/3mplhlaojqh2m",
+      value: {
+        $type: "es.joeinn.now",
+        content: "I've been with Garden for three months now.",
+        createdAt: "2026-06-05T03:35:37.648Z",
+      },
+    };
+    const view = mapNow(rec);
+    expect(view).toEqual({
+      content: "I've been with Garden for three months now.",
+      createdAt: new Date("2026-06-05T03:35:37.648Z"),
+    });
+    expect(view.createdAt).toBeInstanceOf(Date);
   });
 });
