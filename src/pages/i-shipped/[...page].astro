@@ -126,7 +126,10 @@ const groupedByDate = paginated.reduce(
 );
 
 // Latest digest (any period) — shown as an intro summary on the first page only.
-const digest = currentPage === 1 ? await loadLatestDigest() : null;
+// Hidden for now: the records stay on the PDS (es.joeinn.shippedDigest), we just
+// don't render them. Flip SHOW_DIGESTS to bring them back.
+const SHOW_DIGESTS = false;
+const digest = SHOW_DIGESTS && currentPage === 1 ? await loadLatestDigest() : null;
 const DigestContent = digest?.entry ? (await render(digest.entry)).Content : null;
 const digestHtml: string =
   digest && !digest.entry ? await marked.parse(digest.markdown ?? "") : "";
