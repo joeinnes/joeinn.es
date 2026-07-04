@@ -26,7 +26,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; object-src 'self'; frame-ancestors 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.bunny.net; font-src 'self' https://fonts.bunny.net data:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://bsky.social https://public.api.bsky.app https://coverartarchive.org https://api.open-meteo.com https://api.joeinn.es https://plc.directory https://*.host.bsky.network; frame-src 'self' https://www.youtube.com https://www.openstreetmap.org; form-action 'self' https://formspree.io; upgrade-insecure-requests"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'self'; frame-ancestors 'none'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.bunny.net; font-src 'self' https://fonts.bunny.net data:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://bsky.social https://public.api.bsky.app https://coverartarchive.org https://api.open-meteo.com https://api.joeinn.es https://plc.directory https://*.host.bsky.network https://api.vercel.com; frame-src 'self' https://www.youtube.com https://www.openstreetmap.org; form-action 'self' https://formspree.io; upgrade-insecure-requests"
         }
       ]
     }
