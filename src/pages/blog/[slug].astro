@@ -9,7 +9,7 @@ import { generateDocumentLinkTag } from "@bryanguffey/astro-standard-site";
 import manifest from "../../../standard-site.manifest.json";
 import siteConfig from "../../../standard-site.config.json";
 import PostBody from "../../components/PostBody.astro";
-import { fetchBlogPost, safe } from "../../lib/pds";
+import { fetchBlogPost, fetchBlogPosts, safe } from "../../lib/pds";
 
 const { slug } = Astro.params;
 if (!slug) throw new Error("Slug not found");
@@ -63,11 +63,14 @@ const blogPostingJsonLd = {
   ...(post.excerpt ? { description: post.excerpt } : {}),
 };
 
-// Generate a page for every post slug (records + any un-migrated MDX), so URLs
-// stay byte-identical.
+// Generate a page for every post slug from BOTH sources — PDS records (incl.
+// posts authored in /admin that never had an MDX file) and any un-migrated MDX.
+// A PDS-only post would otherwise 404 despite appearing in the list and RSS.
 export async function getStaticPaths() {
-  const posts = await getCollection("posts");
-  return posts.map((post) => ({ params: { slug: post.slug } }));
+  const pds = await safe(fetchBlogPosts(), []);
+  const mdx = await getCollection("posts");
+  const slugs = new Set([...pds.map((p) => p.slug), ...mdx.map((e) => e.slug)]);
+  return [...slugs].map((slug) => ({ params: { slug } }));
 }
 ---
 

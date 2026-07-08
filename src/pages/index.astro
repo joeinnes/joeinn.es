@@ -5,6 +5,15 @@ import joeImage from "../../public/joei.webp";
 import Layout from "../layouts/Default.astro";
 import NewNav from "../components/NewNav.astro";
 import WindowBackdrop from "../components/room/WindowBackdrop.svelte";
+import {
+  fetchBlogPosts,
+  fetchShipped,
+  fetchSmidgeons,
+  safe,
+  type BlogPostView,
+  type ShippedView,
+  type SmidgeonView,
+} from "../lib/pds";
 
 const description =
   "Joe Innes is a full-stack developer helping people build apps that are fast, work offline, and sync in real time.";
@@ -21,17 +30,62 @@ const personJsonLd = {
 
 const now = new Date();
 
-const posts = await getCollection("posts", ({ data }) => !data.draft && data.date < now);
-const latestPost = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())[0];
+// The three "latest" panels below read from the PDS the same way their own
+// pages do, so what shows here matches what those pages show. Reading MDX
+// directly (the old approach) went stale the moment a record was authored in
+// /admin, since new records never land back in the local MDX collection.
 
-const shipped = await getCollection("i-shipped", ({ data }) => !!data.mergeDate);
+// Posts: PDS ∪ not-yet-migrated MDX (dedup by slug), newest first — matches /blog.
+const pdsPosts = (await safe(fetchBlogPosts(), [] as BlogPostView[])).filter(
+  (p) => p.date < now,
+);
+const pdsPostSlugs = new Set(pdsPosts.map((p) => p.slug));
+const mdxPosts: BlogPostView[] = (
+  await getCollection("posts", ({ data }) => !data.draft && new Date(data.date) < now)
+)
+  .filter((e) => !pdsPostSlugs.has(e.slug))
+  .map((e) => ({
+    slug: e.slug,
+    title: e.data.title,
+    date: new Date(e.data.date),
+    excerpt: e.data.excerpt,
+    pageBg: e.data.page_bg,
+    body: "",
+  }));
+const latestPost = [...pdsPosts, ...mdxPosts].sort(
+  (a, b) => b.date.getTime() - a.date.getTime(),
+)[0];
+
+// Shipped: PDS-preferred, MDX fallback when empty — matches /i-shipped.
+const pdsShipped = (await safe(fetchShipped(), [] as ShippedView[])).filter(
+  (r) => r.mergedAt instanceof Date && !isNaN(r.mergedAt.getTime()),
+);
+const shipped =
+  pdsShipped.length > 0
+    ? pdsShipped.map((r) => ({ summary: r.summary, repo: r.repo, mergeDate: r.mergedAt }))
+    : (await getCollection("i-shipped", ({ data }) => !!data.mergeDate)).map((e) => ({
+        summary: e.data.summary,
+        repo: e.data.repo,
+        mergeDate: e.data.mergeDate,
+      }));
 const recentShipped = shipped
-  .sort((a, b) => b.data.mergeDate.valueOf() - a.data.mergeDate.valueOf())
+  .sort((a, b) => b.mergeDate.getTime() - a.mergeDate.getTime())
   .slice(0, 4);
 
-const smidgeons = await getCollection("smidgeons", ({ data }) => data.created < now);
+// Smidgeons: PDS-preferred, MDX fallback when empty — matches /smidgeons.
+const pdsSmidgeons = (await safe(fetchSmidgeons(), [] as SmidgeonView[])).filter(
+  (s) => s.created < now,
+);
+const smidgeons =
+  pdsSmidgeons.length > 0
+    ? pdsSmidgeons
+    : (await getCollection("smidgeons", ({ data }) => data.created < now)).map((e) => ({
+        summary: e.data.summary,
+        body: e.body,
+        created: e.data.created,
+      }));
 const latestSmidgeon = smidgeons.sort(
-  (a, b) => b.data.created.valueOf() - a.data.created.valueOf(),
+  (a, b) => b.created.getTime() - a.created.getTime(),
 )[0];
 
 const fmtDate = (d: Date) =>
@@ -102,11 +156,11 @@ const cards = [
         latestPost && (
           <a class="feature" href={`/blog/${latestPost.slug}`}>
             <span class="kicker mono">Latest writing</span>
-            <h2 class="feature-title">{latestPost.data.title}</h2>
-            <time class="meta mono" datetime={latestPost.data.date.toISOString()}>
-              {fmtDate(latestPost.data.date)}
+            <h2 class="feature-title">{latestPost.title}</h2>
+            <time class="meta mono" datetime={latestPost.date.toISOString()}>
+              {fmtDate(latestPost.date)}
             </time>
-            {latestPost.data.excerpt && <p class="feature-excerpt">{latestPost.data.excerpt}</p>}
+            {latestPost.excerpt && <p class="feature-excerpt">{latestPost.excerpt}</p>}
             <span class="more mono">Read post →</span>
           </a>
         )
@@ -118,9 +172,9 @@ const cards = [
           {
             recentShipped.map((item) => (
               <li>
-                <span class="shipped-summary">{item.data.summary}</span>
+                <span class="shipped-summary">{item.summary}</span>
                 <span class="shipped-meta mono">
-                  {item.data.repo} · {fmtDate(item.data.mergeDate)}
+                  {item.repo} · {fmtDate(item.mergeDate)}
                 </span>
               </li>
             ))
@@ -134,7 +188,7 @@ const cards = [
       latestSmidgeon && (
         <a class="smidgeon-strip" href="/smidgeons">
           <span class="kicker mono">Latest smidgeon</span>
-          <span class="smidgeon-summary">{latestSmidgeon.data.summary}</span>
+          <span class="smidgeon-summary">{latestSmidgeon.summary}</span>
         </a>
       )
     }
