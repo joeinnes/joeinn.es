@@ -8,6 +8,7 @@ import {
   mapTrack,
   mapBook,
   isReading,
+  latestReading,
 } from "./now";
 
 describe("now PDS mappers", () => {
@@ -63,7 +64,39 @@ describe("now PDS mappers", () => {
       title: "Dune",
       author: "Frank Herbert",
       cover: "https://bsky.social/xrpc/com.atproto.sync.getBlob?did=did:plc:abc&cid=bafc",
+      progress: null,
     });
+  });
+
+  it("mapBook passes bookProgress through", () => {
+    const rec = {
+      uri: "at://did:plc:abc/buzz.bookhive.book/1",
+      value: {
+        title: "Recursion",
+        authors: "Blake Crouch",
+        bookProgress: { percent: 60, currentPage: 168, totalPages: 282 },
+      },
+    };
+    expect(mapBook(rec).progress).toEqual({ percent: 60, currentPage: 168, totalPages: 282 });
+  });
+
+  it("latestReading picks the most recently started reading record", () => {
+    const reading = (title: string, startedAt?: string) => ({
+      uri: `at://did:plc:abc/buzz.bookhive.book/${title}`,
+      value: { title, status: "buzz.bookhive.defs#reading", startedAt },
+    });
+    const finished = {
+      uri: "at://did:plc:abc/buzz.bookhive.book/f",
+      value: { title: "Done", status: "buzz.bookhive.defs#finished" },
+    };
+    // A stale reading record (date-only startedAt) must lose to a newer one (ISO datetime).
+    const stale = reading("The Son", "2026-06-23");
+    const current = reading("Recursion", "2026-07-05T06:56:30.807Z");
+    const undated = reading("No Start Date");
+    expect(latestReading([finished, stale, current, undated])?.value.title).toBe("Recursion");
+    expect(latestReading([undated])?.value.title).toBe("No Start Date");
+    expect(latestReading([finished])).toBeNull();
+    expect(latestReading([])).toBeNull();
   });
 
   it("mapTrack maps a teal.fm play record to a view model", () => {
