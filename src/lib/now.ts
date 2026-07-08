@@ -1,10 +1,6 @@
 // Shared PDS fetch + mapping for the /now page widgets, usable both at build
 // time (Astro frontmatter, for instant first paint) and in the browser (the
 // Svelte islands refresh from the same source on mount).
-//
-// ponytail: the small pure helpers are duplicated in the widgets' own client
-// code; kept separate here rather than refactoring three working interactive
-// components. Fold them together when the widgets next get touched.
 
 const HANDLE = "joeinn.es";
 const PDS = "https://bsky.social";
@@ -20,10 +16,16 @@ export interface TrackView {
   artist: string;
   cover: string | null;
 }
+export interface BookProgress {
+  percent?: number;
+  currentPage?: number;
+  totalPages?: number;
+}
 export interface BookView {
   title: string;
   author: string;
   cover: string | null;
+  progress: BookProgress | null;
 }
 interface Record {
   uri: string;
@@ -64,6 +66,23 @@ export function isReading(r: any): boolean {
   return r?.value?.status === READING;
 }
 
+/**
+ * The single book currently being read: the reading-status record with the
+ * most recent startedAt. bookhive leaves stale reading records behind when a
+ * book is re-added and finished under a new record, so "all reading records"
+ * over-reports. startedAt mixes date-only and ISO datetime strings; string
+ * comparison orders both correctly. Records without startedAt sort last.
+ */
+export function latestReading(records: Record[]): Record | null {
+  return (
+    records
+      .filter(isReading)
+      .sort((a, b) =>
+        String(b.value.startedAt ?? "").localeCompare(String(a.value.startedAt ?? "")),
+      )[0] ?? null
+  );
+}
+
 export function mapTrack(r: Record): TrackView {
   return {
     name: r.value.trackName,
@@ -77,6 +96,7 @@ export function mapBook(r: Record): BookView {
     title: r.value.title ?? "Untitled",
     author: authorList(r.value.authors),
     cover: blobUrl(didFromUri(r.uri), r.value.cover),
+    progress: r.value.bookProgress ?? null,
   };
 }
 
@@ -92,8 +112,9 @@ export async function fetchLatestTrack(): Promise<TrackView | null> {
   return r ? mapTrack(r) : null;
 }
 
-export async function fetchReadingBooks(): Promise<BookView[]> {
-  return (await listRecords(BOOK_COLLECTION, 100)).filter(isReading).map(mapBook);
+export async function fetchCurrentBook(): Promise<BookView | null> {
+  const r = latestReading(await listRecords(BOOK_COLLECTION, 100));
+  return r ? mapBook(r) : null;
 }
 
 /** Raw play records (value + rkey) so the widget's existing render code can use them. */
