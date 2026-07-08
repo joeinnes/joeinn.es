@@ -1,71 +1,16 @@
 <script>
 	import { onMount } from 'svelte';
-
-	const HANDLE = 'joeinn.es';
-	const PDS = 'https://bsky.social';
-	const PLAY_COLLECTION = 'fm.teal.alpha.feed.play';
-	const BOOK_COLLECTION = 'buzz.bookhive.book';
-	const READING = 'buzz.bookhive.defs#reading';
-	const COVER_ART_BASE = 'https://coverartarchive.org/release';
+	import { fetchLatestTrack, fetchCurrentBook } from '../lib/now';
 
 	// Seeded from the server for an instant first paint; onMount refreshes to live.
 	let { initialTrack = null, initialBook = null } = $props();
 	let track = $state(initialTrack);
 	let book = $state(initialBook);
 
-	// --- music cover: MusicBrainz id (prefixed "mbid:") via Cover Art Archive ---
-	const MBID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-	function trackCover(raw) {
-		if (typeof raw !== 'string') return null;
-		const id = raw.replace(/^mbid:/i, '').trim();
-		return MBID_RE.test(id) ? `${COVER_ART_BASE}/${id}/front-250` : null;
-	}
-	function artistNames(t) {
-		if (t?.artists?.length) return t.artists.map((a) => a.artistName).join(', ');
-		if (t?.artistNames?.length) return t.artistNames.join(', ');
-		return '';
-	}
-
-	// --- book cover: blob resolved via getBlob (DID parsed from the record uri) ---
-	function bookCover(uri, cover) {
-		const did = /^at:\/\/(did:[^/]+)\//.exec(uri ?? '')?.[1];
-		const cid = cover?.ref?.$link;
-		if (!did || !cid) return null;
-		return `${PDS}/xrpc/com.atproto.sync.getBlob?did=${did}&cid=${encodeURIComponent(cid)}`;
-	}
-	function authorList(a) {
-		return typeof a === 'string' ? a.split('\t').filter(Boolean).join(', ') : '';
-	}
-
-	async function fetchLatestTrack() {
-		const params = new URLSearchParams({ repo: HANDLE, collection: PLAY_COLLECTION, limit: '1' });
-		const res = await fetch(`${PDS}/xrpc/com.atproto.repo.listRecords?${params}`);
-		if (!res.ok) return;
-		const r = (await res.json()).records?.[0];
-		if (!r) return;
-		track = {
-			name: r.value.trackName,
-			artist: artistNames(r.value),
-			cover: trackCover(r.value.releaseMbId),
-		};
-	}
-
-	async function fetchCurrentBook() {
-		const params = new URLSearchParams({ repo: HANDLE, collection: BOOK_COLLECTION, limit: '100' });
-		const res = await fetch(`${PDS}/xrpc/com.atproto.repo.listRecords?${params}`);
-		if (!res.ok) return;
-		const r = ((await res.json()).records ?? []).find((x) => x.value?.status === READING);
-		if (!r) return;
-		book = {
-			title: r.value.title ?? 'Untitled',
-			author: authorList(r.value.authors),
-			cover: bookCover(r.uri, r.value.cover),
-		};
-	}
-
-	onMount(() => {
-		fetchLatestTrack().catch(() => {});
-		fetchCurrentBook().catch(() => {});
+	onMount(async () => {
+		const [t, b] = await Promise.allSettled([fetchLatestTrack(), fetchCurrentBook()]);
+		if (t.status === 'fulfilled' && t.value) track = t.value;
+		if (b.status === 'fulfilled' && b.value) book = b.value;
 	});
 
 	function hideImg(e) {
