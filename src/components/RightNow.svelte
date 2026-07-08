@@ -62,6 +62,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: calc(var(--inline-spacing) * 3);
+		margin-block-end: var(--layout-spacing);
 		padding: calc(var(--inline-spacing) * 4);
 		border-radius: var(--border-radius);
 		border: 1px solid var(--very-muted);
