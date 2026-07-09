@@ -9,6 +9,7 @@ import {
   mapBook,
   isReading,
   latestReading,
+  dedupeTracks,
 } from "./now";
 
 describe("now PDS mappers", () => {
@@ -97,6 +98,17 @@ describe("now PDS mappers", () => {
     expect(latestReading([undated])?.value.title).toBe("No Start Date");
     expect(latestReading([finished])).toBeNull();
     expect(latestReading([])).toBeNull();
+  });
+
+  it("dedupeTracks drops records sharing an rkey, keeping the first occurrence", () => {
+    const a1 = { _rkey: "a", trackName: "First" };
+    const a2 = { _rkey: "a", trackName: "Duplicate" };
+    const b = { _rkey: "b", trackName: "Other" };
+    const noKey = { trackName: "No rkey" };
+    // A play-history list where a page was double-appended must collapse back
+    // to one record per rkey; records without an rkey are always kept.
+    expect(dedupeTracks([a1, b, a2, noKey, noKey])).toEqual([a1, b, noKey, noKey]);
+    expect(dedupeTracks([])).toEqual([]);
   });
 
   it("mapTrack maps a teal.fm play record to a view model", () => {
