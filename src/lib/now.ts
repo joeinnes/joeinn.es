@@ -117,6 +117,21 @@ export async function fetchCurrentBook(): Promise<BookView | null> {
   return r ? mapBook(r) : null;
 }
 
+/**
+ * Drop play records sharing an _rkey, keeping the first occurrence. Guards the
+ * stats widget's accumulated history against double-appending a page (e.g. a
+ * fetch racing the cache load), and heals caches already poisoned by it.
+ */
+export function dedupeTracks<T extends { _rkey?: string }>(tracks: T[]): T[] {
+  const seen = new Set<string>();
+  return tracks.filter((t) => {
+    if (!t._rkey) return true;
+    if (seen.has(t._rkey)) return false;
+    seen.add(t._rkey);
+    return true;
+  });
+}
+
 /** Raw play records (value + rkey) so the widget's existing render code can use them. */
 export async function fetchRecentTracks(limit = 3): Promise<any[]> {
   return (await listRecords(PLAY_COLLECTION, limit)).map((r) => ({

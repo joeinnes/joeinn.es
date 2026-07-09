@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { dedupeTracks } from '../lib/now';
 
 	const HANDLE = 'joeinn.es';
 	const COLLECTION = 'fm.teal.alpha.feed.play';
@@ -17,6 +18,10 @@
 	let allTracks = $state([]);
 	let recentTracks = $state(initialRecentTracks);
 	let loading = $state(initialRecentTracks.length === 0);
+	// Paging must not start until the cache has been loaded into allTracks —
+	// otherwise the first page lands on top of its cached copy and every play
+	// in it is counted twice (and the doubled list gets saved back to the cache).
+	let ready = $state(false);
 	let loadingMore = $state(false);
 	let error = $state('');
 	let selectedPeriod = $state('week');
@@ -102,7 +107,7 @@
 		const res = await fetch(`${PDS}/xrpc/com.atproto.repo.listRecords?${params}`);
 		if (!res.ok) throw new Error(`Failed to fetch tracks (${res.status})`);
 		const data = await res.json();
-		allTracks = [...allTracks, ...data.records.map(toTrack)];
+		allTracks = dedupeTracks([...allTracks, ...data.records.map(toTrack)]);
 		nextCursor = data.cursor;
 		if (!data.cursor) fullyLoaded = true;
 	}
@@ -135,7 +140,7 @@
 			cursor = data.cursor;
 		}
 		if (newRecords.length > 0) {
-			allTracks = [...newRecords, ...allTracks];
+			allTracks = dedupeTracks([...newRecords, ...allTracks]);
 		}
 	}
 
@@ -174,34 +179,29 @@
 		// Load cache for stats if available
 		const cache = await loadCache();
 		if (cache?.tracks?.length) {
-			allTracks = cache.tracks;
+			// dedupe: heal caches poisoned by the old cache-load/paging race
+			allTracks = dedupeTracks(cache.tracks);
 			fullyLoaded = cache.fullyLoaded ?? false;
 			nextCursor = cache.nextCursor;
-			loading = false;
+		}
+		await recentPromise;
+		loading = false;
+		// Paging (the $effect below) takes over from here; on a cache miss it
+		// fetches the first pages, on a hit it only tops up the current period.
+		ready = true;
 
-			await recentPromise;
+		if (allTracks.length) {
 			try {
 				await fetchNewRecords();
 				saveCache();
 			} catch {
 				// Cached data is still shown
 			}
-			return;
-		}
-
-		try {
-			await recentPromise;
-			await fetchPage();
-			saveCache();
-		} catch (e) {
-			error = e.message;
-		} finally {
-			loading = false;
 		}
 	});
 
 	$effect(() => {
-		if (!loading && !loadingMore && !hasEnoughData(selectedPeriod)) {
+		if (ready && !loadingMore && !hasEnoughData(selectedPeriod)) {
 			loadMore();
 		}
 	});
