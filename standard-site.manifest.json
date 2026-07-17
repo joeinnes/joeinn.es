@@ -2700,6 +2700,11 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mpkxc5e6nw25",
       "docCid": "bafyreigv75ss4zhgndwymyopyh6qaibatwbbk4eml6uy23aigb5wmwroni",
       "contentHash": "sha256:facb54fa80c205002160ad85bf303e7f96acd4a56de930fd21add1a6ed2c941c"
+    },
+    "i-shipped:a-documentation-refresh-that-brings-guides-and-examples-back-in-sync": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mqt7hut6lh2x",
+      "docCid": "bafyreieevoyl6zw3cnninnnirlqxfwfv4fbhqxmli77u2sqg4o6adkurda",
+      "contentHash": "sha256:62eea7146db923bc93f83a5825929ac0359034b4806517cd0ae3e7e7a31e59a3"
     }
   }
 }
