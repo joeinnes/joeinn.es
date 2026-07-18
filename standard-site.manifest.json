@@ -2705,6 +2705,21 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mqt7hut6lh2x",
       "docCid": "bafyreieevoyl6zw3cnninnnirlqxfwfv4fbhqxmli77u2sqg4o6adkurda",
       "contentHash": "sha256:62eea7146db923bc93f83a5825929ac0359034b4806517cd0ae3e7e7a31e59a3"
+    },
+    "i-shipped:a-self-contained-broker-worker-for-production-bundlers": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mqvpfvjoil2y",
+      "docCid": "bafyreibifxahj45bhfwfu2zsgjqmk35kkxgfsziztqzubyhgsxfquoyn2i",
+      "contentHash": "sha256:e6ff48d6d800640f28dd362227861f5083319334f3ef5a5ed3f7e7c06623b154"
+    },
+    "i-shipped:safe-settlement-before-publishing-direct-batch-rows": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mqvpfvmytj2o",
+      "docCid": "bafyreigkywmlmjzjgtknrllr4s7e74jxt6zm4oi7nksojl7e4lwprcxhpm",
+      "contentHash": "sha256:dfc812961b7e97ccd2ee5d347977f034352cbc2f3a41320bec1fe16c9f48fd7d"
+    },
+    "i-shipped:terminal-handling-for-rejected-writes-during-replay": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mqvpfvnlin2d",
+      "docCid": "bafyreifcvtjhuo3awrol5idwxwawykyynfozdpo2bojsd27bwt5jjnxmte",
+      "contentHash": "sha256:4de456a4bf0ebb71ae84045d674053e8cd0f52010af2abc427b148e11a14bb6b"
     }
   }
 }
