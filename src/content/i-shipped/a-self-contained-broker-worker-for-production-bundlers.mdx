@@ -1,0 +1,7 @@
+---
+summary: a self-contained broker worker for production bundlers
+repo: garden-co/jazz
+mergeDate: 2026-06-18
+prNumber: '1030'
+---
+I fixed a crash that affected Jazz apps when production bundlers left the browser broker worker's imports unresolved. The build now bundles that worker as a self-contained file, so Next, Vite, and other bundlers can start it without extra application-specific configuration.

@@ -1,0 +1,7 @@
+---
+summary: terminal handling for rejected writes during replay
+repo: garden-co/jazz
+mergeDate: 2026-07-17
+prNumber: '1086'
+---
+I made rejected writes stay rejected while a client reconnects or replays its history. Dependent rows remain hidden, and already-accepted rows are not sent back to the server that supplied them, so a permission change cannot silently retry the original write.

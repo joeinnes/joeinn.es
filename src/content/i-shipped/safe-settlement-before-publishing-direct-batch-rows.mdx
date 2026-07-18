@@ -1,0 +1,7 @@
+---
+summary: safe settlement before publishing direct-batch rows
+repo: garden-co/jazz
+mergeDate: 2026-07-17
+prNumber: '1091'
+---
+I made direct batches settle safely before their rows become visible. Jazz now loads every member and saves the recovery state first, so a failed load cannot publish only part of a batch, and an interrupted publication can be completed after a retry or restart.
