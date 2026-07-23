@@ -2720,6 +2720,41 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mqvpfvnlin2d",
       "docCid": "bafyreifcvtjhuo3awrol5idwxwawykyynfozdpo2bojsd27bwt5jjnxmte",
       "contentHash": "sha256:4de456a4bf0ebb71ae84045d674053e8cd0f52010af2abc427b148e11a14bb6b"
+    },
+    "i-shipped:keep-active-dirty-browser-sessions-from-being-reclaimed": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrcbn2t7sc2o",
+      "docCid": "bafyreiajqd3ujdipu7zmp6ajj2pwiznyp72w5ekddgpgauqw75okl6q2by",
+      "contentHash": "sha256:dd4d5b9d0c99c5866233a8b546a19a35a5130b797741edd348b873de6d871bf4"
+    },
+    "i-shipped:preserve-typescript-types-through-column-modifiers": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrcbn32tmc22",
+      "docCid": "bafyreiblbajqc4cxst4umfueuof72kmvb6o2ckux5h3x66fpiue2tbfl2q",
+      "contentHash": "sha256:a67cee291da6a6e412dd87a233c7b25834a28e36067022e4552d37cbcb1c73cf"
+    },
+    "i-shipped:restore-migrated-row-history-when-deletes-are-replayed": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrcbn35eu72d",
+      "docCid": "bafyreid6jksy2wyafzafkmkqsedyevf6ks4277qgitvwlzuy72aqdhc4ee",
+      "contentHash": "sha256:a7ba26852dbd411d63c7b8f37f01308dce4d09f5d33398852b9be2405016dc33"
+    },
+    "i-shipped:support-better-auth-16-client-types-in-jazz-tools": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrcbn37xnh2w",
+      "docCid": "bafyreihjz6eg5fttpjg74d7sj57zpcwcwi34yvmfyyh6zbine2fwurthbe",
+      "contentHash": "sha256:c0d6ff6795dd06d0df52f83d1f1a0ce174ef9450c83791d5b29cde297a14c271"
+    },
+    "i-shipped:update-classic-jazz-to-patched-nextjs-15521": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrcbn3gejh2b",
+      "docCid": "bafyreid4pfp7sxp6f4xa7op3iig2gwolstlipxynjihmp5eddif5fxkgvi",
+      "contentHash": "sha256:6b40c2b8d2b1183bc84eaf762629c4c33ca1ce001f3502ae3221cef56ef99c4b"
+    },
+    "i-shipped:update-jazzs-nextjs-dependencies-for-security-fixes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrcbn3ixkb2m",
+      "docCid": "bafyreiaj6c24m5k3zqltcds7by7dj7fl3mzgeznot5tyr3stbiuc2ardmy",
+      "contentHash": "sha256:87b1cf932c361a4b332e62846d12e2ab58a5f8a846c52cfe4ba43677b3142e43"
+    },
+    "i-shipped:validate-integer-values-before-native-writes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrcbn3lhsp2w",
+      "docCid": "bafyreic43vv3zmtnlk2wvtpmhocf7w2kxwwhf2egbeayry5qijryvyn64y",
+      "contentHash": "sha256:6046ed85c3dcafd0659d279c62816ae59a4bd7359f19aa3769224df8f19dae23"
     }
   }
 }
