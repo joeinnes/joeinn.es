@@ -1,0 +1,7 @@
+---
+summary: validate integer values before native writes
+repo: garden-co/jazz
+mergeDate: 2026-07-23
+prNumber: '1096'
+---
+I made Jazz check integer values before passing them to native code. It now gives clear errors for fractions, non-finite values, and numbers outside the signed 32-bit range, with documentation and boundary tests.

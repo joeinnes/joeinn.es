@@ -1,0 +1,7 @@
+---
+summary: restore migrated row history when deletes are replayed
+repo: garden-co/jazz
+mergeDate: 2026-07-23
+prNumber: '1083'
+---
+I fixed a problem where deletes in migrated data could lose the row's earlier history. I made Jazz resolve that history from the row's origin records and rebuild the right branch state, with tests for deletes, renames, permissions, and recovery.

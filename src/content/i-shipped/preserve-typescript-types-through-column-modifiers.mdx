@@ -1,0 +1,7 @@
+---
+summary: preserve TypeScript types through column modifiers
+repo: garden-co/jazz
+mergeDate: 2026-07-23
+prNumber: '1100'
+---
+I fixed a TypeScript inference issue where chaining column modifiers could throw away specialised types. The stored, displayed, and inserted value types now stay distinct and accurate, with regression tests.

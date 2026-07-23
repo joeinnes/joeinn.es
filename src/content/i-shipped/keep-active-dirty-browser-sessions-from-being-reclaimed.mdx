@@ -1,0 +1,7 @@
+---
+summary: keep active dirty browser sessions from being reclaimed
+repo: garden-co/classic-jazz
+mergeDate: 2026-07-22
+prNumber: '3542'
+---
+I fixed a race where an active browser session could look abandoned before its local save finished. Jazz now waits until the session is truly unused before reclaiming it, with coverage for concurrent session acquisition.
