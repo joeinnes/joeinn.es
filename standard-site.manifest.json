@@ -2755,6 +2755,11 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrcbn3lhsp2w",
       "docCid": "bafyreic43vv3zmtnlk2wvtpmhocf7w2kxwwhf2egbeayry5qijryvyn64y",
       "contentHash": "sha256:6046ed85c3dcafd0659d279c62816ae59a4bd7359f19aa3769224df8f19dae23"
+    },
+    "i-shipped:removed-stale-permission-examples-from-the-docs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrk36quafz27",
+      "docCid": "bafyreifzsr5aojba6vlu6lziyjm74cfsusvvcuepokc7yijttbwybfhzcm",
+      "contentHash": "sha256:d7997d4f8a8ba34daf96b1f2c72415c3cccacef6442f36ae92f0edb5e657e651"
     }
   }
 }
