@@ -2760,6 +2760,26 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrk36quafz27",
       "docCid": "bafyreifzsr5aojba6vlu6lziyjm74cfsusvvcuepokc7yijttbwybfhzcm",
       "contentHash": "sha256:d7997d4f8a8ba34daf96b1f2c72415c3cccacef6442f36ae92f0edb5e657e651"
+    },
+    "i-shipped:active-browser-sessions-during-concurrent-test-runs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrmeuftfmi2w",
+      "docCid": "bafyreibqkg4yegamtjs32sxe4bv7fnetbfnabcsjtchi74rourtnfsanve",
+      "contentHash": "sha256:3e30b0e17aa9175443407ab6722d25cbce78523d6ae97e64168406014bd478e6"
+    },
+    "i-shipped:compatible-better-auth-16-client-types": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrmeufykcv2a",
+      "docCid": "bafyreigqojjtq7rculvzgnnomevimjmtnsm6qhja25kdzfoqvgwo6va23a",
+      "contentHash": "sha256:e22bdbb001012dc64dfd62436cbf69a42ef01e39e209914bca53b71e9187f0c1"
+    },
+    "i-shipped:patched-nextjs-versions-across-classic-jazz": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrmeug2hfk2y",
+      "docCid": "bafyreicce3gepbkqswid6egckym6ffk4q4ekolsockq7qsp2zo6hpgmlba",
+      "contentHash": "sha256:f1653d5c08bf64432390af5b114a3a82891a26d2ddfdcf1bebd3dd1062be2984"
+    },
+    "i-shipped:the-patched-nextjs-release-across-jazz-workspaces": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mrmeug3z7c2y",
+      "docCid": "bafyreidngslj6pxojja24jjug5ydbfjvt43gclsiwqp2dr3bsld5dvpbn4",
+      "contentHash": "sha256:41e27f9c216652f6eac973d6909713c1c29423fe2a132f5dcc3bd6b69fa49127"
     }
   }
 }
