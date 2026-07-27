@@ -1,0 +1,7 @@
+---
+summary: active browser sessions during concurrent test runs
+repo: garden-co/classic-jazz
+mergeDate: 2026-07-22
+prNumber: '3542'
+---
+I fixed a timing problem where a live browser session could be mistaken for an abandoned one while it was still saving. The cleanup now waits for evidence that a session is really abandoned, so concurrent tests do not lose stored sessions.
