@@ -1,0 +1,7 @@
+---
+summary: kept indexed single reads from scanning whole tables
+repo: garden-co/jazz
+mergeDate: 2026-08-04
+prNumber: '1228'
+---
+I fixed a query path that found the right index but then lost that choice and scanned the whole table. The lookup now keeps the specific index binding, so it reads the small candidate set while returning the same ordered results.

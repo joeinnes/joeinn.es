@@ -1,0 +1,7 @@
+---
+summary: lowered work for filtered relation lookups
+repo: garden-co/jazz
+mergeDate: 2026-08-04
+prNumber: '1205'
+---
+I changed lookups that follow linked records so safe filters are applied earlier, reducing the rows carried through the rest of the query. When limits or offsets make reordering unsafe, the lookup keeps its original order.

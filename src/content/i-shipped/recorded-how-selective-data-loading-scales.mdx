@@ -1,0 +1,7 @@
+---
+summary: recorded how selective data loading scales
+repo: garden-co/jazz
+mergeDate: 2026-08-04
+prNumber: '1227'
+---
+I added a repeatable benchmark that measures how a selective lookup behaves as the underlying table grows. It records the exact result, the number of rows read during each phase, and the current implementation's known limit, so future improvements can be checked against a clear baseline.
