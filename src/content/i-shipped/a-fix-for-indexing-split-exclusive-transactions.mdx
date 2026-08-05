@@ -4,4 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2026-08-04
 prNumber: '1236'
 ---
-When an exclusive transaction arrived in several messages, the final fragment could make the system rebuild indexes from only that fragment. I now invalidate that partial cache and reload the complete stored transaction, so observers see all accepted rows.
+Some transactions arrive in several messages. If the final message arrived after earlier pieces had been cached, the code could rebuild the current view from just that last piece, so old rows disappeared; I now reload all pieces before rebuilding the indexes.

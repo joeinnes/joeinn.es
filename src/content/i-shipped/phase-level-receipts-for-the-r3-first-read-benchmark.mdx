@@ -4,4 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2026-08-04
 prNumber: '1207'
 ---
-I added optional phase-level profiling to the R3 persisted-read benchmark so we can see where first-read time goes. It now reports separate receipts for planning, execution, decoding, and finishing while leaving ordinary reads unchanged.
+I added optional timing receipts to our benchmark for reopening a saved database and running its first query. They split the wait into recognisable steps: preparing the query, running it, turning the returned data into rows, and finishing the result. This shows where an optimisation actually helps, while normal reads do not pay the profiling cost.

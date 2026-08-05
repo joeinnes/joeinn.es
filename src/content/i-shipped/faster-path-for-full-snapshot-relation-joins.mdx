@@ -4,4 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2026-08-04
 prNumber: '1219'
 ---
-When both sides of a join arrive as complete snapshots, the old hydration path did the same work twice and then cleaned up the duplicate result. I added a direct path for that case, leaving incremental updates alone and preserving the result rows.
+When a relationship query starts with two complete sets of data, the old code treated them as if each side had changed separately. That made it do the join twice and then throw away the duplicate work, so I added a special path that builds the answer once; ordinary incremental updates still use the old behaviour.

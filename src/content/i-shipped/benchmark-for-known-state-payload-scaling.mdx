@@ -4,4 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2026-08-04
 prNumber: '1230'
 ---
-I added a benchmark that keeps the rehydrated rows fixed while varying how much state is already known. It records the data exchanged and checks that every version is still represented, showing how known state reduces repeated payloads.
+I added a benchmark for a sync case where the server already knows some of the client’s data. It keeps the amount of data being rebuilt constant, varies how much is already known, and checks that the client still receives the exact right versions; this lets us measure how much network data can be avoided.

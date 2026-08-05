@@ -4,4 +4,4 @@ repo: garden-co/jazz
 mergeDate: 2026-08-04
 prNumber: '1238'
 ---
-Overlapping authorisation branches could produce duplicate proof rows before a sorted, limited result was built, so valid rows could be pushed out of the requested window. I reduced those proofs to one per protected row and route before the final join, while preserving ordinary bag-style joins.
+An access-control query can prove that a row is allowed through more than one policy route. Those repeated proofs were being counted as separate result rows before sorting and limiting the answer, so I changed the query to keep one proof per row and policy route before applying the limit; normal joins still keep their duplicate rows when duplicates are meaningful.
