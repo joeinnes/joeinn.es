@@ -1,0 +1,7 @@
+---
+summary: a fix for indexing split exclusive transactions
+repo: garden-co/jazz
+mergeDate: 2026-08-04
+prNumber: '1236'
+---
+When an exclusive transaction arrived in several messages, the final fragment could make the system rebuild indexes from only that fragment. I now invalidate that partial cache and reload the complete stored transaction, so observers see all accepted rows.

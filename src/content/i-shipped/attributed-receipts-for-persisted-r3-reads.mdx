@@ -1,0 +1,7 @@
+---
+summary: attributed receipts for persisted R3 reads
+repo: garden-co/jazz
+mergeDate: 2026-08-04
+prNumber: '1174'
+---
+The R3 persisted-read benchmark showed that reads were slow but not which phase was responsible. I added optional JSON receipts that separate storage opening, Jazz initialisation, query preparation, and first materialisation while retaining the old benchmark measurement.

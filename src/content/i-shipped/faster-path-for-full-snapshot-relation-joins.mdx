@@ -1,0 +1,7 @@
+---
+summary: a faster path for full-snapshot relation joins
+repo: garden-co/jazz
+mergeDate: 2026-08-04
+prNumber: '1219'
+---
+When both sides of a join arrive as complete snapshots, the old hydration path did the same work twice and then cleaned up the duplicate result. I added a direct path for that case, leaving incremental updates alone and preserving the result rows.

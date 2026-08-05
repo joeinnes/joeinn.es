@@ -1,0 +1,7 @@
+---
+summary: a fix for duplicate authorisation proofs consuming result slots
+repo: garden-co/jazz
+mergeDate: 2026-08-04
+prNumber: '1238'
+---
+Overlapping authorisation branches could produce duplicate proof rows before a sorted, limited result was built, so valid rows could be pushed out of the requested window. I reduced those proofs to one per protected row and route before the final join, while preserving ordinary bag-style joins.

@@ -1,0 +1,7 @@
+---
+summary: cached relation target schemas during hydration
+repo: garden-co/jazz
+mergeDate: 2026-08-04
+prNumber: '1222'
+---
+Large relation snapshots were resolving and cloning the same target-table schema once for every row. I cache each target schema for the duration of hydration, cutting repeated work while keeping the materialised results unchanged.

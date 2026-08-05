@@ -1,0 +1,7 @@
+---
+summary: lower-allocation native UUID formatting
+repo: garden-co/jazz
+mergeDate: 2026-08-04
+prNumber: '1221'
+---
+Native hydration was repeatedly turning UUID bytes into temporary arrays and strings. I replaced that with a shared lookup table and direct assembly, which reduces allocation work without changing UUID formatting.

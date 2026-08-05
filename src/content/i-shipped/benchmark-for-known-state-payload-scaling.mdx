@@ -1,0 +1,7 @@
+---
+summary: a benchmark for known-state payload scaling
+repo: garden-co/jazz
+mergeDate: 2026-08-04
+prNumber: '1230'
+---
+I added a benchmark that keeps the rehydrated rows fixed while varying how much state is already known. It records the data exchanged and checks that every version is still represented, showing how known state reduces repeated payloads.

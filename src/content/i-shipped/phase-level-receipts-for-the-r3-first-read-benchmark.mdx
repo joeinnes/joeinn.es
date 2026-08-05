@@ -1,0 +1,7 @@
+---
+summary: phase-level receipts for the R3 first-read benchmark
+repo: garden-co/jazz
+mergeDate: 2026-08-04
+prNumber: '1207'
+---
+I added optional phase-level profiling to the R3 persisted-read benchmark so we can see where first-read time goes. It now reports separate receipts for planning, execution, decoding, and finishing while leaving ordinary reads unchanged.
