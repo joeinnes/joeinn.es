@@ -1,0 +1,7 @@
+---
+summary: deterministic cleanup for local query outputs
+repo: garden-co/jazz
+mergeDate: 2026-08-06
+prNumber: '1265'
+---
+I fixed local one-shot reads and streams retaining internal listeners after they had finished or been dropped. They now clean themselves up immediately, including error paths, while shared streams stay alive until their last owner leaves; regression tests cover these cases.

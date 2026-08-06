@@ -1,0 +1,7 @@
+---
+summary: a benchmark comparing maintained and rebuilt views
+repo: garden-co/jazz
+mergeDate: 2026-08-06
+prNumber: '1232'
+---
+I added a benchmark comparing a saved query result that is already kept up to date with one rebuilt from storage. The maintained result stayed at one read and about 494 encoded bytes, while rebuilding grew from 401 to 40,001 reads as the source grew from 100 to 10,000 rows, while producing the same result.

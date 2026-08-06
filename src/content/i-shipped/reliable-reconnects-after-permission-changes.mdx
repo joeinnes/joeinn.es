@@ -1,0 +1,7 @@
+---
+summary: reliable reconnects after permission changes
+repo: garden-co/jazz
+mergeDate: 2026-08-06
+prNumber: '1266'
+---
+I fixed reconnects after a user's permissions changed while they were offline. The server now uses a complete membership response when a fast data-progress marker could miss an old-but-newly-visible row or a revoked row, while keeping the fast path for ordinary updates.

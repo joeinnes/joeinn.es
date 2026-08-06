@@ -1,0 +1,7 @@
+---
+summary: correct relation data across the browser boundary
+repo: garden-co/jazz
+mergeDate: 2026-08-06
+prNumber: '1223'
+---
+I fixed browser-worker transport dropping the hidden column-name information needed to decode relation results. Without it, a relation could be matched with the wrong scalar value; the information is now preserved across the boundary, with regression coverage for nested relations.

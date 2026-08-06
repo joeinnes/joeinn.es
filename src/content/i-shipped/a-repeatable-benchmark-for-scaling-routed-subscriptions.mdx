@@ -1,0 +1,7 @@
+---
+summary: a repeatable benchmark for scaling routed subscriptions
+repo: garden-co/jazz
+mergeDate: 2026-08-06
+prNumber: '1264'
+---
+I added a repeatable benchmark that measures how a large number of routes affects attaching subscriptions, processing writes, retained data, and memory. It covers 1 to 1,000 routes and gives the next optimisation work a trustworthy baseline without changing runtime behaviour.
