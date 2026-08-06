@@ -2845,6 +2845,36 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3msd23sbx5v2y",
       "docCid": "bafyreig5gomwxoc7vkmhr6jpprwzpi3etdcdpzygyfdaii7aoiglplzpg4",
       "contentHash": "sha256:d69d929a97b882cae54148d4b04f6b8a75dc87965542cf62cb03755aedb79e94"
+    },
+    "i-shipped:a-benchmark-comparing-maintained-and-rebuilt-views": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3msfojzzmgo2t",
+      "docCid": "bafyreihasdnhctubr3ir6cgchnxrfnel4tvey4seky3sptpohbb6evfugq",
+      "contentHash": "sha256:8c421c77e98cd8f9169a3f38b9b39ccd9256cb0f0699df25505e0229d08326f6"
+    },
+    "i-shipped:a-repeatable-benchmark-for-scaling-routed-subscriptions": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3msfok2cokb2q",
+      "docCid": "bafyreie2mldnpwwg5jh257kp6d2lfzeagdw2l5x7goxp2to5jit3nk7iry",
+      "contentHash": "sha256:0156624a1d45e90e3537ca2e426037fabf7c9249af0e2e0a27e4df87d8c3f367"
+    },
+    "i-shipped:correct-relation-data-across-the-browser-boundary": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3msfok2dtim2d",
+      "docCid": "bafyreihbazg7joq2kffcoyutvutyh6zdojjxqujnw5tuykd5upxwdsgjga",
+      "contentHash": "sha256:f935f0ac42cc4879e93d92a26b672ff09a2226cf3b64aed9bda0504a4a45aa76"
+    },
+    "i-shipped:deterministic-cleanup-for-local-query-outputs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3msfok2fizb2b",
+      "docCid": "bafyreie4r7qq4jxfrwewnf6lxhrmiz43v66uqgi7ubqurl7afim2lobrmq",
+      "contentHash": "sha256:67119281faad52efe5972a2f24cf08f1a4d60fe8e138f68f1492bbd98d4e90ef"
+    },
+    "i-shipped:reliable-reconnects-after-permission-changes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3msfok2gqpo2w",
+      "docCid": "bafyreibhpghxuw5f4jnizn6rwp2236fz3ehkaxanwunj7l7dind5fqhrd4",
+      "contentHash": "sha256:dd6e6583d7ff91986bb4b7af363f2b465e3fbe69e33d185f4e35d1b2ce875dd0"
+    },
+    "i-shipped:starter-compatibility-with-better-auth-1624": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3msfok2k6rg2u",
+      "docCid": "bafyreig6wfp7jctkddoky4r3dkfi2cjwu4dtqcx3rdfilbunvxly3mrvtm",
+      "contentHash": "sha256:aa88b03c8e043b8040be64bba0bc2a196d8ec84e5f9100aed87d10edfd1c0c29"
     }
   }
 }
