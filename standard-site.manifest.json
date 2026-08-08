@@ -2875,6 +2875,11 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3msfok2k6rg2u",
       "docCid": "bafyreig6wfp7jctkddoky4r3dkfi2cjwu4dtqcx3rdfilbunvxly3mrvtm",
       "contentHash": "sha256:aa88b03c8e043b8040be64bba0bc2a196d8ec84e5f9100aed87d10edfd1c0c29"
+    },
+    "i-shipped:sql-style-aggregate-results": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mskjavxw4z27",
+      "docCid": "bafyreif4u7ko2qqrfyptncvap3k7nt4ft47enrturnfe5ld6furk3fpm6u",
+      "contentHash": "sha256:5d92fff515a3c0dd821ee305cad9133466ec761ca398fdd9b5bb31ccd8021c14"
     }
   }
 }
