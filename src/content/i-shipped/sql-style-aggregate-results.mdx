@@ -1,0 +1,7 @@
+---
+summary: SQL-style aggregate results
+repo: garden-co/jazz
+mergeDate: 2026-08-07
+prNumber: '1125'
+---
+I made Jazz's `SUM`, `AVG`, `MIN`, and `MAX` behave like SQL when there are no rows or only null values, while keeping grouped queries and `COUNT` working as before. I also added support for signed 64-bit numbers and carried the resulting types through the public subscription API.
