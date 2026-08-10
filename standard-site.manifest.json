@@ -2880,6 +2880,41 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mskjavxw4z27",
       "docCid": "bafyreif4u7ko2qqrfyptncvap3k7nt4ft47enrturnfe5ld6furk3fpm6u",
       "contentHash": "sha256:5d92fff515a3c0dd821ee305cad9133466ec761ca398fdd9b5bb31ccd8021c14"
+    },
+    "i-shipped:benchmarks-that-show-where-open-recovery-time-goes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mspksgxo6n2q",
+      "docCid": "bafyreic5su42cjmwuq7zz2nnjod3oiftvm4hgwalbhpn5qt3lphqz526tu",
+      "contentHash": "sha256:d5f2105bcd1f0b78c43a92bf2801c83b12714ccf014361ec1df1042e4957105c"
+    },
+    "i-shipped:browser-benchmark-for-loading-related-rows": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mspksh6xna27",
+      "docCid": "bafyreifdv6qfbgje4bakep42fq2ieq4e7yp3whel4zsgbbozp2cgetnoee",
+      "contentHash": "sha256:3660c4a225025ca97175a6da6a865b43eac168df700f66de1e6ff9a29514e8ae"
+    },
+    "i-shipped:correct-routing-for-prepared-policy-claims": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mspkshbiij2o",
+      "docCid": "bafyreiauucevi6oiji3otvfnfrskgywpwdjcvm3jtq7gv453zqkfeyeani",
+      "contentHash": "sha256:bc54aa18f25e6d47113bec8dc4c842bf408237cabd16256036f0f6e09ee35e92"
+    },
+    "i-shipped:coverage-for-reconnects-after-authorization-changes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mspkshdzne2z",
+      "docCid": "bafyreibr4xwewpxhzsdg4oetjjju5bkyak52up2rhecduwdd434nfqdzv4",
+      "contentHash": "sha256:e15aba381591a0f324c89531a0ac9c1e0eb58be17d9e17fbf1bb9e12768b0f3f"
+    },
+    "i-shipped:faster-recovery-scan-for-sequenced-transactions": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mspkshp66y27",
+      "docCid": "bafyreibotuzftibqgoahvosgpkq7rgt3lxqwkbzzpuwyxq2gnp6oapbthi",
+      "contentHash": "sha256:8c9d93ef8118ff17a9f07420390b9a2013ada89008576f720e06a23056771715"
+    },
+    "i-shipped:safer-numeric-claim-handling-in-prepared-queries": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mspkshrsyb2a",
+      "docCid": "bafyreifd7c62reccq6u2lfajhp5nkrfgvsvqd4jmkdmoghofqj6awzrfey",
+      "contentHash": "sha256:712e887c1b95ecd0ba10eafed74be5765b9d5fdc07227bf23e633f872f8015b6"
+    },
+    "i-shipped:updates-for-the-new-batch-transaction-api": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mspkshueyt2h",
+      "docCid": "bafyreidlntxkkxwd7c3gkx3cnynco5yhn7oxhjkivi4ohqjk5n2f3erhsi",
+      "contentHash": "sha256:815c0cf45ea6c03336130baa07546b9b0512d3e086de442e744ea938431f7694"
     }
   }
 }
