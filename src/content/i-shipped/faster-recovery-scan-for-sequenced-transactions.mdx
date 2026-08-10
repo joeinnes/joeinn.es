@@ -1,0 +1,7 @@
+---
+summary: a faster recovery scan for sequenced transactions
+repo: garden-co/jazz
+mergeDate: 2026-08-09
+prNumber: '1176'
+---
+I changed startup recovery to scan only transactions that have a real sequence number. Pending or rejected local transactions are handled by their own replay paths, so recovery no longer spends time scanning unrelated history.

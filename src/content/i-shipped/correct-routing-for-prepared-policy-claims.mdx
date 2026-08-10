@@ -1,0 +1,7 @@
+---
+summary: correct routing for prepared policy claims
+repo: garden-co/jazz
+mergeDate: 2026-08-10
+prNumber: '1261'
+---
+I fixed prepared permission queries that combine rules with and without a claim. Each active binding now gets the right route information, so the claimless branch no longer disappears or produces results for the wrong binding.

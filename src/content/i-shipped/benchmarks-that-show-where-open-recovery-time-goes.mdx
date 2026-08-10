@@ -1,0 +1,7 @@
+---
+summary: benchmarks that show where open recovery time goes
+repo: garden-co/jazz
+mergeDate: 2026-08-09
+prNumber: '1175'
+---
+I added a testing-only benchmark that measures the main stages of opening Jazz and recovering its saved data. The measurements now follow the current storage layout, including the final step that restores aliases, so future performance work can target real costs.

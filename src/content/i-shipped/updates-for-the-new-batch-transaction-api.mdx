@@ -1,0 +1,7 @@
+---
+summary: updates for the new batch transaction API
+repo: garden-co/jazz
+mergeDate: 2026-08-09
+prNumber: '1342'
+---
+I updated Jazz's integration tests and simulation benchmark to use the new transaction API. The tests now pass the correct opening batch identifier and check that a committed batch exists before waiting for the change to become safely stored at the edge.

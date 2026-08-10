@@ -1,0 +1,7 @@
+---
+summary: coverage for reconnects after authorization changes
+repo: garden-co/jazz
+mergeDate: 2026-08-09
+prNumber: '1267'
+---
+I added a set of reconnect tests that cover membership and permission changes while someone is disconnected. They check that the client receives exactly the rows that were added, changed, or removed, so future changes cannot accidentally reload everything.

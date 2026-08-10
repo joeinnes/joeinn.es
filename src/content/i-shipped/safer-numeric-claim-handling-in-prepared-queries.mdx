@@ -1,0 +1,7 @@
+---
+summary: safer numeric claim handling in prepared queries
+repo: garden-co/jazz
+mergeDate: 2026-08-10
+prNumber: '1177'
+---
+I fixed prepared queries so a number used in an access rule can be compared correctly even when it arrives in a different integer size. Values that cannot be converted safely keep their original type, which makes the permission check fail closed instead of silently matching the wrong value.
