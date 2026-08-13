@@ -2915,6 +2915,16 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mspkshueyt2h",
       "docCid": "bafyreidlntxkkxwd7c3gkx3cnynco5yhn7oxhjkivi4ohqjk5n2f3erhsi",
       "contentHash": "sha256:815c0cf45ea6c03336130baa07546b9b0512d3e086de442e744ea938431f7694"
+    },
+    "i-shipped:made-global-sequence-exhaustion-fail-loudly": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3msxtyg7wa42s",
+      "docCid": "bafyreiesl3xfm6vbkhelcy7t2lfewjkmkyo2ez2wthjka3zjqjdvzgsaxa",
+      "contentHash": "sha256:292b735c3e4dacdec598eccf14144352525fc3cfa411c9db2dcd66ae358d4d90"
+    },
+    "i-shipped:made-subscription-events-typed-and-safer": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3msxtygcl6u2s",
+      "docCid": "bafyreiddv6xrkjhazr6i22qee2wsv5wipi2pzm4qkorpfsvocsr77swiom",
+      "contentHash": "sha256:fcd8efba6b8ec80fef2bca91d31893f3fe5dc5c92a013b0dac35e6733300a3ef"
     }
   }
 }
