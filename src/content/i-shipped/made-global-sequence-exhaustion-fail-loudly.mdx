@@ -1,0 +1,7 @@
+---
+summary: safe handling for exhausted global sequences
+repo: garden-co/jazz
+mergeDate: 2026-08-13
+prNumber: '1347'
+---
+I made global sequence allocation fail safely when the counter reaches its maximum value. The final value can be used once, but any later allocation now returns a clear error instead of wrapping around and reusing an old sequence number, and every current allocation path uses the same guard.

@@ -1,0 +1,7 @@
+---
+summary: typed subscription events with safer decoding
+repo: garden-co/jazz
+mergeDate: 2026-08-12
+prNumber: '1398'
+---
+I replaced loosely shaped subscription messages with typed events that the native and TypeScript layers can agree on. The subscription manager now prepares the exact row layout once, so each update can decode fixed positions instead of guessing from field names, while unknown or redefined layouts fail clearly.
