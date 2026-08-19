@@ -1,0 +1,7 @@
+---
+summary: pending writes that survive subscription hydration
+repo: garden-co/jazz
+mergeDate: 2026-08-19
+prNumber: '1646'
+---
+I fixed subscriptions losing local inserts, updates, or deletes while they were applying a server snapshot. Pending changes now remain visible until they are accepted or rejected, while genuine server changes still reconcile normally.

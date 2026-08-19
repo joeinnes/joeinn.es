@@ -1,0 +1,7 @@
+---
+summary: point reads for single-row policy checks
+repo: garden-co/jazz
+mergeDate: 2026-08-19
+prNumber: '1651'
+---
+I changed single-row update and delete policy checks to read only the requested row. They no longer load every row in the table just to find one matching identifier.

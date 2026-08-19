@@ -1,0 +1,7 @@
+---
+summary: safer authentication and insert configuration types
+repo: garden-co/jazz
+mergeDate: 2026-08-19
+prNumber: '1634'
+---
+I tightened the configuration types for inserts and authentication so incompatible options cannot be combined accidentally. I also made local-first authentication return its new token through configuration inspection without exposing the original secret.

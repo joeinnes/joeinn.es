@@ -1,0 +1,7 @@
+---
+summary: a simpler query propagation option
+repo: garden-co/jazz
+mergeDate: 2026-08-19
+prNumber: '1632'
+---
+I removed the old `propagate` query option so `propagation` is the single public way to control forwarding. Applications that need a query to stay local can now use `propagation: "local-only"` consistently.

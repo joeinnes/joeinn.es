@@ -1,0 +1,7 @@
+---
+summary: regression coverage for rejected ancestry and global reads
+repo: garden-co/jazz
+mergeDate: 2026-08-19
+prNumber: '1653'
+---
+I added focused tests for two synchronisation guarantees in the new core. They prove that a rejected update does not block a later fresh commit, and that global reads eventually use the authoritative remote value while a local write remains pending.

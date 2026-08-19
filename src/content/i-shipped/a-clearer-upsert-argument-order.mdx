@@ -1,0 +1,7 @@
+---
+summary: a clearer upsert argument order
+repo: garden-co/jazz
+mergeDate: 2026-08-19
+prNumber: '1633'
+---
+I changed `upsert` to take the table, row ID, data, and optional settings in that order. This keeps the row ID separate from mutation settings and matches the shape used by the other row mutation methods.

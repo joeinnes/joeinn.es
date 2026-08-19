@@ -1,0 +1,7 @@
+---
+summary: transaction overlays scoped per table and row
+repo: garden-co/jazz
+mergeDate: 2026-08-19
+prNumber: '1649'
+---
+I fixed pending transaction overlays that were keyed only by row ID. They now also include the table name, so two tables can safely have the same row ID without one table's pending value hiding the other's.

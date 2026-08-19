@@ -1,0 +1,7 @@
+---
+summary: declared id columns that win over physical row IDs
+repo: garden-co/jazz
+mergeDate: 2026-08-19
+prNumber: '1650'
+---
+I fixed query paths that treated every column named `id` as Jazz's internal row identifier. When an application declares its own `id`, filters and joins now use that application value, while tables without one keep the existing behaviour.

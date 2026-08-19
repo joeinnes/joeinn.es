@@ -1,0 +1,7 @@
+---
+summary: recovery from transient storage commit failures
+repo: garden-co/jazz
+mergeDate: 2026-08-19
+prNumber: '1652'
+---
+I made the database recover cleanly when a storage commit fails before anything is durably written. The in-memory state and sequence clock are restored, so an exact retry can succeed instead of leaving the database permanently poisoned.
