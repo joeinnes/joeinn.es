@@ -1,0 +1,7 @@
+---
+summary: quieted misleading React test warnings
+repo: garden-co/jazz
+mergeDate: 2026-08-19
+prNumber: '1658'
+---
+React Todo tests were doing asynchronous work outside the wrapper React expects, so they printed warnings even when the tests passed. I put the waits inside the right wrapper and ran the browser files one at a time because they share temporary server state, leaving the tests green without the noisy output.

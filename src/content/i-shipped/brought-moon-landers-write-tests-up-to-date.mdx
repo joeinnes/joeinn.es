@@ -1,0 +1,7 @@
+---
+summary: brought Moon Lander's write tests up to date
+repo: garden-co/jazz
+mergeDate: 2026-08-19
+prNumber: '1657'
+---
+Moon Lander had moved to a newer way of saving data, but its test helper still pretended the old methods existed. I updated that helper to follow the current insert-and-update flow, so the four tests can reach their real assertions again.

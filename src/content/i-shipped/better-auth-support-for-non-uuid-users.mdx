@@ -1,0 +1,7 @@
+---
+summary: Better Auth support for non-UUID users
+repo: garden-co/jazz
+mergeDate: 2026-08-19
+prNumber: '1656'
+---
+I made Better Auth work when user IDs are ordinary strings instead of UUIDs. Browser and server code now turn the same ID into the same internal identity, including for WebSocket connections, while keeping the original ID available and protecting built-in session fields.
