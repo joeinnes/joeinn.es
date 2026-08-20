@@ -3000,6 +3000,21 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mtg6ky4iem2w",
       "docCid": "bafyreibf7rad2aph4qnzqwiqxeramawvjhfdegcy7qz24g5rsy5ljfci7u",
       "contentHash": "sha256:e8c88182711d4162090bed7bc07a8522e02c39a9cc740e6f7565d1211648d786"
+    },
+    "i-shipped:better-auth-support-for-non-uuid-users": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mtioqopd4v2j",
+      "docCid": "bafyreie4pbajvtcbbl3qy2oooiaukkggs3dzhmyym5yne24xq7hu7s5vuu",
+      "contentHash": "sha256:6966d92c0af4a5f94d18f7eae38224375d209a5e96b755e0a963a759f708edc2"
+    },
+    "i-shipped:brought-moon-landers-write-tests-up-to-date": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mtioqoylgb2h",
+      "docCid": "bafyreigvw7qux7wp4fcyszqf3rkednvv34ye547i52diuj552ja6arjcui",
+      "contentHash": "sha256:c974d7c8b5e33041071aab5a60d30fd20d97d2368d338c4c871eed6e0b29d5b0"
+    },
+    "i-shipped:quieted-misleading-react-test-warnings": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mtioqp2u662e",
+      "docCid": "bafyreihm5673x3qwfww6sp6lo6v55cwu2j5t6giagrd2hcsszqv2yvpnnu",
+      "contentHash": "sha256:e7fa8db47153327c7b134719e25deb88eb0b11d55c7dd03c2e70fcd4b7d1756a"
     }
   }
 }
