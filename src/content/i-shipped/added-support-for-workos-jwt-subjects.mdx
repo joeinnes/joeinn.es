@@ -1,0 +1,7 @@
+---
+summary: added support for WorkOS JWT subjects
+repo: garden-co/jazz
+mergeDate: 2026-08-20
+prNumber: '1664'
+---
+I added support for WorkOS identity IDs in server authentication, while keeping the existing UUID-based IDs working. The TypeScript and Rust sides now apply the same rules, so permissions and identity checks agree across the system.

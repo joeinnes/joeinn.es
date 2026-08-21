@@ -1,0 +1,7 @@
+---
+summary: made starter recovery wait for saved data
+repo: garden-co/jazz
+mergeDate: 2026-08-20
+prNumber: '1665'
+---
+I fixed a race in the hybrid starter tests where account recovery could begin before the optimistic write it was meant to restore had been saved. The tests now wait for the saved status first, so they check the real recovery sequence instead of competing with it.

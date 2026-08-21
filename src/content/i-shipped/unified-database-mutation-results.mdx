@@ -1,0 +1,7 @@
+---
+summary: unified database mutation results
+repo: garden-co/jazz
+mergeDate: 2026-08-20
+prNumber: '1655'
+---
+I replaced several different write-result shapes with one consistent database mutation result. Inserts and restores still return their rows, while updates, upserts, and deletes clearly return no row, and each result keeps its value, batch ID, and wait operation.

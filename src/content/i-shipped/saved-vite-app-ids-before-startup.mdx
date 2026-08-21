@@ -1,0 +1,7 @@
+---
+summary: saved Vite app IDs before startup
+repo: garden-co/jazz
+mergeDate: 2026-08-20
+prNumber: '1667'
+---
+I fixed a development-startup race where a generated app ID was not saved before Vite's server and file watcher began. The app ID is now saved during configuration, and the same preparation is used by direct runtime and SvelteKit startup.

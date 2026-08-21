@@ -1,0 +1,7 @@
+---
+summary: refreshed shared query results after authorisation changes
+repo: garden-co/jazz
+mergeDate: 2026-08-20
+prNumber: '1668'
+---
+I fixed a stale-data bug in shared server query results. When a user's permissions changed, a new subscription could claim it already had the current rows and keep seeing old or unauthorised data. The server now sends the full current result when the permission state is out of date, while unchanged reconnects keep the smaller update.

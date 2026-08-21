@@ -1,0 +1,7 @@
+---
+summary: separated Solid provider ownership
+repo: garden-co/jazz
+mergeDate: 2026-08-20
+prNumber: '1671'
+---
+I separated the Solid provider that creates and shuts down a database client from the provider used with a client supplied by the caller. This makes it clear who owns the client's lifetime and lets later configuration recover after a shutdown failure.

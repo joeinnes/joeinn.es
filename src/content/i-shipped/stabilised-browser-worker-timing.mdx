@@ -1,0 +1,7 @@
+---
+summary: stabilised browser worker timing
+repo: garden-co/jazz
+mergeDate: 2026-08-20
+prNumber: '1673'
+---
+I stabilised browser tests that use a file worker by limiting how many browser files run at once and allowing slow operations more time before failing. This stops the browser's main work from being starved by too much parallel file activity, while still warning when responsiveness falls below the target.
