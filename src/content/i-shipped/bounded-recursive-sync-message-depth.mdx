@@ -1,0 +1,7 @@
+---
+summary: bounded recursive sync message depth
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1922'
+---
+I capped nested AuthorizationScopeView decoding at eight wrappers and reject deeper peer messages during deserialisation. The existing wire format and exact boundary remain supported.

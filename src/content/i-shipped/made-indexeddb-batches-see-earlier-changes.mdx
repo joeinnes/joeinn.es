@@ -1,0 +1,7 @@
+---
+summary: made IndexedDB batches see earlier changes
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1889'
+---
+I changed IndexedDB batch planning so each operation sees the value produced by earlier operations in the same batch. I also serialised batches sharing one storage instance so overlapping writes cannot overwrite newer results.

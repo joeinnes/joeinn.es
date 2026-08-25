@@ -1,0 +1,7 @@
+---
+summary: made React client replacement lifecycle-safe
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1909'
+---
+I made React client acquisition safe across server rendering, replacement, cancellation, and Strict Mode remounts. Different configurations now wait for the previous client to be released before acquiring a replacement.

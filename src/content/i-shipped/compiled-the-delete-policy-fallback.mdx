@@ -1,0 +1,7 @@
+---
+summary: compiled the DELETE policy fallback
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1927'
+---
+I made DELETE USING fall back to UPDATE USING when no explicit delete rule exists, while keeping explicit DELETE USING rules in charge. This brings schema conversion in line with the documented contract and inherited policy checks.

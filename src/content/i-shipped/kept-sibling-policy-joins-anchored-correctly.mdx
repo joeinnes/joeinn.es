@@ -1,0 +1,7 @@
+---
+summary: kept sibling policy joins anchored correctly
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1892'
+---
+I kept each inferred relation join tied to the protected row instead of letting a later sibling join start from the previous relation. Explicit nested joins and recursive gathers still keep their intended chaining.

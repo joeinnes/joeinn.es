@@ -1,0 +1,7 @@
+---
+summary: authenticated todo requests per session
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1910'
+---
+I made each todo REST and event-stream request use a database tied to its authenticated session. Ownership now comes from that session rather than request input, so routes use the normal permission checks.

@@ -1,0 +1,7 @@
+---
+summary: aligned WebSocket size limits
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1877'
+---
+I made the HTTP WebSocket layer use the same 2 MiB limit as the wire decoder. Valid fragmented messages up to that size can now reach the decoder instead of being rejected early, with a regression test for a 1.5 MiB message.

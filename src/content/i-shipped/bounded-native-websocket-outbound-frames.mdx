@@ -1,0 +1,7 @@
+---
+summary: bounded native WebSocket outbound frames
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1921'
+---
+I added an 8 MiB budget for frames waiting in the native WebSocket queue. Producers now get a backpressure error when the budget is full, and space is released only after queued frames are dropped.

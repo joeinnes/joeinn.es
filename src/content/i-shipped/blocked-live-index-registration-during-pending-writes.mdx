@@ -1,0 +1,7 @@
+---
+summary: blocked live index registration during pending writes
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1923'
+---
+I stopped live indexes being registered while applied writes are still resident. Registration can continue once those writes are durable and the index can backfill from complete storage.

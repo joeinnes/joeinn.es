@@ -1,0 +1,7 @@
+---
+summary: bounded auxiliary chunk request batches
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1929'
+---
+I capped auxiliary immutable-chunk requests at four entries per decoded message and rejected oversized sequences before storage work. Local one-request frames and the exact limit remain supported.

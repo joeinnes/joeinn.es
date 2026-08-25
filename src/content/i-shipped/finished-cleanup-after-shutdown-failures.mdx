@@ -1,0 +1,7 @@
+---
+summary: finished cleanup after shutdown failures
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1891'
+---
+I changed shutdown cleanup to keep running each cleanup step after an earlier failure, then rethrow the first failure. This prevents one broken step from leaving the database, telemetry, client, or worker running.

@@ -1,0 +1,7 @@
+---
+summary: a fix that blocks client access to generated Better Auth tables
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1874'
+---
+I added deny rules for every generated Better Auth table, including names that do not work as JavaScript identifiers. This keeps ordinary clients from reading or changing authentication records while the backend adapter can still use them.

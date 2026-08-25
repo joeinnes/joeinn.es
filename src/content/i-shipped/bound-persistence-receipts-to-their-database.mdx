@@ -1,0 +1,7 @@
+---
+summary: bound persistence receipts to their database
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1920'
+---
+I attached each persistence receipt to the database that created it. Foreign receipts are now rejected before they can change metrics, publication state, or the durable frontier.

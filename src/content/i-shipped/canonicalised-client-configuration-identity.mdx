@@ -1,0 +1,7 @@
+---
+summary: canonicalised client configuration identity
+repo: garden-co/jazz
+mergeDate: 2026-08-24
+prNumber: '1930'
+---
+I made client configuration identity use recursively sorted keys. Configurations that differ only in property order now share the same identity instead of causing duplicate runtimes or unnecessary replacement.
