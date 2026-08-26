@@ -1,0 +1,7 @@
+---
+summary: encoded payload enums inside arrays without panics
+repo: garden-co/jazz
+mergeDate: 2026-08-25
+prNumber: '2001'
+---
+I fixed encoding for arrays containing enum values with their own payload fields. Each value now uses the description of its selected case, so valid data round-trips correctly and invalid data returns a normal error instead of crashing.

@@ -1,0 +1,7 @@
+---
+summary: flushed pending RocksDB writes when closing
+repo: garden-co/jazz
+mergeDate: 2026-08-26
+prNumber: '2007'
+---
+I made storage shutdown flush acknowledged writes that were still waiting in RocksDB. A failed flush is reported and remains retryable, so closing the database cannot falsely claim that pending data has been safely synchronised.

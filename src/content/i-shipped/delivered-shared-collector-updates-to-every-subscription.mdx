@@ -1,0 +1,7 @@
+---
+summary: delivered shared collector updates to every subscription
+repo: garden-co/jazz
+mergeDate: 2026-08-25
+prNumber: '2006'
+---
+I fixed shared query updates so every subscription listening to the same result receives the update. The change only copies the data when another subscriber still needs it, and keeps it available if a paused subscriber has to retry.

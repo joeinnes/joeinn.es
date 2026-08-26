@@ -1,0 +1,7 @@
+---
+summary: added issuer and audience checks to backend JWT authentication
+repo: garden-co/jazz
+mergeDate: 2026-08-25
+prNumber: '2008'
+---
+I added optional issuer and audience checks to backend JWT authentication. This means a correctly signed token can still be rejected when it was meant for a different service, while existing setups keep their current behaviour when no extra checks are configured.

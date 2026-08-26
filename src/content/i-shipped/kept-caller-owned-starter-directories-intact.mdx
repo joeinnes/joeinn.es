@@ -1,0 +1,7 @@
+---
+summary: kept caller-owned starter directories intact
+repo: garden-co/jazz
+mergeDate: 2026-08-25
+prNumber: '1999'
+---
+I stopped the starter test helper from deleting a directory supplied by its caller. It now removes temporary directories that it created itself, while leaving caller-owned directories and their contents alone.

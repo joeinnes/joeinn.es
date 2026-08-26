@@ -1,0 +1,7 @@
+---
+summary: made anonymous sessions read-only even on exclusive writes
+repo: garden-co/jazz
+mergeDate: 2026-08-26
+prNumber: '2011'
+---
+I enforced the documented read-only rule for anonymous sessions at the final write-admission point. Anonymous clients can still read public data, but they can no longer insert, update, or delete data through ordinary or exclusive-write paths.

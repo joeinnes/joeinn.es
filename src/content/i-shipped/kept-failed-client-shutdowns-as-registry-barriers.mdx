@@ -1,0 +1,7 @@
+---
+summary: kept failed client shutdowns as registry barriers
+repo: garden-co/jazz
+mergeDate: 2026-08-25
+prNumber: '2000'
+---
+I stopped the client registry from forgetting a failed shutdown and immediately creating a replacement for the same key. Later users now see the shutdown error until the broken state is dealt with, while failures during initial creation can still be retried.

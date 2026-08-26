@@ -1,0 +1,7 @@
+---
+summary: made failed broker-worker initialisation safely retryable
+repo: garden-co/jazz
+mergeDate: 2026-08-25
+prNumber: '2014'
+---
+I made failed broker-worker setup retryable instead of leaving a permanent failed result behind. Partially opened databases and related resources are now closed exactly once, so a later connection can try again without leaking the earlier attempt.

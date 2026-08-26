@@ -1,0 +1,7 @@
+---
+summary: avoided copying uncompressed inbound messages
+repo: garden-co/jazz
+mergeDate: 2026-08-25
+prNumber: '2009'
+---
+I removed an unnecessary full-buffer copy when decoding uncompressed incoming messages. The decoder now borrows those bytes, while compressed messages still own their decompressed data and the public interface stays unchanged.

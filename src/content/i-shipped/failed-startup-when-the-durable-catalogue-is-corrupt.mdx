@@ -1,0 +1,7 @@
+---
+summary: failed startup when the durable catalogue is corrupt
+repo: garden-co/jazz
+mergeDate: 2026-08-25
+prNumber: '2005'
+---
+I changed server startup to report a damaged or unreadable durable catalogue instead of silently starting with an empty in-memory index. The error now points to the failed operation, while unknown catalogue entries remain forward-compatible.

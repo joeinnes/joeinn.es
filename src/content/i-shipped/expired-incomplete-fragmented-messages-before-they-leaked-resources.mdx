@@ -1,0 +1,7 @@
+---
+summary: expired incomplete fragmented messages before they leaked resources
+repo: garden-co/jazz
+mergeDate: 2026-08-25
+prNumber: '2013'
+---
+I added idle and maximum-age limits for messages that arrive in fragments. Stale partial messages now release their stored bytes and IDs during normal transport activity, while fragments that continue making progress can still complete.

@@ -1,0 +1,7 @@
+---
+summary: preserved original row provenance in write policy checks
+repo: garden-co/jazz
+mergeDate: 2026-08-25
+prNumber: '2015'
+---
+I fixed write-policy checks so updates keep the original creator and creation time separate from the person making the change. I also made inline policy requirements request the hidden version information they need, and reject the operation when that history cannot be reconstructed.

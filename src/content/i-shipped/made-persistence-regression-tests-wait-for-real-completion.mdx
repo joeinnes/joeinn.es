@@ -1,0 +1,7 @@
+---
+summary: made persistence regression tests wait for real completion
+repo: garden-co/jazz
+mergeDate: 2026-08-25
+prNumber: '2004'
+---
+I made persistence regression tests wait for storage shutdown and replay to finish instead of relying on fixed delays. This prevents slow CI runs from racing a live browser database or checking for restored data too early.
