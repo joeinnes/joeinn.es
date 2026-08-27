@@ -1,0 +1,7 @@
+---
+summary: restored frozen rows after head deletions were undone
+repo: garden-co/jazz
+mergeDate: 2026-08-26
+prNumber: '2141'
+---
+I fixed frozen branch views so restoring a deletion can make an inherited opening row visible again. The view keeps its original opening snapshot, while newer head content still takes precedence.

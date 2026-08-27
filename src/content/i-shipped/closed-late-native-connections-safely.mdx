@@ -1,0 +1,7 @@
+---
+summary: closed late native connections safely
+repo: garden-co/jazz
+mergeDate: 2026-08-26
+prNumber: '2145'
+---
+I stopped a native connection from being attached after it had already disconnected. The admission step now checks that the connection is still current before accepting it, and closes late arrivals through the normal cleanup path.

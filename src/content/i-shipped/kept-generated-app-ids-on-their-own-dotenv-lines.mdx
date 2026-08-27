@@ -1,0 +1,7 @@
+---
+summary: kept generated app IDs on their own dotenv lines
+repo: garden-co/jazz
+mergeDate: 2026-08-26
+prNumber: '2142'
+---
+I fixed a small dotenv-file trap: when the file did not end with a newline, a generated app ID could be glued onto the previous setting. The writer now adds the missing line break and only treats an exact app-ID assignment as the setting, leaving comments and similarly named variables alone.

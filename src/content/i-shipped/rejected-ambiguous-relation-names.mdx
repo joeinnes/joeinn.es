@@ -1,0 +1,7 @@
+---
+summary: rejected ambiguous relation names
+repo: garden-co/jazz
+mergeDate: 2026-08-26
+prNumber: '2144'
+---
+I made relation building reject two reference columns that would produce the same relation name. Instead of silently picking whichever one appears first, schema and query construction now report the ambiguity so the column can be renamed.

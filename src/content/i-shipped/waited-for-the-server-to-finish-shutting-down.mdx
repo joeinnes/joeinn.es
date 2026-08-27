@@ -1,0 +1,7 @@
+---
+summary: waited for the server to finish shutting down
+repo: garden-co/jazz
+mergeDate: 2026-08-26
+prNumber: '2148'
+---
+I made concurrent shutdown calls wait for the one shutdown operation to finish. This means every caller now sees success only after the server's owner thread has exited and its storage has been cleaned up.

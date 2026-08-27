@@ -1,0 +1,7 @@
+---
+summary: rejected reset versions with conflicting metadata
+repo: garden-co/jazz
+mergeDate: 2026-08-26
+prNumber: '2131'
+---
+I made reset handling compare the full version information, not just the stored row bytes. If two reset versions disagree, the operation now fails before it changes storage or other reset state, regardless of which one arrives first.
