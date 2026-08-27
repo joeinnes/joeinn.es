@@ -3235,6 +3235,46 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mtxrtxz4te2k",
       "docCid": "bafyreiezmfbejus3qrpjg76syz6wwzth3fjls3iuw6zyzxw2k4ptqhjxza",
       "contentHash": "sha256:99a3defd0e8b94ee6c8a4628e66a04083d9cb05abe16a9442b6eee545e842ec8"
+    },
+    "i-shipped:closed-late-native-connections-safely": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mu2c4ppnv224",
+      "docCid": "bafyreigt4a6dpt4yywkhz3eaehzumzor5eghzlxcjsnpqmnexj23e7l6pm",
+      "contentHash": "sha256:1824752ca8fc0f497b42cc85d37adf9e44131481b8d4ea4bc724f3a042a31465"
+    },
+    "i-shipped:kept-collectby-operations-terminal": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mu2c4ps5iy27",
+      "docCid": "bafyreiauro6ekz22mnxldsvmgsc4ri4xfusbokrcemyt3ymp7qpwfkusda",
+      "contentHash": "sha256:1563c68fc8f93ae830d6262c3d52bfc70ebe313d7200cdd0771c4f5eb93787d9"
+    },
+    "i-shipped:kept-generated-app-ids-on-their-own-dotenv-lines": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mu2c4psth224",
+      "docCid": "bafyreiboridcuc5xxjmu7rjf4cjwr2itqoh5j6xv54oaowqgesi7nnpzyy",
+      "contentHash": "sha256:679de94f8909461ec6f01321eed1762ea9ac1406b3b8a40f7a0e1c8fae455b67"
+    },
+    "i-shipped:made-expo-secret-scope-keys-safe": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mu2c4qecdx2k",
+      "docCid": "bafyreiaoa3euwhn56tzfhumjxrooqmuxmnvaptq44beygsa2ikjsktscba",
+      "contentHash": "sha256:42c5aceb35a23a5fa5d83bb2b44b09bda36e77d96a97d02826a56ce31ad837ff"
+    },
+    "i-shipped:rejected-ambiguous-relation-names": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mu2c4rpt2w2t",
+      "docCid": "bafyreie2yk64om3e2cknjjeb6m7gljxh336rqwjo2zwf2arffinvl7kbky",
+      "contentHash": "sha256:d6b602ca5d68fc8740dd37c0d40db66b1f18b34644954aacd93ae5b566d71d52"
+    },
+    "i-shipped:rejected-reset-versions-with-conflicting-metadata": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mu2c4rqu4x2k",
+      "docCid": "bafyreid5uipramtpi3llsxa3gkevyujtu24iw4nyjl3gg55jyazgoeuwnm",
+      "contentHash": "sha256:b99cacb111d4a1d384a97974c9106bdec4be501b6a5063d023ec107c9ea60ad7"
+    },
+    "i-shipped:restored-frozen-rows-after-head-deletions-were-undone": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mu2c4rrn452y",
+      "docCid": "bafyreibs2uqng65spuxfvlcey5xaoqzlpwgxmnj7y3ypam4gt4bpdshqk4",
+      "contentHash": "sha256:142b610f6e0907ded5f2f7ebee2e7b60b664d6061a222494d0167fe08f075740"
+    },
+    "i-shipped:waited-for-the-server-to-finish-shutting-down": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mu2c4rsd7q27",
+      "docCid": "bafyreiaduvkjanzuftynr5zm76mof3wf6quqarldtnui32whybkesqzlse",
+      "contentHash": "sha256:3b25b22ee16fc6b9197a0c70600abfbafb9e63c2f44636ea863cb4d87c307262"
     }
   }
 }
