@@ -1,0 +1,7 @@
+---
+summary: share backend key refreshes between requests
+repo: garden-co/jazz
+mergeDate: 2026-08-27
+prNumber: '2204'
+---
+I made simultaneous authentication requests share one download of the backend signing keys, instead of each request downloading the same document. Successful downloads start a short refresh cooldown, while failed downloads are not cached so a later request can try again.

@@ -1,0 +1,7 @@
+---
+summary: keep historical views during subscription reconciliation
+repo: garden-co/jazz
+mergeDate: 2026-08-27
+prNumber: '2201'
+---
+I made a subscription remember the exact current, historical, or branch view the caller requested. When the server rechecks the rows later, it now uses that same view instead of silently switching to the latest data and removing rows that still belong.

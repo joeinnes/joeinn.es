@@ -1,0 +1,7 @@
+---
+summary: expire cached backend signing keys
+repo: garden-co/jazz
+mergeDate: 2026-08-27
+prNumber: '2205'
+---
+I gave cached backend signing keys a five-minute maximum lifetime, so a key removed by the identity provider is not trusted indefinitely. After expiry, authentication fetches a fresh set and fails closed if that refresh is unavailable rather than using the old keys.

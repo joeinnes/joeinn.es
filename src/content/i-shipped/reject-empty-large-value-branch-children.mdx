@@ -1,0 +1,7 @@
+---
+summary: reject empty large-value branch children
+repo: garden-co/jazz
+mergeDate: 2026-08-27
+prNumber: '2203'
+---
+I made the tree used for large values reject branch children that claim to contain zero bytes, while keeping the single empty root needed for a genuinely empty value. This stops malformed trees from hiding their real size and sending later code into unsafe traversal.

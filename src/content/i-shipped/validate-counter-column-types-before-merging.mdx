@@ -1,0 +1,7 @@
+---
+summary: validate Counter column types before merging
+repo: garden-co/jazz
+mergeDate: 2026-08-26
+prNumber: '2133'
+---
+I made Counter schemas check their column types before they reach the runtime, so nullable or non-integer definitions fail where they are written. I also made large integer counters behave consistently across the Rust and TypeScript interfaces and added a two-client test for them.

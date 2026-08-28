@@ -1,0 +1,7 @@
+---
+summary: serialise permission publishes to prevent races
+repo: garden-co/jazz
+mergeDate: 2026-08-27
+prNumber: '2200'
+---
+I made publishing a new permission version one indivisible operation, so two administrators cannot both approve different changes based on the same old version. One request now wins, the other gets a conflict, and the saved version and active rules stay in agreement.

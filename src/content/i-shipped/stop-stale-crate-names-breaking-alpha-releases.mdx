@@ -1,0 +1,7 @@
+---
+summary: stop stale crate names breaking alpha releases
+repo: garden-co/jazz
+mergeDate: 2026-08-27
+prNumber: '2191'
+---
+I fixed the alpha release checklist so it only names real Rust packages, preventing a release from publishing some crates and then failing on a stale name. Dry runs now ask Cargo to build the packages that would actually be published, and already-published versions can be skipped safely on retries.

@@ -1,0 +1,7 @@
+---
+summary: protect subscription keys from conflicting reuse
+repo: garden-co/jazz
+mergeDate: 2026-08-27
+prNumber: '2202'
+---
+I made an active subscription key keep one clear owner, so another subscription cannot quietly reuse it for a different kind of data. Safe replays still refresh the existing stream, while conflicting requests are rejected before they can leave subscriptions or cleanup in the wrong state.

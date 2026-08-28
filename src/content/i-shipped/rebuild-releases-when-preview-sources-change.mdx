@@ -1,0 +1,7 @@
+---
+summary: rebuild releases when preview sources change
+repo: garden-co/jazz
+mergeDate: 2026-08-27
+prNumber: '2214'
+---
+I changed release publishing to rebuild its packages whenever the source tree differs from the one checked by the preview build, including when only the workflow files changed. This prevents a release from reusing packages made from a different version of the source.
