@@ -1,0 +1,7 @@
+---
+summary: deliver native mutation errors in the expected callback shape
+repo: garden-co/jazz
+mergeDate: 2026-08-29
+prNumber: '2301'
+---
+I fixed native mutation notifications so a rejected mutation reaches JavaScript as the one event the runtime expects, rather than an extra empty error argument followed by the event. Rejections can now become structured transaction errors instead of looking like timeouts or native callback failures.

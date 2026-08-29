@@ -1,0 +1,7 @@
+---
+summary: keep React providers on the right runtime client
+repo: garden-co/jazz
+mergeDate: 2026-08-29
+prNumber: '2270'
+---
+I made React providers distinguish clients created by different factories or runtime sources, so one provider cannot accidentally reuse another runtime's client. I also kept the React Native factory stable between unchanged renders, avoiding unnecessary client replacement.

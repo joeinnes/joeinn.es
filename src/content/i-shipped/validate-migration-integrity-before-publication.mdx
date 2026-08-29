@@ -1,0 +1,7 @@
+---
+summary: validate migration integrity before publication
+repo: garden-co/jazz
+mergeDate: 2026-08-29
+prNumber: '2302'
+---
+I made migration publication verify that each operation, filename, and schema description all agree before anything is sent to the server. I also made each upload use private temporary storage and reject symlinked or executable inputs that could escape the project directory.

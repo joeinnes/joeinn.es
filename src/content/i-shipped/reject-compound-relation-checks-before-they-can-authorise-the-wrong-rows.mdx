@@ -1,0 +1,7 @@
+---
+summary: reject compound relation checks before they can authorise the wrong rows
+repo: garden-co/jazz
+mergeDate: 2026-08-29
+prNumber: '2279'
+---
+I made schema validation reject relation checks containing more than one comparison, because the query engine only knows how to use one and could otherwise silently ignore the rest. The check now applies through nested policy conditions and across reads and writes before any query runs.

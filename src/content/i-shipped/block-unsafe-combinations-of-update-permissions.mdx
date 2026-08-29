@@ -1,0 +1,7 @@
+---
+summary: block unsafe combinations of update permissions
+repo: garden-co/jazz
+mergeDate: 2026-08-29
+prNumber: '2277'
+---
+I stopped separate update permissions from being combined into an authority that neither permission granted on its own. A table now accepts only one asymmetric update rule, while ordinary symmetric rules continue to combine normally.

@@ -1,0 +1,7 @@
+---
+summary: reject unorderable query sort fields before runtime
+repo: garden-co/jazz
+mergeDate: 2026-08-29
+prNumber: '2299'
+---
+I made query validation reject records and arrays used as sort or tie-breaking fields, because they do not have a reliable ordering and could make the runtime fail later. Valid scalar and nullable fields keep their existing ordering behaviour.

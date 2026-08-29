@@ -1,0 +1,7 @@
+---
+summary: check server tokens against their configured identity
+repo: garden-co/jazz
+mergeDate: 2026-08-29
+prNumber: '2276'
+---
+I made server authentication check that each signed token has the configured issuer, audience, and valid time window, rather than trusting any token signed by a known key. Missing configuration now fails closed, and privileged infrastructure secrets cannot be used as ordinary user credentials.

@@ -1,0 +1,7 @@
+---
+summary: serialise authentication and database transitions
+repo: garden-co/jazz
+mergeDate: 2026-08-29
+prNumber: '2298'
+---
+I serialised authentication-secret and database changes so the newest login, logout, or session action wins even when earlier asynchronous work finishes later. Old databases and token refreshes can no longer overwrite the current session, and startup now reconciles changes that happen while the database opens.

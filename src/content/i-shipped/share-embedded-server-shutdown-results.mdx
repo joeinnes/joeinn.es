@@ -1,0 +1,7 @@
+---
+summary: share embedded server shutdown results
+repo: garden-co/jazz
+mergeDate: 2026-08-28
+prNumber: '2268'
+---
+I made repeated calls to stop the embedded server wait for the same final result. Callers now all see a successful shutdown only after the native server has really finished, and they all receive the same failure if shutting it down fails.
