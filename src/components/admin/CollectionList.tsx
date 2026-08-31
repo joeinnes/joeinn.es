@@ -101,6 +101,7 @@ export function CollectionList({
   const [lexText, setLexText] = useState("");
   const [lexError, setLexError] = useState<string | null>(null);
   const [showRegister, setShowRegister] = useState(false);
+  const [editingNsid, setEditingNsid] = useState<string | null>(null);
   const [preferences, setPreferences] = useState<CollectionPreferences>({});
 
   useEffect(() => {
@@ -155,18 +156,35 @@ export function CollectionList({
     return (
       <div className="admin__row" key={nsid}>
         <div className="admin__row-main">
-          <input
-            type="text"
-            className="admin__friendly-name"
-            aria-label={`Friendly name for ${nsid}`}
-            placeholder="Friendly name"
-            value={preference.name ?? ""}
-            onChange={(event) => updatePreference(nsid, { ...preference, name: event.target.value })}
-          />
-          <div className="admin__row-sub">{nsid}</div>
+          {editingNsid === nsid ? (
+            <input
+              id={`admin-friendly-name-${nsid}`}
+              type="text"
+              className="admin__friendly-name"
+              aria-label={`Friendly name for ${nsid}`}
+              placeholder="Friendly name"
+              value={preference.name ?? ""}
+              onChange={(event) => updatePreference(nsid, { ...preference, name: event.target.value })}
+              autoFocus
+            />
+          ) : (
+            <div className="admin__row-title">{preference.name?.trim() || nsid}</div>
+          )}
+          {editingNsid === nsid || preference.name?.trim() ? (
+            <div className="admin__row-sub">{nsid}</div>
+          ) : null}
         </div>
         {isRegistered(lex, nsid) ? <span className="admin__tag">lexicon</span> : null}
         <div className="admin__row-actions">
+          <button
+            type="button"
+            className="admin__btn"
+            aria-expanded={editingNsid === nsid}
+            aria-controls={`admin-friendly-name-${nsid}`}
+            onClick={() => setEditingNsid((current) => (current === nsid ? null : nsid))}
+          >
+            {editingNsid === nsid ? "Done" : "Rename"}
+          </button>
           <button
             type="button"
             className="admin__btn"
