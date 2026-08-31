@@ -16,13 +16,13 @@ import {
 } from "../lib/pds";
 
 const description =
-  "Joe Innes is a full-stack developer helping people build apps that are fast, work offline, and sync in real time.";
+  "Joe Innes is a software engineer helping people build apps that are fast, work offline, and sync in real time.";
 
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Joe Innes",
-  jobTitle: "Full Stack Developer",
+  jobTitle: "Software Engineer",
   url: "https://joeinn.es",
   image: new URL("/joei.webp", Astro.site).href,
   sameAs: ["https://bsky.app/profile/joeinn.es"],
@@ -110,7 +110,7 @@ const cards = [
     <!-- HERO -->
     <section class="hero">
       <div class="hero-text">
-        <p class="eyebrow mono">Full Stack Developer</p>
+        <p class="eyebrow mono">Software Engineer</p>
         <h1 class="hero-title">Joe Innes</h1>
         <p class="lede">
           I help people build apps that are <em>fast</em>, work
@@ -134,6 +134,21 @@ const cards = [
           sizes="(min-width: 720px) 18rem, 60vw"
           loading="eager"
         />
+        <a
+          class="hotspot hotspot--window"
+          href="/now"
+          aria-label="See what Joe is doing now"
+        >Now</a>
+        <a
+          class="hotspot hotspot--laptop"
+          href="/i-shipped"
+          aria-label="See what Joe has shipped"
+        >Work</a>
+        <a
+          class="hotspot hotspot--guitar"
+          href="/now#listening"
+          aria-label="See what Joe is listening to"
+        >Music</a>
       </div>
     </section>
 
@@ -298,6 +313,44 @@ const cards = [
       width: 100%;
       height: auto;
       aspect-ratio: 1;
+    }
+    .hotspot {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      min-block-size: 44px;
+      padding-inline: calc(var(--inline-spacing) * 2);
+      border: 1px solid color-mix(in hsl, var(--foreground) 25%, transparent);
+      border-radius: 999px;
+      background: color-mix(in hsl, var(--background) 88%, transparent);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+      color: var(--foreground);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-decoration: none;
+      backdrop-filter: blur(6px);
+      transition: transform 160ms ease;
+    }
+    .hotspot:hover {
+      transform: translateY(-2px);
+    }
+    .hotspot:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 2px;
+    }
+    .hotspot--window {
+      inset-block-start: 9%;
+      inset-inline-end: 10%;
+    }
+    .hotspot--laptop {
+      inset-block-start: 54%;
+      inset-inline-start: 49%;
+    }
+    .hotspot--guitar {
+      inset-block-start: 68%;
+      inset-inline-end: 3%;
     }
 
     /* ---------- WAYFINDING CARDS ---------- */
