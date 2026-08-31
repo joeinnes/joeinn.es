@@ -57,6 +57,7 @@
 
 .admin__row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
   padding: 0.6rem 0.25rem;
@@ -78,6 +79,22 @@
   color: var(--admin-muted);
   font-family: var(--font-mono, ui-monospace, monospace);
   word-break: break-all;
+}
+.admin__friendly-name {
+  max-width: 24rem;
+  font-weight: 600;
+}
+.admin__row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.admin__hidden {
+  margin-block-start: 1rem;
+}
+.admin__hidden summary {
+  cursor: pointer;
+  color: var(--admin-muted);
 }
 
 .admin button,
