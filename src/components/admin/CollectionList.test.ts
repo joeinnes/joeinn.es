@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import {
   loadCollectionPreferences,
@@ -5,6 +6,8 @@ import {
   saveCollectionPreferences,
 } from "./CollectionList";
 import type { StorageLike } from "./lexicons/registry";
+
+const collectionListSource = readFileSync(new URL("./CollectionList.tsx", import.meta.url), "utf8");
 
 function memoryStorage(initial: string | null = null): StorageLike {
   let value = initial;
@@ -17,6 +20,11 @@ function memoryStorage(initial: string | null = null): StorageLike {
 }
 
 describe("collection preferences", () => {
+  it("keeps the friendly-name input hidden until rename is toggled", () => {
+    expect(collectionListSource).toContain("editingNsid === nsid");
+    expect(collectionListSource).toContain('{editingNsid === nsid ? "Done" : "Rename"}');
+  });
+
   it("puts pinned collections first, sorts by friendly name, and separates hidden collections", () => {
     const result = organiseCollections(
       ["com.example.notes", "es.joeinn.blog.post", "es.joeinn.shipped"],
