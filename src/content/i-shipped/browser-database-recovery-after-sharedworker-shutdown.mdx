@@ -1,0 +1,8 @@
+---
+summary: >-
+  browser database recovery after SharedWorker shutdown
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2441'
+---
+I updated Jazz to stop a retiring broker realm from accepting new runtime or foreground-lease bootstraps before it releases its physical database owners. I also changed it to return explicit closing and physical-owner busy responses so pages can recover through a bounded SharedWorker generation hand-off.

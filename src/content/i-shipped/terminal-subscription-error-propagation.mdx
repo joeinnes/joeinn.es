@@ -1,0 +1,8 @@
+---
+summary: >-
+  terminal subscription error propagation
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2452'
+---
+I fixed a problem where values could race after onError, public Db.subscribe did not expose the error channel, legacy callbacks could drop failures, and browser relays reduced errors to messages. Now subscribers observe one terminal error and no later values.

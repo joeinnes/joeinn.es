@@ -1,0 +1,8 @@
+---
+summary: >-
+  relation alias handling during lowering
+repo: garden-co/jazz
+mergeDate: 2026-09-04
+prNumber: '2506'
+---
+I fixed a problem where relation column aliases were not consistently represented in the graph, and union arms with compatible types but different field names could not be combined. Now authored aliases apply only to public fields; internal binding fields retain their identity and routing role.

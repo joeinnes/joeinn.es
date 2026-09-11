@@ -1,0 +1,8 @@
+---
+summary: >-
+  cancellation-safe transaction shutdown
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2453'
+---
+I fixed a problem where cancelling close during an early drain could leave transactions open and omit the shutdown sweep. Now every close attempt leaves a closed admission gate and node-owned sweep behind, so cancellation cannot strand mergeable or exclusive transactions.

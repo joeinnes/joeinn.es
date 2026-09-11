@@ -1,0 +1,8 @@
+---
+summary: >-
+  non-blocking large-value lifecycle cleanup
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2450'
+---
+I fixed a problem where cross-receipt eviction could deadlock behind a lifecycle guard, and reclaim could read the same backend metadata twice. Now eviction returns a retryable deferred result until persistence advances, and reclaim performs one required durable metadata read.

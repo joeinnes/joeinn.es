@@ -1,0 +1,8 @@
+---
+summary: >-
+  safer cloned subscription reconciliation
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2454'
+---
+I fixed a problem where sibling receipts could use a different generation from their view, disappear on backpressure, or miss fate registration. Now sibling messages share one generation, retry exactly once after backpressure, register fates, and avoid the established-set copy when no clone is pending.

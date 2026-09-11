@@ -1,0 +1,8 @@
+---
+summary: >-
+  complete Rust artifact cache coverage
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2479'
+---
+I fixed a problem where turbo's manually maintained Rust input globs could omit transitive dependencies. Now cLI, NAPI, WASM and fast-WASM inputs match their declared non-dev local Cargo dependency closures.

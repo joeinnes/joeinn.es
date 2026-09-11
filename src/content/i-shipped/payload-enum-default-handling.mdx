@@ -1,0 +1,8 @@
+---
+summary: >-
+  payload-enum default handling
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2632'
+---
+I fixed a problem where the loader did not decode tagged Enum defaults, losing the column default, and left case-field defaults as tagged runtime values. Now defaults decode recursively according to declared types and re-encode losslessly.

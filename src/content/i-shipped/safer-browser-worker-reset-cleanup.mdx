@@ -1,0 +1,8 @@
+---
+summary: >-
+  safer browser worker reset cleanup
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2702'
+---
+I fixed a problem where a browser worker or follower could be used before readiness was established, and reset or terminal paths could leave lifecycle ownership outstanding. Now worker connections establish readiness before use, unresponsive followers fail through the lifecycle error path, and reset/shutdown release leases and pending ownership deterministically.

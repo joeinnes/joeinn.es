@@ -1,0 +1,8 @@
+---
+summary: >-
+  bounded native prepared-query cache retention
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2499'
+---
+I fixed a problem where full literal-byte query keys and native prepared objects were retained for the runtime lifetime. Now a 256-entry/1 MiB inactive LRU is pinned by active read, subscription, and coverage leases.

@@ -1,0 +1,8 @@
+---
+summary: >-
+  application-scoped server storage
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2706'
+---
+I fixed a problem where implicit server storage and environment defaults could be shared or selected inconsistently across applications. Now implicit storage paths are application-scoped, while explicit CLI options override environment configuration deterministically.

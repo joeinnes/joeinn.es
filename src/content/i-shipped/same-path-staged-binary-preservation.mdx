@@ -1,0 +1,8 @@
+---
+summary: >-
+  same-path staged binary preservation
+repo: garden-co/jazz
+mergeDate: 2026-09-04
+prNumber: '2509'
+---
+I updated Jazz so preserve a staged executable when its source is already the destination or a filesystem alias; replace genuinely distinct binaries without overwriting the old executable inode.

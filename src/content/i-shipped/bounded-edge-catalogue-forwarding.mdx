@@ -1,0 +1,8 @@
+---
+summary: >-
+  bounded Edge catalogue forwarding
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2627'
+---
+I fixed a problem where edges buffered complete authority responses without an application cap or total deadline. Now canonical requests and ordinary responses are capped at 8 MiB; GET /schemas defaults to a configurable 64 MiB.

@@ -1,0 +1,8 @@
+---
+summary: >-
+  rate-accurate simulation writes
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2625'
+---
+I fixed a problem where writeStream truncated 1,000 / rate to whole milliseconds. Now each timestamp is floor(index × 1,000 / rate).

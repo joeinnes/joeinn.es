@@ -1,0 +1,8 @@
+---
+summary: >-
+  consistent empty reversed storage ranges
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2686'
+---
+I fixed a problem where reversed start and end bounds could reach backend scans with inconsistent behaviour instead of returning an empty range. Now storage adapters reject impossible reversed ranges consistently before scanning, and index reads inherit the same ordered semantics.

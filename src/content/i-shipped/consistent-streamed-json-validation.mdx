@@ -1,0 +1,8 @@
+---
+summary: >-
+  consistent streamed JSON validation
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2704'
+---
+I fixed a problem where buffered and streamed JSON admission could disagree on malformed, overflowing, or boundary-split values. Now both paths accept and reject the same JSON inputs while retaining bounded streaming state.

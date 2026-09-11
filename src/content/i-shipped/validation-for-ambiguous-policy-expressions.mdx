@@ -1,0 +1,8 @@
+---
+summary: >-
+  validation for ambiguous policy expressions
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2448'
+---
+I fixed a problem where an unmarked policy-shaped value could be mistaken for policy code and weaken a declared row predicate. Now these values fail closed unless the schema makes them valid row data.

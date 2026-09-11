@@ -1,0 +1,8 @@
+---
+summary: >-
+  consistent aggregate reads across historical views
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2679'
+---
+I fixed a problem where aggregate reads could diverge across historical sources, produce unstable synthetic row identities, or validate aggregate predicates without the resolved payload. Now the query evaluator uses consistent aggregate materialisation and payload-aware validation across the supported historical read paths.

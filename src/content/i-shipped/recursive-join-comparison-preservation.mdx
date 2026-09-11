@@ -1,0 +1,8 @@
+---
+summary: >-
+  recursive join comparison preservation
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2684'
+---
+I fixed a problem where recursive policy join hydration could use a comparison different from the one declared by the query, changing which recursive rows entered the closure. Now hydration carries and applies the declared comparison through recursive join evaluation.

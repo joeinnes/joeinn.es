@@ -1,0 +1,8 @@
+---
+summary: >-
+  bounded RocksDB WAL synchronisation
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2431'
+---
+I fixed a problem where background WAL writeback smoothed I/O, but the number of acknowledged mutation batches since the last synchronous WAL boundary was unbounded. Now every 64 successful backend mutation batches completes a synchronous WAL flush by default.

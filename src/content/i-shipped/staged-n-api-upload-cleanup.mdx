@@ -1,0 +1,8 @@
+---
+summary: >-
+  staged N-API upload cleanup
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2498'
+---
+I fixed a problem where dropped initialised streaming uploads could retain staged large-value claims, and wrapper or database close could discard shared state before cleanup ran. Now binding-private owner and view lifecycle code queues non-blocking drop cleanup.

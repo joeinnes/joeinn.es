@@ -1,0 +1,8 @@
+---
+summary: >-
+  cancel-safe tools-client shutdown
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2485'
+---
+I fixed a problem where the per-client driver could remain parked indefinitely or complete a reconnect after shutdown because shutdown did not own or cancel the spawned task. Now shutdown owns the driver join handle, wakes cancellation-sensitive states, joins normal completion, aborts cancelled completion, and prioritises cancellation over reconnect admission.

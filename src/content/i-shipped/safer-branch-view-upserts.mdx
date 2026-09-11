@@ -1,0 +1,8 @@
+---
+summary: >-
+  safer branch-view upserts
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2440'
+---
+I fixed a problem where inherited large values could fail during branch upserts. Now branch upserts read the complete head-over-base view and preserve verified inherited large-value descriptors.

@@ -1,0 +1,8 @@
+---
+summary: >-
+  transformed included and hopped relation rows
+repo: garden-co/jazz
+mergeDate: 2026-09-04
+prNumber: '2505'
+---
+I fixed a problem where included and hopped rows could expose raw stored values, and a source column sharing a relation or hidden-include name could overwrite or impersonate the materialised relation. Now every materialised row uses its owning table's transforms.

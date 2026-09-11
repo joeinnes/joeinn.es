@@ -1,0 +1,8 @@
+---
+summary: >-
+  correct SQL NULL join semantics
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2692'
+---
+I fixed a problem where sQL-lowered inner joins and prepared nullable-parameter equality could match rows whose join keys were both NULL. Now rows with NULL in any nullable join-key position are excluded before equality matching; non-NULL equality remains unchanged.

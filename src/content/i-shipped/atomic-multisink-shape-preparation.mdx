@@ -1,0 +1,8 @@
+---
+summary: >-
+  atomic multisink shape preparation
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2707'
+---
+I fixed a problem where a failed multisink preparation could leave new or shared binding-source state behind. Now failed preparation is atomic for new state and leaves existing active shared state usable for retry.

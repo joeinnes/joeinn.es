@@ -1,0 +1,8 @@
+---
+summary: >-
+  durable reset retry markers
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2685'
+---
+I fixed a problem where a refresh error or cancellation could lose the pending authoritative reset marker, allowing a stale acknowledgement or incomplete materialisation to escape. Now reset markers survive retryable failures and are generation-checked before acknowledgement, while policy-scoped lifecycles retain separate state.

@@ -1,0 +1,8 @@
+---
+summary: >-
+  session-claim range validation
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2635'
+---
+I fixed a problem where session range expressions compiled in TypeScript despite core accepting only equality and inequality, then failed later during schema conversion. Now defined session ranges throw a targeted synchronous DSL error.

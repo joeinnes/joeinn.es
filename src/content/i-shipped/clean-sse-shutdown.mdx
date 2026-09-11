@@ -1,0 +1,8 @@
+---
+summary: >-
+  clean SSE shutdown
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2513'
+---
+I fixed a problem where active SSE responses could keep HTTP shutdown open, and requests crossing shutdown could continue into authentication or mutation work. Now existing streams observe EOF promptly, new requests fail at the admission gate, and Jazz shutdown still runs after HTTP close outcomes.

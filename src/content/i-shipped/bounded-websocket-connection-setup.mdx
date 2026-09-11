@@ -1,0 +1,8 @@
+---
+summary: >-
+  bounded WebSocket connection setup
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2508'
+---
+I fixed a problem where the transport could wait indefinitely when a peer accepted TCP but stalled the HTTP WebSocket upgrade. Now one deadline begins before connectasync and covers:.

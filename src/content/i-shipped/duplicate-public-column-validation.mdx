@@ -1,0 +1,8 @@
+---
+summary: >-
+  duplicate public-column validation
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2708'
+---
+I fixed a problem where duplicate public column declarations could pass compilation and become ambiguous downstream. Now compilation rejects duplicates with a path-specific error before lowering.

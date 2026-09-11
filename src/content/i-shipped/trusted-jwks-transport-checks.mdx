@@ -1,0 +1,8 @@
+---
+summary: >-
+  trusted JWKS transport checks
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2703'
+---
+I fixed a problem where backend JWKS discovery could cross an untrusted transport boundary or accept an insecure redirect. Now jWKS discovery is admitted only through the trusted backend transport contract and redirect policy fails closed.

@@ -1,0 +1,8 @@
+---
+summary: >-
+  stable persisted batches after refresh failures
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2447'
+---
+I fixed a problem where a refresh failure could make a durable batch look unapplied, omit remote progress, and trigger reconnect or replay. Now the tick records applied progress exactly once, routes the refresh failure, retains the row, and does not redeliver the batch.

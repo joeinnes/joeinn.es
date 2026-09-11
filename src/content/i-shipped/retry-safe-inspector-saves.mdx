@@ -1,0 +1,8 @@
+---
+summary: >-
+  retry-safe Inspector saves
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2446'
+---
+I fixed a problem where retrying an ambiguously acknowledged insert could issue a second insert with the same UUID. Now a submitted insert keeps one stable UUID and is never submitted as a second insert.

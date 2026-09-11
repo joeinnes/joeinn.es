@@ -1,0 +1,8 @@
+---
+summary: >-
+  durable todo CLI storage paths
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2694'
+---
+I fixed a problem where fresh CLI processes could lose authenticated todos because the default server path did not select durable storage consistently. Now the CLI uses a durable default path across process restarts, while callers can still select memory storage explicitly.

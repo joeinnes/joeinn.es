@@ -1,0 +1,8 @@
+---
+summary: >-
+  bounded Inspector control sessions
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2510'
+---
+I fixed a problem where silent or partially failed control acquisition could retain listeners and worker ports indefinitely; late attachment success could outlive the requesting UI; failure payloads could lose structure. Now every non-success ownership transition deterministically cancels pending work and sends the worker close protocol before local disposal.

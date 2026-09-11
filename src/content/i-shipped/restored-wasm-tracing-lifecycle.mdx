@@ -1,0 +1,8 @@
+---
+summary: >-
+  restored WASM tracing lifecycle
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2695'
+---
+I fixed a problem where wASM tracing could be unavailable when hooks were absent, and multiple runtime contexts could race over collector ownership or retain telemetry after disposal. Now wASM hooks are exposed where available, compatible contexts share one collector lease, endpoint mismatches fail safely, and disposal drains and releases telemetry without disrupting surviving contexts.

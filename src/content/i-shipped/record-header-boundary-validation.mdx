@@ -1,0 +1,8 @@
+---
+summary: >-
+  record-header boundary validation
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2683'
+---
+I fixed a problem where a malformed record header could point a variable-field span into the fixed header area and reach lookup logic with an invalid payload boundary. Now record validation rejects the impossible span before variable-field lookup, matching the full decoder's safety boundary.

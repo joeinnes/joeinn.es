@@ -1,0 +1,8 @@
+---
+summary: >-
+  deterministic ArgBy tie-breaking
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2449'
+---
+I fixed a problem where tied winners could depend on record arrival, while implementation and recursion specifications disagreed about whether recursive ArgBy was valid. Now both extrema choose deterministic tied winners, preserve multiplicity by full-record identity, and reject ArgBy inside recursive children consistently.

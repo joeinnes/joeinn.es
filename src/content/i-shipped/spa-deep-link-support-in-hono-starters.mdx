@@ -1,0 +1,8 @@
+---
+summary: >-
+  SPA deep-link support in Hono starters
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2687'
+---
+I fixed a problem where production starter servers could return a missing page for a client-side route that was not the root path. Now the four affected starters return the SPA shell for valid client-side deep links while preserving API and asset responses.

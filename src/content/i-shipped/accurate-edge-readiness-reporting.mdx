@@ -1,0 +1,8 @@
+---
+summary: >-
+  accurate Edge readiness reporting
+repo: garden-co/jazz
+mergeDate: 2026-09-04
+prNumber: '2490'
+---
+I fixed a problem where a dynamic Edge could report ready before its catalogue-backed runtime had been installed. Now a dynamic Edge reports unhealthy until runtimeforclient() is available after catalogue adoption.

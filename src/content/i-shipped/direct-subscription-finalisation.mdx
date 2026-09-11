@@ -1,0 +1,8 @@
+---
+summary: >-
+  direct subscription finalisation
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2457'
+---
+I fixed a problem where explicit close could remain incomplete until unrelated database work drove another tick. Now close drains ownership directly, later callers rejoin the same retained result, and wire unsubscribe remains retryable after local retirement.

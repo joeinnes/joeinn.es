@@ -1,0 +1,8 @@
+---
+summary: >-
+  consistent profiled-read materialisation
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2682'
+---
+I fixed a problem where the profiled read path could materialise an unselected query differently from the ordinary read path. Now unselected profiled reads follow the ordinary materialisation semantics while retaining profiling support for selected queries.

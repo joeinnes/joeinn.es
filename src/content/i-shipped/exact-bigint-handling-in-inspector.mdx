@@ -1,0 +1,8 @@
+---
+summary: >-
+  exact BigInt handling in Inspector
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2680'
+---
+I fixed a problem where inspector query and mutation paths could coerce large integer values through JavaScript number handling, losing precision before the native runtime received them. Now bigInt values are parsed, serialised, validated, and lowered as exact signed-I64 decimal values across the Inspector surfaces.

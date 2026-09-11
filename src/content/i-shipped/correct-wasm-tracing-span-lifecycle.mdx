@@ -1,0 +1,8 @@
+---
+summary: >-
+  correct WASM tracing span lifecycle
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2636'
+---
+I fixed a problem where emission occurred in onexit; an instrumented future could therefore produce partial duplicate records on each poll before the logical span closed. Now the layer records timing on first entry and emits from onclose after the final handle drops.

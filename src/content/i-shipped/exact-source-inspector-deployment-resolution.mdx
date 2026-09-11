@@ -1,0 +1,8 @@
+---
+summary: >-
+  exact-source Inspector deployment resolution
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2629'
+---
+I fixed a problem where promotion selected the latest eligible deployment for a branch. Now the workflow requires the intended SHA and verifies returned Vercel metadata before emitting a deployment URL.

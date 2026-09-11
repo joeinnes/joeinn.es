@@ -1,0 +1,8 @@
+---
+summary: >-
+  safer validation for pending enum lineages
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2455'
+---
+I fixed a problem where out-of-order activation could leave an over-capacity sibling durably pending and poison a later reopen. Now invalid pending lineage is quarantined and durably removed without consuming physical IDs.

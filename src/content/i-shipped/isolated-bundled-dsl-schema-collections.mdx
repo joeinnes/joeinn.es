@@ -1,0 +1,8 @@
+---
+summary: >-
+  isolated bundled DSL schema collections
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2628'
+---
+I fixed a problem where a public jazz-tools side-effect import could register tables in a bundled collector while the loader read a different process-level collector, making a valid schema appear empty. Now a private entry returns module exports and its in-bundle collected schema together.

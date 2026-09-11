@@ -1,0 +1,8 @@
+---
+summary: >-
+  consistent nested-relation pagination
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2681'
+---
+I fixed a problem where nested relation pagination could apply independently computed windows, producing incorrect roots or inconsistent read and subscription results. Now relation resolution composes nested windows before publication, preserving the requested root membership and pagination semantics across both paths.

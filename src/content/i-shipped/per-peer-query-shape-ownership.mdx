@@ -1,0 +1,8 @@
+---
+summary: >-
+  per-peer query shape ownership
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2428'
+---
+I updated Jazz to attribute each retained query-shape registration to the peer that owns it. I also changed it to make repeated registration by one peer idempotent while keeping shared shapes until their final owner releases them.

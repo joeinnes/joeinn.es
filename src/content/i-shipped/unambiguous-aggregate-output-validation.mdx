@@ -1,0 +1,8 @@
+---
+summary: >-
+  unambiguous aggregate output validation
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2709'
+---
+I fixed a problem where aggregate aliases could collide and make output columns ambiguous. Now validation rejects exact, case-sensitive aggregate output collisions before normalization or lowering.

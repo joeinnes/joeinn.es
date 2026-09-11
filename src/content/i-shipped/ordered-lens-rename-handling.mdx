@@ -1,0 +1,8 @@
+---
+summary: >-
+  ordered lens rename handling
+repo: garden-co/jazz
+mergeDate: 2026-09-04
+prNumber: '2507'
+---
+I fixed a problem where grouping transformations by kind could apply a later rename against the wrong intermediate table or column identity. Now lens translation follows the operation stream, so chained and mixed renames observe the state produced by every preceding operation.

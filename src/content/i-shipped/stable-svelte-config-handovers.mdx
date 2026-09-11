@@ -1,0 +1,8 @@
+---
+summary: >-
+  stable Svelte config handovers
+repo: garden-co/jazz
+mergeDate: 2026-09-09
+prNumber: '2693'
+---
+I fixed a problem where a provider could recreate or dispose a client for an equivalent or in-place configuration change, disrupting the consumer during a handover. Now the provider compares configuration semantics, preserves equivalent clients, and transfers ownership safely when authentication or storage configuration changes.

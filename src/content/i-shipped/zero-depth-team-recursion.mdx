@@ -1,0 +1,8 @@
+---
+summary: >-
+  zero-depth team recursion
+repo: garden-co/jazz
+mergeDate: 2026-09-03
+prNumber: '2451'
+---
+I fixed a problem where a zero-depth bound could grant one-hop access, and validators disagreed over whether zero was valid. Now zero includes only the seed, one includes exactly one hop, and every public and internal layer applies the same non-negative depth contract.
