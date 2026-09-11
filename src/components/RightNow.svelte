@@ -2,13 +2,17 @@
 	import { onMount } from 'svelte';
 	import { fetchLatestTrack, fetchCurrentBook } from '../lib/now';
 
-	// Seeded from the server for an instant first paint; onMount refreshes to live.
+	// Seeded from the server for an instant first paint; onMount only fetches the
+	// track when the server could not provide one.
 	let { initialTrack = null, initialBook = null } = $props();
 	let track = $state(initialTrack);
 	let book = $state(initialBook);
 
 	onMount(async () => {
-		const [t, b] = await Promise.allSettled([fetchLatestTrack(), fetchCurrentBook()]);
+		const [t, b] = await Promise.allSettled([
+			initialTrack ? Promise.resolve(null) : fetchLatestTrack(),
+			fetchCurrentBook(),
+		]);
 		if (t.status === 'fulfilled' && t.value) track = t.value;
 		if (b.status === 'fulfilled' && b.value) book = b.value;
 	});
