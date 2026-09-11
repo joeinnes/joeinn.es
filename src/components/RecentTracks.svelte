@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { dedupeTracks, trackArtwork } from '../lib/now';
+	import { dedupeTracks, fetchRecentTracks as fetchRecentTracksWithArtwork, trackArtwork } from '../lib/now';
 
 	const HANDLE = 'joeinn.es';
 	const COLLECTION = 'fm.teal.feed.play';
@@ -107,7 +107,7 @@
 
 	async function ensureCover(track) {
 		const key = trackKey(track);
-		if (!key || coverUrls.has(key)) return;
+		if (!key || track.cover || coverUrls.has(key)) return;
 		let artwork = artworkPromises.get(key);
 		if (!artwork) {
 			artwork = trackArtwork(track);
@@ -182,15 +182,7 @@
 	}
 
 	async function fetchRecentTracks() {
-		const params = new URLSearchParams({
-			repo: HANDLE,
-			collection: COLLECTION,
-			limit: '3',
-		});
-		const res = await fetch(`${PDS}/xrpc/com.atproto.repo.listRecords?${params}`);
-		if (!res.ok) throw new Error(`Failed to fetch tracks (${res.status})`);
-		const data = await res.json();
-		recentTracks = data.records.map(toTrack);
+		recentTracks = await fetchRecentTracksWithArtwork(3);
 	}
 
 	onMount(async () => {
