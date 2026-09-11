@@ -182,7 +182,7 @@
 	}
 
 	async function fetchRecentTracks() {
-		recentTracks = await fetchRecentTracksWithArtwork(3);
+		if (recentTracks.length === 0) recentTracks = await fetchRecentTracksWithArtwork(3);
 	}
 
 	onMount(async () => {
