@@ -1,10 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
+	import { trackArtwork } from '../lib/now';
 
 	const HANDLE = 'joeinn.es';
-	const COLLECTION = 'fm.teal.alpha.feed.play';
+	const COLLECTION = 'fm.teal.feed.play';
 	const PDS = 'https://bsky.social';
-	const COVER_ART_BASE = 'https://coverartarchive.org/release';
 	const RECENCY_THRESHOLD = 10 * 60 * 1000; // 10 minutes
 
 	let track = $state(null);
@@ -35,25 +35,12 @@
 			if (elapsed < duration + RECENCY_THRESHOLD) {
 				track = record;
 				show = true;
+				track = { ...record, cover: await trackArtwork(record) };
 			}
 		} catch {
 			// Silently fail — this is a nice-to-have
 		}
 	});
-
-	// teal.fm stores MBIDs prefixed, e.g. "mbid:0fc05d92-255c-...". Cover Art
-	// Archive wants the bare UUID; the prefixed value yields a 400 "invalid MBID
-	// specified" page that also trips OpaqueResponseBlocking. Strip and validate.
-	const MBID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-	function cleanMbid(raw) {
-		if (typeof raw !== 'string') return null;
-		const id = raw.replace(/^mbid:/i, '').trim();
-		return MBID_RE.test(id) ? id : null;
-	}
-	function coverUrl(raw) {
-		const id = cleanMbid(raw);
-		return id ? `${COVER_ART_BASE}/${id}/front-250` : null;
-	}
 
 	function artistNames(t) {
 		if (t.artists?.length) return t.artists.map((a) => a.artistName).join(', ');
@@ -69,9 +56,9 @@
 {#if show && track}
 	<a href="/now" class="now-playing">
 		<div class="np-cover">
-			{#if coverUrl(track.releaseMbId)}
+			{#if track.cover}
 				<img
-					src={coverUrl(track.releaseMbId)}
+					src={track.cover}
 					alt={track.releaseName || track.trackName}
 					onerror={handleImgError}
 				/>

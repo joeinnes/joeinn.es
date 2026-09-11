@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import {
   trackCover,
   artistNames,
@@ -10,6 +10,7 @@ import {
   isReading,
   latestReading,
   dedupeTracks,
+  fetchLatestTrack,
 } from "./now";
 
 describe("now PDS mappers", () => {
@@ -113,7 +114,7 @@ describe("now PDS mappers", () => {
 
   it("mapTrack maps a teal.fm play record to a view model", () => {
     const rec = {
-      uri: "at://did:plc:abc/fm.teal.alpha.feed.play/1",
+      uri: "at://did:plc:abc/fm.teal.feed.play/1",
       value: {
         trackName: "Song",
         artistNames: ["X"],
@@ -125,5 +126,59 @@ describe("now PDS mappers", () => {
       artist: "X",
       cover: "https://coverartarchive.org/release/0fc05d92-255c-4a91-b3ed-abcdefabcdef/front-250",
     });
+  });
+
+  it("fetchLatestTrack reads the production feed and uses Apple Music artwork", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = new URL(String(input));
+
+        if (url.hostname === "bsky.social") {
+          expect(url.searchParams.get("collection")).toBe("fm.teal.feed.play");
+          return {
+            ok: true,
+            status: 200,
+            json: async () => ({
+              records: [
+                {
+                  uri: "at://did:plc:abc/fm.teal.feed.play/1",
+                  value: {
+                    trackName: "Song",
+                    artists: [{ artistName: "X" }],
+                    releaseMbId: "mbid:0fc05d92-255c-4a91-b3ed-abcdefabcdef",
+                    originUri: "https://music.apple.com/hu/album/song/123?i=456",
+                  },
+                },
+              ],
+            }),
+          };
+        }
+
+        expect(url.hostname).toBe("itunes.apple.com");
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            results: [
+              {
+                artworkUrl100:
+                  "https://is1-ssl.mzstatic.com/image/thumb/Music/cover.jpg/100x100bb.jpg",
+              },
+            ],
+          }),
+        };
+      }),
+    );
+
+    try {
+      await expect(fetchLatestTrack()).resolves.toEqual({
+        name: "Song",
+        artist: "X",
+        cover: "https://is1-ssl.mzstatic.com/image/thumb/Music/cover.jpg/250x250bb.jpg",
+      });
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });

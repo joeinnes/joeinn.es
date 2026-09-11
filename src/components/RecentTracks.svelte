@@ -1,11 +1,10 @@
 <script>
 	import { onMount } from 'svelte';
-	import { dedupeTracks } from '../lib/now';
+	import { dedupeTracks, trackArtwork } from '../lib/now';
 
 	const HANDLE = 'joeinn.es';
-	const COLLECTION = 'fm.teal.alpha.feed.play';
+	const COLLECTION = 'fm.teal.feed.play';
 	const PDS = 'https://bsky.social';
-	const COVER_ART_BASE = 'https://coverartarchive.org/release';
 
 	const DB_NAME = 'tealfm';
 	const DB_STORE = 'cache';
@@ -28,6 +27,8 @@
 	let selectedCategory = $state('albums');
 	let fullyLoaded = $state(false);
 	let nextCursor = $state(undefined);
+	let coverUrls = $state(new Map());
+	const artworkPromises = new Map();
 
 	function openDb() {
 		return new Promise((resolve, reject) => {
@@ -94,6 +95,26 @@
 
 	function toTrack(r) {
 		return { ...r.value, _rkey: r.uri.split('/').pop() };
+	}
+
+	function trackKey(track) {
+		return track._rkey || track.originUri || track.releaseMbId || `${track.trackName}:${getArtistNames(track)}`;
+	}
+
+	function coverUrl(track) {
+		return coverUrls.get(trackKey(track)) || track.cover || null;
+	}
+
+	async function ensureCover(track) {
+		const key = trackKey(track);
+		if (!key || coverUrls.has(key)) return;
+		let artwork = artworkPromises.get(key);
+		if (!artwork) {
+			artwork = trackArtwork(track);
+			artworkPromises.set(key, artwork);
+		}
+		const cover = await artwork;
+		if (cover && !coverUrls.has(key)) coverUrls = new Map(coverUrls).set(key, cover);
 	}
 
 	// Fetch a page of older records (appends to end)
@@ -227,22 +248,6 @@
 		return 'Unknown Artist';
 	}
 
-	// teal.fm stores MBIDs prefixed, e.g. "mbid:0fc05d92-255c-4a91-b3ed-...".
-	// Cover Art Archive wants the bare UUID; passing the prefixed value yields a
-	// 400 "invalid MBID specified" HTML page, which also trips Firefox's
-	// OpaqueResponseBlocking. Strip the prefix and validate the UUID shape.
-	const MBID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-	function cleanMbid(raw) {
-		if (typeof raw !== 'string') return null;
-		const id = raw.replace(/^mbid:/i, '').trim();
-		return MBID_RE.test(id) ? id : null;
-	}
-
-	function coverUrl(releaseMbId) {
-		const id = cleanMbid(releaseMbId);
-		return id ? `${COVER_ART_BASE}/${id}/front-250` : null;
-	}
-
 	function filterByPeriod(tracks, period) {
 		if (period === 'all') return tracks;
 		const cutoff = getCutoff(period);
@@ -271,11 +276,18 @@
 				subtitle = artist;
 			}
 			if (!map.has(key)) {
-				map.set(key, { name, subtitle, mbId: track.releaseMbId, count: 0 });
+				map.set(key, {
+					name,
+					subtitle,
+					mbId: track.releaseMbId,
+					originUri: track.originUri,
+					count: 0,
+				});
 			}
 			const entry = map.get(key);
 			entry.count++;
 			if (!entry.mbId && track.releaseMbId) entry.mbId = track.releaseMbId;
+			if (!entry.originUri && track.originUri) entry.originUri = track.originUri;
 		}
 		return [...map.values()].sort((a, b) => b.count - a.count);
 	}
@@ -311,6 +323,7 @@
 				name: track.releaseName,
 				artist: getArtistNames(track),
 				mbId: track.releaseMbId,
+				originUri: track.originUri,
 			});
 		}
 		return albums.slice(0, 16);
@@ -318,6 +331,12 @@
 
 	let filteredTracks = $derived(filterByPeriod(allTracks, selectedPeriod));
 	let stats = $derived(aggregateBy(filteredTracks, selectedCategory).slice(0, 10));
+
+	$effect(() => {
+		[...recentTracks, ...weeklyAlbums, ...stats].forEach((track) => {
+			ensureCover(track);
+		});
+	});
 
 	const periods = [
 		{ id: 'week', label: 'This Week' },
@@ -344,9 +363,9 @@
 			{#each recentTracks as track}
 				<li class="recent-track">
 					<div class="recent-cover">
-						{#if coverUrl(track.releaseMbId)}
+						{#if coverUrl(track)}
 							<img
-								src={coverUrl(track.releaseMbId)}
+								src={coverUrl(track)}
 								alt={track.releaseName || track.trackName}
 								loading="lazy"
 								onerror={handleImgError}
@@ -374,9 +393,9 @@
 		<div class="mosaic">
 			{#each weeklyAlbums as album}
 				<div class="mosaic-cell" title="{album.name} — {album.artist}">
-					{#if coverUrl(album.mbId)}
+					{#if coverUrl(album)}
 						<img
-							src={coverUrl(album.mbId)}
+							src={coverUrl(album)}
 							alt="{album.name} by {album.artist}"
 							loading="lazy"
 							onerror={handleImgError}
@@ -419,9 +438,9 @@
 			{#each stats as item}
 				<li class="stat-item">
 					<div class="stat-cover">
-						{#if coverUrl(item.mbId)}
+						{#if coverUrl(item)}
 							<img
-								src={coverUrl(item.mbId)}
+								src={coverUrl(item)}
 								alt={item.name}
 								loading="lazy"
 								onerror={handleImgError}

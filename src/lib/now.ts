@@ -4,10 +4,11 @@
 
 const HANDLE = "joeinn.es";
 const PDS = "https://bsky.social";
-const PLAY_COLLECTION = "fm.teal.alpha.feed.play";
+const PLAY_COLLECTION = "fm.teal.feed.play";
 const BOOK_COLLECTION = "buzz.bookhive.book";
 const READING = "buzz.bookhive.defs#reading";
 const COVER_ART_BASE = "https://coverartarchive.org/release";
+const ITUNES_LOOKUP = "https://itunes.apple.com/lookup";
 
 const MBID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -37,6 +38,42 @@ export function trackCover(raw: unknown): string | null {
   if (typeof raw !== "string") return null;
   const id = raw.replace(/^mbid:/i, "").trim();
   return MBID_RE.test(id) ? `${COVER_ART_BASE}/${id}/front-250` : null;
+}
+
+export function appleMusicTrackId(raw: unknown): string | null {
+  if (typeof raw !== "string") return null;
+  try {
+    const url = new URL(raw);
+    if (url.hostname !== "music.apple.com") return null;
+    const id = url.searchParams.get("i");
+    return id && /^\d+$/.test(id) ? id : null;
+  } catch {
+    return null;
+  }
+}
+
+const artworkCache = new Map<string, Promise<string | null>>();
+
+export async function trackArtwork(track: any): Promise<string | null> {
+  const id = appleMusicTrackId(track?.originUri);
+  if (!id) return trackCover(track?.releaseMbId);
+
+  let artwork = artworkCache.get(id);
+  if (!artwork) {
+    const params = new URLSearchParams({ id, entity: "song", limit: "1" });
+    artwork = fetch(`${ITUNES_LOOKUP}?${params}`)
+      .then(async (res) => {
+        if (!res.ok) return null;
+        const url = (await res.json()).results?.[0]?.artworkUrl100;
+        return typeof url === "string"
+          ? url.replace(/\/100x100bb\.(\w+)$/i, "/250x250bb.$1")
+          : null;
+      })
+      .catch(() => null);
+    artworkCache.set(id, artwork);
+  }
+
+  return (await artwork) ?? trackCover(track?.releaseMbId);
 }
 
 export function artistNames(t: any): string {
@@ -109,7 +146,8 @@ async function listRecords(collection: string, limit: number): Promise<Record[]>
 
 export async function fetchLatestTrack(): Promise<TrackView | null> {
   const r = (await listRecords(PLAY_COLLECTION, 1))[0];
-  return r ? mapTrack(r) : null;
+  if (!r) return null;
+  return { ...mapTrack(r), cover: await trackArtwork(r.value) };
 }
 
 export async function fetchCurrentBook(): Promise<BookView | null> {
@@ -134,8 +172,11 @@ export function dedupeTracks<T extends { _rkey?: string }>(tracks: T[]): T[] {
 
 /** Raw play records (value + rkey) so the widget's existing render code can use them. */
 export async function fetchRecentTracks(limit = 3): Promise<any[]> {
-  return (await listRecords(PLAY_COLLECTION, limit)).map((r) => ({
+  const tracks = (await listRecords(PLAY_COLLECTION, limit)).map((r) => ({
     ...r.value,
     _rkey: r.uri.split("/").pop(),
   }));
+  return Promise.all(
+    tracks.map(async (track) => ({ ...track, cover: await trackArtwork(track) })),
+  );
 }
