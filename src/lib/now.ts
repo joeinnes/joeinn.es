@@ -54,17 +54,19 @@ export function appleMusicTrackId(raw: unknown): string | null {
 
 const artworkCache = new Map<string, Promise<string | null>>();
 
-export async function trackArtwork(track: any): Promise<string | null> {
-  const id = appleMusicTrackId(track?.originUri);
-  if (!id) return trackCover(track?.releaseMbId);
-
+export async function appleMusicArtwork(id: string): Promise<string | null> {
   let artwork = artworkCache.get(id);
   if (!artwork) {
     const params = new URLSearchParams({ id, entity: "song", limit: "1" });
-    artwork = fetch(`${ITUNES_LOOKUP}?${params}`)
+    const lookup =
+      typeof window === "undefined"
+        ? `${ITUNES_LOOKUP}?${params}`
+        : `/api/track-artwork?id=${encodeURIComponent(id)}`;
+    artwork = fetch(lookup)
       .then(async (res) => {
         if (!res.ok) return null;
-        const url = (await res.json()).results?.[0]?.artworkUrl100;
+        const data = await res.json();
+        const url = typeof window === "undefined" ? data.results?.[0]?.artworkUrl100 : data.cover;
         return typeof url === "string"
           ? url.replace(/\/100x100bb\.(\w+)$/i, "/250x250bb.$1")
           : null;
@@ -73,7 +75,14 @@ export async function trackArtwork(track: any): Promise<string | null> {
     artworkCache.set(id, artwork);
   }
 
-  return (await artwork) ?? trackCover(track?.releaseMbId);
+  return artwork;
+}
+
+export async function trackArtwork(track: any): Promise<string | null> {
+  const id = appleMusicTrackId(track?.originUri);
+  if (!id) return trackCover(track?.releaseMbId);
+
+  return (await appleMusicArtwork(id)) ?? trackCover(track?.releaseMbId);
 }
 
 export function artistNames(t: any): string {
