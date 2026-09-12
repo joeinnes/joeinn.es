@@ -9,6 +9,7 @@ const BOOK_COLLECTION = "buzz.bookhive.book";
 const READING = "buzz.bookhive.defs#reading";
 const COVER_ART_BASE = "https://coverartarchive.org/release";
 const ITUNES_LOOKUP = "https://itunes.apple.com/lookup";
+const ITUNES_SEARCH = "https://itunes.apple.com/search";
 
 const MBID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
@@ -78,11 +79,38 @@ export async function appleMusicArtwork(id: string): Promise<string | null> {
   return artwork;
 }
 
+export async function appleMusicSearchArtwork(term: string): Promise<string | null> {
+  const key = `search:${term.toLowerCase()}`;
+  let artwork = artworkCache.get(key);
+  if (!artwork) {
+    const params = new URLSearchParams({ term, entity: "song", limit: "1" });
+    const lookup =
+      typeof window === "undefined"
+        ? `${ITUNES_SEARCH}?${params}`
+        : `/api/track-artwork?term=${encodeURIComponent(term)}`;
+    artwork = fetch(lookup)
+      .then(async (res) => {
+        if (!res.ok) return null;
+        const data = await res.json();
+        const url = typeof window === "undefined" ? data.results?.[0]?.artworkUrl100 : data.cover;
+        return typeof url === "string"
+          ? url.replace(/\/100x100bb\.(\w+)$/i, "/250x250bb.$1")
+          : null;
+      })
+      .catch(() => null);
+    artworkCache.set(key, artwork);
+  }
+
+  return artwork;
+}
+
 export async function trackArtwork(track: any): Promise<string | null> {
   const id = appleMusicTrackId(track?.originUri);
-  if (!id) return trackCover(track?.releaseMbId);
+  const cover = trackCover(track?.releaseMbId);
+  const term = [track?.trackName, artistNames(track)].filter(Boolean).join(" ");
 
-  return (await appleMusicArtwork(id)) ?? trackCover(track?.releaseMbId);
+  if (id) return (await appleMusicArtwork(id)) ?? cover;
+  return cover ?? (term ? await appleMusicSearchArtwork(term) : null);
 }
 
 export function artistNames(t: any): string {

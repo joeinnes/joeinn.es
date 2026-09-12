@@ -11,6 +11,7 @@ import {
   latestReading,
   dedupeTracks,
   fetchLatestTrack,
+  trackArtwork,
 } from "./now";
 
 describe("now PDS mappers", () => {
@@ -177,6 +178,38 @@ describe("now PDS mappers", () => {
         artist: "X",
         cover: "https://is1-ssl.mzstatic.com/image/thumb/Music/cover.jpg/250x250bb.jpg",
       });
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it("searches Apple Music when a play record has no artwork identifiers", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = new URL(String(input));
+        expect(url.hostname).toBe("itunes.apple.com");
+        expect(url.pathname).toBe("/search");
+        expect(url.searchParams.get("term")).toBe("Everything Glows Glacier Veins");
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            results: [
+              {
+                artworkUrl100:
+                  "https://is1-ssl.mzstatic.com/image/thumb/Music/cover.jpg/100x100bb.jpg",
+              },
+            ],
+          }),
+        };
+      }),
+    );
+
+    try {
+      await expect(
+        trackArtwork({ trackName: "Everything Glows", artists: [{ artistName: "Glacier Veins" }] }),
+      ).resolves.toBe("https://is1-ssl.mzstatic.com/image/thumb/Music/cover.jpg/250x250bb.jpg");
     } finally {
       vi.unstubAllGlobals();
     }
