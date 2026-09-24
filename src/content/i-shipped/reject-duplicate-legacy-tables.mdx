@@ -1,0 +1,7 @@
+---
+summary: reject duplicate legacy tables
+repo: garden-co/jazz
+mergeDate: 2026-09-17
+prNumber: '3053'
+---
+I made schema conversion stop with a clear error when a legacy schema declares the same table twice, before one definition can silently replace the other.

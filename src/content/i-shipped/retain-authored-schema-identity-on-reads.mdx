@@ -1,0 +1,7 @@
+---
+summary: retain authored schema identity on reads
+repo: garden-co/jazz
+mergeDate: 2026-09-19
+prNumber: '3107'
+---
+I kept the schema identity that originally described a read, so unrelated schema changes or a renamed table cannot make the read check the wrong table.

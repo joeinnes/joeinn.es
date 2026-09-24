@@ -1,0 +1,7 @@
+---
+summary: graceful server shutdown on SIGINT
+repo: garden-co/jazz
+mergeDate: 2026-09-16
+prNumber: '3025'
+---
+I routed Ctrl+C through the server's normal shutdown process so it finishes cleanly and releases its storage for immediate reuse.

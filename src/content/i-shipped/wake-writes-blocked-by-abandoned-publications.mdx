@@ -1,0 +1,7 @@
+---
+summary: wake writes blocked by abandoned publications
+repo: garden-co/jazz
+mergeDate: 2026-09-17
+prNumber: '3024'
+---
+I made later queued writes wake up and fail when an earlier publication is abandoned, instead of leaving them waiting forever or sending them out of order.

@@ -1,0 +1,7 @@
+---
+summary: delete restored rows again
+repo: garden-co/jazz
+mergeDate: 2026-09-19
+prNumber: '3128'
+---
+I fixed delete checks to look at the row's current state, so a row that was restored can be deleted again while already-deleted rows still stay protected.

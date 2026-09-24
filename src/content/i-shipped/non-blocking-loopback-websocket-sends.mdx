@@ -1,0 +1,7 @@
+---
+summary: non-blocking loopback WebSocket sends
+repo: garden-co/jazz
+mergeDate: 2026-09-13
+prNumber: '2832'
+---
+I released the loopback client's shared shell before a WebSocket send can block. That lets independent clients keep making progress while preserving the order of messages.

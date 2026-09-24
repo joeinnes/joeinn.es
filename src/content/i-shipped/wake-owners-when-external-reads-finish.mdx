@@ -1,0 +1,7 @@
+---
+summary: wake owners when external reads finish
+repo: garden-co/jazz
+mergeDate: 2026-09-19
+prNumber: '3110'
+---
+I made external read readiness wake the owning server or relay before it ticks subscribers, so waiting work resumes without unsafe repeated scheduling.

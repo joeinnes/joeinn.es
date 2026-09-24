@@ -1,0 +1,7 @@
+---
+summary: check protected sessions on the server
+repo: garden-co/jazz
+mergeDate: 2026-09-16
+prNumber: '3029'
+---
+I moved protected-route session checks into the SvelteKit server hook, preserving auth responses and letting operational renewal errors surface instead of hiding them as redirects.

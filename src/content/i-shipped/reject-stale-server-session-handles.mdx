@@ -1,0 +1,7 @@
+---
+summary: reject stale server session handles
+repo: garden-co/jazz
+mergeDate: 2026-09-14
+prNumber: '2974'
+---
+I made reused server session slots carry a new generation number, so an old handle cannot accidentally refer to a later session.

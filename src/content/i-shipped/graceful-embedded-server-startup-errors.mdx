@@ -1,0 +1,7 @@
+---
+summary: graceful embedded server startup errors
+repo: garden-co/jazz
+mergeDate: 2026-09-13
+prNumber: '2837'
+---
+I changed an embedded server with an occupied port to return a useful startup error instead of panicking. The JavaScript callers now handle that failure explicitly and keep the host process alive.

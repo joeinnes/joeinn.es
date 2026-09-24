@@ -1,0 +1,7 @@
+---
+summary: keep WebSocket limits per server
+repo: garden-co/jazz
+mergeDate: 2026-09-19
+prNumber: '3095'
+---
+I moved WebSocket connection limits and cleanup into each server, so one server's clients no longer count against or evict another server's clients.

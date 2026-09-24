@@ -1,0 +1,7 @@
+---
+summary: safer early WebSocket shutdowns
+repo: garden-co/jazz
+mergeDate: 2026-09-13
+prNumber: '2819'
+---
+I made the connection's readiness fail when it is intentionally closed before the server says hello. Later socket events are ignored, so a closed connection cannot leave the readiness promise waiting forever.

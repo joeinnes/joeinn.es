@@ -1,0 +1,7 @@
+---
+summary: safe native transport replacement
+repo: garden-co/jazz
+mergeDate: 2026-09-13
+prNumber: '2844'
+---
+I made a replacement native transport wait for its live predecessor to retire before being admitted. Retirement failures are reported once, so an invalid successor is not allowed through silently.

@@ -1,0 +1,7 @@
+---
+summary: correct nested EXISTS policy branches
+repo: garden-co/jazz
+mergeDate: 2026-09-13
+prNumber: '2845'
+---
+I fixed nested EXISTS policy conversion so a shared condition is applied to every branch of an OR expression. This prevents a branch from accidentally skipping the ownership check.

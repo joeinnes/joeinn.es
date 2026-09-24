@@ -1,0 +1,7 @@
+---
+summary: subscriptions wait for real progress
+repo: garden-co/jazz
+mergeDate: 2026-09-14
+prNumber: '2978'
+---
+I stopped subscriptions waiting for data from repeatedly scheduling themselves, and made storage readiness wake the native and server owners that need to resume them.

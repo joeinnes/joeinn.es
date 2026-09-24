@@ -1,0 +1,7 @@
+---
+summary: reliable browser reconnect readiness failures
+repo: garden-co/jazz
+mergeDate: 2026-09-13
+prNumber: '2829'
+---
+I made browser reconnect waiters reject when the worker reaches a terminal failure. The waiters are cleared while the connection is explicitly offline, instead of being left pending indefinitely.

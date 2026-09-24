@@ -1,0 +1,7 @@
+---
+summary: explicit transaction inserts only create
+repo: garden-co/jazz
+mergeDate: 2026-09-24
+prNumber: '3253'
+---
+I made explicit-ID inserts in exclusive transactions create only new rows, rejecting existing or previously staged IDs and directing replacements to update or upsert.

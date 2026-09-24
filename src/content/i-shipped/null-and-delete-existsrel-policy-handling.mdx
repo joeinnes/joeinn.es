@@ -1,0 +1,7 @@
+---
+summary: NULL and DELETE ExistsRel policy handling
+repo: garden-co/jazz
+mergeDate: 2026-09-13
+prNumber: '2877'
+---
+I added handling for NULL predicates and DELETE operations in ExistsRel policies. This keeps those policy cases in the same enforcement path instead of leaving them unhandled.
