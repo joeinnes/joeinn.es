@@ -1,0 +1,7 @@
+---
+summary: checked variable-array offset arithmetic
+repo: garden-co/jazz
+mergeDate: 2026-09-28
+prNumber: '3329'
+---
+I added overflow checks when calculating offsets for variable-length arrays. Invalid arithmetic is now rejected consistently while encoding, validating, decoding, or visiting data, without changing the wire format.

@@ -1,0 +1,7 @@
+---
+summary: keeping commas inside structured Inspector filters
+repo: garden-co/jazz
+mergeDate: 2026-09-28
+prNumber: '3320'
+---
+I fixed filters that split on every comma before reading JSON. Commas inside quoted text or nested arrays now stay part of the value, while top-level separators still divide separate filter values.

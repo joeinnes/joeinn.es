@@ -1,0 +1,7 @@
+---
+summary: correct empty-array comparisons with array columns
+repo: garden-co/jazz
+mergeDate: 2026-09-28
+prNumber: '3321'
+---
+I fixed comparisons between an empty array and an array column. The empty value now uses the column's element type, so valid equality and inequality checks work in either order without changing the existing rules for inferred or ordered comparisons.

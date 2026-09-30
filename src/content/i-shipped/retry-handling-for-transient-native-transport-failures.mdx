@@ -1,0 +1,7 @@
+---
+summary: retry handling for transient native transport failures
+repo: garden-co/jazz
+mergeDate: 2026-09-28
+prNumber: '3644'
+---
+I made temporary connection problems less likely to stop the native relay permanently. DNS, socket, TLS, and selected HTTP availability errors can now be retried, while authentication and malformed or unsupported responses still stop immediately.

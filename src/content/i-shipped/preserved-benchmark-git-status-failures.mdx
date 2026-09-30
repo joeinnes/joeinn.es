@@ -1,0 +1,7 @@
+---
+summary: preserved benchmark Git status failures
+repo: garden-co/jazz
+mergeDate: 2026-09-28
+prNumber: '3326'
+---
+I fixed benchmark metadata that could report a checkout as clean when collecting Git status had actually failed. The result now records whether status collection succeeded, so a failed check stays unavailable and dirty while a genuinely clean checkout remains clean.

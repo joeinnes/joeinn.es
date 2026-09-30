@@ -1,0 +1,7 @@
+---
+summary: simplified a rollback policy fixture
+repo: garden-co/jazz
+mergeDate: 2026-09-28
+prNumber: '3150'
+---
+I simplified a test that checks the local rollback row after a rejected mutation. It now waits for the expected document and rollback state directly, removing a redundant lookup and assertion while keeping the behaviour being tested.

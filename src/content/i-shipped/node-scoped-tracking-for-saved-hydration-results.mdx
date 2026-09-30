@@ -1,0 +1,7 @@
+---
+summary: node-scoped tracking for saved hydration results
+repo: garden-co/jazz
+mergeDate: 2026-09-28
+prNumber: '3146'
+---
+I fixed a cache bug where a saved hydration result could be confused with a result for another graph node. The change tracks retained entries by node while keeping the existing validity checks, eviction rules, and public API.
