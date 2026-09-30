@@ -4080,6 +4080,41 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mwamet4gpp27",
       "docCid": "bafyreihjy3sg2x5vrz5hh4lsnxlijei6bvogh7c7njxwggggrkqsxta6he",
       "contentHash": "sha256:8f30ea1578d6b245913cd17b18bae5236fcb66ddc7bbd2c1e5051eacb7ac2735"
+    },
+    "i-shipped:checked-variable-array-offset-arithmetic": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mwpuqslkyv2n",
+      "docCid": "bafyreicyc7pghkpdle2zbthfolix7xt24om7gz7a5umkiibnq44emltcji",
+      "contentHash": "sha256:045a9fd3f744bf194b0805f2cf4318c35972f6aebfa37bcba4358d0b13298d6f"
+    },
+    "i-shipped:correct-empty-array-comparisons-with-array-columns": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mwpuqsmvyi2q",
+      "docCid": "bafyreigygus7sxib2lcg37kruesxdo2vth7h77misbemkgmkjfewxz7ule",
+      "contentHash": "sha256:f38404fb3fc376cb77ca593458d25efdeceb6419b5dd58bf7a35fa7e9cd06be2"
+    },
+    "i-shipped:keeping-commas-inside-structured-inspector-filters": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mwpuqsnknu2m",
+      "docCid": "bafyreihghbmjeiyqmphqgbte4bxpsm3vauxqmjelloipsr4t24rdtxlvoi",
+      "contentHash": "sha256:81cf738ffaf18548f18d253dc81c173088a554f6bddebdb5e74dc70fbf784a64"
+    },
+    "i-shipped:node-scoped-tracking-for-saved-hydration-results": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mwpuqso76423",
+      "docCid": "bafyreifzogtl3utk6h6qry6qsfg5j7hqudit7awizf64e52hctq4kx2jcq",
+      "contentHash": "sha256:46e89784d1eb2db7c24a238cae52b2c32eef51334f174cf99db8efd4a93d7302"
+    },
+    "i-shipped:preserved-benchmark-git-status-failures": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mwpuqsov5y2m",
+      "docCid": "bafyreidyt4536uhfbtsgir5yremnoepxvvmvyuaokzobpx57jto73qcuqu",
+      "contentHash": "sha256:81b2ea96cd90e3e778a3d2caeee8ea8147f567ad2125116a21e4c72c8efe6f00"
+    },
+    "i-shipped:retry-handling-for-transient-native-transport-failures": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mwpuqspjnp2f",
+      "docCid": "bafyreibfxdick7tesuc5d56bti4pphyg454g6siplcgubvk4pqkwo5dvii",
+      "contentHash": "sha256:c5a86dc227e6d269caa168164d7690e0ef55c539b2e47535e075c5fc0f2d39b1"
+    },
+    "i-shipped:simplified-a-rollback-policy-fixture": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mwpuqsq4rt2m",
+      "docCid": "bafyreih5ku3a6uc5pmvekjv75ue7f5s73nlpfhesnwkwjjq77gymbkohnq",
+      "contentHash": "sha256:f82783f3fd991750929eaa7befe622439102a2cbd5184b4bdc415d78db0b937e"
     }
   }
 }
