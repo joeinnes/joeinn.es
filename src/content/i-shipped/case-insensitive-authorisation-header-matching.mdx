@@ -1,0 +1,7 @@
+---
+summary: case-insensitive authorisation header matching
+repo: garden-co/jazz
+mergeDate: 2026-09-29
+prNumber: '3324'
+---
+I made plain request headers find an authorisation token regardless of the capitalisation used for the header name. Ambiguous duplicate names now fail safely, while the existing handling for other header types stays unchanged.

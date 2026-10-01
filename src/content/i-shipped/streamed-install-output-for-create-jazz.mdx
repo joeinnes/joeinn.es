@@ -1,0 +1,7 @@
+---
+summary: streamed install output for create-jazz
+repo: garden-co/jazz
+mergeDate: 2026-09-30
+prNumber: '3744'
+---
+I changed create-jazz to drain package-install output as it arrives instead of keeping it all in one limited buffer. Successful installs no longer fail just because they are verbose, and failures retain useful diagnostics from both output streams.

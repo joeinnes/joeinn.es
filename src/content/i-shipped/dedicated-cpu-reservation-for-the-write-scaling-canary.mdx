@@ -1,0 +1,7 @@
+---
+summary: a dedicated CPU reservation for the write-scaling canary
+repo: garden-co/jazz
+mergeDate: 2026-09-29
+prNumber: '3151'
+---
+I stopped the write-scaling canary from competing with other tests for the runner's CPU. The test now reserves the available test threads, while the rest of the suite keeps its normal parallelism.

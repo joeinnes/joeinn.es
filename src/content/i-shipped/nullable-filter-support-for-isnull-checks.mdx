@@ -1,0 +1,7 @@
+---
+summary: nullable filter support for isNull checks
+repo: garden-co/jazz
+mergeDate: 2026-09-30
+prNumber: '3745'
+---
+I made nullable filters consistently support checking whether a value is present. Byte and array columns now turn those checks into the right query operation instead of treating the true or false flag as data.

@@ -1,0 +1,7 @@
+---
+summary: safe rejection of non-finite schema numbers
+repo: garden-co/jazz
+mergeDate: 2026-09-30
+prNumber: '3746'
+---
+I made schema serialisation reject values such as NaN and infinity before they are written as misleading nulls. Valid null defaults and finite numbers continue to work as before.

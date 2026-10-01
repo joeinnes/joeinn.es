@@ -1,0 +1,7 @@
+---
+summary: validation for direct-store key types
+repo: garden-co/jazz
+mergeDate: 2026-09-30
+prNumber: '3748'
+---
+I made direct-store schema validation accept supported fixed-width keys and reject variable-width tuple members before storage is accessed. This prevents unsupported key shapes from reaching the storage layer and panicking.

@@ -1,0 +1,7 @@
+---
+summary: overflow detection for weighted indexes
+repo: garden-co/jazz
+mergeDate: 2026-09-30
+prNumber: '3747'
+---
+I made weighted-index calculations detect when their total weight overflows instead of silently changing the probability distribution. Valid weights and the existing empty or all-zero behaviours remain unchanged.
