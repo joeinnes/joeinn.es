@@ -4165,6 +4165,66 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mwsiywu5m624",
       "docCid": "bafyreidjtk3hejmiiar46ui6h6ubx23x7f6v627zthg3ktsnftan44gexu",
       "contentHash": "sha256:cd0d86770df4c6430a6445509f1a5fd5130334320fdc8f3ee314f6f338243366"
+    },
+    "i-shipped:cleaned-up-retained-subscription-query-lifetimes": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyadiojw2d",
+      "docCid": "bafyreia4caqs7zllwd4vcrydvkwfaqm6urqunhlzly3b35zfq772m2egnm",
+      "contentHash": "sha256:5f11f983642924c658b183ab41ba81a108dd746c08cf3a5fd93a9b5be3b263c4"
+    },
+    "i-shipped:exposed-native-audio-streaming-and-range-reads": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyadpd4q27",
+      "docCid": "bafyreic6kitlmuquimik4lyazjqkc2574fookprdms44ermzxay2e6mnjy",
+      "contentHash": "sha256:f557c22fdc0e02a08cd4f00fcfcf7f682023ef6c7cae580530c8cd476d3491ad"
+    },
+    "i-shipped:fixed-nullable-ownership-query-checks": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyadr37b2y",
+      "docCid": "bafyreiab2ehftwpjptth5xdvj2nj6uxqhdwryt2fo6npovzaebombfcgnm",
+      "contentHash": "sha256:b476139c2bd06eaaa29204d5e2072e518e0a5ba23d18687704d1cb33c3810252"
+    },
+    "i-shipped:fixed-numeric-comparisons-for-floating-point-query-values": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyadsryt23",
+      "docCid": "bafyreifql775fgqq4lcrvdgfm73p3edie4v7l3vuct3fwqsxpg2cv2ztk4",
+      "contentHash": "sha256:e659688e30e7c7e1e96972f40a5e8697841165e26b980dd931cfc8c45ba83239"
+    },
+    "i-shipped:improved-contains-type-errors": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyaduj4v23",
+      "docCid": "bafyreiad5fqjanowcx4dk5zyhuirh5tkqtgint5grjn5exb3c4673tg3sm",
+      "contentHash": "sha256:d11855a2fea580305f62ffaa3fb6c10b98236d9bd6ba6b2e98835c33eabb8ab6"
+    },
+    "i-shipped:kept-combined-query-aggregates-in-sync": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyadw5uf23",
+      "docCid": "bafyreidnwdjpqgzj3ulknve4zhjfsufmdfnyj7puslpwoa2kuxf2dzn67e",
+      "contentHash": "sha256:32b26358c83815ef1fff96540f8c916a5658d1d9ccb6e08ee6ba354aa84ad725"
+    },
+    "i-shipped:made-jwt-key-service-outages-retryable": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyadxtot2j",
+      "docCid": "bafyreig3zxpissnf25ls4rn7gdpgfe2o45kdrjpozh4itfackhc73fmcui",
+      "contentHash": "sha256:790f76c5291f3fb9c93021e37d412c00201c6b52a64acff4b0712f102061342e"
+    },
+    "i-shipped:recovered-browser-writes-after-silent-worker-loss": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyadzjxm2i",
+      "docCid": "bafyreibd3xzelhuvebmlxsftibnob3suwcxolwwonez5vib3o5fkpqq56u",
+      "contentHash": "sha256:631d866fc7f32497add261b2cc89fadccd48d1d751e55cd069ea9a4161c07ac1"
+    },
+    "i-shipped:required-chat-membership-for-collaborative-canvas-drawing": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyae3avd2n",
+      "docCid": "bafyreidywacqx3t5vle3ixzfyw5ptujgmc3qsdvlte3vwgf4ajhybroere",
+      "contentHash": "sha256:587d8c2d5cede220e0c1e665e9559647dead1cfea606da4ec11c51b65da41c00"
+    },
+    "i-shipped:restored-native-todo-examples-for-ordinary-users": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyae4v4s2h",
+      "docCid": "bafyreibznmkpmbp6fcbnoi74i5hqwslqvtgk5ozvm5qmr35mxaz4ezysge",
+      "contentHash": "sha256:62b233018cc85d4aaedd3a1c0c67052ca403f2c580d16800bdee09c5fc8e32f3"
+    },
+    "i-shipped:simplified-better-auth-test-fixtures": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyae6kgi27",
+      "docCid": "bafyreidfotepixz6ibsb7sqso6nhl5xclsghl3usnseehet4kiztbu7buq",
+      "contentHash": "sha256:6b46a162f9b734458ed59965fb76410dd75981818df3e758193381076e86362b"
+    },
+    "i-shipped:split-cli-integration-tests-into-isolated-suites": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyaea75y27",
+      "docCid": "bafyreiheowx4gyavxnizn3zq7ehsyha4zrhqghbjz6fvsg72t6lxegzheq",
+      "contentHash": "sha256:3f6db1e04d68b3f20ad3f39403ab73fd20789b1d139ff97b4c6bda23d7627c79"
     }
   }
 }
