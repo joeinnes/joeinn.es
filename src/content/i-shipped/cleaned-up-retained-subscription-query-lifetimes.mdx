@@ -1,0 +1,7 @@
+---
+summary: cleaned up retained subscription query lifetimes
+repo: garden-co/jazz
+mergeDate: 2026-10-13
+prNumber: '3993'
+---
+I fixed a leak where server-side query plans could stay registered after the last subscriber closed. The change now releases private plans at the right time and rolls back safely when a live subscription is cancelled, without changing query results or permissions.

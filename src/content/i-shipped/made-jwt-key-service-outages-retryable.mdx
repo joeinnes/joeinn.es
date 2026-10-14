@@ -1,0 +1,7 @@
+---
+summary: made JWT key-service outages retryable
+repo: garden-co/jazz
+mergeDate: 2026-10-13
+prNumber: '3986'
+---
+I changed authentication so temporary failures fetching signing keys tell clients to try again instead of treating valid credentials as permanently bad. Malformed tokens and bad signatures are still rejected immediately, while cached valid keys keep working during an outage.

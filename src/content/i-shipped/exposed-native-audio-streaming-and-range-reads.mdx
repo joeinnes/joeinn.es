@@ -1,0 +1,7 @@
+---
+summary: exposed native audio streaming and range reads
+repo: garden-co/jazz
+mergeDate: 2026-10-13
+prNumber: '3950'
+---
+I exposed the existing native streaming and byte-range storage operations through the main client API. This lets an authorised client upload audio without loading the whole file into memory and read only the bytes it needs, while keeping the existing permission checks.

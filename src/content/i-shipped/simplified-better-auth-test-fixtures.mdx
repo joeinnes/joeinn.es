@@ -1,0 +1,7 @@
+---
+summary: simplified Better Auth test fixtures
+repo: garden-co/jazz
+mergeDate: 2026-10-13
+prNumber: '3995'
+---
+I simplified the Better Auth adapter tests by reusing the fixture schema and permissions instead of repeatedly rebuilding the same definitions. The tests still create fresh servers and data, so authentication, permissions, and backend operations remain isolated.

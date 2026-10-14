@@ -1,0 +1,7 @@
+---
+summary: fixed numeric comparisons for floating-point query values
+repo: garden-co/jazz
+mergeDate: 2026-10-13
+prNumber: '3990'
+---
+I fixed constant query comparisons that used the raw computer representation of floating-point numbers instead of their numeric values. Negative numbers now sort correctly, signed zeroes compare equal, and negated comparisons keep the right result.

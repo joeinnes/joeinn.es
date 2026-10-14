@@ -1,0 +1,7 @@
+---
+summary: recovered browser writes after silent worker loss
+repo: garden-co/jazz
+mergeDate: 2026-10-13
+prNumber: '3998'
+---
+I made browser writes recover when the background worker disappears without warning. Pending inserts and deletes now trigger a bounded worker replacement and continue using their original transaction identities, so applications do not need to submit the changes again.

@@ -1,0 +1,7 @@
+---
+summary: improved contains type errors
+repo: garden-co/jazz
+mergeDate: 2026-10-13
+prNumber: '3956'
+---
+I improved query errors for `contains` when the searched value has the wrong type. The error now explains both the type supplied and the type required, while valid text and array membership queries keep their existing behaviour.

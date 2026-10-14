@@ -1,0 +1,7 @@
+---
+summary: fixed nullable ownership query checks
+repo: garden-co/jazz
+mergeDate: 2026-10-13
+prNumber: '3988'
+---
+I fixed authorised queries that could be accepted or rejected differently depending on the order of nullable ownership checks. The validator now settles the complete parameter type before checking each condition, keeping the visible rows and query rules consistent.

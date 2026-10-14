@@ -1,0 +1,7 @@
+---
+summary: kept combined query aggregates in sync
+repo: garden-co/jazz
+mergeDate: 2026-10-13
+prNumber: '3987'
+---
+I fixed live aggregate queries that could keep an old count or sum when the first value in the result did not change. The subscription now recognises the complete changed result and publishes the replacement once, while equal results stay quiet.
