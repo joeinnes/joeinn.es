@@ -4225,6 +4225,21 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxsyaea75y27",
       "docCid": "bafyreiheowx4gyavxnizn3zq7ehsyha4zrhqghbjz6fvsg72t6lxegzheq",
       "contentHash": "sha256:3f6db1e04d68b3f20ad3f39403ab73fd20789b1d139ff97b4c6bda23d7627c79"
+    },
+    "i-shipped:make-sharing-checks-avoid-unnecessary-graph-copies": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxxzcvqxwj2m",
+      "docCid": "bafyreiflhgh4w5vai5xppdpsmyurcyzeb5bszszmfzdinuz3rgarqgazam",
+      "contentHash": "sha256:6b002a9a4253a3b3f1b922ed00b9102716e629510aaac8966418dd931147826d"
+    },
+    "i-shipped:reuse-graph-descriptors-during-route-proofs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxxzcvxsm327",
+      "docCid": "bafyreigf5voabjeiteafvovo726c4z6dodqpvo3yq66gdgqkkrkt5wprom",
+      "contentHash": "sha256:920e675921fbb7f0eff1f238d30793802f432a8d6fc654ff547c93f42631e2cc"
+    },
+    "i-shipped:reuse-query-preparation-across-terminal-outputs": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxxzcw23yi2d",
+      "docCid": "bafyreiea5sztcjzl2bfxlmdmqtum5veh6oc4owa3j7me5cb77jjzae4uym",
+      "contentHash": "sha256:317a8fe4526e26a61028458517d0b27bfca91bcf6227498747d9482cb89193d6"
     }
   }
 }
