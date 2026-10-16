@@ -1,0 +1,7 @@
+---
+summary: make sharing checks avoid unnecessary graph copies
+repo: garden-co/jazz
+mergeDate: 2026-10-15
+prNumber: '4073'
+---
+I made Jazz's Node query preparation cheaper by walking the internal query graph without copying everything. It now copies only the parts that actually change and skips detailed rejection sketches unless tracing is enabled, while keeping the same sharing and privacy decisions.

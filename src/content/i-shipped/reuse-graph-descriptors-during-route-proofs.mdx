@@ -1,0 +1,7 @@
+---
+summary: reuse graph descriptors during route proofs
+repo: garden-co/jazz
+mergeDate: 2026-10-15
+prNumber: '4084'
+---
+I made route-permission checks reuse the descriptions they derive for shared query inputs instead of analysing the same pieces repeatedly. The checks still report missing fields and other errors correctly, and the reused analysis lasts only for that proof.

@@ -1,0 +1,7 @@
+---
+summary: reuse query preparation across terminal outputs
+repo: garden-co/jazz
+mergeDate: 2026-10-15
+prNumber: '4081'
+---
+I made query preparation reuse work when several outputs share most of the same graph. This avoids rebuilding the same pieces repeatedly while keeping separate outputs, privacy checks, storage, and public APIs unchanged.
