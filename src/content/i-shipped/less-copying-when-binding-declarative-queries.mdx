@@ -1,0 +1,7 @@
+---
+summary: less copying when binding declarative queries
+repo: garden-co/jazz
+mergeDate: 2026-10-16
+prNumber: '4115'
+---
+I stopped declarative query binding from copying the same input data when it could safely reuse it. I added a regression check to make sure the original input stays isolated and invalid inputs still fail clearly.

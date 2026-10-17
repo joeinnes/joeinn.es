@@ -1,0 +1,7 @@
+---
+summary: cheaper query preparation by reusing finished pieces
+repo: garden-co/jazz
+mergeDate: 2026-10-16
+prNumber: '4116'
+---
+I changed the part of Jazz that prepares queries so it can move finished pieces into the result when nothing else needs them, instead of always copying them. If another piece still shares the data, it keeps the safe copying fallback.
