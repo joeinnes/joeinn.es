@@ -4240,6 +4240,16 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mxxzcw23yi2d",
       "docCid": "bafyreiea5sztcjzl2bfxlmdmqtum5veh6oc4owa3j7me5cb77jjzae4uym",
       "contentHash": "sha256:317a8fe4526e26a61028458517d0b27bfca91bcf6227498747d9482cb89193d6"
+    },
+    "i-shipped:cheaper-query-preparation-by-reusing-finished-pieces": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3my2jovurr22m",
+      "docCid": "bafyreihkdwaaurrkunvtcz67jhxxwmugcp2oqqqgs7zucr4ucjuff5z6ki",
+      "contentHash": "sha256:e3312a57aedd65bb91d29c204c73e8bf3d72ab0326df4a49fbabd0c2125c262f"
+    },
+    "i-shipped:less-copying-when-binding-declarative-queries": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3my2jow47z727",
+      "docCid": "bafyreibtkzvvtjf3aa3xip7d6x3eq6iec4si4rvnna6ax5wamt75c6i3xm",
+      "contentHash": "sha256:c5e83df2da3e8b73615713e0feaea7bf80169743d8fde251bd27724b997c7144"
     }
   }
 }
