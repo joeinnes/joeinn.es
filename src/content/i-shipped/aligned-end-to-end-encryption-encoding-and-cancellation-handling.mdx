@@ -1,0 +1,7 @@
+---
+summary: aligned end to end encryption encoding and cancellation handling
+repo: garden-co/jazz
+mergeDate: 2026-10-17
+prNumber: '4155'
+---
+I aligned the unreleased end-to-end encrypted cell format with the current native format and removed an unnecessary compatibility layer. I also made cancellation release its reservation safely and let foreground hand-offs finish pending work before transferring control.

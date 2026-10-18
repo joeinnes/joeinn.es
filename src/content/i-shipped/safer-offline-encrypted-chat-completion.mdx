@@ -1,0 +1,7 @@
+---
+summary: safer offline encrypted chat completion
+repo: garden-co/jazz
+mergeDate: 2026-10-17
+prNumber: '4158'
+---
+I restacked the offline encrypted chat work and made conditional writes safe around cancellation. A write that has started keeps ownership until it finishes, while a cancellation before admission leaves no stuck operation behind.
