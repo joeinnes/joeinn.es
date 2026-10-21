@@ -1,0 +1,7 @@
+---
+summary: add virtual computed columns
+repo: garden-co/jazz
+mergeDate: 2026-10-21
+prNumber: '4172'
+---
+I added read-only computed columns that are calculated from other fields when a row is read, without storing another copy of the result. Jazz discovers which fields a computation needs and keeps those values up to date in reads and subscriptions. Stored transforms remain writable, while computed values cannot accidentally be written or used as storage fields.

@@ -1,0 +1,7 @@
+---
+summary: keep receiving while uploads are backpressured
+repo: garden-co/jazz
+mergeDate: 2026-10-21
+prNumber: '4180'
+---
+I fixed a transport deadlock where a large upload queue could stop the client from reading the acknowledgements needed to clear that queue. The client now keeps processing incoming messages while deferring outgoing work, so uploads can recover without losing their order. I also tightened the stress-test helpers and added coverage for subscriptions continuing to receive updates during backpressure.

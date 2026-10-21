@@ -1,0 +1,7 @@
+---
+summary: capture frozen branch snapshots
+repo: garden-co/jazz
+mergeDate: 2026-10-20
+prNumber: '4165'
+---
+I added a public way to capture the current state of a Jazz branch and use it as a frozen base for later reads. A draft can now keep seeing the captured values while the live branch continues to change, including when the app is offline. The new snapshot type and helpers are available across the supported native runtimes without changing the existing storage or sync formats.

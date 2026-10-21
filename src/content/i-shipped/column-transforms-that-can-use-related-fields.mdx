@@ -1,0 +1,7 @@
+---
+summary: column transforms that can use related fields
+repo: garden-co/jazz
+mergeDate: 2026-10-19
+prNumber: '4143'
+---
+I added a way for a transformed column to use other fields from the same row when it reads or writes a value. This means, for example, that a price field can understand whether another field stores the amount in cents or dollars, fetching that context when it is not part of the caller's selection while keeping the public result shape unchanged. Existing transforms that only use their own value continue to work as before.

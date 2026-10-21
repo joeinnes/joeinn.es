@@ -1,0 +1,7 @@
+---
+summary: keep subscription registration and live state together
+repo: garden-co/jazz
+mergeDate: 2026-10-21
+prNumber: '4176'
+---
+I combined the separate pieces of state used while a subscription is being registered and while it is live. One owner now cleans up both pieces together, preventing an old seed from surviving after its subscription has gone away. The existing activation order, re-registration behaviour, and listener semantics remain unchanged.

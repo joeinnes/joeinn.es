@@ -1,0 +1,7 @@
+---
+summary: make account selection wait for durable storage
+repo: garden-co/jazz
+mergeDate: 2026-10-21
+prNumber: '4177'
+---
+I moved account-selection durability into the account manager so opening a session waits until the selected account has really been saved. Storage failures are now reported to the caller and can be retried, instead of being logged and allowing an unsaved selection to continue. The change also keeps re-entrant and replacement selections from completing the wrong operation.

@@ -1,0 +1,7 @@
+---
+summary: centralise query cache invalidation
+repo: garden-co/jazz
+mergeDate: 2026-10-21
+prNumber: '4175'
+---
+I gathered the repeated rules for clearing Jazz's query caches into three operations on the query service. This means future cache changes have one clear place to update, while each existing call site keeps the same caches and clearing order as before. Public APIs and stored or network formats are unchanged.

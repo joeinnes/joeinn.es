@@ -1,0 +1,7 @@
+---
+summary: streamline TypeScript and example test suites
+repo: garden-co/jazz
+mergeDate: 2026-10-21
+prNumber: '4174'
+---
+I reorganised the TypeScript SDK and example-app tests around shared behaviours instead of repeating the same setup for every framework and read mode. The suites still cover each framework's mounting, cleanup, pagination, persistence, and query behaviour, but now do the common work once. This keeps the tests smaller while preserving the important differences between the examples.
