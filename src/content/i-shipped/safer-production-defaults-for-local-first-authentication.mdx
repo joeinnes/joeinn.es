@@ -1,0 +1,7 @@
+---
+summary: safer production defaults for local-first authentication
+repo: garden-co/jazz
+mergeDate: 2026-10-23
+prNumber: '4183'
+---
+I made Node backends reject local-first login tokens by default in production, matching the sync server. Development and test environments still accept them, and callers can explicitly enable or disable the behaviour. I also updated the documentation and examples to explain the setting.

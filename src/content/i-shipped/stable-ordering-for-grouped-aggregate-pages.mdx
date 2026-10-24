@@ -1,0 +1,7 @@
+---
+summary: stable ordering for grouped aggregate pages
+repo: garden-co/jazz
+mergeDate: 2026-10-23
+prNumber: '4188'
+---
+I fixed grouped query results so they are sorted by their actual group keys before pagination, instead of by hidden internal IDs. This keeps pages stable for reads and live updates, while preserving explicit sort directions and group identity.

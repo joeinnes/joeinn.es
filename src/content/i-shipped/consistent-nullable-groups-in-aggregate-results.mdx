@@ -1,0 +1,7 @@
+---
+summary: consistent nullable groups in aggregate results
+repo: garden-co/jazz
+mergeDate: 2026-10-23
+prNumber: '4191'
+---
+I fixed grouped query results where a missing value could appear differently in a fresh read and a live update. Empty groups now keep the same public shape and identity when rows change, including when a value changes from missing to present and back. This keeps counts and sums in sync without changing stored data.
