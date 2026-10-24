@@ -4315,6 +4315,21 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3myfilij24624",
       "docCid": "bafyreign7fvq3pylsejdvcchohqm4sydjv6attmqyt4hfodolyuq3eqffm",
       "contentHash": "sha256:cbd6d82df7fbaa97ac7b85f13eabb9cb153dc7d0d3386e4ed309be5046abce74"
+    },
+    "i-shipped:consistent-nullable-groups-in-aggregate-results": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mym56xd2sh2e",
+      "docCid": "bafyreibuqpsq442sthg62dcb5ub455ugzrdunrbula3qrvihdkjfehnfry",
+      "contentHash": "sha256:c3abde747fe0ce6b0daeb677e7684f095c04fbda1f1e86de9ab9ff2cf30eef50"
+    },
+    "i-shipped:safer-production-defaults-for-local-first-authentication": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mym56xf56x2g",
+      "docCid": "bafyreid5piqviwkbqzewuqpdnepy3iq2ivj4vv2dzmilb3msmuaoi5cxtq",
+      "contentHash": "sha256:c11495534c4db96fccfbbb2e87ab49b808efb9ce532c4478aabfc2074ea9946e"
+    },
+    "i-shipped:stable-ordering-for-grouped-aggregate-pages": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mym56xfykh2e",
+      "docCid": "bafyreicxwddhparmgayu4ne5havlslhbnciohqv5l6is3gh2oordsjufmq",
+      "contentHash": "sha256:a30f45eff69c11c6d4eb998a6aa282a6cc596e5edb78b4b9c9c4bfad9af2e1c7"
     }
   }
 }
