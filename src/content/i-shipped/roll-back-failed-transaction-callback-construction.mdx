@@ -1,0 +1,7 @@
+---
+summary: roll back failed transaction callback construction
+repo: garden-co/jazz
+mergeDate: 2026-10-26
+prNumber: '4268'
+---
+I fixed a database transaction bug where setting up a change could fail after it had already staged work. The transaction now rolls back that staged work and keeps the original error, including when the rollback itself also fails. I added tests covering both supported transaction modes.

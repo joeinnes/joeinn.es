@@ -1,0 +1,7 @@
+---
+summary: finish notifying listeners when one auth observer fails
+repo: garden-co/jazz
+mergeDate: 2026-10-26
+prNumber: '4269'
+---
+I fixed an authentication bug where one listener throwing an error stopped the remaining listeners from hearing about the new state. The code now notifies every listener, then rethrows the first error so callers still see the failure. Token renewal also continues when an observer fails, and I added regression tests for these cases.
