@@ -4330,6 +4330,16 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mym56xfykh2e",
       "docCid": "bafyreicxwddhparmgayu4ne5havlslhbnciohqv5l6is3gh2oordsjufmq",
       "contentHash": "sha256:a30f45eff69c11c6d4eb998a6aa282a6cc596e5edb78b4b9c9c4bfad9af2e1c7"
+    },
+    "i-shipped:finish-notifying-listeners-when-one-auth-observer-fails": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3myudn5bwzp23",
+      "docCid": "bafyreidbreorrlddurqww3t5bs266dhu275rvnpehvzcuad3y4y2nuhi5u",
+      "contentHash": "sha256:2e60cf694e082e969558c1ea5c58d79d85a66df6d13e337966e7d82415bed16b"
+    },
+    "i-shipped:roll-back-failed-transaction-callback-construction": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3myudn5gfu42w",
+      "docCid": "bafyreicwkduplo2uybp7lqo6xpju2fgtwf4xdkslhtwqatlrcnwjnw4nbm",
+      "contentHash": "sha256:93f3c1506c4ac1fba117c8efb48423910d4f5ab9dd43fcced87bbc794293c603"
     }
   }
 }
