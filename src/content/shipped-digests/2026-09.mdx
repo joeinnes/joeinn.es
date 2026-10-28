@@ -1,0 +1,12 @@
+---
+title: September 2026
+start: 2026-09-01
+end: 2026-09-30
+created: 2026-10-28
+---
+
+In September I fixed several ways that offline work could get stuck. A restarted browser can now resume pending edits once gaps in their earlier history have been repaired. Long histories replay without overflowing the call stack. I also made simultaneous tabs agree on one saved identity before starting their sessions. Cancelling a stalled transaction releases the work queued behind it, while permanent send failures reach the application so it can respond.
+
+I spent time on query results that looked plausible but were wrong. Pagination through related records now preserves the requested rows, and SQL joins no longer treat two missing values as a match. I fixed averages that overflowed while adding otherwise valid numbers, and made the Inspector display and edit large integers without rounding them. These are easy mistakes to miss in small examples, but they change the data an application shows.
+
+In the development tools, I added the Inspector overlay to SvelteKit and stopped the Inspector saving admin credentials alongside reusable connection details. Project creation no longer fails simply because a dependency installer produces too much output, while failed installations retain useful diagnostic messages.

@@ -1,0 +1,12 @@
+---
+title: August 2026
+start: 2026-08-01
+end: 2026-08-31
+created: 2026-10-28
+---
+
+Permissions were a recurring theme in August. I fixed reconnects that could miss rows a user had gained access to, or keep revoked rows in their subscription results. Authentication checks now reject server tokens intended for the wrong service, and cached signing keys expire instead of being trusted indefinitely. I also bound chat messages in the example app to the person signed in, and closed a permissions gap that let anonymous sessions write.
+
+Storage and query work continued alongside that. I made failed storage commits retryable when nothing had been saved, and kept local edits visible while subscriptions loaded a server snapshot. I removed repeated work from queries over related records and fixed an indexed lookup that was falling back to scanning the whole table. I added benchmark timings that broke startup and first-query time into stages, giving further optimisation a clearer basis.
+
+The public API became more consistent too. I added live single-row query helpers across React, Vue, Solid and Svelte, brought database writes onto one result format, and clarified which providers create and close their own database clients. Better Auth gained support for ordinary string user IDs, and the guides and examples caught up with the revised APIs, including how to wait for a transaction to be safely stored.
