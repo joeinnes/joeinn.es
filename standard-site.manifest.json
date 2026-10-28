@@ -4340,6 +4340,16 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3myudn5gfu42w",
       "docCid": "bafyreicwkduplo2uybp7lqo6xpju2fgtwf4xdkslhtwqatlrcnwjnw4nbm",
       "contentHash": "sha256:93f3c1506c4ac1fba117c8efb48423910d4f5ab9dd43fcced87bbc794293c603"
+    },
+    "shipped-digests:2026-08": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3myw55kql5q2g",
+      "docCid": "bafyreidbjkaxi3q7ldtkpvjwm2rysrg4h3j7rfvc2rll2vencz4sbejlxe",
+      "contentHash": "sha256:09331bc15ad78b39417136c7926368fca0f2542342266c45e7304a82969597d9"
+    },
+    "shipped-digests:2026-09": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3myw55kuifu2r",
+      "docCid": "bafyreihurlknpiprjiquvdtpqyseks5ey6nt5w3a4kwtsbmtmjtn3jgo2m",
+      "contentHash": "sha256:b95ebfa26c06dfccc9d45ee831d624d39886428e2038bf3f501e302107e0ecaa"
     }
   }
 }
