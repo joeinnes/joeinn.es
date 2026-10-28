@@ -57,7 +57,7 @@ The main routes are:
 
 Other generated or supporting routes include `/rss.xml`, `/404`, `/admin`, `/admin/post-preview`, `/client-metadata.json`, and `/.well-known/site.standard.publication`. The sitemap excludes `/admin`.
 
-The `/i-shipped` page prefers `es.joeinn.shipped` records from the PDS and falls back to local MDX entries when the PDS is unavailable or empty. Shipped digests use the same PDS-then-local pattern, but are currently hidden from the page behind a feature flag.
+The `/i-shipped` page defaults to the Daily tab, which prefers `es.joeinn.shipped` records from the PDS and falls back to local MDX entries when the PDS is unavailable or empty. The Monthly tab at `/i-shipped/monthly` shows shipped digests newest first using the same PDS-then-local pattern. After changing either view, run `node scripts/check-shipped-views.mjs` following the production build.
 
 ## Content model
 

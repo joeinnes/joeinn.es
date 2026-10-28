@@ -25,7 +25,7 @@ interface ShippedItem {
   markdown?: string | null;
 }
 
-// The latest digest, normalised the same way.
+// Monthly digests, normalised the same way.
 interface DigestVm {
   label: string;
   entry?: CollectionEntry<"shipped-digests">;
@@ -61,46 +61,43 @@ async function loadShippedItems(): Promise<ShippedItem[]> {
   return local.sort((a, b) => b.mergeDate.getTime() - a.mergeDate.getTime());
 }
 
-// Latest digest (any period), from the PDS (es.joeinn.shippedDigest) with the
-// same PDS-then-local fallback. Returns null when neither source has one.
-async function loadLatestDigest(): Promise<DigestVm | null> {
+// Digests from the PDS with the same local fallback, newest first.
+async function loadDigests(): Promise<DigestVm[]> {
   const pds = (await safe(fetchShippedDigests(), [] as ShippedDigestView[]))
     .filter((d) => d.endDate instanceof Date && !isNaN(d.endDate.getTime()))
     .sort((a, b) => b.endDate.getTime() - a.endDate.getTime());
-  const latest = pds[0];
-  if (latest) {
-    return {
+  if (pds.length > 0) {
+    return pds.map((digest) => ({
       label:
-        latest.title ??
-        latest.endDate.toLocaleDateString("en-GB", {
+        digest.title ??
+        digest.endDate.toLocaleDateString("en-GB", {
           month: "long",
           year: "numeric",
         }),
-      markdown: latest.summary,
-    };
+      markdown: digest.summary,
+    }));
   }
 
-  const entry = (await getCollection("shipped-digests"))
+  return (await getCollection("shipped-digests"))
     .filter((d) => d.data?.end)
-    .sort((a, b) => (b.data.end?.getTime() ?? 0) - (a.data.end?.getTime() ?? 0))[0];
-  if (!entry) return null;
-  return {
-    label:
-      entry.data.title ??
-      entry.data.end?.toLocaleDateString("en-GB", {
-        month: "long",
-        year: "numeric",
-      }) ??
-      "",
-    entry,
-  };
+    .sort((a, b) => (b.data.end?.getTime() ?? 0) - (a.data.end?.getTime() ?? 0))
+    .map((entry) => ({
+      label:
+        entry.data.title ??
+        entry.data.end.toLocaleDateString("en-GB", {
+          month: "long",
+          year: "numeric",
+        }),
+      entry,
+    }));
 }
 
 const ITEMS_PER_PAGE = 20;
 const { page } = Astro.params;
-const currentPage = page ? parseInt(page as string) : 1;
+const isMonthly = page === "monthly";
+const currentPage = page && !isMonthly ? parseInt(page as string) : 1;
 
-const sorted = await loadShippedItems();
+const sorted = isMonthly ? [] : await loadShippedItems();
 const totalPages = Math.ceil(sorted.length / ITEMS_PER_PAGE);
 const paginated = sorted.slice(
   (currentPage - 1) * ITEMS_PER_PAGE,
@@ -125,15 +122,7 @@ const groupedByDate = paginated.reduce(
   {} as Record<string, ShippedItem[]>,
 );
 
-// Latest digest (any period) — shown as an intro summary on the first page only.
-// Hidden for now: the records stay on the PDS (es.joeinn.shippedDigest), we just
-// don't render them. Flip SHOW_DIGESTS to bring them back.
-const SHOW_DIGESTS = false;
-const digest = SHOW_DIGESTS && currentPage === 1 ? await loadLatestDigest() : null;
-const DigestContent = digest?.entry ? (await render(digest.entry)).Content : null;
-const digestHtml: string =
-  digest && !digest.entry ? await marked.parse(digest.markdown ?? "") : "";
-const digestLabel = digest?.label;
+const digests = isMonthly ? await loadDigests() : [];
 
 export async function getStaticPaths() {
   const ITEMS_PER_PAGE = 20;
@@ -152,6 +141,7 @@ export async function getStaticPaths() {
 
   return [
     { params: { page: undefined } },
+    { params: { page: "monthly" } },
     ...Array.from({ length: totalPages }, (_, i) => ({
       params: { page: String(i + 1) },
     })),
@@ -163,6 +153,28 @@ const description =
 ---
 
 <style>
+  .view-tabs {
+    display: flex;
+    gap: calc(var(--inline-spacing) * 6);
+    border-block-end: 1px solid var(--very-muted);
+    margin-block-end: calc(var(--layout-spacing) * 0.75);
+    font-size: 0.95rem;
+  }
+  .view-tabs a {
+    padding: calc(var(--layout-spacing) / 4) var(--inline-spacing);
+    border-block-end: 3px solid transparent;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .view-tabs a[aria-current="page"] {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  .view-tabs a:hover,
+  .view-tabs a:focus-visible {
+    color: var(--primary);
+  }
+
   .digest {
     margin-block: calc(var(--layout-spacing) / 2) var(--layout-spacing);
     padding: calc(var(--layout-spacing) / 2) calc(var(--inline-spacing) * 4);
@@ -269,14 +281,20 @@ const description =
   }
 </style>
 
-<Layout title="I Shipped..." description={description}>
+<Layout title={isMonthly ? "I Shipped... Monthly summaries" : "I Shipped..."} description={description}>
   <Nav />
   <main class="mono">
     <h1 class="title">I Shipped...</h1>
+    <nav class="view-tabs" aria-label="Contribution views">
+      <a href="/i-shipped" aria-current={!isMonthly ? "page" : undefined}>Daily</a>
+      <a href="/i-shipped/monthly" aria-current={isMonthly ? "page" : undefined}>Monthly</a>
+    </nav>
     {
-      digest && (
-        <section class="digest">
-          <h2 class="digest-heading mono">{digestLabel}</h2>
+      digests.map(async (digest) => {
+        const DigestContent = digest.entry ? (await render(digest.entry)).Content : null;
+        const digestHtml = DigestContent ? "" : await marked.parse(digest.markdown ?? "");
+        return <section class="digest">
+          <h2 class="digest-heading mono">{digest.label}</h2>
           <div class="digest-body">
             {DigestContent ? (
               <DigestContent />
@@ -284,9 +302,10 @@ const description =
               <Fragment set:html={digestHtml} />
             )}
           </div>
-        </section>
-      )
+        </section>;
+      })
     }
+    {isMonthly && digests.length === 0 && <p>No monthly summaries yet.</p>}
     {
       Object.entries(groupedByDate).map(async ([dateKey, items]) => (
         <section>
