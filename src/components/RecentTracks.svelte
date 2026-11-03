@@ -11,8 +11,8 @@
 	const CACHE_KEY = 'tracks';
 
 	// Seeded from the server so the "Recently Played" list paints immediately
-	// instead of a "Loading listening data..." block; onMount refreshes to live
-	// and loads the stats history client-side.
+	// instead of a "Loading listening data..." block; onMount loads the stats
+	// history client-side and only fetches recent tracks when the seed is empty.
 	let { initialRecentTracks = [] } = $props();
 	let allTracks = $state([]);
 	let recentTracks = $state(initialRecentTracks);
