@@ -1,0 +1,7 @@
+---
+summary: stopped serializable transactions from skipping conflict checks
+repo: garden-co/jazz
+mergeDate: 2026-10-28
+prNumber: '4361'
+---
+I fixed a path where a transaction could save changes without checking whether data it had read had changed. The wrong kind of transaction handle is now refused and its unsaved changes are discarded.

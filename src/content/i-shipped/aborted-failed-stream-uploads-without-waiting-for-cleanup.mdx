@@ -1,0 +1,7 @@
+---
+summary: let failed uploads stop without waiting for application cleanup
+repo: garden-co/jazz
+mergeDate: 2026-10-28
+prNumber: '4314'
+---
+I fixed failed uploads getting stuck while waiting for an application's cleanup callback. Jazz now requests that cleanup and stops the upload without waiting for it to finish.

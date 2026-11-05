@@ -1,0 +1,7 @@
+---
+summary: kept table relationships working through table renames
+repo: garden-co/jazz
+mergeDate: 2026-10-28
+prNumber: '4310'
+---
+I fixed migrations rejecting a relationship just because its table was renamed. The migration now follows the rename map while still refusing a relationship changed to a different table.

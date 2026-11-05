@@ -1,0 +1,7 @@
+---
+summary: made Cloud logout remove only the session it signed out
+repo: garden-co/jazz
+mergeDate: 2026-10-28
+prNumber: '4347'
+---
+I fixed a race where an older logout could delete a newer login. Logout now captures and removes the session it started with, so a later login stays saved.

@@ -1,0 +1,7 @@
+---
+summary: kept each part of a union query's ordering and page
+repo: garden-co/jazz
+mergeDate: 2026-10-28
+prNumber: '4336'
+---
+I fixed union queries dropping the ordering and page limits from their component queries. Each part now selects its own requested page before the combined results are ordered and paginated.

@@ -1,0 +1,7 @@
+---
+summary: kept streamed uploads with their original database owner
+repo: garden-co/jazz
+mergeDate: 2026-10-29
+prNumber: '4311'
+---
+I tied each streamed upload to the database and column that started it, so another database cannot finish or change it. Abandoned uploads are queued for cleanup without disturbing live or saved data.

@@ -1,0 +1,7 @@
+---
+summary: bounded SQLite sync frames and safely reassembled split messages
+repo: garden-co/jazz
+mergeDate: 2026-10-28
+prNumber: '4367'
+---
+I stopped oversized sync messages from escaping the frame limits and made failed partial messages clear their buffered data. Valid split messages still arrive together and in order.

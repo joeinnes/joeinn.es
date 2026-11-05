@@ -1,0 +1,7 @@
+---
+summary: loaded schemas and their permissions from the same evaluation
+repo: garden-co/jazz
+mergeDate: 2026-10-28
+prNumber: '4346'
+---
+I fixed the loader evaluating a schema twice when it also contained permissions. It now gets both from one load, so they cannot disagree because the schema ran twice.

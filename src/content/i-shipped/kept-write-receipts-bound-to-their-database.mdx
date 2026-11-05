@@ -1,0 +1,7 @@
+---
+summary: kept write receipts tied to the database that created them
+repo: garden-co/jazz
+mergeDate: 2026-10-28
+prNumber: '4357'
+---
+I stopped one database from treating another database's write receipt as its own. Receipts are now checked against the database that created them before their result is reported.

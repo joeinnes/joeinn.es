@@ -1,0 +1,7 @@
+---
+summary: stopped new writes as a host begins shutting down
+repo: garden-co/jazz
+mergeDate: 2026-10-29
+prNumber: '4312'
+---
+I made shutdown block new writes and commits across every handle to the same host. Work already in progress rolls back instead of publishing after shutdown begins.

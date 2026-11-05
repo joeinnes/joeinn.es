@@ -1,0 +1,7 @@
+---
+summary: refused unknown files before opening a native storage folder
+repo: garden-co/jazz
+mergeDate: 2026-10-28
+prNumber: '4338'
+---
+I made native storage check a folder before opening its database. If it contains unrelated files or unexpected links, Jazz now refuses to open it instead of creating or following database files beside them.

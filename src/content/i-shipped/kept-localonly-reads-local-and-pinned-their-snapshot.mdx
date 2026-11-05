@@ -1,0 +1,7 @@
+---
+summary: kept local-only transaction reads offline and pinned their view of the data
+repo: garden-co/jazz
+mergeDate: 2026-10-29
+prNumber: '4362'
+---
+I made local-only reads work without waiting for a server and kept later reads in the same transaction on the snapshot it first saw. Remote reads still wait for the server as before.
