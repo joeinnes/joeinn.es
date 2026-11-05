@@ -4350,6 +4350,71 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shippedDigest/3myw55kuifu2r",
       "docCid": "bafyreihurlknpiprjiquvdtpqyseks5ey6nt5w3a4kwtsbmtmjtn3jgo2m",
       "contentHash": "sha256:b95ebfa26c06dfccc9d45ee831d624d39886428e2038bf3f501e302107e0ecaa"
+    },
+    "i-shipped:aborted-failed-stream-uploads-without-waiting-for-cleanup": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajcj2mm2w",
+      "docCid": "bafyreiekcqg5tyw6ddt6y57mwvialrxsxj4v3lyidhqlbfixqbiq6h5vey",
+      "contentHash": "sha256:70b732d08dec5ec29015ee86e51373f79b66c81127e6bbd4a39dacb4c646de3b"
+    },
+    "i-shipped:bound-sqlite-frame-publication-and-reassembly": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajcuqha2o",
+      "docCid": "bafyreigycnahhajru7vxbozo6vxwd62l5jwsbjadvd3yevpz5n43zhefxu",
+      "contentHash": "sha256:297bf6cff6b3c464733d64edd8f68404775dff0df4dea300be8b508d38059380"
+    },
+    "i-shipped:fenced-new-writes-when-a-host-shuts-down": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajcwyw52r",
+      "docCid": "bafyreigqezhdq2r7gqxsp2hawl7fcr6pqjk6lndfdemekemfhh4y7ixy6a",
+      "contentHash": "sha256:0d7fbbf9b0fb4534d064427d1b9c53ea05d2d7a343a66063b58bbdde77baa205"
+    },
+    "i-shipped:kept-abandoned-stream-uploads-with-their-owner": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajczbni2g",
+      "docCid": "bafyreiaj32fmad5rzsb6d2e5ecdvhgcxbbevza745qwooi5ustygokxble",
+      "contentHash": "sha256:f841be23740c7f59424b33360c46e0502aeee694bab46275c81e9b9d59c0f75e"
+    },
+    "i-shipped:kept-localonly-reads-local-and-pinned-their-snapshot": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajd3jri2x",
+      "docCid": "bafyreihvdxbyq2satqddvqua3qcnyqmcuobrqar2zm3a2trmtx7vfz25nm",
+      "contentHash": "sha256:1f9fbf553055fcb8927bfe6c5a2d1a674e85f44329e1f0f225bd1e74306e5238"
+    },
+    "i-shipped:kept-relationships-valid-through-table-renames": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajdjkhj2i",
+      "docCid": "bafyreifoutovxhlqbedjeq2haystmzbd2descjisf7ocwjdaxqqtaygzvu",
+      "contentHash": "sha256:39f146f4c4bbdb461d7bdfccc8c6f6ef7fd3d3ee25db545d11c1448a7a54372a"
+    },
+    "i-shipped:kept-write-receipts-bound-to-their-database": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajdltoq23",
+      "docCid": "bafyreifq4jmigezlffu5zd4trw25ajjwrve4sxd5e6sv5xk3nb34bgqlu4",
+      "contentHash": "sha256:249b8ff1d4dc46802920ddd492431560728a8723814972a582d0c448654d9838"
+    },
+    "i-shipped:loaded-schema-and-permissions-from-one-evaluation": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajdo4r22g",
+      "docCid": "bafyreiaizzl6ks7e7p3tkr6a36dd2ldsamzx3qosahpqomfdpvmkjqwcua",
+      "contentHash": "sha256:8c1ba7ac3ad8d2702d15de9222b66f7491371872354d6a15c4b26ced3943641c"
+    },
+    "i-shipped:made-cloud-logout-retire-only-its-own-session": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajdqgcv2x",
+      "docCid": "bafyreid3bqprwwaa7lwppv7pralvugzsrahuxzhl3sfhwoycf6tufub4si",
+      "contentHash": "sha256:5f02b07a25ed517794cbfd6188c5a7793951903f9195ef7e439c75c6dbc8809c"
+    },
+    "i-shipped:preserved-pagination-within-union-queries": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajdsnon2r",
+      "docCid": "bafyreiau2zladycctyzi4cjlqrifwnookorsxekt3hidlzcd5mdmhqoece",
+      "contentHash": "sha256:1f0e1206d0f11eaffb4215ad994e8d194b967fa2fa51c102dfc42784c923bafd"
+    },
+    "i-shipped:preserved-storage-refusal-details-across-sdk-boundaries": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajduuhi2g",
+      "docCid": "bafyreifauxyyl7al3zmtukozw2rz7eghn327gifznkbi475e2arplipmwy",
+      "contentHash": "sha256:0a0c0f976f0c878487b40f3f4dded2a09a625f1bec49fdaa3d553523f5b2de94"
+    },
+    "i-shipped:refused-unknown-files-in-native-storage-folders": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajdwz4a23",
+      "docCid": "bafyreifq7m7ajh36pq4ctbsrdnbdyugbvv7ao2gcd4ngwmaa7qngxkbfmi",
+      "contentHash": "sha256:6ee8c5222e61397f9b3e892fc9a1f96b2447030f1d5a6b61e567796e964f2fac"
+    },
+    "i-shipped:stopped-serializable-handles-skipping-conflict-checks": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajdzbb722",
+      "docCid": "bafyreifdnckajxuh6amrkpp6yupt3ewutx67bmqpp5hjfrnjhq4g3smdxq",
+      "contentHash": "sha256:38e61d7c8ccb6f20791f4ec61cfc93b7dfc692c67efeb150b69c9111659ca829"
     }
   }
 }
