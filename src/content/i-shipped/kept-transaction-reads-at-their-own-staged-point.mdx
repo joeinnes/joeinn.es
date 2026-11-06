@@ -1,0 +1,7 @@
+---
+summary: kept transaction reads at their own staged point
+repo: garden-co/jazz
+mergeDate: 2026-10-29
+prNumber: '4306'
+---
+I fixed a timing bug where a transaction read could include writes added after that read began waiting. Each read now remembers the staged changes it had reached, so overlapping reads see the right version while the final commit still includes every write.
