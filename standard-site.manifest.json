@@ -4415,6 +4415,11 @@
       "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzkajdzbb722",
       "docCid": "bafyreifdnckajxuh6amrkpp6yupt3ewutx67bmqpp5hjfrnjhq4g3smdxq",
       "contentHash": "sha256:38e61d7c8ccb6f20791f4ec61cfc93b7dfc692c67efeb150b69c9111659ca829"
+    },
+    "i-shipped:kept-transaction-reads-at-their-own-staged-point": {
+      "docUri": "at://did:plc:me4kozmcrc74z2wgkvqvkbfd/es.joeinn.shipped/3mzn7w3vgq62g",
+      "docCid": "bafyreidozya6jav7m5qozw5u66aip2qk7uff74wmws3q334ednfxpiuiiu",
+      "contentHash": "sha256:0317c9f35ff48fb9cfab666b2d9db14293a0214152873eab2a61af0498512f0d"
     }
   }
 }
