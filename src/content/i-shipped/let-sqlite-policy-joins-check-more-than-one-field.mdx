@@ -1,0 +1,7 @@
+---
+summary: let SQLite policy joins check more than one field
+repo: garden-co/jazz
+mergeDate: 2026-10-28
+prNumber: '3952'
+---
+I let SQLite permission rules check several matching fields on the same related row. This fixes cases where a membership must match both a workspace and a person; separate rows can no longer be combined to grant access.

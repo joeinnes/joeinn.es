@@ -1,0 +1,7 @@
+---
+summary: kept native tick failure messages actionable
+repo: garden-co/jazz
+mergeDate: 2026-10-29
+prNumber: '3318'
+---
+I made native tick failures explain when local foreground processing failed instead of returning a generic numeric error. The message comes from an existing status, while raw storage, transport and server details stay private.

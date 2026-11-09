@@ -1,0 +1,7 @@
+---
+summary: reused TypeScript checks and ran more tests at once
+repo: garden-co/jazz
+mergeDate: 2026-10-29
+prNumber: '3996'
+---
+I stopped rebuilding the same TypeScript checking state for every run and let the test runner handle up to three independent tasks at once. Changed files still get checked, and the existing worker limits stay in place. This makes repeated checks and test runs use their time more efficiently.

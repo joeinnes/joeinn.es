@@ -1,0 +1,7 @@
+---
+summary: kept transaction opening setup with the transaction
+repo: garden-co/jazz
+mergeDate: 2026-10-29
+prNumber: '4267'
+---
+I made each transaction carry the setup work it needs until it opens. Before, that work lived in temporary shared bookkeeping, which could be lost when opening had to wait. Keeping it with the transaction makes delayed and cancelled openings behave consistently.
