@@ -1,0 +1,7 @@
+---
+summary: avoid waking unrelated nested queries
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5333'
+---
+Nested chat queries were being refreshed after writes that could not change their results. I kept the needed row links when building the watch list, so unrelated writes no longer wake those queries.

@@ -1,0 +1,7 @@
+---
+summary: wake policy checks only for relevant changes
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5341'
+---
+A change to one member could make every room list run its access checks again. I narrowed those checks to membership rows that could actually affect access, while keeping the broader checks where the change cannot be bounded safely.

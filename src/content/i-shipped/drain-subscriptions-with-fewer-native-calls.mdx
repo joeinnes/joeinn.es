@@ -1,0 +1,7 @@
+---
+summary: drain subscriptions with fewer native calls
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5335'
+---
+The native adapter asked every subscription for updates on every tick, including subscriptions with nothing new. I changed it to drain the pooled updates in one native call per pump.

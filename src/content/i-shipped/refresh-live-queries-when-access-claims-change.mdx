@@ -1,0 +1,7 @@
+---
+summary: refresh live queries when access claims change
+repo: garden-co/jazz
+mergeDate: 2026-11-14
+prNumber: '4650'
+---
+A live query could keep showing data after the person running it lost access, when the query had been prepared with someone else’s claims. I made refreshes use the same registered claims as the actual read.

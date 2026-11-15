@@ -1,0 +1,7 @@
+---
+summary: compare floating point query values by number
+repo: garden-co/jazz
+mergeDate: 2026-10-13
+prNumber: '3990'
+---
+Some comparisons treated floating point values as raw bits, so negative numbers and signed zero could give the wrong answer. I changed comparisons to use numeric ordering.

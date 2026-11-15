@@ -1,0 +1,7 @@
+---
+summary: avoid re-preparing cached limited reads
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5272'
+---
+SQLite can re-prepare a cached read when its limit changes, making repeated pages do extra work. I adjusted the query so changing the limit no longer triggers that needless preparation.

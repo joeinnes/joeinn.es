@@ -1,0 +1,7 @@
+---
+summary: explain mismatched contains values clearly
+repo: garden-co/jazz
+mergeDate: 2026-10-13
+prNumber: '3956'
+---
+When a contains query used the wrong kind of value, its error did not say what type was expected. I added a clear expected-versus-actual type message and tests for the supported cases.

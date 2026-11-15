@@ -1,0 +1,7 @@
+---
+summary: respect RUST_LOG settings for named targets
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5273'
+---
+Jazz added its default log levels after reading RUST_LOG, which could replace the levels a user had chosen. I now keep explicit settings for named targets while applying defaults to the rest.

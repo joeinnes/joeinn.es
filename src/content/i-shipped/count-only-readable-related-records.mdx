@@ -1,0 +1,7 @@
+---
+summary: count only readable related records
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5338'
+---
+A required relation could pass validation because matching child rows existed, even though the caller was not allowed to read them. I made the check count only children the caller can see.

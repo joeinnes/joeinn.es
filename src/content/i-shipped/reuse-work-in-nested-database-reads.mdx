@@ -1,0 +1,7 @@
+---
+summary: reuse work in nested database reads
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5287'
+---
+Nested live queries rebuilt the same SQL and loaded the same rows again for each parent record. I reuse that work within one nested read to reduce repeated processing.

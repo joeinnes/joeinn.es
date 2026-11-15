@@ -1,0 +1,7 @@
+---
+summary: decode typed enum values in SDK rows
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5237'
+---
+Enum values in SDK rows could come back missing or break when they appeared inside arrays. I added decoding for their named fields and made unknown or malformed cases fail clearly.

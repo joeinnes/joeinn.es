@@ -1,0 +1,7 @@
+---
+summary: let column transforms request related fields
+repo: garden-co/jazz
+mergeDate: 2026-10-19
+prNumber: '4143'
+---
+A column transform sometimes needed another field from the same row but had no way to ask for it. I added a way to declare those dependencies so reads and writes can supply the needed values.

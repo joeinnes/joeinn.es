@@ -1,0 +1,7 @@
+---
+summary: stop new writes when a host shuts down
+repo: garden-co/jazz
+mergeDate: 2026-10-29
+prNumber: '4312'
+---
+A retained transaction handle could keep accepting writes after its host began shutting down. I added a shared shutdown gate so writes and commits through every handle stop together.

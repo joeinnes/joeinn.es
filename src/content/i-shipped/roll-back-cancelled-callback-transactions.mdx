@@ -1,0 +1,7 @@
+---
+summary: roll back cancelled callback transactions
+repo: garden-co/jazz
+mergeDate: 2026-11-14
+prNumber: '5242'
+---
+Cancelling a waiting transaction could leave its unfinished changes and database lock behind. I made cancellation roll back the transaction and release its lock.

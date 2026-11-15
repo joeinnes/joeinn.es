@@ -1,0 +1,7 @@
+---
+summary: keep accepted writes during reconciliation
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5245'
+---
+A writer could lose a write it was allowed to make simply because it could not read the same row. I preserve accepted write-only changes when the database reconciles its state.

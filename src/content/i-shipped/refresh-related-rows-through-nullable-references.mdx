@@ -1,0 +1,7 @@
+---
+summary: refresh related rows through nullable references
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5243'
+---
+Live queries missed updates reached through a nullable reference because that reference was wrapped differently from a required one. I taught the refresh path to follow both forms.

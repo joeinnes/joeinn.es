@@ -1,0 +1,7 @@
+---
+summary: notify every listener before rethrowing errors
+repo: garden-co/jazz
+mergeDate: 2026-10-26
+prNumber: '4269'
+---
+One failing auth listener stopped later listeners from hearing about an auth change that had already happened. I now notify the rest, then rethrow the first error.

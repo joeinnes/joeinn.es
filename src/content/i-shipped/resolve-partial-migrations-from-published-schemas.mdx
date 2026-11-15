@@ -1,0 +1,7 @@
+---
+summary: resolve partial migrations from published schemas
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5241'
+---
+A migration that mentioned only some tables could be matched to the wrong starting schema. I resolve it against the published schema and reject empty or ambiguous clues.

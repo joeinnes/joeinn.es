@@ -1,0 +1,7 @@
+---
+summary: preserve nullable groups in reads and updates
+repo: garden-co/jazz
+mergeDate: 2026-10-23
+prNumber: '4191'
+---
+Grouping by an empty value could produce different results in a fresh read and a live subscription. I fixed how nullable group keys are represented so both paths agree.

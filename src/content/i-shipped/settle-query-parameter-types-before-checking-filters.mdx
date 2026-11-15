@@ -1,0 +1,7 @@
+---
+summary: settle query parameter types before checking filters
+repo: garden-co/jazz
+mergeDate: 2026-10-13
+prNumber: '3988'
+---
+Query validation could make different decisions depending on which branch it checked first. I resolve shared parameter types up front so nullable checks and access rules use one consistent answer.

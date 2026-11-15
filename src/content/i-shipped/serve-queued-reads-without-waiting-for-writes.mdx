@@ -1,0 +1,7 @@
+---
+summary: serve queued reads without waiting for writes
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5336'
+---
+A session with only reads could wait behind sessions doing writes, even when its reads were ready. I let those reads join the next server turn instead of waiting for another round.

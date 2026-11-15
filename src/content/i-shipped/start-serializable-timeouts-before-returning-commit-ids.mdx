@@ -1,0 +1,7 @@
+---
+summary: start serializable timeouts before returning commit ids
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5244'
+---
+A serializable write could stall before it returned an ID, before its timeout had even started. I start the timeout first so that waiting for the write is covered too.

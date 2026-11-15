@@ -1,0 +1,7 @@
+---
+summary: pass upstream failures through relayed reads
+repo: garden-co/jazz
+mergeDate: 2026-11-13
+prNumber: '5340'
+---
+When a database refused its upstream, a read relayed through another database could miss that refusal and appear to wait forever. I now carry the refusal through the relay so callers receive the failure.
