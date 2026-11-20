@@ -1,0 +1,7 @@
+---
+summary: fetched missing rows for mergeable transaction reads
+repo: garden-co/jazz
+mergeDate: 2026-11-18
+prNumber: '6098'
+---
+A mergeable read inside an open transaction could answer only from the local store, leaving a cold browser tab without rows its worker or server already had. I made these reads fetch through the same relay path as reads outside a transaction, including remote reads and branch views.

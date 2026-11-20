@@ -1,0 +1,7 @@
+---
+summary: counted recovered pending uploads after restart
+repo: garden-co/jazz
+mergeDate: 2026-11-16
+prNumber: '5895'
+---
+After a React Native app restarted, it could report no pending uploads even though its saved relay still held writes awaiting the server. I made upload status count both the current foreground and recovered relay writes without counting the same write twice.

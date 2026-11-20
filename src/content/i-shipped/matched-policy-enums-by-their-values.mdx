@@ -1,0 +1,7 @@
+---
+summary: matched policy enums by their values
+repo: garden-co/jazz
+mergeDate: 2026-11-17
+prNumber: '6042'
+---
+Replicas could miss rows needed by a read policy when matching enum fields, because the portable enum name was being compared with a store-specific number. I made the lookup translate the value for the store before matching it, so the related rows reach the replica.

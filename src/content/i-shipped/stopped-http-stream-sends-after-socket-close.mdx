@@ -1,0 +1,7 @@
+---
+summary: stopped HTTP stream sends after socket close
+repo: garden-co/jazz
+mergeDate: 2026-11-18
+prNumber: '5046'
+---
+An HTTP stream could report a late send error after its socket had already closed, or reopen from a buffered message. I tied sends to the socket's existing abort signal and ignored queued or late work once it closes; the core still retries unsettled writes on reconnection.

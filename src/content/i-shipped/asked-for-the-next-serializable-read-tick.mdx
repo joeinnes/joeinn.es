@@ -1,0 +1,7 @@
+---
+summary: asked the host to send each next serializable read
+repo: garden-co/jazz
+mergeDate: 2026-11-19
+prNumber: '6152'
+---
+In a browser tab talking through a shared worker, later reads in a serializable transaction could wait forever because nothing asked the host to send them. I made the read loop request another tick whenever it has work waiting to send.

@@ -1,0 +1,7 @@
+---
+summary: followed every policy correlation key
+repo: garden-co/jazz
+mergeDate: 2026-11-17
+prNumber: '6050'
+---
+When a read policy matched related rows on several fields, replicas followed only the first field and could receive unrelated rows. I made the follow-up use the full set of matching fields, so it fetches and watches only the rows that match the whole key.

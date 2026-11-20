@@ -1,0 +1,7 @@
+---
+summary: kept live subscriptions apart by claim source
+repo: garden-co/jazz
+mergeDate: 2026-11-18
+prNumber: '6099'
+---
+Live queries with the same shape could accidentally share results even when they used different sources of identity claims. I included the claim source in the subscription key and re-indexed groups when their identity changed, so each query keeps the rows allowed by its own claims.
